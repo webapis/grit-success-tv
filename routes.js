@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import { createPuppeteerRouter, Dataset } from 'crawlee';
-
+const local = process.env.local
 dotenv.config({ silent: true });
 
 const site = process.env.site
@@ -16,26 +16,28 @@ router.addDefaultHandler(async ({ enqueueLinks, log, page, request, addRequests 
   await enqueueLinks({
     selector: '.pagination a',
     label: 'list',
+    // limit:local? 1 :0
   });
   const siteVar = await import(`./sites/${site}.js`)
 
   const handler = siteVar.default
 
-  const data = await handler({ page, enqueueLinks, request, log, addRequests })
+  await handler({ page, enqueueLinks, request, log, addRequests })
 
-
-  await productsDataset.pushData(data);
 
 
 });
 
 
-router.addHandler('detail', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
+router.addHandler('oyuncular', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
   const title = await page.title();
   const siteVar = await import(`./sites/${site}.js`)
   debugger
-  const handler = siteVar.detail
+  const handler = siteVar.oyuncular
   const data = await handler({ page, enqueueLinks, request, log, addRequests })
+
+  await productsDataset.pushData(data);
   debugger
+
 });
 

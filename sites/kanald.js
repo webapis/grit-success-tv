@@ -20,17 +20,40 @@ export default async function list({ page, enqueueLinks, request, log, addReques
     })
 
     for (let d of data) {
-        await addRequests([{ url: d.detailHref,label:'detail', request: { userData: { data } } }])
+        
+        await addRequests([{ url: d.detailHref+'/oyuncular',label:'oyuncular',  userData: { dizi:d, initUrl:d.detailHref }  }])
     }
 
     return data
 
 }
 
-export function detail({ page, enqueueLinks, request, log, addRequests }) {
+export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
+const currentUrl = await page.url()
+    debugger
+    const {userData:{dizi}}= request
+    debugger
+    const oyuncular = await page.evaluate(()=>{
+       return  Array.from(document.querySelectorAll(".actor2-card")).map(m => {
+         // Check if elements exist before accessing properties
+         const actor = m.querySelector('p.spot').innerText;
+         const character = m.querySelector('h3.title').innerText
+         const img = document.querySelector('.circle-item img[data-src]').getAttribute('data-src');
+     
+         return {
+             actor,
+             character,
+             img
+         }
+     });
+     
+     
+     
+     })
 
-    
-debugger
+     return {oyuncular,dizi}
+
+
 }
 
 
