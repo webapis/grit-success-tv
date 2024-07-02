@@ -35,7 +35,7 @@ router.addHandler('oyuncular', async ({ request, page, log, pushData, enqueueLin
   debugger
   const handler = siteVar.oyuncular
   const data = await handler({ page, enqueueLinks, request, log, addRequests })
-
+console.log('data',data.length)
   await productsDataset.pushData(data);
   debugger
 
