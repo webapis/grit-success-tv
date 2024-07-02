@@ -29,10 +29,10 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
     debugger
     const { userData: { dizi } } = request
+    await page.waitForSelector('.grid.grid-cols-4.gap-10 li a')
     debugger
     const oyuncular = await page.evaluate(() => {
-        returnArray.from(document.querySelectorAll('.grid.grid-cols-4.gap-10 li a')).map(m=>{return {img:m.querySelector('img').src, actor:m.querySelector('span.text-xl').innerText,character:m.querySelector('span.text-ellipsis').innerText }} )
-
+        return Array.from(document.querySelectorAll('.grid.grid-cols-4.gap-10 li a')).map(m => { return { img: m.querySelector('img').src, actor: m.querySelector('span.text-xl').innerText, character: m.querySelector('span.text-ellipsis').innerText } })
 
 
     })
