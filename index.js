@@ -15,7 +15,8 @@ const crawler = new PuppeteerCrawler({
   launchContext: { launchOptions: { executablePath: local ? windowsPath : linuxPath } },
   requestHandler: test==='true'? testRouter: router,
   maxConcurrency: 1,
-  preNavigationHooks
+  preNavigationHooks,
+  navigationTimeoutSecs:120, headless:false
 
 });
 

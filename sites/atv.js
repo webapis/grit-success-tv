@@ -3,13 +3,11 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
 
 
     const data = await page.evaluate(() => {
-
         const collection = Array.from(document.querySelectorAll(".category-classic-item")).map(m => {
             // Check if elements exist before accessing properties
             const title = m.querySelector("h2")?.innerText;
             const detailHref = m.querySelector("a")?.href;
             const img = m.querySelector("a img")?.getAttribute('src');
-
             return {
                 title,
                 detailHref,
@@ -18,9 +16,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         });
         return collection
     })
-
     for (let d of data) {
-        
         await addRequests([{ url: d.detailHref+'/kadro',label:'oyuncular',  userData: { dizi:d, initUrl:d.detailHref }  }])
     }
 debugger
@@ -34,18 +30,18 @@ const currentUrl = await page.url()
     const {userData:{dizi}}= request
     debugger
     const oyuncular = await page.evaluate(()=>{
-       return  Array.from(document.querySelectorAll(".actor2-card")).map(m => {
-         // Check if elements exist before accessing properties
-         const actor = m.querySelector('p.spot').innerText;
-         const character = m.querySelector('h3.title').innerText
-         const img = document.querySelector('.circle-item img[data-src]').getAttribute('data-src');
-     
-         return {
-             actor,
-             character,
-             img
-         }
-     });
+       return Array.from(document.querySelectorAll(".player-box")).map(m => {
+        // Check if elements exist before accessing properties
+        const actor = m.querySelector('.player-text h2')?.innerText;
+        const character = m.querySelector('.player-text h3')?.innerText
+        const img = document.querySelector('.player-image img')?.getAttribute('src');
+    
+        return {
+            actor,
+            character,
+            img
+        }
+    });
      
      
      
