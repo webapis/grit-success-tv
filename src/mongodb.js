@@ -4,7 +4,7 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 import {  Dataset } from 'crawlee';
 dotenv.config({ silent: true });
 
-const uri = process.env.mongodbUrl;
+const uri = process.env.MONGODB_URL;
 const site = process.env.site
 
 const dataset = await Dataset.open('tvseries');
