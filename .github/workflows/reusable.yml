@@ -10,6 +10,7 @@ on:
 
 env:
   site: ${{inputs.site}}
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
 jobs:
   puppeteer-test:
     runs-on: ubuntu-latest

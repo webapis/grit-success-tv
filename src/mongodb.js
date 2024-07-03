@@ -9,6 +9,7 @@ const site = process.env.site
 
 const dataset = await Dataset.open('tvseries');
 const {items:data} =await dataset.getData()
+console.log('uri-----',uri)
 debugger
 
 const client = new MongoClient(uri, {

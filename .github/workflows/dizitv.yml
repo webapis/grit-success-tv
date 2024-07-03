@@ -7,7 +7,7 @@ on:
         required: true
         type: string
 env:
-  MONGODB_URL: ${{secrets.MONGODBURL}}
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
 jobs:
   dizitv_job:
     uses: ./.github/workflows/reusable.yml
