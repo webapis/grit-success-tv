@@ -1,4 +1,4 @@
-name: Puppeteer Test
+name: divitv reusable
 
 on: 
    workflow_call:
@@ -36,5 +36,7 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run Puppeteer script
+    - name: Run data agr
       run: node index.js
+    - name: Run data upload
+      run: node src/mongodb.js

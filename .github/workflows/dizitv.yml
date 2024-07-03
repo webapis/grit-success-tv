@@ -1,4 +1,4 @@
-name: kanald
+name: divitv
 on:
    workflow_dispatch:
     inputs:
@@ -7,7 +7,7 @@ on:
         required: true
         type: string
 jobs:
-  kadin_job:
+  dizitv_job:
     uses: ./.github/workflows/reusable.yml
     with:
       site: ${{inputs.site}}
