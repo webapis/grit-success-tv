@@ -3,55 +3,41 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
 
 
     const data = await page.evaluate(() => {
-        const collection = Array.from(document.querySelectorAll(".category-classic-item")).map(m => {
-            // Check if elements exist before accessing properties
-            const title = m.querySelector("h2")?.innerText;
-            const detailHref = m.querySelector("a")?.href;
-            const img = m.querySelector("a img")?.getAttribute('src');
+        const collection = Array.from(document.querySelectorAll('[cellpadding="4"] tbody tr')).map(m => m.querySelector('td a[title]')).filter(f => f).filter(f => !f.classList.contains('new')).map(m => {
             return {
-                title,
-                detailHref,
-                img
+                detailHref: m.href,
+                title: m.getAttribute('title').replace(' (dizi)', '').trim()
             }
-        });
+        })
         return collection
     })
     for (let d of data) {
-        await addRequests([{ url: d.detailHref+'/kadro',label:'oyuncular',  userData: { dizi:d, initUrl:d.detailHref }  }])
+        await addRequests([{ url: d.detailHref, label: 'oyuncular', userData: { dizi: d, initUrl: d.detailHref } }])
     }
-debugger
+    debugger
     return data
 
 }
 
 export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
-const currentUrl = await page.url()
+    const currentUrl = await page.url()
     debugger
-    const {userData:{dizi}}= request
+    const { userData: { dizi } } = request
     debugger
-    const oyuncular = await page.evaluate(()=>{
-       return Array.from(document.querySelectorAll(".player-box")).map(m => {
-        // Check if elements exist before accessing properties
-        const actor = m.querySelector('.player-text h2')?.innerText;
-        const character = m.querySelector('.player-text h3')?.innerText
-        const img = document.querySelector('.player-image img')?.getAttribute('src');
-    
-        return {
-            actor,
-            character,
-            img
-        }
-    });
-     
-     
-     
-     })
+    const oyuncular = await page.evaluate(() => {
+        return Array.from(document.querySelectorAll('.infobox tr')).filter(f => f.querySelector('th') && f.querySelector('td')).map(m => {
+            return {
+                title: m?.querySelector('th').innerText,
+                value: m.querySelector('td').innerText.replaceAll('\n', ', ')
+            }
+        })
 
-     return {oyuncular,dizi}
+    })
 
+    return { oyuncular, dizi }
 
 }
 
 
-const urls = ["https://www.atv.com.tr/diziler","https://www.atv.com.tr/eski-diziler"]
+const urls = ["https://tr.wikipedia.org/wiki/T%C3%BCrk_dizileri_listesi"]
 export { urls }
