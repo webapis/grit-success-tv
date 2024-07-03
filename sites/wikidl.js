@@ -20,11 +20,11 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
 }
 
 export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
-    const currentUrl = await page.url()
+
     debugger
     const { userData: { dizi } } = request
     debugger
-    const oyuncular = await page.evaluate(() => {
+    const bilgiler = await page.evaluate(() => {
         return Array.from(document.querySelectorAll('.infobox tr')).filter(f => f.querySelector('th') && f.querySelector('td')).map(m => {
             return {
                 title: m?.querySelector('th').innerText,
@@ -34,7 +34,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
     })
 
-    return { oyuncular, dizi }
+    return { bilgiler, dizi }
 
 }
 
