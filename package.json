@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js"
+    "start": "node index.js",
+    "uploadData":"node src/mongodb.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
   "dependencies": {
     "crawlee": "^3.10.5",
     "dotenv": "^16.4.5",
+    "mongodb": "^6.8.0",
     "puppeteer": "^19.7.2"
   }
 }

@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import { createPuppeteerRouter, Dataset } from 'crawlee';
+
 const local = process.env.local
 dotenv.config({ silent: true });
 
