@@ -1,15 +1,15 @@
 
 import dotenv from 'dotenv';
 import { MongoClient, ServerApiVersion } from 'mongodb';
-import {  Dataset } from 'crawlee';
+import { Dataset } from 'crawlee';
 dotenv.config({ silent: true });
 
 const uri = process.env.MONGODB_URL;
 const site = process.env.site
 
 const dataset = await Dataset.open('tvseries');
-const {items:data} =await dataset.getData()
-console.log('uri-----',uri)
+const { items: data } = await dataset.getData()
+console.log('uri-----', uri)
 debugger
 
 const client = new MongoClient(uri, {
@@ -20,7 +20,12 @@ const client = new MongoClient(uri, {
     }
 });
 
-
+function turkishToLower(text) {
+    const turkishChars = {
+        'İ': 'i', 'I': 'ı', 'Ğ': 'ğ', 'Ü': 'ü', 'Ş': 'ş', 'Ö': 'ö', 'Ç': 'ç'
+    };
+    return text.replace(/[İIĞÜŞÖÇ]/g, char => turkishChars[char]).toLowerCase().trim();
+}
 
 async function main() {
 
@@ -38,7 +43,7 @@ async function main() {
 }
 
 async function bulkUpsertData(client, data) {
-    const bulkOps = data.map((doc) => ({
+    const bulkOps = data.map(m => { return { ...m, dizi: { ...m.dizi, title: turkishToLower(m.dizi.title) } } }).map((doc) => ({
         updateOne: {
             filter: { _id: doc.dizi.title },
             update: { $set: doc },

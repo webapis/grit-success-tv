@@ -5,7 +5,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll(".category-classic-item")).map(m => {
             // Check if elements exist before accessing properties
-            const title = m.querySelector("h2")?.innerText;
+            const title = m.querySelector("h2")?.innerText.toLocaleLowerCase();
             const detailHref = m.querySelector("a")?.href;
             const img = m.querySelector("a img")?.getAttribute('src');
             return {
