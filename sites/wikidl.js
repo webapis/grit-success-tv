@@ -25,12 +25,16 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
     const { userData: { dizi } } = request
     debugger
     const bilgiler = await page.evaluate(() => {
-        return Array.from(document.querySelectorAll('.infobox tr')).filter(f => f.querySelector('th') && f.querySelector('td')).map(m => {
+
+        const image = document.querySelector('.infobox-image img')?.src
+        const data = Array.from(document.querySelectorAll('.infobox tr')).filter(f => f.querySelector('th') && f.querySelector('td')).map(m => {
             return {
                 title: m?.querySelector('th').innerText,
                 value: m.querySelector('td').innerText.replaceAll('\n', ', ')
             }
         })
+
+        return { ...data, image }
 
     })
 
