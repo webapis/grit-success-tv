@@ -11,6 +11,7 @@ on:
 env:
   site: ${{inputs.site}}
   MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:
   puppeteer-test:
     runs-on: ubuntu-latest
