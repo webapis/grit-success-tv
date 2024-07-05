@@ -40,4 +40,4 @@ jobs:
     - name: Run data agr
       run: node index.js
     - name: Run data upload
-      run: node src/mongodb.js
+      run: node src/pushToGit.js

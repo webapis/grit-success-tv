@@ -7,8 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-
-    "uploadData":"node src/mongodb.js"
+    "uploadData": "node src/pushToGit.js"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +15,9 @@
   "dependencies": {
     "crawlee": "^3.10.5",
     "dotenv": "^16.4.5",
+    "make-dir": "4.0.0",
     "mongodb": "^6.8.0",
+    "node-fetch": "2.6.1",
     "puppeteer": "^19.7.2"
   }
 }

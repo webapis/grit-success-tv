@@ -9,6 +9,8 @@ const fetch = require('node-fetch')
 const makeDir = require('make-dir')
 const path = require('path')
 
+//gender is folder name
+//marka is file name
 
 async function uploadCollection({ fileName, data, gender, marka }) {
     console.log('process.env.GH_TOKEN__', process.env.GH_TOKEN)
