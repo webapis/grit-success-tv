@@ -42,3 +42,5 @@ jobs:
       run: node index.js
     - name: Run data upload
       run: node src/pushToGit.js
+    - name: Run data upload mongodb
+      run: node src/mongodb.js
