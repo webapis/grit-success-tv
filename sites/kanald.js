@@ -40,7 +40,11 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
     debugger
     const { userData: { dizi, oyuncularUrl } } = request
     debugger
-    const hikaye_ve_kunye = await page.evaluate(() => {
+    let hikaye_ve_kunye=[]
+    try {
+        await page.waitForSelector('.storyline-text tr')
+  
+       hikaye_ve_kunye = await page.evaluate(() => {
         return Array.from(document.querySelectorAll('.storyline-text tr')).map(m => {
             return {
                 title: m.querySelectorAll('td')[0].innerText,
@@ -65,6 +69,10 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
 
 
     })
+} catch (error) {
+        
+}
+
 
     await addRequests([{ url: oyuncularUrl, label: 'oyuncular', userData: { dizi, hikaye_ve_kunye } }])
 
