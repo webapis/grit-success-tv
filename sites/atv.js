@@ -6,16 +6,19 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         const collection = Array.from(document.querySelectorAll(".category-classic-item")).map(m => {
             // Check if elements exist before accessing properties
             const TVSERIES_TITLE = m.querySelector("h2")?.innerText.toLocaleLowerCase();
-            const WATCH_LINK = m.querySelector("a")?.href +'/bolumler';
+            const WATCH_LINK = m.querySelector("a")?.href + '/bolumler';
             const DETAIL_LINK = m.querySelector("a")?.href;
-            const POSTER = m.querySelector("a img")?.getAttribute('src');
+            const POSTER_IMG = m.querySelector("a img")?.getAttribute('src');
             return {
                 TVSERIES_TITLE,
                 WATCH_LINK,
                 DETAIL_LINK,
-                POSTER,
-                POSTER_ORIENTATION: "landscape",
-                POSTER_QUALITY: 5
+                POSTER: {
+                    POSTER_IMG,
+                    POSTER_ORIENTATION: "landscape",
+                    POSTER_QUALITY: 5
+                },
+
             }
         });
         return collection
@@ -33,10 +36,10 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
     debugger
     const { userData: { dizi } } = request
     debugger
-    let detail={}
+    let detail = {}
     try {
         await page.waitForSelector('.player-slider-item')
-         detail = await page.evaluate(() => {
+        detail = await page.evaluate(() => {
             const ACTORS = Array.from(document.querySelectorAll(".player-slider-item")).map(m => {
                 // Check if elements exist before accessing properties
                 const ACTOR = m.querySelectorAll('.player-slider-text span')[0]?.innerText;

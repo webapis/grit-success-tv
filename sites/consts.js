@@ -1,7 +1,6 @@
 const fields = {
     TVSERIES_TITLE,
 
-    POSTERS,
     POSTER_ORIENTATION,
     POSTER_QUALITY,
     POSTER,
@@ -11,12 +10,12 @@ const fields = {
     CHARACTER,
     ACTOR_IMAGE,
 
-    WATCH_LINKS,
+ 
     WATCH_LINK,
     DETAIL_LINK,
     GENRES,
 
-    SUMMARIES,
+  
     SUMMARY,
 
     YAPIM_SIRKETI,
@@ -38,11 +37,18 @@ const fields = {
     DILI,
     SEZON_SAYISI,
     BOLUM_SAYISI,
+
+    YAPIMCILAR,
     YAPIMCI,
+
+
     MEKAN,
     GORUNTU_YONETMEN,
     GOSTERIM_SURESI,
+    
+ 
     KANAL,
+    
     GORUNTU_FORMATI,
     SES_FORMATI,
     DURUM
