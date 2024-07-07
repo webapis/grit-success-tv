@@ -87,12 +87,12 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
     const exist = await page.$$('.grid.grid-cols-4.gap-10 li a')
     debugger
     if (exist) {
-        const oyuncular = await page.evaluate(() => {
+        const ACTORS = await page.evaluate(() => {
 
-            return Array.from(document.querySelectorAll('.grid.grid-cols-4.gap-10 li a')).map(m => { return { img: m.querySelector('img').src, actor: m.querySelector('span.text-xl').innerText, character: m.querySelector('span.text-ellipsis').innerText } })
+            return Array.from(document.querySelectorAll('.grid.grid-cols-4.gap-10 li a')).map(m => { return { ACTOR_IMAGE: m.querySelector('img').src, ACTOR: m.querySelector('span.text-xl').innerText, CHARACTER: m.querySelector('span.text-ellipsis').innerText } })
 
         })
-        return { oyuncular, ...dizi, ...hikaye_ve_kunye }
+        return { ACTORS, ...dizi, ...hikaye_ve_kunye }
 
     }
 
