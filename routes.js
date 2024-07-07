@@ -34,9 +34,9 @@ router.addHandler('hikaye_ve_kunye', async ({ request, page, log, pushData, enqu
   const siteVar = await import(`./sites/${site}.js`)
   debugger
   const handler = siteVar.hikaye_ve_kunye
-  const data = await handler({ page, enqueueLinks, request, log, addRequests })
+  await handler({ page, enqueueLinks, request, log, addRequests })
 
-  await productsDataset.pushData(data);
+
   debugger
 
 });
