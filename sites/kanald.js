@@ -47,7 +47,8 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
     if (exists) {
 
         hikaye_ve_kunye = await page.evaluate(() => {
-            return Array.from(document.querySelectorAll('.storyline-text tr')).map(m => {
+            const summary = document.querySelector('.content-text p').innerHTML
+            const summary1 = Array.from(document.querySelectorAll('.storyline-text tr')).map(m => {
                 return {
                     title: m.querySelectorAll('td')[0].innerText,
                     value: m.querySelectorAll('td')[1].innerText
@@ -67,7 +68,7 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
 
                 return prev
             }, {})
-
+            return { ...summary, ...summary1 }
         })
     }
 
