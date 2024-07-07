@@ -41,7 +41,7 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
     const { userData: { dizi, oyuncularUrl } } = request
 
     let hikaye_ve_kunye = []
-    let summary = await page.$('.content-text p', (el) => el.innerHTML)
+
     const exists = await page.$('.storyline-text tr')
 
     if (exists) {
