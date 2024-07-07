@@ -4,11 +4,14 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll('.category-item')).map(m => {
             return {
-                img: m.querySelector('[data-original]').getAttribute('data-original'),
-                title: m.querySelector('.category-item-title').innerText,
-                detailHref: m.href,
-                imgOrientation:"landscape",
-                imqQuatity:5
+                POSTER_IMG: m.querySelector('[data-original]').getAttribute('data-original'),
+                TVSERIES_TITLE: m.querySelector('.category-item-title').innerText,
+                WATCH_LINK: m.href,
+                POSTER: {
+                    POSTER_IMG,
+                    POSTER_ORIENTATION: "landscape",
+                    POSTER_QUALITY: 5
+                }
             }
         });
         return collection
@@ -28,7 +31,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
     debugger
 
 
-    return { oyuncular: [], dizi }
+    return { ACTORS: [], ...dizi }
 }
 
 
