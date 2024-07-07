@@ -72,7 +72,7 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
         })
     }
 
-    await addRequests([{ url: oyuncularUrl, label: 'oyuncular', userData: { dizi, hikaye_ve_kunye, summary } }])
+    await addRequests([{ url: oyuncularUrl, label: 'oyuncular', userData: { dizi, hikaye_ve_kunye } }])
 
 
 }
@@ -80,7 +80,7 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
 export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
     const currentUrl = await page.url()
     debugger
-    const { userData: { dizi, hikaye_ve_kunye, summary } } = request
+    const { userData: { dizi, hikaye_ve_kunye } } = request
     debugger
     const ACTORS = await page.evaluate(() => {
         return Array.from(document.querySelectorAll(".actor2-card")).map(m => {
@@ -100,7 +100,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
     })
 
-    return { ACTORS, ...dizi, ...hikaye_ve_kunye, ...summary }
+    return { ACTORS, ...dizi, ...hikaye_ve_kunye }
 
 
 }
