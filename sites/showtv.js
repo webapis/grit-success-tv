@@ -1,4 +1,5 @@
 
+import autoscroll from '../src/autoscroll.js'
 export default async function dizi({ page, enqueueLinks, request, log, addRequests }) {
 
     console.log('dizi----')
@@ -39,12 +40,11 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
     console.log('hikaye_ve_kunye')
     const { userData: { dizi, oyuncularUrl } } = request
 
-    let hikaye_ve_kunye = []
+    let hikaye_ve_kunye = {}
+    await autoscroll(page, 150)
 
-    const exists = await page.$('.span.block p')
-
-    if (exists) {
-
+    try {
+        await page.waitForSelector('.span.block p')
         hikaye_ve_kunye = await page.evaluate(() => {
             const SUMMARY = document.querySelector('span.block p').innerText
             const detail = Array.from(document.querySelectorAll('.w-full.mb-5 ul li')).map(m => {
@@ -73,15 +73,17 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
 
             return { SUMMARY, ...detail }
         })
-    }
 
+    } catch (error) {
+
+    }
     await addRequests([{ url: oyuncularUrl, label: 'oyuncular', userData: { dizi, hikaye_ve_kunye } }])
 
 
 }
 
 export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
-console.log('oyuncular')
+    console.log('oyuncular')
     debugger
     const { userData: { dizi, hikaye_ve_kunye } } = request
     const exist = await page.$$('.grid.grid-cols-4.gap-10 li a')
