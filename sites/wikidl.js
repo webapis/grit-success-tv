@@ -113,7 +113,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
         return {
             ...data, POSTER: {
                 POSTER_IMG: image, POSTER_ORIENTATION: "portrait",
-                POSTER_QUALITY: 5
+                POSTER_QUALITY: 2
             }
         }
 
