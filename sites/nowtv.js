@@ -1,12 +1,12 @@
 
 export default async function dizi({ page, enqueueLinks, request, log, addRequests }) {
-    let loop =true
+    let loop = true
     while (loop) {
         const tagExists = await page.$('a[data-filter]') !== null;
 
         if (!tagExists) {
             console.log('Tag not found, exiting loop.');
-            loop=false;
+            loop = false;
         }
 
         console.log('Tag found, clicking and scrolling to the bottom.');
@@ -21,8 +21,8 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
             });
             if (!isElementHidden) {
                 await page.click('a[data-filter]');
-            }else{
-                loop=false;
+            } else {
+                loop = false;
             }
 
         }
@@ -48,36 +48,64 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         await page.waitForTimeout(2000); // Adjust the delay as needed
     }
     const data = await page.evaluate(() => {
-        const collection = Array.from(document.querySelectorAll('.list .list-item')).map(m => {
+        return Array.from(document.querySelectorAll('.list .list-item')).map(m => {
+            const TVSERIES_TITLE = m.querySelector('.program-name').innerText
+            const WATCH_LINK = m.querySelector('a').href
+            const DETAIL_LINK = m.querySelector('a').href + '/bilgi'
+
             return {
-                img: m.querySelector('img').getAttribute('src'),
-                title: m.querySelector('.program-name').innerText,
-                detailHref: m.querySelector('a').href, summary: m.querySelector('.program-desc').innerText,
-                imgOrientation:"landscape",
-                imqQuatity:1
+                TVSERIES_TITLE,
+                WATCH_LINK,
+                DETAIL_LINK,
+                POSTER: {
+                    POSTER_ORIENTATION: 'landscape',
+                    POSTER_QUALITY: 1,
+                    POSTER_IMG: m.querySelector('img').getAttribute('src')
+                }
             }
         })
-        return collection
+
     })
     for (let d of data) {
-           await addRequests([{ url: d.detailHref.replace('izle', 'oyuncular'), label: 'oyuncular', userData: { dizi: d, initUrl: d.detailHref } }])
+        await addRequests([{ url: d.DETAIL_LINK, label: 'hikaye_ve_kunye', userData: { dizi: d, oyuncularUrl: d.DETAIL_LINK.replace('bilgi', 'oyuncular') } }])
     }
-    debugger
-    return data
+
+}
+
+export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addRequests }) {
+
+
+    const { userData: { dizi, oyuncularUrl } } = request
+
+    let SUMMARY = {}
+
+    const exists = await page.$('.content')
+
+    if (exists) {
+
+        SUMMARY = await page.evaluate(() => {
+            const SUMMARY = document.querySelector('.about-content-container p').innerText
+
+            return { SUMMARY }
+        })
+    }
+
+    await addRequests([{ url: oyuncularUrl, label: 'oyuncular', userData: { dizi, SUMMARY } }])
+
 
 }
 
 export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
-    const currentUrl = await page.url()
+
     debugger
-    const { userData: { dizi } } = request
+    const { userData: { dizi, SUMMARY } } = request
     debugger
-    const oyuncular = await page.evaluate(() => {
+    const ACTORS = await page.evaluate(() => {
         return Array.from(document.querySelectorAll('.casts .grid-item')).map(m => {
             return {
-                img: m.querySelector('a img').getAttribute('data-src'),
-                actor: m.querySelector('.act-name').innerText,
-                character: m.querySelector('.act-desc').innerText
+                ACTOR_IMAGE: m.querySelector('a img').getAttribute('data-src'),
+                ACTOR: m.querySelector('.act-name').innerText,
+                CHARACTER: m.querySelector('.act-desc').innerText
             }
         })
 
@@ -85,7 +113,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
     })
 
-    return { oyuncular, dizi }
+    return { ACTORS, ...dizi, SUMMARY }
 
 
 }
