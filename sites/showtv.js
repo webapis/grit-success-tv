@@ -96,7 +96,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
     }
 
-    return { oyuncular: [], ...dizi, ...hikaye_ve_kunye }
+    return { ACTORS: [], ...dizi, ...hikaye_ve_kunye }
 
 }
 
