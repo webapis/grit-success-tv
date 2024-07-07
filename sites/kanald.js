@@ -68,7 +68,7 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
 
                 return prev
             }, {})
-            return { ...summary, ...summary1 }
+            return { summary, ...summary1 }
         })
     }
 
