@@ -27,7 +27,7 @@ export default async function list({ page, enqueueLinks, request, log, addReques
 
     for (let d of data) {
 
-        await addRequests([{ url: d.DETAIL_LINK + '/hikaye-ve-kunye', label: 'hikaye_ve_kunye', userData: { dizi: d, oyuncularUrl: d.detailHref + "/oyuncular" } }])
+        await addRequests([{ url: d.DETAIL_LINK + '/hikaye-ve-kunye', label: 'hikaye_ve_kunye', userData: { dizi: d, oyuncularUrl: d.DETAIL_LINK + "/oyuncular" } }])
 
     }
 
