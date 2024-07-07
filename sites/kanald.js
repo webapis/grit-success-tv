@@ -37,46 +37,41 @@ export default async function list({ page, enqueueLinks, request, log, addReques
 
 export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addRequests }) {
 
-    debugger
+
     const { userData: { dizi, oyuncularUrl } } = request
-    debugger
-    let hikaye_ve_kunye=[]
-    try {
-        await page.waitForSelector('.storyline-text tr')
-  
-       hikaye_ve_kunye = await page.evaluate(() => {
-        return Array.from(document.querySelectorAll('.storyline-text tr')).map(m => {
-            return {
-                title: m.querySelectorAll('td')[0].innerText,
-                value: m.querySelectorAll('td')[1].innerText
-            }
-        }).reduce((prev, curr, i) => {
-            if (curr.title === 'Yapım') {
-                return { ...prev, YAPIM_SIRKETI: curr.value }
-            } else if (curr.title.includes('Yapımcı')) {
-                return { ...prev, YAPIMCI: curr.value }
-            }
-            else if (curr.title.includes('Yönetmen')) {
-                return { ...prev, YONETMEN: curr.value }
-            }
-            else if (curr.title.includes('Senaryo')) {
-                return { ...prev, SENARIST: curr.value }
-            }
 
-            return prev
-        }, {})
+    let hikaye_ve_kunye = []
+    let summary = await page.$('.content-text p', (el) => el.innerHTML)
+    const exists = await page.$('.storyline-text tr')
 
+    if (exists) {
 
+        hikaye_ve_kunye = await page.evaluate(() => {
+            return Array.from(document.querySelectorAll('.storyline-text tr')).map(m => {
+                return {
+                    title: m.querySelectorAll('td')[0].innerText,
+                    value: m.querySelectorAll('td')[1].innerText
+                }
+            }).reduce((prev, curr, i) => {
+                if (curr.title === 'Yapım') {
+                    return { ...prev, YAPIM_SIRKETI: curr.value }
+                } else if (curr.title.includes('Yapımcı')) {
+                    return { ...prev, YAPIMCI: curr.value }
+                }
+                else if (curr.title.includes('Yönetmen')) {
+                    return { ...prev, YONETMEN: curr.value }
+                }
+                else if (curr.title.includes('Senaryo')) {
+                    return { ...prev, SENARIST: curr.value }
+                }
 
-    })
-} catch (error) {
-        
-}
+                return prev
+            }, {})
 
+        })
+    }
 
-    await addRequests([{ url: oyuncularUrl, label: 'oyuncular', userData: { dizi, hikaye_ve_kunye } }])
-
-
+    await addRequests([{ url: oyuncularUrl, label: 'oyuncular', userData: { dizi, hikaye_ve_kunye, summary } }])
 
 
 }
@@ -84,7 +79,7 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
 export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
     const currentUrl = await page.url()
     debugger
-    const { userData: { dizi, hikaye_ve_kunye } } = request
+    const { userData: { dizi, hikaye_ve_kunye, summary } } = request
     debugger
     const ACTORS = await page.evaluate(() => {
         return Array.from(document.querySelectorAll(".actor2-card")).map(m => {
@@ -104,7 +99,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
     })
 
-    return { ACTORS, ...dizi, ...hikaye_ve_kunye }
+    return { ACTORS, ...dizi, ...hikaye_ve_kunye, ...summary }
 
 
 }

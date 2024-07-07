@@ -32,12 +32,12 @@ router.addDefaultHandler(async ({ enqueueLinks, log, page, request, addRequests 
 router.addHandler('hikaye_ve_kunye', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
   const title = await page.title();
   const siteVar = await import(`./sites/${site}.js`)
-  debugger
+
   const handler = siteVar.hikaye_ve_kunye
   await handler({ page, enqueueLinks, request, log, addRequests })
 
 
-  debugger
+
 
 });
 router.addHandler('oyuncular', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
