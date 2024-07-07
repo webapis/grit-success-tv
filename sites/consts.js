@@ -10,12 +10,12 @@ const fields = {
     CHARACTER,
     ACTOR_IMAGE,
 
- 
+
     WATCH_LINK,
     DETAIL_LINK,
     GENRES,
 
-  
+
     SUMMARY,
 
     YAPIM_SIRKETI,
@@ -27,9 +27,9 @@ const fields = {
     WIKILINK,
     FORMAT,
     PROJE_TASARIMCI,
- 
+
     OYKU,
-   
+
     BASROL,
     TEMA_MUZIGI_BESTECI,
     BESTECI,
@@ -45,13 +45,16 @@ const fields = {
     MEKAN,
     GORUNTU_YONETMEN,
     GOSTERIM_SURESI,
-    
- 
+
+
     KANAL,
-    
+
     GORUNTU_FORMATI,
     SES_FORMATI,
-    DURUM
+    DURUM,
+
+    FIRST_YEAR,
+    LAST_YEAR
 }
 
 export default fields

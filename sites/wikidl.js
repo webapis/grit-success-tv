@@ -98,7 +98,10 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
                 return { ...prev, SES_FORMATI: curr.value }
             }
             else if (curr.title.includes('Yayın tarihi')) {
-                return { ...prev, YAYIN_TARIHI: curr.value }
+                const years = curr?.value.match(/\d{4}/g);
+                const firstYear = years ? parseInt(years[0], 10) : 0
+                const lastYear = years ? parseInt(years[years.length - 1], 10) : 0
+                return { ...prev, YAYIN_TARIHI: curr.value, FIRST_YEAR: firstYear, LAST_YEAR: lastYear }
             }
             else if (curr.title.includes('Durumu')) {
                 return { ...prev, DURUM: curr.value }
