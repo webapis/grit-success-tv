@@ -9,7 +9,7 @@ const test = process.env.test
 const windowsPath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
 const linuxPath = "/usr/bin/google-chrome"
 const siteVar = await import(`./sites/${site}.js`)
-debugger
+
 const urls = test==='true' ? testUrl: siteVar.urls
 const crawler = new PuppeteerCrawler({
   launchContext: { launchOptions: { executablePath: local ? windowsPath : linuxPath } },

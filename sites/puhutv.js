@@ -15,7 +15,9 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
             return {
                 title,
                 detailHref,
-                img
+                img,
+                imgOrientation:"portrait",
+                imqQuatity:1
             }
         }).filter(f => f.title)
         return collection
@@ -43,3 +45,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
 const urls = ["https://puhutv.com/dizi"]
 export { urls }
+
+//summary
+//year
+//yapimci

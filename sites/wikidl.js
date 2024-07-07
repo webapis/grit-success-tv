@@ -6,7 +6,9 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         const collection = Array.from(document.querySelectorAll('[cellpadding="4"] tbody tr')).map(m => m.querySelector('td a[title]')).filter(f => f).filter(f => !f.classList.contains('new')).map(m => {
             return {
                 detailHref: m.href,
-                title: m.getAttribute('title').replace(' (dizi)', '').trim().toLocaleLowerCase()
+                title: m.getAttribute('title').replace(' (dizi)', '').trim().toLocaleLowerCase(),
+                imgOrientation:"portrait",
+                imqQuatity:2
             }
         })
         return collection

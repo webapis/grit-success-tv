@@ -11,7 +11,9 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
             return {
                 title,
                 detailHref,
-                img
+                img,
+                imgOrientation:"portrait",
+                imqQuatity:1
             }
         });
         return collection
@@ -55,3 +57,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
 const urls = ["https://www.startv.com.tr/dizi"]
 export { urls }
+
+// summary
+// yapım 
+//yönetmen

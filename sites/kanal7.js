@@ -6,7 +6,9 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
             return {
                 img: m.querySelector('[data-original]').getAttribute('data-original'),
                 title: m.querySelector('.category-item-title').innerText,
-                detailHref: m.href
+                detailHref: m.href,
+                imgOrientation:"landscape",
+                imqQuatity:5
             }
         });
         return collection
@@ -32,3 +34,4 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
 const urls = ["https://www.izle7.com/kanal7/diziler"]
 export { urls }
+

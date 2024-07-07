@@ -5,53 +5,81 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll(".category-classic-item")).map(m => {
             // Check if elements exist before accessing properties
-            const title = m.querySelector("h2")?.innerText.toLocaleLowerCase();
-            const detailHref = m.querySelector("a")?.href;
-            const img = m.querySelector("a img")?.getAttribute('src');
+            const TVSERIES_TITLE = m.querySelector("h2")?.innerText.toLocaleLowerCase();
+            const WATCH_LINK = m.querySelector("a")?.href +'/bolumler';
+            const DETAIL_LINK = m.querySelector("a")?.href;
+            const POSTER = m.querySelector("a img")?.getAttribute('src');
             return {
-                title,
-                detailHref,
-                img
+                TVSERIES_TITLE,
+                WATCH_LINK,
+                DETAIL_LINK,
+                POSTER,
+                POSTER_ORIENTATION: "landscape",
+                POSTER_QUALITY: 5
             }
         });
         return collection
     })
     for (let d of data) {
-        await addRequests([{ url: d.detailHref+'/kadro',label:'oyuncular',  userData: { dizi:d, initUrl:d.detailHref }  }])
+        await addRequests([{ url: d.DETAIL_LINK, label: 'oyuncular', userData: { dizi: d } }])
     }
-debugger
+    debugger
     return data
 
 }
 
 export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
-const currentUrl = await page.url()
-    debugger
-    const {userData:{dizi}}= request
-    debugger
-    const oyuncular = await page.evaluate(()=>{
-       return Array.from(document.querySelectorAll(".player-box")).map(m => {
-        // Check if elements exist before accessing properties
-        const actor = m.querySelector('.player-text h2')?.innerText;
-        const character = m.querySelector('.player-text h3')?.innerText
-        const img = document.querySelector('.player-image img')?.getAttribute('src');
-    
-        return {
-            actor,
-            character,
-            img
-        }
-    });
-     
-     
-     
-     })
 
-     return {oyuncular,dizi}
+    debugger
+    const { userData: { dizi } } = request
+    debugger
+    let detail={}
+    try {
+        await page.waitForSelector('.player-slider-item')
+         detail = await page.evaluate(() => {
+            const ACTORS = Array.from(document.querySelectorAll(".player-slider-item")).map(m => {
+                // Check if elements exist before accessing properties
+                const ACTOR = m.querySelectorAll('.player-slider-text span')[0]?.innerText;
+                const CHARACTER = m.querySelectorAll('.player-slider-text span')[1]?.innerText;
+                const ACTOR_IMAGE = m.querySelector('img')?.getAttribute('src');
+
+                return {
+                    ACTOR,
+                    CHARACTER,
+                    ACTOR_IMAGE
+                }
+            });
+            const adData = Array.from(document.querySelectorAll('.descWrap.black-color p')).map(m => m.innerText).reduce((prev, curr, i) => {
+                if (i === 0) {
+                    return { SUMMARY: curr }
+                } else
+                    if (curr.includes('Yapım')) {
+                        return { ...prev, YAPIM_SIRKETI: curr.replace('Yapım:', '') }
+                    } else if (curr.includes('Yönetmen')) {
+                        return { ...prev, YONETMEN: curr.replace('Yönetmen:', '') }
+
+                    } else if (curr.includes('Senarist')) {
+                        return { ...prev, SENARIST: curr.replace('Senarist:', '') }
+
+                    }
+                return prev
+            }, {})
+
+            return { ACTORS, ...adData }
+        })
+
+    } catch (error) {
+
+    }
+    debugger
+    return { ...dizi, ...detail }
 
 
 }
 
 
-const urls = ["https://www.atv.com.tr/diziler","https://www.atv.com.tr/eski-diziler"]
+const urls = ["https://www.atv.com.tr/diziler", "https://www.atv.com.tr/eski-diziler"]
 export { urls }
+
+
+//summary

@@ -52,7 +52,9 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
             return {
                 img: m.querySelector('img').getAttribute('src'),
                 title: m.querySelector('.program-name').innerText,
-                detailHref: m.querySelector('a').href, summary: m.querySelector('.program-desc').innerText
+                detailHref: m.querySelector('a').href, summary: m.querySelector('.program-desc').innerText,
+                imgOrientation:"landscape",
+                imqQuatity:1
             }
         })
         return collection
@@ -91,3 +93,5 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
 const urls = ["https://www.nowtv.com.tr/dizi-izle", "https://www.nowtv.com.tr/dizi-arsivi"]
 export { urls }
+
+//summary

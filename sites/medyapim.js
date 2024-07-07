@@ -11,7 +11,9 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
             return {
                 title,
                 detailHref,
-                img
+                img,
+                imgOrientation:"landscape",
+                imqQuatity:1
             }
         });
         return collection
@@ -39,3 +41,9 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
 const urls = ["https://medyapim.com/diziler/"]
 export { urls }
+
+
+//genre
+//summary
+//ouncular
+//year

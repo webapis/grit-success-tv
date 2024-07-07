@@ -13,7 +13,9 @@ export default async function list({ page, enqueueLinks, request, log, addReques
             return {
                 title,
                 detailHref,
-                img
+                img,
+                imgOrientation:"landscape",
+                imqQuatity:5
             }
         });
         return collection
@@ -59,3 +61,6 @@ const currentUrl = await page.url()
 
 const urls = ["https://www.kanald.com.tr/diziler","https://www.kanald.com.tr/diziler/arsiv"]
 export { urls }
+
+
+//summary
