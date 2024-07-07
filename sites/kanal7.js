@@ -4,11 +4,11 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll('.category-item')).map(m => {
             return {
-                POSTER_IMG: m.querySelector('[data-original]').getAttribute('data-original'),
                 TVSERIES_TITLE: m.querySelector('.category-item-title').innerText,
                 WATCH_LINK: m.href,
+                DETAIL_LINK: m.href,
                 POSTER: {
-                    POSTER_IMG,
+                    POSTER_IMG: m.querySelector('[data-original]').getAttribute('data-original'),
                     POSTER_ORIENTATION: "landscape",
                     POSTER_QUALITY: 5
                 }
@@ -17,7 +17,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         return collection
     })
     for (let d of data) {
-        await addRequests([{ url: d.detailHref, label: 'oyuncular', userData: { dizi: d, initUrl: d.detailHref } }])
+        await addRequests([{ url: d.WATCH_LINK, label: 'oyuncular', userData: { dizi: d } }])
     }
     debugger
     return data
