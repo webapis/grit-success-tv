@@ -1,7 +1,7 @@
 
 export default async function dizi({ page, enqueueLinks, request, log, addRequests }) {
 
-
+    console.log('dizi----')
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll("section div ul.grid li")).map(m => {
             // Check if elements exist before accessing properties
@@ -36,12 +36,12 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
 
 export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addRequests }) {
 
-
+    console.log('hikaye_ve_kunye')
     const { userData: { dizi, oyuncularUrl } } = request
 
     let hikaye_ve_kunye = []
 
-    const exists = await page.$('.storyline-text tr')
+    const exists = await page.$('.span.block p')
 
     if (exists) {
 
@@ -81,7 +81,7 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
 }
 
 export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
-
+console.log('oyuncular')
     debugger
     const { userData: { dizi, hikaye_ve_kunye } } = request
     const exist = await page.$$('.grid.grid-cols-4.gap-10 li a')
