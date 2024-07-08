@@ -53,22 +53,30 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
                 }
             });
             const adData = Array.from(document.querySelectorAll('.descWrap.black-color p')).map(m => m.innerText).reduce((prev, curr, i) => {
-                if (i === 0) {
-                    return { SUMMARY: curr }
-                } else
-                    if (curr.includes('Yapım')) {
-                        return { ...prev, YAPIM_SIRKETI: curr.replace('Yapım:', '') }
-                    } else if (curr.includes('Yönetmen')) {
-                        return { ...prev, YONETMEN: curr.replace('Yönetmen:', '') }
 
-                    } else if (curr.includes('Senarist')) {
-                        return { ...prev, SENARIST: curr.replace('Senarist:', '') }
+                if (curr.includes('Yapım')) {
+                    return { ...prev, YAPIM_SIRKETI: curr.replace('Yapım:', '') }
+                } else if (curr.includes('Yönetmen')) {
+                    return { ...prev, YONETMEN: curr.replace('Yönetmen:', '') }
 
-                    }
-                return prev
+                } else if (curr.includes('Senarist')) {
+                    return { ...prev, SENARIST: curr.replace('Senarist:', '') }
+
+                }
+                else if (curr.includes('Oyuncular:') ||curr.includes('(')) {
+                    return { ...prev, ACTORS_2: curr.replace('Oyuncular:', '') }
+
+                } else if (curr.length > 300) {
+                    return { ...prev, SUMMARY: curr }
+
+                }
+
+             
+
+
             }, {})
 
-            return { ACTORS, ...adData }
+            return { ACTORS }
         })
 
     } catch (error) {
