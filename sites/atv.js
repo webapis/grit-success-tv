@@ -71,9 +71,6 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
                 }
 
-             
-
-
             }, {})
 
             return { ACTORS }
