@@ -51,7 +51,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         return Array.from(document.querySelectorAll('.list .list-item')).map(m => {
             const TVSERIES_TITLE = m.querySelector('.program-name').innerText
             const WATCH_LINK = m.querySelector('a').href
-            const DETAIL_LINK = m.querySelector('a').href + '/bilgi'
+            const DETAIL_LINK = m.querySelector('a').href
 
             return {
                 TVSERIES_TITLE,
@@ -67,26 +67,26 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
 
     })
     for (let d of data) {
-        await addRequests([{ url: d.DETAIL_LINK, label: 'hikaye_ve_kunye', userData: { dizi: d, oyuncularUrl: d.DETAIL_LINK.replace('bilgi', 'oyuncular') } }])
+        await addRequests([{ url: d.DETAIL_LINK.replace('izle','bilgi'), label: 'hikaye_ve_kunye', userData: { dizi: d, oyuncularUrl: d.DETAIL_LINK.replace('izle', 'oyuncular') } }])
     }
 
 }
 
 export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addRequests }) {
 
-
+console.log('hikaye_ve_kunye')
     const { userData: { dizi, oyuncularUrl } } = request
 
     let SUMMARY = {}
 
     const exists = await page.$('.content')
-
+debugger
     if (exists) {
-
+debugger
         SUMMARY = await page.evaluate(() => {
-            const SUMMARY = document.querySelector('.about-content-container p').innerText
+            const SUMMARY = document.querySelector('.content p').innerText
 
-            return { SUMMARY }
+            return  SUMMARY 
         })
     }
 
@@ -96,7 +96,7 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
 }
 
 export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
-
+console.log('ouyuncular')
     debugger
     const { userData: { dizi, SUMMARY } } = request
     debugger
@@ -112,7 +112,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
 
     })
-
+debugger
     return { ACTORS, ...dizi, SUMMARY }
 
 
