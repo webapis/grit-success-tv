@@ -23,9 +23,11 @@ router.addDefaultHandler(async ({ enqueueLinks, log, page, request, addRequests 
 
   const handler = siteVar.default
 
-  await handler({ page, enqueueLinks, request, log, addRequests })
+  const data = await handler({ page, enqueueLinks, request, log, addRequests })
 
-
+  if (data) {
+    await productsDataset.pushData(data);
+  }
 
 });
 

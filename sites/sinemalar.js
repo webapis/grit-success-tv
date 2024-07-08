@@ -40,7 +40,7 @@ export default async function list({ page, enqueueLinks, request, log, addReques
         await addRequests([{ url: d.DETAIL_LINK, label: 'oyuncular',  userData: { dizi: d }  }])
     }
 
-    return data
+  //  return data
 
 }
 

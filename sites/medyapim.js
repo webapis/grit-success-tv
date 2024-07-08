@@ -28,7 +28,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         await addRequests([{ url: d.WATCH_LINK, label: 'oyuncular', userData: { dizi: d } }])
     }
     debugger
-    return data
+ //   return data
 
 }
 

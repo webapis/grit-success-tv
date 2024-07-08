@@ -31,7 +31,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         await addRequests([{ url: d.WATCH_LINK, label: 'hikaye_ve_kunye', userData: { dizi: d, oyuncularUrl: d.WATCH_LINK.replace('tanitim', 'oyuncular') } }])
     }
     debugger
-    return data
+  //  return data
 
 }
 

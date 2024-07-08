@@ -31,7 +31,7 @@ export default async function list({ page, enqueueLinks, request, log, addReques
 
     }
 
-    return data
+ //   return data
 
 }
 
