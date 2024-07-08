@@ -16,7 +16,7 @@ export default async function list({ page, enqueueLinks, request, log, addReques
             const FIRST_YEAR = m.querySelectorAll('.details .others .item')[0].innerText
             const GOSTERIM_SURESI = m.querySelectorAll('.details .others .item')[1]?.innerText
             const ULKE = m.querySelectorAll('.details .others .item')[2]?.innerText
-            const SUMMARY = m.querySelector('.summary').innerText
+            
             return {
                 TVSERIES_TITLE,
                 DETAIL_LINK,
@@ -24,7 +24,7 @@ export default async function list({ page, enqueueLinks, request, log, addReques
                 FIRST_YEAR,
                 GOSTERIM_SURESI,
                 ULKE,
-                SUMMARY,
+          
                 POSTER: {
                     POSTER_IMG,
                     POSTER_ORIENTATION: "portrait",
@@ -48,7 +48,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
     const { userData: { dizi } } = request
     debugger
     const data = await page.evaluate(() => {
-
+    const SUMMARY =document.querySelector('div[itemprop="description"]').innerText
         const detail = Array.from(document.querySelectorAll('.col div.info-group')).filter(f => f.querySelector('.label-title')).map(m => {
             return {
                 title: m.querySelector('.label-title').innerText,
@@ -87,7 +87,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
             }
         })
 
-        return { ...detail, ACTORS }
+        return { ...detail, ACTORS,SUMMARY }
     })
 
 
