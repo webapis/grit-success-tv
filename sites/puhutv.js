@@ -2,10 +2,11 @@ import autoScroll from "../src/autoscroll.js";
 export default async function dizi({ page, enqueueLinks, request, log, addRequests }) {
 
     await autoScroll(page, 150)
+    await page.waitForSelector('.content-name')
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll(".swiper-slide")).map(m => {
 
-            const TVSERIES_TITLE = m.querySelector(".content-name")?.innerText.toLocaleLowerCase();
+            const TVSERIES_TITLE = m.querySelector(".content-name")?.innerText.toLowerCase();
             const DETAIL_LINK = m.querySelector("a:not(.watch)")?.href;
             const WATCH_LINK = m.querySelector("a")?.href;
             const imgSrc = m.querySelector("a img")?.getAttribute('src');
@@ -23,7 +24,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
                 },
             }
         })
-        return collection
+        return collection.filter(f => f.TVSERIES_TITLE)
     })
 
 
@@ -57,7 +58,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 }
 
 
-const urls = ["https://puhutv.com/dizi"]
+const urls = ["https://puhutv.com/dizi", 'https://puhutv.com/list/kategoriler-dizi&item_id=791519']
 export { urls }
 
 //summary
