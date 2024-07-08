@@ -43,9 +43,9 @@ async function main() {
 }
 
 async function bulkUpsertData(client, data) {
-    const bulkOps = data.map(m => { return { ...m, dizi: { ...m.dizi, title: turkishToLower(m.dizi.title) } } }).map((doc) => ({
+    const bulkOps = data.map(m => { return { ...m,  TVSERIES_TITLE: turkishToLower(m.TVSERIES_TITLE) } }).map((doc) => ({
         updateOne: {
-            filter: { _id: doc.dizi.title },
+            filter: { _id: doc.TVSERIES_TITLE },
             update: { $set: doc },
             upsert: true
         }
