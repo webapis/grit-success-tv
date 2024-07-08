@@ -1,29 +1,36 @@
 import autoScroll from "../src/autoscroll.js";
 export default async function dizi({ page, enqueueLinks, request, log, addRequests }) {
 
-    await autoScroll(page,150)
+    await autoScroll(page, 150)
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll(".swiper-slide")).map(m => {
-            // Check if elements exist before accessing properties
-            const title = m.querySelector(".content-name")?.innerText.toLocaleLowerCase();
-            const detailHref = m.querySelector("a")?.href;
-         
+
+            const TVSERIES_TITLE = m.querySelector(".content-name")?.innerText.toLocaleLowerCase();
+            const DETAIL_LINK = m.querySelector("a:not(.watch)")?.href;
+            const WATCH_LINK = m.querySelector("a")?.href;
             const imgSrc = m.querySelector("a img")?.getAttribute('src');
-            const htmlString =m.querySelector('noscript')?m.querySelector('noscript').innerHTML:null
+            const htmlString = m.querySelector('noscript') ? m.querySelector('noscript').innerHTML : null
             let regex = /src="([^"]*)"/;
-            let img =htmlString? htmlString.match(regex)[1]:imgSrc;
+            let POSTER_IMG = htmlString ? htmlString.match(regex)[1] : imgSrc;
             return {
-                title,
-                detailHref,
-                img,
-                imgOrientation:"portrait",
-                imqQuatity:1
+                TVSERIES_TITLE,
+                WATCH_LINK,
+                DETAIL_LINK,
+                POSTER: {
+                    POSTER_IMG,
+                    POSTER_ORIENTATION: "portrait",
+                    POSTER_QUALITY: 1
+                },
             }
-        }).filter(f => f.title)
+        })
         return collection
     })
+
+
+
     for (let d of data) {
-        await addRequests([{ url: d.detailHref.replace('detay', 'dizisinin-oyunculari-ve-konusu'), label: 'oyuncular', userData: { dizi: d, initUrl: d.detailHref } }])
+        debugger
+        await addRequests([{ url: d.DETAIL_LINK.replace('detay', 'dizisinin-oyunculari'), label: 'oyuncular', userData: { dizi: d } }])
     }
     debugger
     return data
@@ -31,13 +38,20 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
 }
 
 export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
-    const currentUrl = await page.url()
+
     debugger
     const { userData: { dizi } } = request
     debugger
+    const detail = await page.evaluate(() => {
+        const SUMMARY = document.querySelector('[type=title_serie]').innerText
+        const ACTORS = Array.from(document.querySelectorAll('.cast .cast-wrapper h6')).map(m => {
+            return { ACTOR: m.innerText }
+        })
+        return { SUMMARY, ACTORS }
+    })
 
 
-    return { oyuncular:[], dizi }
+    return { ...detail, ...dizi }
 
 
 }
