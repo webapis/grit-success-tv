@@ -28,7 +28,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         await addRequests([{ url: d.WATCH_LINK, label: 'oyuncular', userData: { dizi: d } }])
     }
     debugger
- //   return data
+    //   return data
 
 }
 
@@ -39,7 +39,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
     debugger
     const data = await page.evaluate(() => {
         const SUMMARY = document.querySelector('.trending-dec p').innerText
-        const GENRES = document.querySelector('li.text-primary').innerText
+        const GENRES = document.querySelector('li.text-primary').innerText.split(", ")
         const FIRST_YEAR = document.querySelector('.trending-year').innerText.replace(/[^\d]/gi, '')
         return {
             SUMMARY,
