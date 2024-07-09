@@ -111,3 +111,5 @@ export { urls }
 
 
 //summary
+
+//https://www.kanald.com.tr/azize
