@@ -7,14 +7,14 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
     });
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll('.mdl')).map(m => {
-
+            const TVSERIES_TITLE =document.querySelector('.meta-title-link').innerText
             const POSTER_IMG = m.querySelector('img.thumbnail-img').src
-            const WATCH_LINK = m.querySelector('.thumbnail-link').href
             const DETAIL_LINK = m.querySelector('.thumbnail-link').href
             const GENRES = Array.from(m.querySelectorAll('.meta-body-info .dark-grey-link')).map(m => m.innerText)
             const YAYIN_TARIHI = m.querySelector('.meta-body-info').firstChild.nodeValue.replaceAll('\n', '').replace('Başlangıç Tarihi:','')
             return {
-                WATCH_LINK,
+                TVSERIES_TITLE,
+        
                 DETAIL_LINK,
                 GENRES,
                 YAYIN_TARIHI,
