@@ -3,7 +3,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
 
 
     const data = await page.evaluate(() => {
-        const collection =  Array.from(document.querySelectorAll('.wikitable tbody tr')).map(m => m.querySelector('td a[title]')).filter(f => f).filter(f => !f.classList.contains('new')).map(m => {
+        const collection = Array.from(document.querySelectorAll('.wikitable tbody tr')).map(m => m.querySelector('td a[title]')).filter(f => f).filter(f => !f.classList.contains('new')).map(m => {
             return {
                 WIKILINK: m.href,
                 TVSERIES_TITLE: m.getAttribute('title').trim().toLowerCase().replace(/\s*\(.*?\)/g, ''),
@@ -124,7 +124,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 }
 
 
-const urls = ["https://tr.wikipedia.org/wiki/T%C3%BCrk_dizileri_listesi"]
+const urls = ["https://tr.wikipedia.org/wiki/OGM_Pictures"]
 export { urls }
 
 
