@@ -38,7 +38,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
             if (curr.title.includes('Format')) {
                 return { ...prev, FORMAT: curr.value }
             } else if (curr.title.includes('Tür')) {
-                return { ...prev, GENRES: curr.value }
+                return { ...prev, GENRES: curr.value.split(',') }
             }
             else if (curr.title.includes('Proje tasarımcısı')) {
                 return { ...prev, PROJE_TASARIMCI: curr.value }
