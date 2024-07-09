@@ -27,7 +27,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         await addRequests([{ url: d.DETAIL_LINK, label: 'oyuncular', userData: { dizi: d } }])
     }
     debugger
-   // return data
+    // return data
 
 }
 
@@ -40,6 +40,17 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
     try {
         await page.waitForSelector('.player-slider-item')
         detail = await page.evaluate(() => {
+            function getElementStartsWith(text) {
+                const allElements = Array.from(document.body.getElementsByTagName('*'));
+
+                return allElements.find(function (element) {
+                    return element.innerText && element.innerText.trim().startsWith(text);
+                });
+            }
+            const YAPIM_SIRKETI = getElementStartsWith('Yapım:') ? getElementStartsWith('Yapım:').childNodes[0].textContent : ""
+            const YONETMEN = getElementStartsWith('Yönetmen:') ? getElementStartsWith('Yönetmen:').childNodes[0].textContent : ""
+            const SENARIST = getElementStartsWith('Senarist:') ? getElementStartsWith('Senarist:').childNodes[0].textContent : ""
+            const SUMMARY = document.querySelector('.descWrap') ? document.querySelector('.descWrap')?.innerText : ""
             const ACTORS = Array.from(document.querySelectorAll(".player-slider-item")).map(m => {
                 // Check if elements exist before accessing properties
                 const ACTOR = m.querySelectorAll('.player-slider-text span')[0]?.innerText;
@@ -52,28 +63,9 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
                     ACTOR_IMAGE
                 }
             });
-            const adData = Array.from(document.querySelectorAll('.descWrap.black-color p')).map(m => m.innerText).reduce((prev, curr, i) => {
 
-                if (curr.includes('Yapım')) {
-                    return { ...prev, YAPIM_SIRKETI: curr.replace('Yapım:', '') }
-                } else if (curr.includes('Yönetmen')) {
-                    return { ...prev, YONETMEN: curr.replace('Yönetmen:', '') }
 
-                } else if (curr.includes('Senarist')) {
-                    return { ...prev, SENARIST: curr.replace('Senarist:', '') }
-
-                }
-                else if (curr.includes('Oyuncular:') ||curr.includes('(')) {
-                    return { ...prev, ACTORS_2: curr.replace('Oyuncular:', '') }
-
-                } else if (curr.length > 300) {
-                    return { ...prev, SUMMARY: curr }
-
-                }
-
-            }, {})
-
-            return { ACTORS,...adData }
+            return { ACTORS, SUMMARY }
         })
 
     } catch (error) {

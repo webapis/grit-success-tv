@@ -48,7 +48,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
           const SUMMARY = getElementByInnerText('Hikaye')?.nextElementSibling.innerText
           const YONETMEN =getElementByInnerText('Yönetmen')?.nextElementSibling.innerText
           const YAPIM_SIRKETI= getElementByInnerText('Yapım')?.nextElementSibling.innerText
-        const ACTORS= Array.from(document.querySelectorAll(".actor-card")).map(m => {
+          const ACTORS= Array.from(document.querySelectorAll(".actor-card")).map(m => {
             // Check if elements exist before accessing properties
             const ACTOR = m.querySelector('.actor-card-content p')?.innerText;
             const CHARACTER = m.querySelector('h4')?.innerText
