@@ -17,7 +17,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         })
         return collection
     })
-    for (let d of [...data, adddizi]) {
+    for (let d of [...data, ...adddizi]) {
         await addRequests([{ url: d.WIKILINK, label: 'oyuncular', userData: { dizi: d } }])
     }
     debugger

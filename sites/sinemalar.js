@@ -1,4 +1,8 @@
+const adddizi = [{
+    WIKILINK: "https://www.sinemalar.com/dizi/25097/dantel",
+    TVSERIES_TITLE: "Dantel"
 
+}]
 export default async function list({ page, enqueueLinks, request, log, addRequests }) {
 
     await enqueueLinks({
@@ -16,7 +20,7 @@ export default async function list({ page, enqueueLinks, request, log, addReques
             const FIRST_YEAR = m.querySelectorAll('.details .others .item')[0].innerText
             const GOSTERIM_SURESI = m.querySelectorAll('.details .others .item')[1]?.innerText
             const ULKE = m.querySelectorAll('.details .others .item')[2]?.innerText
-            
+
             return {
                 TVSERIES_TITLE,
                 DETAIL_LINK,
@@ -24,7 +28,7 @@ export default async function list({ page, enqueueLinks, request, log, addReques
                 FIRST_YEAR,
                 GOSTERIM_SURESI,
                 ULKE,
-          
+
                 POSTER: {
                     POSTER_IMG,
                     POSTER_ORIENTATION: "portrait",
@@ -35,12 +39,12 @@ export default async function list({ page, enqueueLinks, request, log, addReques
         return collection
     })
 
-    for (let d of data) {
-   debugger
-        await addRequests([{ url: d.DETAIL_LINK, label: 'oyuncular',  userData: { dizi: d }  }])
+    for (let d of [...data, ...adddizi]) {
+        debugger
+        await addRequests([{ url: d.DETAIL_LINK, label: 'oyuncular', userData: { dizi: d } }])
     }
 
-  //  return data
+    //  return data
 
 }
 
@@ -48,7 +52,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
     const { userData: { dizi } } = request
     debugger
     const data = await page.evaluate(() => {
-    const SUMMARY =document.querySelector('div[itemprop="description"]').innerText
+        const SUMMARY = document.querySelector('div[itemprop="description"]').innerText
         const detail = Array.from(document.querySelectorAll('.col div.info-group')).filter(f => f.querySelector('.label-title')).map(m => {
             return {
                 title: m.querySelector('.label-title').innerText,
@@ -87,7 +91,7 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
             }
         })
 
-        return { ...detail, ACTORS,SUMMARY }
+        return { ...detail, ACTORS, SUMMARY }
     })
 
 
