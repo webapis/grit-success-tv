@@ -39,7 +39,7 @@ export default async function list({ page, enqueueLinks, request, log, addReques
         return collection
     })
 
-    for (let d of [...data, ...adddizi]) {
+    for (let d of data) {
         debugger
         await addRequests([{ url: d.DETAIL_LINK, label: 'oyuncular', userData: { dizi: d } }])
     }
