@@ -3,11 +3,10 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
 
 
     const data = await page.evaluate(() => {
-        const collection = Array.from(document.querySelectorAll('[cellpadding="4"] tbody tr')).map(m => m.querySelector('td a[title]')).filter(f => f).filter(f => !f.classList.contains('new')).map(m => {
+        const collection = Array.from(document.querySelectorAll('.mw-category-group')).map(m => {
             return {
-                WIKILINK: m.href,
-                TVSERIES_TITLE: m.getAttribute('title').trim().toLowerCase().replace(/\s*\(.*?\)/g, ''),
-
+                WIKILINK: m.querySelector('a').href,
+                TVSERIES_TITLE: m.querySelector('a').innerText.trim().toLowerCase().replace(/\s*\(.*?\)/g, '')
             }
         })
         return collection
@@ -16,7 +15,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         await addRequests([{ url: d.WIKILINK, label: 'oyuncular', userData: { dizi: d } }])
     }
     debugger
-  //  return data
+    //  return data
 
 }
 
@@ -124,7 +123,15 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 }
 
 
-const urls = ["https://tr.wikipedia.org/wiki/Ay_Yap%C4%B1m"]
+const urls = ["https://tr.wikipedia.org/wiki/Kategori:Limon_Film_dizileri",
+
+    "https://tr.wikipedia.org/wiki/Kategori:Limon_Film_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:Pastel_Film_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:Sinegraf_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:Tims_Productions_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:O3_Medya_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:NTC_Medya_dizileri"
+]
 export { urls }
 
 
