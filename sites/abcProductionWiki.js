@@ -1,4 +1,10 @@
 //wiki dizi liste
+
+const adddizi = [{
+    WIKILINK: "https://tr.wikipedia.org/wiki/Kimse_Bilmez#:~:text=Kimse%20Bilmez%2C%20Baba%20Yap%C4%B1m%20imzal%C4%B1,ve%20aksiyon%20t%C3%BCr%C3%BCndeki%20televizyon%20dizisidir.",
+    TVSERIES_TITLE: "Kimse Bilmez"
+
+}]
 export default async function dizi({ page, enqueueLinks, request, log, addRequests }) {
 
 
@@ -11,7 +17,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         })
         return collection
     })
-    for (let d of data) {
+    for (let d of [...data, adddizi]) {
         await addRequests([{ url: d.WIKILINK, label: 'oyuncular', userData: { dizi: d } }])
     }
     debugger
