@@ -136,7 +136,32 @@ const urls = ["https://tr.wikipedia.org/wiki/Kategori:Limon_Film_dizileri",
     "https://tr.wikipedia.org/wiki/Kategori:Sinegraf_dizileri",
     "https://tr.wikipedia.org/wiki/Kategori:Tims_Productions_dizileri",
     "https://tr.wikipedia.org/wiki/Kategori:O3_Medya_dizileri",
-    "https://tr.wikipedia.org/wiki/Kategori:NTC_Medya_dizileri"
+    "https://tr.wikipedia.org/wiki/Kategori:NTC_Medya_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_romantik_komedi_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_polisiye_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_aksiyon_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_%C3%A7ocuk_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_dramatik_televizyon_dizileri",
+
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_fantastik_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_gen%C3%A7lik_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_gerilim_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_romantik_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_spor_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_su%C3%A7_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_tarih%C3%AE_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_aile_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_belgesel_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_bilimkurgu_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_macera_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_mafya_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_medikal_drama_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_psikolojik_gerilim_televizyon_dizileri",
+    "https://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk_sava%C5%9F_televizyon_dizileri"
+
+
+    
+    
 ]
 export { urls }
 
