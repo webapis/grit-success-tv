@@ -63,6 +63,29 @@ https://aklifilm.com/genres/diziler/
 https://www.a23medya.com/
 https://mgxfilm.com/
 
+// platformlar
+https://www.blutv.com/
+https://www.nowtv.com.tr/
+https://www.gain.tv/dizi
+https://www.disneyplus.com/en-tr
+https://www.youtube.com/
+https://www.netflix.com/
+https://puhutv.com/
+https://www.tabii.com/
+
+
+
+//kanal
+https://www.atv.com.tr/canli-yayin
+https://www.kanald.com.tr/
+https://www.showtv.com.tr/
+https://www.startv.com.tr/
+https://www.kanal7.com/canli-izle
+https://www.trt1.com.tr/
+https://www.tv8.com.tr/canli-yayin
+
+
+
 
 
 

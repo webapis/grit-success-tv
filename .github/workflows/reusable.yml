@@ -7,9 +7,15 @@ on:
         description: 'site'
         required: true
         type: string
+      gitFolder:
+        description: 'gitFolder'
+        required: true
+        type: string
+
 
 env:
   site: ${{inputs.site}}
+  gitFolder: ${{inputs.gitFolder}}
   MONGODB_URL: ${{secrets.MONGODB_URL}}
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:

@@ -6,6 +6,10 @@ on:
         description: 'site'
         required: true
         type: string
+      gitFolder:
+        description: 'gitFolder'
+        required: true
+        type: string
 env:
   MONGODB_URL: ${{secrets.MONGODB_URL}}
   GH_TOKEN: ${{secrets.GH_TOKEN}}
@@ -14,4 +18,5 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       site: ${{inputs.site}}
+      gitFolder: ${{inputs.gitFolder}}
     secrets: inherit

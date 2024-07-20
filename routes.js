@@ -5,8 +5,8 @@ const local = process.env.local
 dotenv.config({ silent: true });
 
 const site = process.env.site
-
-const productsDataset = await Dataset.open('tvseries');
+const gitFolder = process.env.gitFolder
+const productsDataset = await Dataset.open(gitFolder);
 export const router = createPuppeteerRouter();
 
 router.addDefaultHandler(async ({ enqueueLinks, log, page, request, addRequests }) => {
@@ -55,3 +55,14 @@ router.addHandler('oyuncular', async ({ request, page, log, pushData, enqueueLin
 });
 
 
+router.addHandler('second', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
+  const title = await page.title();
+  const siteVar = await import(`./sites/${site}.js`)
+  debugger
+  const handler = siteVar.second
+  const data = await handler({ page, enqueueLinks, request, log, addRequests })
+
+  await productsDataset.pushData(data);
+  debugger
+
+});
