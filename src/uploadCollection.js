@@ -33,7 +33,7 @@ async function uploadCollection({ fileName, data, gitFolder }) {
     }
     else {
 
-        const response = await fetch(`https://api.github.com/repos/webapis/crawler-state-2/contents/${gender}/${fileName}.json.gz`, { method: 'put', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" }, body: JSON.stringify({ message: 'coder content', content: base64data, branch: 'main' }) })
+        const response = await fetch(`https://api.github.com/repos/webapis/crawler-state-2/contents/${gitFolder}/${fileName}.json.gz`, { method: 'put', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" }, body: JSON.stringify({ message: 'coder content', content: base64data, branch: 'main' }) })
         debugger
         if (!response.ok) {
             throw response
