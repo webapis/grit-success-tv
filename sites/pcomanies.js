@@ -6,7 +6,7 @@ export default async function firstEntry({ page, enqueueLinks, request, log, add
         })
         return collection
     })
-    for (let d of data) {
+    for (let d of [...data,...add]) {
         await addRequests([{ url: d.href, label: 'second', userData: { yapimSirketi: d } }])
     }
 
