@@ -55,7 +55,7 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
                 }
             }).reduce((prev, curr, i) => {
                 if (curr.title === 'Yapım') {
-                    return { ...prev, YAPIM_SIRKETI: curr.value }
+                    return { ...prev, YAPIM_SIRKETI: curr.value.replace(':','').trim() }
                 } else if (curr.title.includes('Yapımcı')) {
                     return { ...prev, YAPIMCI: curr.value }
                 }
