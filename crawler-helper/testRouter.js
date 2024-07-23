@@ -1,30 +1,16 @@
-export default async function testRouter({ page, enqueueLinks, request, log, addRequests }) {
 
-    debugger
-const data = await page.evaluate(()=>{
-   const collection = Array.from(document.querySelectorAll(".actor2-card")).map(m => {
-    // Check if elements exist before accessing properties
-    const actor = m.querySelector('p.spot').innerText;
-    const character = m.querySelector('h3.title').innerText
-    const img = document.querySelector('.circle-item img[data-src]').getAttribute('data-src');
+import { oyuncular } from '../sites/kanald.js'
 
-    return {
-        actor,
-        character,
-        img
-    }
-});
-
-return collection
-
-})
+export default async function testRouter(props) {
 debugger
+    await oyuncular(props)
+    debugger
 
-return data
+    return data
     debugger
     //test
 }
 
-const testUrl =["https://www.kanald.com.tr/bir-derdim-var/oyuncular"]
+const testUrl = ["https://www.kanald.com.tr/yalan/oyuncular"]
 
-export {testUrl}
+export { testUrl }

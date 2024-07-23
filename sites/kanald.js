@@ -1,7 +1,13 @@
 
 export default async function list({ page, enqueueLinks, request, log, addRequests }) {
 
+    debugger
+ const result =   await enqueueLinks({
+        selector: '.pagination a',
+        label: 'list',
+    });
 
+    debugger
     const data = await page.evaluate(() => {
 
         const collection = Array.from(document.querySelectorAll(".listing-holder .item")).map(m => {
@@ -24,7 +30,7 @@ export default async function list({ page, enqueueLinks, request, log, addReques
         });
         return collection
     })
-
+debugger
     for (let d of data) {
 
         await addRequests([{ url: d.DETAIL_LINK + '/hikaye-ve-kunye', label: 'hikaye_ve_kunye', userData: { dizi: d, oyuncularUrl: d.DETAIL_LINK + "/oyuncular" } }])
@@ -36,14 +42,13 @@ export default async function list({ page, enqueueLinks, request, log, addReques
 }
 
 export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addRequests }) {
-
-
+debugger
     const { userData: { dizi, oyuncularUrl } } = request
 
     let hikaye_ve_kunye = []
 
     const exists = await page.$('.storyline-text tr')
-
+debugger
     if (exists) {
 
         hikaye_ve_kunye = await page.evaluate(() => {
