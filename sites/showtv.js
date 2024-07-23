@@ -44,7 +44,7 @@ export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addReq
     await autoscroll(page, 150)
 
     try {
-        await page.waitForSelector('.span.block p')
+        await page.waitForSelector('span.block p')
         hikaye_ve_kunye = await page.evaluate(() => {
             const SUMMARY = document.querySelector('span.block p').innerText
             const detail = Array.from(document.querySelectorAll('.w-full.mb-5 ul li')).map(m => {
