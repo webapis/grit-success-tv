@@ -31,10 +31,10 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
 
     for (let d of data) {
         debugger
-        await addRequests([{ url: d.DETAIL_LINK.replace('detay', 'dizisinin-oyunculari'), label: 'oyuncular', userData: { dizi: d } }])
+        await addRequests([{ url: d.DETAIL_LINK.replace('detay', 'dizisinin-oyunculari-ve-konusu'), label: 'oyuncular', userData: { dizi: d } }])
     }
     debugger
-  //  return data
+    //  return data
 
 }
 
@@ -44,11 +44,28 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
     const { userData: { dizi } } = request
     debugger
     const detail = await page.evaluate(() => {
-        const SUMMARY = document.querySelector('[type=title_serie]').innerText
-        const ACTORS = Array.from(document.querySelectorAll('.cast .cast-wrapper h6')).map(m => {
-            return { ACTOR: m.innerText }
-        })
-        return { SUMMARY, ACTORS }
+
+        return Array.from(document.querySelectorAll('[type="series"] .gmhmTl')).map(m => {
+            return {
+                title: m.querySelectorAll('div')[0].innerText,
+                value: m.querySelectorAll('div')[1].innerText,
+            }
+        }).reduce((prev, curr, i) => {
+            if (curr.title.includes("Konu:")) {
+                return { ...prev, SUMMARY: curr.value }
+            } else if (curr.title.includes("Oyuncular:")) {
+                return {
+                    ...prev, ACTORS: curr.value.split(",").map(m => {
+                        return { ACTOR: m }
+                    })
+                }
+            } else if (curr.title.includes("Yapımcı:")) {
+                return { ...prev, YAPIM_SIRKETI: curr.value.trim() }
+            } else if (curr.title.includes('Yapım Yılı:')) {
+                return { ...prev, YAYIN_TARIHI: curr.value }
+            }
+            return prev
+        }, {})
     })
 
 

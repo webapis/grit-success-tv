@@ -67,38 +67,55 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
 
     })
     for (let d of data) {
-        await addRequests([{ url: d.DETAIL_LINK.replace('izle','bilgi'), label: 'hikaye_ve_kunye', userData: { dizi: d, oyuncularUrl: d.DETAIL_LINK.replace('izle', 'oyuncular') } }])
+        await addRequests([{ url: d.DETAIL_LINK.replace('izle', 'bilgi'), label: 'hikaye_ve_kunye', userData: { dizi: d, oyuncularUrl: d.DETAIL_LINK.replace('izle', 'oyuncular') } }])
     }
 
 }
 
 export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addRequests }) {
 
-console.log('hikaye_ve_kunye')
+    console.log('hikaye_ve_kunye')
     const { userData: { dizi, oyuncularUrl } } = request
 
-    let SUMMARY = {}
+    let data = {}
 
     const exists = await page.$('.content')
-debugger
+    debugger
     if (exists) {
-debugger
-        SUMMARY = await page.evaluate(() => {
+        debugger
+        data = await page.evaluate(() => {
             const SUMMARY = document.querySelector('.content p').innerText
+            const detail =  Array.from(document.querySelectorAll('.about-meta')[1].querySelectorAll('*')[2].children).map(m => {
+                return { title: m.innerText, value: m.nextSibling?.nodeValue }
+            }).filter(f => f.title).reduce((prev, curr, i) => {
+                if (curr.title.includes("TÜR:")) {
+                    return { ...prev, GENRES: [curr.value] }
+                }
+                else if (curr.title.includes("YAPIM ŞİRKETİ:")) {
+                    return { ...prev, YAPIM_SIRKETI: curr.value }
+                }
+                else if (curr.title.includes("SENARYO:")) {
+                    return { ...prev, SENARIST: curr.value }
+                }
+                else if (curr.title.includes("YÖNETMEN:")) {
+                    return { ...prev, YONETMEN: curr.value }
+                }
 
-            return  SUMMARY 
+                return prev
+            }, {})
+            return { SUMMARY, ...detail }
         })
     }
 
-    await addRequests([{ url: oyuncularUrl, label: 'oyuncular', userData: { dizi, SUMMARY } }])
+    await addRequests([{ url: oyuncularUrl, label: 'oyuncular', userData: { dizi, data } }])
 
 
 }
 
 export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
-console.log('ouyuncular')
+    console.log('ouyuncular')
     debugger
-    const { userData: { dizi, SUMMARY } } = request
+    const { userData: { dizi, data } } = request
     debugger
     const ACTORS = await page.evaluate(() => {
         return Array.from(document.querySelectorAll('.casts .grid-item')).map(m => {
@@ -112,8 +129,8 @@ console.log('ouyuncular')
 
 
     })
-debugger
-    return { ACTORS, ...dizi, SUMMARY }
+    debugger
+    return { ACTORS, ...dizi, ...data }
 
 
 }
