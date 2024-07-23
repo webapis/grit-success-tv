@@ -1,9 +1,9 @@
 
-import { oyuncular } from '../sites/kanald.js'
+import first, {fourth} from '../sites/kanald.js'
 
 export default async function testRouter(props) {
 debugger
-    await oyuncular(props)
+    await fourth(props)
     debugger
 
     return data

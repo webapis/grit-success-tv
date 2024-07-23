@@ -1,13 +1,13 @@
 
-export default async function list({ page, enqueueLinks, request, log, addRequests }) {
+export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
-    debugger
- const result =   await enqueueLinks({
+
+    await enqueueLinks({
         selector: '.pagination a',
         label: 'list',
     });
-
     debugger
+
     const data = await page.evaluate(() => {
 
         const collection = Array.from(document.querySelectorAll(".listing-holder .item")).map(m => {
@@ -30,29 +30,57 @@ export default async function list({ page, enqueueLinks, request, log, addReques
         });
         return collection
     })
-debugger
+    debugger
     for (let d of data) {
 
-        await addRequests([{ url: d.DETAIL_LINK + '/hikaye-ve-kunye', label: 'hikaye_ve_kunye', userData: { dizi: d, oyuncularUrl: d.DETAIL_LINK + "/oyuncular" } }])
+        await addRequests([{ url: d.DETAIL_LINK, label: 'second', userData: { dataFromFirst: d } }])
 
     }
 
- //   return data
+    //   return data
 
 }
 
-export async function hikaye_ve_kunye({ page, enqueueLinks, request, log, addRequests }) {
-debugger
-    const { userData: { dizi, oyuncularUrl } } = request
 
-    let hikaye_ve_kunye = []
+//https://www.kanald.com.tr/yalan
 
-    const exists = await page.$('.storyline-text tr')
-debugger
-    if (exists) {
+export async function second({ page, enqueueLinks, request, log, addRequests }) {
+    debugger
+    const { userData: { dataFromFirst } } = request
+    const breadCrumbLinks = await page.evaluate(() => Array.from(document.querySelectorAll('.breadcrumb-link')).map(m => {
+        return { title: m.innerText, href: m.href }
+    }))
 
-        hikaye_ve_kunye = await page.evaluate(() => {
-            const SUMMARY = document.querySelector('.content-text p').innerHTML
+    const bilgiUrlExist = breadCrumbLinks.find(f => f.title.includes("Bilgi"))
+    const oyuncularUrlExists = breadCrumbLinks.find(f => f.title.includes("Oyuncular"))
+    if (bilgiUrlExist) {
+        debugger
+        await addRequests([{ url: bilgiUrlExist.href, label: 'third', userData: { dataFromFirst, nextUrl: oyuncularUrlExists ? oyuncularUrlExists : null } }])
+    } else
+        if (oyuncularUrlExists) {
+            debugger
+            await addRequests([{ url: oyuncularUrlExists.href, label: 'fourth', userData: { dataFromFirst } }])
+        }
+
+    if (!bilgiUrlExist && !oyuncularUrlExists) {
+        debugger
+        return { ...dataFromFirst }
+    }
+
+
+}
+
+//bilgi
+
+//https://www.kanald.com.tr/yalan/hikaye-ve-kunye
+export async function third({ page, enqueueLinks, request, log, addRequests }) {
+    debugger
+
+    const { userData: { dataFromFirst, nextUrl } } = request
+    const pageExists = await page.$('.content-text p')
+    if (pageExists) {
+        let dataFromThird = await page.evaluate(() => {
+            const SUMMARY = document.querySelector('.content-text p').innerText
             const summary1 = Array.from(document.querySelectorAll('.storyline-text tr')).map(m => {
                 return {
                     title: m.querySelectorAll('td')[0].innerText,
@@ -60,7 +88,7 @@ debugger
                 }
             }).reduce((prev, curr, i) => {
                 if (curr.title === 'Yapım') {
-                    return { ...prev, YAPIM_SIRKETI: curr.value.replace(':','').trim() }
+                    return { ...prev, YAPIM_SIRKETI: curr.value.replace(':', '').trim() }
                 } else if (curr.title.includes('Yapımcı')) {
                     return { ...prev, YAPIMCI: curr.value }
                 }
@@ -75,17 +103,25 @@ debugger
             }, {})
             return { SUMMARY, ...summary1 }
         })
-    }
+        if (nextUrl) {
+            await addRequests([{ url: nextUrl.href, label: 'fourth', userData: { dataFromFirst, dataFromThird } }])
+        }
+    } else
 
-    await addRequests([{ url: oyuncularUrl, label: 'oyuncular', userData: { dizi, hikaye_ve_kunye } }])
-
+        if (nextUrl) {
+            await addRequests([{ url: nextUrl.href, label: 'fourth', userData: { dataFromFirst } }])
+        } else {
+            return { ...dataFromFirst, ...dataFromThird }
+        }
 
 }
 
-export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
-    const currentUrl = await page.url()
+//oyuncular
+//https://www.kanald.com.tr/yalan/oyuncular
+export async function fourth({ page, enqueueLinks, request, log, addRequests }) {
+
     debugger
-    const { userData: { dizi, hikaye_ve_kunye } } = request
+    const { userData: { dataFromFirst, dataFromThird } } = request
     debugger
     const ACTORS = await page.evaluate(() => {
         return Array.from(document.querySelectorAll(".actor2-card")).map(m => {
@@ -105,16 +141,22 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
     })
 
-    return { ACTORS, ...dizi, ...hikaye_ve_kunye }
-
+    return { ACTORS, ...dataFromFirst, ...dataFromThird }
 
 }
 
 
-const urls = ["https://www.kanald.com.tr/diziler", "https://www.kanald.com.tr/diziler/arsiv"]
+
+
+
+
+
+
+
+const urls = ["https://www.kanald.com.tr/diziler","https://www.kanald.com.tr/diziler/arsiv"]
 export { urls }
 
 
-//summary
+// "https://www.kanald.com.tr/diziler/arsiv"
 
 //https://www.kanald.com.tr/azize

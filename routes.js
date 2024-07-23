@@ -11,8 +11,7 @@ export const router = createPuppeteerRouter();
 
 router.addDefaultHandler(async ({ enqueueLinks, log, page, request, addRequests }) => {
   const url = await page.url()
-  const title = await page.title();
-  console.log(`enqueueing new URLs`, url);
+  console.log(`enqueueing new URLs: first`, url);
 
   await enqueueLinks({
     selector: '.pagination a',
@@ -31,38 +30,50 @@ router.addDefaultHandler(async ({ enqueueLinks, log, page, request, addRequests 
 
 });
 
-router.addHandler('hikaye_ve_kunye', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
-  const title = await page.title();
-  const siteVar = await import(`./sites/${site}.js`)
 
-  const handler = siteVar.hikaye_ve_kunye
-  await handler({ page, enqueueLinks, request, log, addRequests })
-
-
-
-
-});
-router.addHandler('oyuncular', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
-  const title = await page.title();
-  const siteVar = await import(`./sites/${site}.js`)
-  debugger
-  const handler = siteVar.oyuncular
-  const data = await handler({ page, enqueueLinks, request, log, addRequests })
-
-  await productsDataset.pushData(data);
-  debugger
-
-});
 
 
 router.addHandler('second', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
-  const title = await page.title();
+  const url = await page.url()
+  console.log(`enqueueing new URLs: second`, url);
   const siteVar = await import(`./sites/${site}.js`)
   debugger
   const handler = siteVar.second
   const data = await handler({ page, enqueueLinks, request, log, addRequests })
+  if (data) {
+    await productsDataset.pushData(data);
+  }
 
-  await productsDataset.pushData(data);
   debugger
+
+});
+router.addHandler('third', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
+  const url = await page.url()
+  console.log(`enqueueing new URLs: third`, url);
+  const siteVar = await import(`./sites/${site}.js`)
+
+  const handler = siteVar.third
+  const data = await handler({ page, enqueueLinks, request, log, addRequests })
+
+  if (data) {
+    await productsDataset.pushData(data);
+  }
+
+
+
+});
+router.addHandler('fourth', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
+  const url = await page.url()
+  console.log(`enqueueing new URLs: fourth`, url);
+  const siteVar = await import(`./sites/${site}.js`)
+  debugger
+  const handler = siteVar.fourth
+  const data = await handler({ page, enqueueLinks, request, log, addRequests })
+
+
+  if (data) {
+    await productsDataset.pushData(data);
+  }
+
 
 });
