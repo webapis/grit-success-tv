@@ -5,7 +5,7 @@ const adddizi = [{
     TVSERIES_TITLE: "Kimse Bilmez"
 
 }]
-export default async function dizi({ page, enqueueLinks, request, log, addRequests }) {
+export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
 
     const data = await page.evaluate(() => {
@@ -18,14 +18,14 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
         return collection
     })
     for (let d of [...data, ...adddizi]) {
-        await addRequests([{ url: d.WIKILINK, label: 'oyuncular', userData: { dizi: d } }])
+        await addRequests([{ url: d.WIKILINK, label: 'second', userData: { dizi: d } }])
     }
     debugger
     //  return data
 
 }
 
-export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
+export async function second({ page, enqueueLinks, request, log, addRequests }) {
 
     debugger
     const { userData: { dizi } } = request

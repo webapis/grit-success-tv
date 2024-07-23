@@ -1,15 +1,17 @@
 
-export default async function dizi({ page, enqueueLinks, request, log, addRequests }) {
+export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
-    function extractImageUrl(inputString) {
-        // Regular expression to match the URL within the quotes
-        const regex = /url\("([^"]+)"\)/;
-        const matches = inputString.match(regex);
 
-        // Return the URL if found, otherwise return null
-        return matches ? matches[1] : null;
-    }
     const data = await page.evaluate(() => {
+
+        function extractImageUrl(inputString) {
+            // Regular expression to match the URL within the quotes
+            const regex = /url\("([^"]+)"\)/;
+            const matches = inputString.match(regex);
+    
+            // Return the URL if found, otherwise return null
+            return matches ? matches[1] : null;
+        }
         const collection = Array.from(document.querySelectorAll(".mdp-imager-wrap")).map(m => {
             // Check if elements exist before accessing properties
             const TVSERIES_TITLE = m.querySelector(".mdp-imager-box-title")?.innerText.toLowerCase();
@@ -23,6 +25,7 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
                     POSTER_ORIENTATION: "portrait",
                     POSTER_QUALITY: 1
                 },
+                 YAPIM_SIRKETI:"NGM"
 
             }
         });

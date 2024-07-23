@@ -1,16 +1,16 @@
 
-import first, {fourth} from '../sites/kanald.js'
+import first,{second} from '../sites/showtv.js'
 
 export default async function testRouter(props) {
 debugger
-    await fourth(props)
+    await second(props)
     debugger
 
-    return data
+   // return data
     debugger
     //test
 }
 
-const testUrl = ["https://www.kanald.com.tr/yalan/oyuncular"]
+const testUrl = ["'https://www.showtv.com.tr/dizi/tanitim/bahar/2941"]
 
 export { testUrl }

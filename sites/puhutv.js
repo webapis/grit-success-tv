@@ -1,5 +1,5 @@
 import autoScroll from "../src/autoscroll.js";
-export default async function dizi({ page, enqueueLinks, request, log, addRequests }) {
+export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     await autoScroll(page, 150)
     await page.waitForSelector('.content-name')
@@ -31,19 +31,43 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
 
     for (let d of data) {
         debugger
-        await addRequests([{ url: d.DETAIL_LINK.replace('detay', 'dizisinin-oyunculari-ve-konusu'), label: 'oyuncular', userData: { dizi: d } }])
+        await addRequests([{ url: d.DETAIL_LINK, label: 'second', userData: { firstData:d } }])
     }
     debugger
     //  return data
 
 }
 
-export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
 
-    debugger
-    const { userData: { dizi } } = request
-    debugger
-    const detail = await page.evaluate(() => {
+//https://puhutv.com/gaddar-detay
+export async function second({ page, enqueueLinks, request, log, addRequests }) {
+    const { userData: { firstData } } = request
+    const secondData = await page.evaluate(() => {
+        const TVSERIES_TITLE = document.querySelector("[type=detail] h1").innerText
+        const GENRES = [document.querySelector("[type=detail] span").innerText]
+
+        return { TVSERIES_TITLE, GENRES }
+    })
+
+    const hrefs = await page.evaluate(() => {
+        return Array.from(document.querySelectorAll('div#container-wrapper div[class^="sc-"] a[class]')).map(m => { return { title: m.innerText, href: m.href } })
+    })
+
+    const detailHrefExists = hrefs.find(f => f.title.includes("Ayrıntılar"))
+
+
+    if (detailHrefExists) {
+        await addRequests([{ url: detailHrefExists.href, label: 'third', userData: { dizi: firstData, secondData } }])
+    } else {
+
+        return { firstData, secondData }
+    }
+
+}
+//https://puhutv.com/gaddar-dizisinin-oyunculari-ve-konusu
+export async function third({ page, enqueueLinks, request, log, addRequests }) {
+    const { userData: { firstData, secondData } } = request
+    const thirdData = await page.evaluate(() => {
 
         return Array.from(document.querySelectorAll('[type="series"] .gmhmTl')).map(m => {
             return {
@@ -68,11 +92,11 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
         }, {})
     })
 
-
-    return { ...detail, ...dizi }
-
+    return { ...firstData, ...secondData, ...thirdData }
 
 }
+
+
 
 
 const urls = ["https://puhutv.com/dizi", 'https://puhutv.com/list/kategoriler-dizi&item_id=791519']
