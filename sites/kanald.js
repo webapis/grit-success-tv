@@ -87,7 +87,7 @@ export async function third({ page, enqueueLinks, request, log, addRequests }) {
                     value: m.querySelectorAll('td')[1].innerText
                 }
             }).reduce((prev, curr, i) => {
-                if (curr.title.includes('Yapım')) {
+                if (curr.title.includes('Yapım') && !curr.title.includes('Yapımcı')) {
                     return { ...prev, YAPIM_SIRKETI: curr.value.replace(':', '').trim() }
                 } else if (curr.title.includes('Yapımcı')) {
                     return { ...prev, YAPIMCI: curr.value }
