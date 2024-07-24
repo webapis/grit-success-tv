@@ -1,6 +1,6 @@
 
-export default async function dizi({ page, enqueueLinks, request, log, addRequests }) {
-
+export default async function first({ page, enqueueLinks, request, log, addRequests }) {
+    debugger
 
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll(".grid .poster-card")).map(m => {
@@ -21,34 +21,61 @@ export default async function dizi({ page, enqueueLinks, request, log, addReques
                 },
             }
         });
-        return collection.filter(f=>!f.DETAIL_LINK.includes('/program/'))
+        return collection.filter(f => !f.DETAIL_LINK.includes('/program/'))
     })
     for (let d of data) {
-        await addRequests([{ url: d.DETAIL_LINK + '/oyuncular', label: 'oyuncular', userData: { dizi: d } }])
+        await addRequests([{ url: d.DETAIL_LINK, label: 'second', userData: { firstData: d } }])
     }
     debugger
     // return data
 
 }
 
-export async function oyuncular({ page, enqueueLinks, request, log, addRequests }) {
-    const currentUrl = await page.url()
+//https://www.startv.com.tr/dizi/yali-capkini
+export async function second({ page, enqueueLinks, request, log, addRequests }) {
+
     debugger
-    const { userData: { dizi } } = request
+    const { userData: { firstData } } = request
+
+    const hrefs = await page.evaluate(() => {
+        return Array.from(document.querySelectorAll('nav h3 a')).map((m) => {
+            return { title: m.innerText, href: m.href }
+        })
+    })
+    const bilgilerHrefExist = hrefs.find(f => f.title.includes("Oyuncular & Künye"))
+    if (bilgilerHrefExist) {
+        await addRequests([{ url: bilgilerHrefExist.href, label: 'third', userData: { firstData } }])
+    
+    } else {
+
+        return { ...firstData }
+    }
     debugger
-    const ACTORS = await page.evaluate(() => {
+
+
+
+
+}
+
+//https://www.startv.com.tr/dizi/yali-capkini/oyuncular
+export async function third({ page, enqueueLinks, request, log, addRequests }) {
+
+    debugger
+    const { userData: { firstData } } = request
+    debugger
+    const thirdData = await page.evaluate(() => {
         function getElementByInnerText(text) {
             const allElements = Array.from(document.body.getElementsByTagName('*'));
-            
-            return allElements.find(function(element) {
-              return element.innerText && element.innerText.trim() === text;
-            });
-          }
 
-          const SUMMARY = getElementByInnerText('Hikaye')?.nextElementSibling.innerText
-          const YONETMEN =getElementByInnerText('Yönetmen')?.nextElementSibling.innerText
-          const YAPIM_SIRKETI= getElementByInnerText('Yapım')?.nextElementSibling.innerText
-          const ACTORS= Array.from(document.querySelectorAll(".actor-card")).map(m => {
+            return allElements.find(function (element) {
+                return element.innerText && element.innerText.trim() === text;
+            });
+        }
+
+        const SUMMARY = getElementByInnerText('Hikaye')?.nextElementSibling.innerText
+        const YONETMEN = getElementByInnerText('Yönetmen')?.nextElementSibling.innerText
+        const YAPIM_SIRKETI = getElementByInnerText('Yapım')?.nextElementSibling.innerText
+        const ACTORS = Array.from(document.querySelectorAll(".actor-card")).map(m => {
             // Check if elements exist before accessing properties
             const ACTOR = m.querySelector('.actor-card-content p')?.innerText;
             const CHARACTER = m.querySelector('h4')?.innerText
@@ -63,16 +90,14 @@ export async function oyuncular({ page, enqueueLinks, request, log, addRequests 
 
 
 
-return {ACTORS,SUMMARY,YONETMEN,YAPIM_SIRKETI}
+        return { ACTORS, SUMMARY, YONETMEN, YAPIM_SIRKETI }
 
     })
-
-    return { ...ACTORS, ...dizi }
+debugger
+    return { ...thirdData, ...firstData }
 
 
 }
-
-
 const urls = ["https://www.startv.com.tr/dizi"]
 export { urls }
 

@@ -1,9 +1,9 @@
 
-import first,{second} from '../sites/showtv.js'
+import first,{second, third} from '../sites/startv.js'
 
 export default async function testRouter(props) {
 debugger
-    await second(props)
+    await third(props)
     debugger
 
    // return data
@@ -11,6 +11,6 @@ debugger
     //test
 }
 
-const testUrl = ["'https://www.showtv.com.tr/dizi/tanitim/bahar/2941"]
+const testUrl = ["https://www.startv.com.tr/dizi/yali-capkini/oyuncular"]
 
 export { testUrl }
