@@ -6,12 +6,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         const collection = Array.from(document.querySelectorAll(".masonry-item")).map(m => {
             // Check if elements exist before accessing properties
             const TVSERIES_TITLE = m.querySelector("a img").alt;
-            const WATCH_LINK = m.querySelector("a")?.href;
             const DETAIL_LINK = m.querySelector("a")?.href;
             const POSTER_IMG = m.querySelector("a img")?.getAttribute('src');
             return {
                 TVSERIES_TITLE,
-                WATCH_LINK,
                 DETAIL_LINK,
                 POSTER: {
                     POSTER_IMG,
