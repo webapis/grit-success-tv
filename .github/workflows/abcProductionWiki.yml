@@ -1,0 +1,14 @@
+name: abcProductionWiki
+on:
+  schedule:
+    - cron:  '0 0 * * 4'
+env:
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+jobs:
+  kadin_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      gitFolder: tvseries
+      site: 'abcProductionWiki'
+    secrets: inherit
