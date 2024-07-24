@@ -56,7 +56,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                     value: m.querySelectorAll('span')[1].innerText
                 }
             })?.reduce((prev, curr, i) => {
-                if (curr.title.includes("Yapım")) {
+                if (curr.title.includes("Yapım") && !curr.title.includes("Yapımcı")) {
                     return { ...prev, YAPIM_SIRKETI: curr?.value.trim() }
                 }
                 if (curr.title.includes("Yönetmen")) {
