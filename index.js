@@ -16,7 +16,7 @@ const crawler = new PuppeteerCrawler({
   requestHandler: test==='true'? testRouter: router,
   maxConcurrency: 1,
   preNavigationHooks,
-  navigationTimeoutSecs:120, headless:false,requestHandlerTimeoutSecs:600000
+  navigationTimeoutSecs:120, headless:true,requestHandlerTimeoutSecs:600000
 
 });
 
