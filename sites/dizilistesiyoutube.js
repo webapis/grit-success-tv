@@ -23,5 +23,5 @@ debugger
 
 //m.querySelector('.yt-core-image').src
 
-const urls = ["https://www.youtube.com/watch?v=A0YQiurLom4&list=PLDqeHyMqCZ2xUIg82higJdctXBHjB6baQ"]
+const urls = ["https://www.youtube.com/watch?v=A0YQiurLom4&list=PLDqeHyMqCZ2xUIg82higJdctXBHjB6baQ","https://www.youtube.com/watch?v=Vs2vPMCHAr8&list=PLKWui-ds6V3NZD1JpHROKVKPyjj3eNs6x"]
 export { urls }
