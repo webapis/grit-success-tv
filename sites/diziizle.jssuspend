@@ -1,14 +1,14 @@
 
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
-
-    await enqueueLinks({
-        selector: '.butonlar-sayfala a',
-        label: 'list',
-    });
+    debugger
+    // await enqueueLinks({
+    //     selector: '.butonlar-sayfala a',
+    //     label: 'list',
+    // });
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll(".film")).map(m => {
             // Check if elements exist before accessing properties
-            const TVSERIES_TITLE = m.querySelector('.resim a[title]').getAttribute('title');
+           const TVSERIES_TITLE = m.querySelector('.resim a[title]').getAttribute('title');
 
             const DETAIL_LINK = m.querySelector('.resim a').href;
             const POSTER_IMG = m.querySelector('.resim img')?.src;
@@ -40,9 +40,13 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     debugger
     const { userData: { firstData } } = request
 
-    const nextHref = await page.evaluate(() => document.querySelector('.dizi-izle a').href)
-
-    await addRequests([{ url: nextHref, label: 'second', userData: { firstData } }])
+    const nextHref = await page.evaluate(() => document.querySelector('.dizi-izle a')?.href)
+    debugger
+    if(nextHref){
+        console.log('added to third',nextHref)
+        await addRequests([{ url: nextHref, label: 'third', userData: { firstData } }])
+    }
+  
     debugger
 
 
@@ -56,14 +60,34 @@ export async function third({ page, enqueueLinks, request, log, addRequests }) {
 
     debugger
     const { userData: { firstData } } = request
+    debugger
+    await page.waitForSelector('iframe');
+   
+debugger
+const elementHandle = await page.$('iframe');
 
-    const WATCH_LINK = await page.evaluate(() => document.querySelector('body iframe').src)
+const frame = await elementHandle.contentFrame();
 
+const elementHandle2 = await frame.$('iframe')
+
+const frame2 = await elementHandle2.contentFrame();
+
+const href = await frame2.$('a.ytp-title-link.yt-uix-sessionlink').href
+
+debugger
+    const WATCH_LINK = await page.evaluate(() => {
+  
+        const link = document.querySelector('a.ytp-title-link.yt-uix-sessionlink')?.href
+
+        return link
+    })
+    debugger
     return { WATCH_LINK, ...firstData }
 
- 
+
 
 }
 
 const urls = ["https://www.diziizle.pw/diziler/"]
 export { urls }
+
