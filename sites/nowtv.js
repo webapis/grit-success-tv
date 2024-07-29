@@ -57,11 +57,11 @@ export default async function first({ page, enqueueLinks, request, log, addReque
                 TVSERIES_TITLE,
                 WATCH_LINK,
                 DETAIL_LINK,
-                POSTER: {
-                    POSTER_ORIENTATION: 'landscape',
-                    POSTER_QUALITY: 1,
-                    POSTER_IMG: m.querySelector('img').getAttribute('src')
-                }
+                // POSTER: {
+                //     POSTER_ORIENTATION: 'landscape',
+                //     POSTER_QUALITY: 1,
+                //     POSTER_IMG: m.querySelector('img').getAttribute('src')
+                // }
             }
         })
 
