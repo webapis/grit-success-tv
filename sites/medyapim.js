@@ -17,8 +17,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
                 DETAIL_LINK,
                 POSTER: {
                     POSTER_IMG,
-                    POSTER_ORIENTATION: "landscape",
-                    POSTER_QUALITY: 10
+                    POSTER_ORIENTATION: "portrait",
+                    POSTER_QUALITY: 1
                 }
             }
         });
