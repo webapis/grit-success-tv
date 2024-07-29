@@ -6,7 +6,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
         const collection = Array.from(document.querySelectorAll(".slide-item")).map(m => {
             // Check if elements exist before accessing properties
-            const TVSERIES_TITLE = m.querySelector(".iq-title")?.innerText.toLocaleLowerCase();
+            const TVSERIES_TITLE = m.querySelector(".iq-title")?.innerText.toLowerCase();
             const WATCH_LINK = m.querySelector("a")?.href;
             const DETAIL_LINK = m.querySelector("a")?.href;
             const POSTER_IMG = m.querySelector("img.img-fluid")?.getAttribute('src');
@@ -45,9 +45,9 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     const { userData: { dizi } } = request
     debugger
     const data = await page.evaluate(() => {
-        const SUMMARY = document.querySelector('.trending-dec p').innerText
-        const GENRES = document.querySelector('li.text-primary').innerText.split(", ")
-        const FIRST_YEAR = document.querySelector('.trending-year').innerText.replace(/[^\d]/gi, '')
+        const SUMMARY = document.querySelector('.trending-dec p')?.innerText
+        const GENRES = document.querySelector('li.text-primary')?.innerText.split(", ")
+        const FIRST_YEAR = document.querySelector('.trending-year')?.innerText.replace(/[^\d]/gi, '')
         return {
             SUMMARY,
             GENRES,
