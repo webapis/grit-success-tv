@@ -9,19 +9,19 @@ export default async function first({ page, enqueueLinks, request, log, addReque
             const TVSERIES_TITLE = m.querySelector(".content-name")?.innerText.toLowerCase();
             const DETAIL_LINK = m.querySelector("a:not(.watch)")?.href;
             const WATCH_LINK = m.querySelector("a")?.href;
-            const imgSrc = m.querySelector("a img")?.getAttribute('src');
-            const htmlString = m.querySelector('noscript') ? m.querySelector('noscript').innerHTML : null
-            let regex = /src="([^"]*)"/;
-            let POSTER_IMG = htmlString ? htmlString.match(regex)[1] : imgSrc;
+          //  const imgSrc = m.querySelector("a img")?.getAttribute('src');
+          //  const htmlString = m.querySelector('noscript') ? m.querySelector('noscript').innerHTML : null
+          //  let regex = /src="([^"]*)"/;
+         //   let POSTER_IMG = htmlString ? htmlString.match(regex)[1] : imgSrc;
             return {
                 TVSERIES_TITLE,
                 WATCH_LINK,
                 DETAIL_LINK,
-                POSTER: {
-                    POSTER_IMG,
-                    POSTER_ORIENTATION: "portrait",
-                    POSTER_QUALITY: 1
-                },
+                // POSTER: {
+                //     POSTER_IMG,
+                //     POSTER_ORIENTATION: "portrait",
+                //     POSTER_QUALITY: 1
+                // },
             }
         })
         return collection.filter(f => f.TVSERIES_TITLE)
