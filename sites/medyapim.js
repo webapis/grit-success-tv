@@ -24,10 +24,14 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         });
         return collection
     })
+
+
+    debugger
     for (let d of data) {
-        if(!d.WATCH_LINK.includes('tv-programlari')){
+        debugger
+    
             await addRequests([{ url: d.WATCH_LINK, label: 'second', userData: { dizi: d } }])
-        }
+        
        
     }
     debugger
