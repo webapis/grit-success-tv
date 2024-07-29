@@ -1,5 +1,5 @@
 
-import first from '../sites/dizilistesiyoutube.js'
+import first from '../sites/ayyapim.js'
 
 export default async function testRouter(props) {
 debugger
@@ -11,6 +11,6 @@ debugger
     //test
 }
 
-const testUrl = ["https://www.youtube.com/watch?v=A0YQiurLom4&list=PLDqeHyMqCZ2xUIg82higJdctXBHjB6baQ"]
+const testUrl = ["https://ayyapim.com/tr-tr/diziler"]
 
 export { testUrl }
