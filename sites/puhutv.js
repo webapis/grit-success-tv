@@ -1,8 +1,8 @@
 import autoScroll from "../src/autoscroll.js";
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
-    await autoScroll(page, 150)
-    await page.waitForSelector('.content-name')
+   // await autoScroll(page, 150)
+   // await page.waitForSelector('.content-name')
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll('.swiper-slide')).map(m=>{
             const TVSERIES_TITLE =m.querySelector('.content-name')?.innerText
@@ -20,7 +20,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     for (let d of data) {
         debugger
-        await addRequests([{ url: d.DETAIL_LINK, label: 'second', userData: { firstData:d } }])
+        await addRequests([{ url: d.WATCH_LINK, label: 'second', userData: { firstData:d } }])
     }
     debugger
     //  return data
