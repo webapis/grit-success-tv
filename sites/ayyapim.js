@@ -22,7 +22,7 @@ debugger
                 POSTER: {
                     POSTER_IMG: extractImageUrl(m.querySelector('a img').style.backgroundImage).trim().replaceAll('\"',''),
                     POSTER_ORIENTATION: "portrait",
-                    POSTER_QUALITY: 5
+                    POSTER_QUALITY: 1
                 },
             }
         })
