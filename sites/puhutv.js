@@ -1,8 +1,8 @@
 import autoScroll from "../src/autoscroll.js";
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
-   // await autoScroll(page, 150)
-   // await page.waitForSelector('.content-name')
+    await autoScroll(page, 150)
+    await page.waitForSelector('.content-name')
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll('.swiper-slide')).map(m=>{
             const TVSERIES_TITLE =m.querySelector('.content-name')?.innerText
@@ -46,7 +46,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
 
     if (detailHrefExists) {
-        await addRequests([{ url: detailHrefExists.href, label: 'third', userData: { dizi: firstData, secondData } }])
+        await addRequests([{ url: detailHrefExists.href, label: 'third', userData: {  firstData, secondData } }])
     } else {
 
         return { firstData, secondData }
