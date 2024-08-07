@@ -3,7 +3,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 
     const result = await enqueueLinks({
-        selector: '.page-body-content-sitemap a',
+        selector: '.lcw-site-map-category a',
         label: 'first',
     });
 
@@ -13,12 +13,12 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         const pageURL = document.URL
         const result = Array.from(document.querySelectorAll('.product-card')).map(m => {
 
-            const title = document.querySelector('.product-card__title a')?.innerText
-            const price = document.querySelector('.product-card__price--new')?.innerText
-            const priceBacket = document.querySelector('.product-card__price--basket div')?.textContent
+            const title =m.querySelector('.product-card__title')?.innerText
+            const price =  m.querySelector('.product-price__price')?.innerText
+    
             return {
                 title,
-                price: priceBacket ? priceBacket : price
+                price
             }
 
         })

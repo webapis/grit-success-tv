@@ -13,9 +13,9 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         const pageURL = document.URL
         const result = Array.from(document.querySelectorAll('.product-card')).map(m => {
 
-            const title = document.querySelector('.product-card__title a')?.innerText
-            const price = document.querySelector('.product-card__price--new')?.innerText
-            const priceBacket = document.querySelector('.product-card__price--basket div')?.textContent
+            const title = m.querySelector('.product-card__title a')?.innerText
+            const price = m.querySelector('.product-card__price--new')?.innerText
+            const priceBacket = m.querySelector('.product-card__price--basket div')?.textContent
             return {
                 title,
                 price: priceBacket ? priceBacket : price
