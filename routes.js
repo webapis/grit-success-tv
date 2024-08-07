@@ -7,21 +7,22 @@ dotenv.config({ silent: true });
 const site = process.env.site
 const gitFolder = process.env.gitFolder
 const productsDataset = await Dataset.open(gitFolder);
+debugger
 export const router = createPuppeteerRouter();
 
 router.addDefaultHandler(async ({ enqueueLinks, log, page, request, addRequests }) => {
   const url = await page.url()
   console.log(`enqueueing new URLs: first`, url);
 
-  await enqueueLinks({
-    selector: '.pagination a',
-    label: 'list',
-    // limit:local? 1 :0
-  });
-  const siteVar = await import(`./sites/${site}.js`)
+  // await enqueueLinks({
+  //   selector: '.pagination a',
+  //   label: 'list',
+  //   // limit:local? 1 :0
+  // });
+  const siteVar = await import(`./sites/${gitFolder}/${site}.js`)
 
   const handler = siteVar.default
-
+debugger
   const data = await handler({ page, enqueueLinks, request, log, addRequests })
 
   if (data) {

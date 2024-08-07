@@ -1,5 +1,5 @@
 
-import first from '../sites/ayyapim.js'
+import first from '../sites/product/koton.js'
 
 export default async function testRouter(props) {
 debugger
