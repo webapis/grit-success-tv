@@ -48,5 +48,5 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     return data
 }
 
-const urls = ["https://www.beymen.com/tr/home/sitemap"]
+const urls = ["https://www.beymen.com/tr/kadin-giyim-elbise-10037"]
 export { urls }
