@@ -7,7 +7,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         selector: '.nav-item a',
         label: 'first',
     });
-    await autoScroll(page, 50)
+    await autoScroll(page, 150)
 
     const data = await page.evaluate(() => {
         const pageTitle = document.title
