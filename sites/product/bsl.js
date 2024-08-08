@@ -1,16 +1,30 @@
 
-import autoscroll from '../../src/autoscroll.js'
+
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
-
+    const url = await page.url()
     await enqueueLinks({
         selector: '.SitemapSection a',
         label: 'first',
     });
-    await autoscroll(page, 200)
+    //await autoscroll(page, 200)
 
     //pagination
+    const countProducts = await page.evaluate(() => parseInt(document.querySelector('.TotalProductCount')?.innerText.replace(/[^\d]/gi, '')))
+    const totalPages = Math.ceil(countProducts / 24)
 
+
+    for (let i = 2; i <= totalPages; i++) {
+
+        await addRequests([{ url: `${url}?p=${i}`, label: 'second' }])
+
+    }
+
+
+}
+
+
+export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const data = await page.evaluate(() => {
         const pageTitle = document.title
         const pageURL = document.URL
@@ -30,6 +44,6 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     return data
 
 }
-
+//.replace(/[^\d]/gi,''))
 const urls = ["https://www.bsl.com.tr/tr/site-haritasi"]
 export { urls }

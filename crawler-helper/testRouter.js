@@ -11,6 +11,6 @@ export default async function testRouter(props) {
     //test
 }
 
-const testUrl = ["https://www.oxxo.com.tr/tr/giyim/#wd=1&o=3&prc=&ct=123&u=48&g=3,2&p=100"]
+const testUrl = ["https://www.bsl.com.tr/tr/yeniler?p=3"]
 
 export { testUrl }

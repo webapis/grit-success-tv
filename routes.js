@@ -37,7 +37,7 @@ debugger
 router.addHandler('second', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
   const url = await page.url()
   console.log(`enqueueing new URLs: second`, url);
-  const siteVar = await import(`./sites/${site}.js`)
+  const siteVar = await import(`./sites/${gitFolder}/${site}.js`)
   debugger
   const handler = siteVar.second
   const data = await handler({ page, enqueueLinks, request, log, addRequests })
@@ -51,7 +51,7 @@ router.addHandler('second', async ({ request, page, log, pushData, enqueueLinks,
 router.addHandler('third', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
   const url = await page.url()
   console.log(`enqueueing new URLs: third`, url);
-  const siteVar = await import(`./sites/${site}.js`)
+  const siteVar = await import(`./sites/${gitFolder}/${site}.js`)
 
   const handler = siteVar.third
   const data = await handler({ page, enqueueLinks, request, log, addRequests })
@@ -66,7 +66,7 @@ router.addHandler('third', async ({ request, page, log, pushData, enqueueLinks, 
 router.addHandler('fourth', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
   const url = await page.url()
   console.log(`enqueueing new URLs: fourth`, url);
-  const siteVar = await import(`./sites/${site}.js`)
+  const siteVar = await import(`./sites/${gitFolder}/${site}.js`)
   debugger
   const handler = siteVar.fourth
   const data = await handler({ page, enqueueLinks, request, log, addRequests })
