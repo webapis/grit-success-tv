@@ -3,10 +3,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const url = await page.url()
 
-    await enqueueLinks({
-        selector: 'a.m-siteMap__link',
-        label: 'first',
-    });
+    // await enqueueLinks({
+    //     selector: 'a.m-siteMap__link',
+    //     label: 'first',
+    // });
 
 
     const productCount = await page.evaluate(() => parseInt(document.querySelector('.o-productList__top--breadcrumbCount')?.innerText.replace(/[^\d]/gi, '') ))
