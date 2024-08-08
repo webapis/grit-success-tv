@@ -30,6 +30,6 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 }
 
-const urls = ["https://www.bysaygi.com/"]
+const urls = ["https://www.bysaygi.com/tum-urunler"]
 
 export { urls }
