@@ -3,35 +3,32 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
-    await enqueueLinks({
-        selector: '.MainMenuOuther a',
-        label: 'first',
-    });
-    
-  
 
-    const dataLayer = await page.evaluate(() => {
-
-       
-
-        return dataLayer
+    const urls = await page.evaluate(() => {
+        return Array.from(document.querySelectorAll('#MainMenu a')).map(m => m.href).filter((f) => !f.includes('undefined') && !f.includes('javascript'))
     })
-    const category = dataLayer.find((f) => f.event === 'ee_productImpression')
+    for (let u of urls) {
 
-
-    if (category) {
-
-        
-        const pageUrl = url + `?p=100`
-        debugger
-        await addRequests([{ url: pageUrl, label: 'second' }])
-
-
-        
-
-    } else {
-        return []
+        await addRequests([{ url: `${u}?p=100`, label: 'second' }])
     }
+
+    // const dataLayer = await page.evaluate(() => {
+
+    //     return dataLayer
+    // })
+    // const category = dataLayer.find((f) => f.event === 'ee_productImpression')
+
+
+    // if (category) {
+
+    //     const pageUrl = url + `?p=100`
+    //     debugger
+    //     await addRequests([{ url: pageUrl, label: 'second' }])
+
+    // } else {
+
+    //     return []
+    // }
 
 
 }
