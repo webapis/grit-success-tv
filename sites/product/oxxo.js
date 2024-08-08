@@ -8,7 +8,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         label: 'first',
     });
     
-    // await scrollNTimes(page, 5, 400)
+     await scrollNTimes(page, 5, 400)
 
     const dataLayer = await page.evaluate(() => {
 
