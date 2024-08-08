@@ -1,13 +1,32 @@
 
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
+    const url = await page.url()
 
-    const result = await enqueueLinks({
+    await enqueueLinks({
         selector: '.page-body-content-sitemap a',
         label: 'first',
     });
 
-   
+    const productCount = await page.evaluate(() => parseInt(document.querySelector('.catalog__meta--product-count')?.innerText.replace(/[^\d]/gi, '')))
+    const totalPages = Math.ceil(productCount / 66)
+
+
+
+
+    if (productCount > 0 && totalPages > 1) {
+
+        for (let i = 1; i <= totalPages; i++) {
+
+            await addRequests([{ url: `${url}?page=${i}`, label: 'second' }])
+
+        }
+    }
+
+
+}
+
+export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const data = await page.evaluate(() => {
         const pageTitle = document.title
         const pageURL = document.URL
@@ -28,7 +47,6 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     debugger
     return data
-
 }
 
 const urls = ["https://www.defacto.com.tr/statik/sitemap"]

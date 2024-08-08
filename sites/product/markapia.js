@@ -14,10 +14,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const productCount = await page.evaluate(() => parseInt(document.querySelector('.hidden.text-sm').innerText.replace(/[^\d]/gi, '')))
     const totalPages = Math.ceil(productCount / 20)
-    await addRequests([{ url, label: 'second' }])
+
     if (productCount > 0 && totalPages > 1) {
 
-        for (let i = 2; i <= totalPages; i++) {
+        for (let i = 1; i <= totalPages; i++) {
 
             await addRequests([{ url: `${url}?page=${i}`, label: 'second' }])
 
