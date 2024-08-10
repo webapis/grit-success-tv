@@ -45,7 +45,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     })
 
     debugger
-    return data
+    return data.map(m=>m.price.replace("Ek İndirimle\n",''))
 }
 
 const urls = ["https://www.beymen.com/tr/kadin-giyim-elbise-10037"]
