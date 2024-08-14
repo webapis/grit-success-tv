@@ -29,7 +29,9 @@ export default async function first({
       .filter((f) => f.title);
 
     return result.length > 0
-      ? result
+      ? result.map((m) => {
+          return { ...m, pageTitle, pageURL };
+        })
       : [];
   });
 
@@ -37,8 +39,8 @@ export default async function first({
     return item.price?.map((price) => ({
       title: item.title,
       price: price.trim(),
-      pageTitle,
-      pageURL
+      pageTitle: item.pageTitle,
+      pageURL: item.pageURL,
     }));
   });
 }
