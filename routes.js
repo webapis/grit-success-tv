@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { createPuppeteerRouter, Dataset } from 'crawlee';
+import { createPlaywrightRouter, Dataset } from 'crawlee';
 
 const local = process.env.local
 dotenv.config({ silent: true });
@@ -8,7 +8,7 @@ const site = process.env.site
 const gitFolder = process.env.gitFolder
 const productsDataset = await Dataset.open(gitFolder);
 debugger
-export const router = createPuppeteerRouter();
+export const router = createPlaywrightRouter();
 
 router.addDefaultHandler(async ({ enqueueLinks, log, page, request, addRequests }) => {
   const url = await page.url()
