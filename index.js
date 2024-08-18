@@ -7,16 +7,22 @@ const site = process.env.site;
 const local = process.env.local;
 const test = process.env.test;
 const HEADLESS = process.env.HEADLESS;
-const URL_CATEGORIES = process.env.URL_CATEGORIES
-const siteVar = await import(`./sites/${gitFolder}/${site}.js`);
+const URL_CATEGORIES = process.env.URL_CATEGORIES;
+//const siteVar = await import(`./sites/${gitFolder}/${site}.js`);
 
-const urls1 = URL_CATEGORIES && (await import(`./url-categories/${URL_CATEGORIES}.js`)).default
+const urls1 =
+  URL_CATEGORIES &&
+  (await import(`./url-categories/${URL_CATEGORIES}.js`)).default;
 
 debugger;
-const urls = test === "true" ? testUrl : (urls1 ? urls1 : siteVar.urls);
-debugger
+const urls =
+  test === "true"
+    ? testUrl
+    : urls1
+    ? urls1
+    : (await import(`./sites/${gitFolder}/${site}.js`)).urls;
+debugger;
 const crawler = new PlaywrightCrawler({
-
   requestHandler: test === "true" ? testRouter : router,
   maxConcurrency: 1,
   preNavigationHooks,
