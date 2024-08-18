@@ -7,14 +7,16 @@ const site = process.env.site;
 const local = process.env.local;
 const test = process.env.test;
 const HEADLESS = process.env.HEADLESS;
-const windowsPath =
-  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-const linuxPath = "/usr/bin/google-chrome";
+const URL_CATEGORIES = process.env.URL_CATEGORIES
 const siteVar = await import(`./sites/${gitFolder}/${site}.js`);
+
+const urls1 = URL_CATEGORIES && (await import(`./url-categories/${URL_CATEGORIES}.js`)).default
+
 debugger;
-const urls = test === "true" ? testUrl : siteVar.urls;
+const urls = test === "true" ? testUrl : (urls1 ? urls1 : siteVar.urls);
+debugger
 const crawler = new PlaywrightCrawler({
-  // launchContext: { launchOptions: { executablePath: local ? windowsPath : linuxPath } },
+
   requestHandler: test === "true" ? testRouter : router,
   maxConcurrency: 1,
   preNavigationHooks,

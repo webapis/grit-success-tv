@@ -1,80 +1,64 @@
 import dotenv from 'dotenv';
 import { createPlaywrightRouter, Dataset } from 'crawlee';
-
+import findFile from './src/findFile.js';
+import getBaseDomain from './src/getBaseDomain.js';
 const local = process.env.local
 dotenv.config({ silent: true });
 
 const site = process.env.site
 const gitFolder = process.env.gitFolder
+const URL_CATEGORIES = process.env.URL_CATEGORIES
 const productsDataset = await Dataset.open(gitFolder);
 debugger
 export const router = createPlaywrightRouter();
 
-router.addDefaultHandler(async ({ enqueueLinks, log, page, request, addRequests }) => {
-  const url = await page.url()
-  console.log(`enqueueing new URLs: first`, url);
+router.addDefaultHandler(async (props) => {
+  await resultHandler(props)
 
-  // await enqueueLinks({
-  //   selector: '.pagination a',
-  //   label: 'list',
-  //   // limit:local? 1 :0
-  // });
-  const siteVar = await import(`./sites/${gitFolder}/${site}.js`)
+});
 
-  const handler = siteVar.default
-debugger
-  const data = await handler({ page, enqueueLinks, request, log, addRequests })
+router.addHandler('second', async (props) => {
+  await resultHandler(props)
 
-  if (data) {
-    await productsDataset.pushData(data);
-  }
+});
+router.addHandler('third', async (props) => {
+  await resultHandler(props)
+
+});
+router.addHandler('fourth', async (props) => {
+  await resultHandler(props)
 
 });
 
 
 
-
-router.addHandler('second', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
+async function resultHandler({ request, page, log, pushData, enqueueLinks, addRequests }) {
   const url = await page.url()
-  console.log(`enqueueing new URLs: second`, url);
-  const siteVar = await import(`./sites/${gitFolder}/${site}.js`)
   debugger
-  const handler = siteVar.second
-  const data = await handler({ page, enqueueLinks, request, log, addRequests })
-  if (data) {
-    await productsDataset.pushData(data);
-  }
-
-  debugger
-
-});
-router.addHandler('third', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
-  const url = await page.url()
-  console.log(`enqueueing new URLs: third`, url);
-  const siteVar = await import(`./sites/${gitFolder}/${site}.js`)
-
-  const handler = siteVar.third
-  const data = await handler({ page, enqueueLinks, request, log, addRequests })
-
-  if (data) {
-    await productsDataset.pushData(data);
-  }
-
-
-
-});
-router.addHandler('fourth', async ({ request, page, log, pushData, enqueueLinks, addRequests }) => {
-  const url = await page.url()
   console.log(`enqueueing new URLs: fourth`, url);
-  const siteVar = await import(`./sites/${gitFolder}/${site}.js`)
-  debugger
-  const handler = siteVar.fourth
-  const data = await handler({ page, enqueueLinks, request, log, addRequests })
+  if (URL_CATEGORIES) {
+    debugger
+    const fileName = getBaseDomain(url)
+    const handlerUrl = await findFile('site', fileName)
+    const siteVar = await import(handlerUrl)
+    debugger
+    const handler = siteVar.fourth
+    const data = await handler({ page, enqueueLinks, request, log, addRequests })
+    if (data) {
+      await productsDataset.pushData(data);
+    }
+  }
 
-
-  if (data) {
-    await productsDataset.pushData(data);
+  else {
+    debugger
+    const siteVar = await import(`./sites/${gitFolder}/${site}.js`)
+    debugger
+    const handler = siteVar.fourth
+    const data = await handler({ page, enqueueLinks, request, log, addRequests })
+    if (data) {
+      await productsDataset.pushData(data);
+    }
   }
 
 
-});
+}
