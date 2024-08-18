@@ -13,17 +13,17 @@ debugger;
 export const router = createPlaywrightRouter();
 
 router.addDefaultHandler(async (props) => {
-  await resultHandler(props);
+  await resultHandler({ ...props, label: 'default' });
 });
 
 router.addHandler("second", async (props) => {
-  await resultHandler(props);
+  await resultHandler({ ...props, label: 'second' });
 });
 router.addHandler("third", async (props) => {
-  await resultHandler(props);
+  await resultHandler({ ...props, label: 'third' });
 });
 router.addHandler("fourth", async (props) => {
-  await resultHandler(props);
+  await resultHandler({ ...props, label: 'fourth' });
 });
 
 async function resultHandler({
@@ -32,7 +32,7 @@ async function resultHandler({
   log,
   pushData,
   enqueueLinks,
-  addRequests,
+  addRequests, label
 }) {
   const url = await page.url();
   debugger;
@@ -45,7 +45,7 @@ async function resultHandler({
     debugger;
     const siteVar = await import("./" + handlerUrl);
     debugger;
-    const handler = siteVar.fourth;
+    const handler = siteVar[label];
     const data = await handler({
       page,
       enqueueLinks,
