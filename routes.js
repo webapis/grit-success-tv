@@ -13,17 +13,19 @@ debugger;
 export const router = createPlaywrightRouter();
 
 router.addDefaultHandler(async (props) => {
-  await resultHandler({ ...props, label: 'default' });
+  debugger
+  await resultHandler({ ...props, label: "default" });
 });
 
 router.addHandler("second", async (props) => {
-  await resultHandler({ ...props, label: 'second' });
+  debugger
+  await resultHandler({ ...props, label: "second" });
 });
 router.addHandler("third", async (props) => {
-  await resultHandler({ ...props, label: 'third' });
+  await resultHandler({ ...props, label: "third" });
 });
 router.addHandler("fourth", async (props) => {
-  await resultHandler({ ...props, label: 'fourth' });
+  await resultHandler({ ...props, label: "fourth" });
 });
 
 async function resultHandler({
@@ -32,11 +34,12 @@ async function resultHandler({
   log,
   pushData,
   enqueueLinks,
-  addRequests, label
+  addRequests,
+  label,
 }) {
   const url = await page.url();
   debugger;
-  console.log(`enqueueing new URLs: fourth`, url);
+  console.log(`enqueueing new URLs: ${label}`, url);
   if (URL_CATEGORIES) {
     debugger;
     const fileName = getBaseDomain(url);
@@ -46,6 +49,7 @@ async function resultHandler({
     const siteVar = await import("./" + handlerUrl);
     debugger;
     const handler = siteVar[label];
+
     const data = await handler({
       page,
       enqueueLinks,
