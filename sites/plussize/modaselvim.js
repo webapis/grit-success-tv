@@ -8,7 +8,7 @@ export default async function first({
 }) {
   const url = await page.url();
 
-  await scrollNTimes(page, 400, 10);
+  await scrollNTimes(page, 50, 400);
   //pagination
 
   const data = await page.evaluate(() => {
@@ -27,7 +27,7 @@ export default async function first({
 
     return result.length > 0
       ? result.map((m) => {
-          return { ...m, pageTitle, pageURL };
+          return { ...m, pageTitle, pageURL, price: "$" + m.price };
         })
       : [];
   });
