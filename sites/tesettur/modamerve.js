@@ -1,4 +1,4 @@
-import autoscroll from "../../src/autoscroll.js";
+import scrollNTimes from "../../src/scrollNTimes.js";
 export default async function first({
   page,
   enqueueLinks,
@@ -6,16 +6,16 @@ export default async function first({
   log,
   addRequests,
 }) {
-  await autoscroll(page, 200);
+  await scrollNTimes(page, 50, 400);
   const data = await page.evaluate(() => {
     const pageTitle = document.title;
     const pageURL = document.URL;
     const result = Array.from(document.querySelectorAll(".productItem")).map(
       (m) => {
-        const title = m.querySelector(".productDescription").innerText;
+        const title = m.querySelector(".productDescription")?.innerText;
         const price = m.querySelector(
           ".currentPrice.discoF.simge-tl.yukseklikL"
-        ).innerText;
+        )?.innerText;
         return {
           title,
           price,

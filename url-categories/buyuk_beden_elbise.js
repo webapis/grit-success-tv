@@ -12,7 +12,7 @@ const urls = [
   "https://www.alvinaonline.com/tr/buyuk-beden/yaz-kreasyonu/elbise/",
   "https://www.miabutik.com.tr/kadin-buyuk-beden-elbise-modelleri",
   "https://www.sementa.com/collections/kadin-buyuk-beden-elbise",
-  // "https://www.modamerve.com/buyuk-beden-elbise"
+  "https://www.modamerve.com/buyuk-beden-elbise",
 ];
 
 export default urls;
