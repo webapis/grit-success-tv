@@ -1,5 +1,4 @@
-
-import autoscroll from '../../src/autoscroll.js'
+import autoscroll from "../../src/autoscroll.js";
 export default async function first({
   page,
   enqueueLinks,
@@ -9,8 +8,7 @@ export default async function first({
 }) {
   const url = await page.url();
 
-
-await autoscroll(page,200)
+  await autoscroll(page, 200);
   //pagination
 
   const data = await page.evaluate(() => {

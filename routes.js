@@ -13,12 +13,12 @@ debugger;
 export const router = createPlaywrightRouter();
 
 router.addDefaultHandler(async (props) => {
-  debugger
+  debugger;
   await resultHandler({ ...props, label: "default" });
 });
 
 router.addHandler("second", async (props) => {
-  debugger
+  debugger;
   await resultHandler({ ...props, label: "second" });
 });
 router.addHandler("third", async (props) => {
@@ -64,7 +64,7 @@ async function resultHandler({
     debugger;
     const siteVar = await import(`./sites/${gitFolder}/${site}.js`);
     debugger;
-    const handler = siteVar.fourth;
+    const handler = siteVar[label];
     const data = await handler({
       page,
       enqueueLinks,
