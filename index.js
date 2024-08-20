@@ -2,6 +2,7 @@ import { PlaywrightCrawler } from "crawlee";
 import { router } from "./routes.js";
 import preNavigationHooks from "./crawler-helper/preNavigationHooks.js";
 import testRouter, { testUrl } from "./crawler-helper/testRouter.js";
+import convertUrlsToStrings from "./src/convertUrlsToStrings.js";
 const gitFolder = process.env.gitFolder;
 const site = process.env.site;
 const local = process.env.local;
@@ -20,7 +21,9 @@ const urls =
     ? testUrl
     : urls1
     ? urls1
-    : (await import(`./sites/${gitFolder}/${site}.js`)).urls;
+    : convertUrlsToStrings(
+        (await import(`./sites/${gitFolder}/${site}.js`)).urls
+      );
 debugger;
 const crawler = new PlaywrightCrawler({
   requestHandler: test === "true" ? testRouter : router,
