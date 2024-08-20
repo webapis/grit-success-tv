@@ -4,7 +4,7 @@ const urls = [
   "https://www.modaselvim.com/buyuk-beden-elbise",
   "https://www.buyukbedeniz.com/buyuk-beden-kadin-elbise-modelleri",
   "https://shop.mango.com/tr/tr/c/kadin/elbise-ve-tulum/buyuk-beden_d016b2c2",
-  // { url: "https://www.patirti.com/buyuk-beden/", filter: ["Büyük Beden"] },
+  { url: "https://www.patirti.com/buyuk-beden/", filter: ["Büyük Beden"] },
   // "https://www.lcw.com/elbise-t-149?koleksiyon=buyuk-beden",
   // "https://www.modanisa.com/en/plus-size-dresses.htm",
   // "https://www.buyukbedenstil.com/kategori/elbise",
