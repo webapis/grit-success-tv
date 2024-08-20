@@ -1,3 +1,5 @@
+
+import autoscroll from '../../src/autoscroll.js'
 export default async function first({
   page,
   enqueueLinks,
@@ -6,34 +8,26 @@ export default async function first({
   addRequests,
 }) {
   const url = await page.url();
-  const productCount = await page.evaluate(() =>
-    parseInt(
-      document
-        .querySelector(".appliedFilter.FiltrelemeUrunAdet span")
-        ?.innerText.replace(/[^\d]/gi, "")
-    )
-  );
 
-  const totalPages = Math.ceil(productCount / 36);
 
-  if (productCount > 0 && totalPages > 1) {
-    for (let i = 1; i <= totalPages; i++) {
-      await addRequests([{ url: `${url}?sayfa=${i}`, label: "second" }]);
-    }
-  }
-
+await autoscroll(page,200)
   //pagination
 
   const data = await page.evaluate(() => {
     const pageTitle = document.title;
     const pageURL = document.URL;
-    const result = Array.from(document.querySelectorAll(".ItemOrj")).map(
+    const result = Array.from(document.querySelectorAll(".productItem")).map(
       (m) => {
-        const title = m.querySelector(".productName a")?.innerText;
-        const price = m.querySelector(".discountPrice span")?.innerText;
+        const title = m
+          .querySelector(".productDetails .row a[title]")
+          ?.getAttribute("title");
+        const price = m.querySelector(".product-price")?.innerText;
+        const lastprice = m.querySelector(
+          ".LastFiyat.liste-LastFiyat"
+        )?.innerText;
         return {
           title,
-          price,
+          price: lastprice || price,
         };
       }
     );
