@@ -6,7 +6,7 @@ const urls = [
   "https://shop.mango.com/tr/tr/c/kadin/elbise-ve-tulum/buyuk-beden_d016b2c2",
   { url: "https://www.patirti.com/buyuk-beden/", filter: ["Elbise"] },
   "https://www.lcw.com/elbise-t-149?koleksiyon=buyuk-beden",
-  // "https://www.modanisa.com/en/plus-size-dresses.htm",
+  "https://www.modanisa.com/en/plus-size-dresses.htm",
   // "https://www.buyukbedenstil.com/kategori/elbise",
   // "https://www.siyezen.com/buyuk-beden-elbise",
   // "https://www.alvinaonline.com/tr/buyuk-beden/yaz-kreasyonu/elbise/",
