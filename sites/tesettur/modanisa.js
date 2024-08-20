@@ -1,4 +1,4 @@
-import autoscroll from "../../src/autoscroll.js";
+
 export default async function first({
   page,
   enqueueLinks,
