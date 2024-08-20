@@ -5,6 +5,7 @@ export default async function first({
   log,
   addRequests,
 }) {
+  const url = await page.url();
   //   const result = await enqueueLinks({
   //     selector: ".lcw-site-map-category a",
   //     label: "first",
@@ -83,6 +84,7 @@ export async function second({
 }
 const urls = [
   // "https://www.lcw.com/site-haritasi",
+
   "https://www.lcw.com/elbise-t-149?koleksiyon=buyuk-beden",
 ];
 export { urls };
