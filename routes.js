@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import { createPlaywrightRouter, Dataset } from "crawlee";
 import findFile from "./src/findFile.js";
 import getBaseDomain from "./src/getBaseDomain.js";
+import getObjectsFromUrls from "./src/getObjectsFromUrls.js";
 const local = process.env.local;
 dotenv.config({ silent: true });
 
@@ -9,6 +10,10 @@ const site = process.env.site;
 const gitFolder = process.env.gitFolder;
 const URL_CATEGORIES = process.env.URL_CATEGORIES;
 const productsDataset = await Dataset.open(gitFolder);
+const urls1 =
+  URL_CATEGORIES &&
+  (await import(`./url-categories/${URL_CATEGORIES}.js`)).default;
+
 debugger;
 export const router = createPlaywrightRouter();
 
@@ -38,6 +43,11 @@ async function resultHandler({
   label,
 }) {
   const url = await page.url();
+  const filters =
+    urls1 &&
+    getObjectsFromUrls(urls1).find(
+      (f) => getBaseDomain(f.url) === getBaseDomain(url)
+    )?.filter;
   debugger;
   console.log(`enqueueing new URLs: ${label}`, url);
   if (URL_CATEGORIES) {
@@ -58,7 +68,16 @@ async function resultHandler({
       addRequests,
     });
     if (data) {
-      await productsDataset.pushData(data);
+      if (filters) {
+        debugger;
+        const filteredData = data.filter((f) =>
+          f.title.split(" ").find((f) => filters.includes(f))
+        );
+        await productsDataset.pushData(filteredData);
+        debugger;
+      } else {
+        await productsDataset.pushData(data);
+      }
     }
   } else {
     debugger;
@@ -73,7 +92,15 @@ async function resultHandler({
       addRequests,
     });
     if (data) {
-      await productsDataset.pushData(data);
+      if (filters) {
+        debugger;
+        const filteredData = data.filter((f) =>
+          f.title.split(" ").find((f) => filters.includes(f))
+        );
+        await productsDataset.pushData(filteredData);
+      } else {
+        await productsDataset.pushData(data);
+      }
     }
   }
 }
