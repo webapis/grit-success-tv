@@ -3,6 +3,7 @@ import { createPlaywrightRouter, Dataset } from "crawlee";
 import findFile from "./src/findFile.js";
 import getBaseDomain from "./src/getBaseDomain.js";
 import getObjectsFromUrls from "./src/getObjectsFromUrls.js";
+import normalizeTurkish from "./src/normalizeTurkish.js";
 const local = process.env.local;
 dotenv.config({ silent: true });
 
@@ -71,7 +72,9 @@ async function resultHandler({
       if (filters) {
         debugger;
         const filteredData = data.filter((f) =>
-          f.title.split(" ").find((f) => filters.includes(f))
+          normalizeTurkish(f.title)
+            .split(" ")
+            .find((f) => filters.includes(normalizeTurkish(f)))
         );
         await productsDataset.pushData(filteredData);
         debugger;
