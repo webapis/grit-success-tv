@@ -14,6 +14,7 @@ const urls = [
   "https://www.sementa.com/collections/kadin-buyuk-beden-elbise",
   "https://www.modamerve.com/buyuk-beden-elbise",
   { url: "https://www.bysaygi.com/buyuk-beden-58", filter: ["Elbise"] },
+  { url: "https://www.defacto.com.tr/kadin-buyuk-beden", filter: ["Elbise"] },
 ];
 
 export default urls;
