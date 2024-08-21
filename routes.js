@@ -71,11 +71,18 @@ async function resultHandler({
     if (data) {
       if (filters) {
         debugger;
-        const filteredData = data.filter((f) =>
-          normalizeTurkish(f.title)
+        const filteredData = data.filter((f) => {
+          const result = normalizeTurkish(f.title)
             .split(" ")
-            .find((f) => filters.includes(normalizeTurkish(f)))
-        );
+            .find((f) => {
+              const result = filters
+                .map((m) => normalizeTurkish(m))
+                .includes(f);
+              return result;
+            });
+
+          return result;
+        });
         await productsDataset.pushData(filteredData);
         debugger;
       } else {
