@@ -1,5 +1,5 @@
 const urls = [
-  "https://www.mylinemoda.com/buyuk-beden-elbise",
+  //"https://www.mylinemoda.com/buyuk-beden-elbise",
   "https://www.buyukmoda.com/buyuk-beden-elbise-modelleri",
   "https://www.modaselvim.com/buyuk-beden-elbise",
   "https://www.buyukbedeniz.com/buyuk-beden-kadin-elbise-modelleri",
