@@ -10,7 +10,7 @@ const fetch = require('node-fetch')
 
 
 async function uploadCollection({ fileName, data, gitFolder }) {
-  
+  debugger
     console.log('process.env.GH_TOKEN__', process.env.GH_TOKEN)
 
     const responsesha = await fetch(`https://api.github.com/repos/webapis/crawler-state-2/contents/${gitFolder}/${fileName}.json.gz`, { method: 'get', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
