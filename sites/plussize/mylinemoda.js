@@ -30,7 +30,7 @@ export default async function first({
     const result = Array.from(document.querySelectorAll(".ItemOrj")).map(
       (m) => {
         const title = m.querySelector(".productName a")?.innerText;
-        const price = m.querySelector(".discountPrice span")?.innerText;
+        const price = m.querySelector(".productPrice")?.innerText;
         return {
           title,
           price,
