@@ -16,7 +16,7 @@ export default async function first({
       (m) => {
         const title = m.querySelector(".categoryname")?.innerText;
         const price = Array.from(
-          document.querySelector(".pricenew")?.childNodes
+          m.querySelector(".pricenew")?.childNodes
         )
           .reverse()
           .map((node) => {
