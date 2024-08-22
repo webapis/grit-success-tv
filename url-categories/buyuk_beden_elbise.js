@@ -1,5 +1,5 @@
 const urls = [
-  // "https://www.mylinemoda.com/buyuk-beden-elbise",
+  "https://www.mylinemoda.com/buyuk-beden-elbise",
   // "https://www.buyukmoda.com/buyuk-beden-elbise-modelleri",
   // "https://www.modaselvim.com/buyuk-beden-elbise",
   // "https://www.buyukbedeniz.com/buyuk-beden-kadin-elbise-modelleri",
@@ -13,8 +13,8 @@ const urls = [
   // "https://www.miabutik.com.tr/kadin-buyuk-beden-elbise-modelleri",
   // "https://www.sementa.com/collections/kadin-buyuk-beden-elbise",
   // "https://www.modamerve.com/buyuk-beden-elbise",
- // { url: "https://www.bysaygi.com/buyuk-beden-58", filter: ["elbise"] },
- // { url: "https://www.defacto.com.tr/kadin-buyuk-beden", filter: ["elbise"] },
+  // { url: "https://www.bysaygi.com/buyuk-beden-58", filter: ["elbise"] },
+  // { url: "https://www.defacto.com.tr/kadin-buyuk-beden", filter: ["elbise"] },
 ];
 
 export default urls;
