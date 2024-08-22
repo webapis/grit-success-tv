@@ -1,0 +1,22 @@
+name: aggr
+on:
+   workflow_dispatch:
+    inputs:
+      URL_CATEGORIES:
+        description: 'URL_CATEGORIES'
+        required: true
+        type: string
+      gitFolder:
+        description: 'gitFolder'
+        required: true
+        type: string
+env:
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+jobs:
+  aggr_job:
+    uses: ./.github/workflows/reusable-aggr.yml
+    with:
+      URL_CATEGORIES: ${{inputs.URL_CATEGORIES}}
+      gitFolder: ${{inputs.gitFolder}}
+    secrets: inherit

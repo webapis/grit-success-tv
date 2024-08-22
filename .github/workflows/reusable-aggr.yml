@@ -1,0 +1,50 @@
+name: reusable-aggr
+
+on: 
+  workflow_call:
+    inputs:
+      URL_CATEGORIES:
+        description: 'URL_CATEGORIES'
+        required: true
+        type: string
+      gitFolder:
+        description: 'gitFolder'
+        required: true
+        type: string
+
+env:
+  URL_CATEGORIES: ${{inputs.URL_CATEGORIES}}
+  gitFolder: ${{inputs.gitFolder}}
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+
+jobs:
+  playwright-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Playwright
+      run: |
+        npm init -y
+        npm install -D @playwright/test
+        npx playwright install --with-deps
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run data agr
+      run: node index.js
+
+    - name: Run data upload
+      run: node src/pushToGit.js
+
+    - name: Run data upload mongodb
+      run: node src/mongodb.js
