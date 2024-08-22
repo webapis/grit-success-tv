@@ -18,8 +18,8 @@ export default async function first({
     const pageURL = document.URL;
     const result = Array.from(document.querySelectorAll(".ItemOrj")).map(
       (m) => {
-        const title = m.querySelector(".productName").innerText;
-        const price = m.querySelector(".discountPrice").innerText;
+        const title = m.querySelector(".productName")?.innerText;
+        const price = m.querySelector(".discountPrice")?.innerText;
         return {
           title,
           price,
