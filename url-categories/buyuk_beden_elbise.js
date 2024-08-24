@@ -15,6 +15,16 @@ const urls = [
   "https://www.modamerve.com/buyuk-beden-elbise",
   { url: "https://www.bysaygi.com/buyuk-beden-58", filter: ["elbise"] },
   { url: "https://www.defacto.com.tr/kadin-buyuk-beden", filter: ["elbise"] },
+  //https://www.tutkumoda.com.tr/elbise-3
+  //https://www.rmgbuyukbeden.com/kadin-buyuk-beden-elbise
+  //https://www.tuvidxxl.com/elbise
+  //https://gustoeshop.com/buyuk-beden-elbise
+  //https://www.nazengiyim.com/elbise1
+  //https://www.neselibutik.com/buyuk-beden-elbise-modelleri
+  //https://ebsumu.com/buyuk-beden-kadin-elbise-modelleri
+  //https://www.modaxlarge.com/urun-kategori/ust-giyim/buyuk-beden-elbise/
+  //https://www.elbisebul.com/buyuk-beden-elbise
+  //https://www.bedrinxxl.com/elbise
 ];
 
 export default urls;
