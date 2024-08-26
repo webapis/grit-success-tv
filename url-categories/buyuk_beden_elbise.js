@@ -15,6 +15,7 @@ const urls = [
   "https://www.modamerve.com/buyuk-beden-elbise",
   { url: "https://www.bysaygi.com/buyuk-beden-58", filter: ["elbise"] },
   { url: "https://www.defacto.com.tr/kadin-buyuk-beden", filter: ["elbise"] },
+  
   //https://www.tutkumoda.com.tr/elbise-3
   //https://www.rmgbuyukbeden.com/kadin-buyuk-beden-elbise
   //https://www.tuvidxxl.com/elbise
