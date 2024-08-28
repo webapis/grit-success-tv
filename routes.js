@@ -4,6 +4,7 @@ import findFile from "./src/findFile.js";
 import getBaseDomain from "./src/getBaseDomain.js";
 import getObjectsFromUrls from "./src/getObjectsFromUrls.js";
 import normalizeTurkish from "./src/normalizeTurkish.js";
+import extractUrls from "./src/extractUrls.js";
 const local = process.env.local;
 dotenv.config({ silent: true });
 
@@ -69,9 +70,19 @@ async function resultHandler({
       addRequests,
     });
     if (data) {
+      const mapRootUrl = data.map(m => {
+        const sourceUrl = extractUrls(urls1).find((f) => getBaseDomain(f) === getBaseDomain(m.pageURL))
+        debugger
+        return {
+          ...m,
+
+          sourceUrl
+        }
+      })
+      debugger
       if (filters) {
         debugger;
-        const filteredData = data.filter((f) => {
+        const filteredData = mapRootUrl.filter((f) => {
           const result = normalizeTurkish(f.title)
             .split(" ")
             .find((f) => {
@@ -86,7 +97,7 @@ async function resultHandler({
         await productsDataset.pushData(filteredData);
         debugger;
       } else {
-        await productsDataset.pushData(data);
+        await productsDataset.pushData(mapRootUrl);
       }
     }
   } else {
