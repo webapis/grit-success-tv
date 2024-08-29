@@ -9,7 +9,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     // });
 
 
-    const productCount = await page.evaluate(() => parseInt(document.querySelector('.o-productList__top--breadcrumbCount')?.innerText?.replace(/[^\d]/gi, '') ))
+    const productCount = await page.evaluate(() => parseInt(document.querySelector('.o-productList__top--breadcrumbCount')?.innerText?.replace(/[^\d]/gi, '')))
     const totalPages = Math.ceil(productCount / 48)
     await addRequests([{ url, label: 'second' }])
     if (productCount > 0 && totalPages > 1) {
@@ -34,8 +34,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
             const title = m.querySelector('.m-productCard__desc')?.innerText
             const price = m.querySelector('.m-productCard__newPrice')?.innerText
             const lastPrice = m.querySelector('.m-productCard__lastPrice')?.innerText
-            const img =m.querySelector('[data-src]')?.getAttribute('data-src')
-            const link =m.querySelector('.m-productCard__photo a').href
+            const img = m.querySelector('[data-src]')?.getAttribute('data-src')
+            const link = m.querySelector('.m-productCard__photo a').href
             return {
                 title,
                 price: lastPrice ? lastPrice : price,
@@ -49,11 +49,11 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     })
 
 
- 
-    
+
+
     debugger
-    return data.map(m=>m.price.replace("Ek İndirimle\n",''))
+    return data.map(m => {return {...m, price: m.price.replace("Ek İndirimle\n", '')}})
 }
 
-const urls = ["https://www.beymen.com/tr/kadin-giyim-elbise-10037"]
+const urls = ["https://www.beymen.com/tr/kadin-giyim-triko-kazak-10048"]
 export { urls }
