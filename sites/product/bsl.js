@@ -3,10 +3,10 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
-    await enqueueLinks({
-        selector: '.SitemapSection a',
-        label: 'first',
-    });
+    // await enqueueLinks({
+    //     selector: '.SitemapSection a',
+    //     label: 'first',
+    // });
     //await autoscroll(page, 200)
 
     //pagination

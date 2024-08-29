@@ -6,10 +6,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     //     selector: '.navigation a',
     //     label: 'first',
     // });
-    // await enqueueLinks({
-    //     selector: '.pagination a',
-    //     label: 'first',
-    // });
+    await enqueueLinks({
+        selector: '.pagination a',
+        label: 'first',
+    });
 
     //pagination
 

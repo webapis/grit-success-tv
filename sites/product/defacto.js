@@ -3,10 +3,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const url = await page.url()
 
-    await enqueueLinks({
-        selector: '.page-body-content-sitemap a',
-        label: 'first',
-    });
+    // await enqueueLinks({
+    //     selector: '.page-body-content-sitemap a',
+    //     label: 'first',
+    // });
 
     const productCount = await page.evaluate(() => parseInt(document.querySelector('.catalog__meta--product-count')?.innerText.replace(/[^\d]/gi, '')))
     const totalPages = Math.ceil(productCount / 66)

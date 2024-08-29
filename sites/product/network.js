@@ -2,10 +2,10 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
-    await enqueueLinks({
-        selector: '.navbar__item a',
-        label: 'first',
-    });
+    // await enqueueLinks({
+    //     selector: '.navbar__item a',
+    //     label: 'first',
+    // });
 
     const productCount = await page.evaluate(() => parseInt(document.querySelector('.js-total-products-count')?.innerText))
     const totalPages = Math.ceil(productCount / 60)

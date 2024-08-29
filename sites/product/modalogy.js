@@ -2,10 +2,10 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
-    await enqueueLinks({
-        selector: '.navigation a',
-        label: 'first',
-    });
+    // await enqueueLinks({
+    //     selector: '.navigation a',
+    //     label: 'first',
+    // });
 
 
     //pagination

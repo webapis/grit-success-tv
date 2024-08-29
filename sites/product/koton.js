@@ -2,10 +2,10 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
 
-    const result = await enqueueLinks({
-        selector: '.site-map__list a',
-        label: 'first',
-    });
+    // const result = await enqueueLinks({
+    //     selector: '.site-map__list a',
+    //     label: 'first',
+    // });
 
     const data = await page.evaluate(() => {
         const pageTitle = document.title
