@@ -34,9 +34,13 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
             const title = m.querySelector('.m-productCard__desc')?.innerText
             const price = m.querySelector('.m-productCard__newPrice')?.innerText
             const lastPrice = m.querySelector('.m-productCard__lastPrice')?.innerText
+            const img =m.querySelector('[data-src]')?.getAttribute('data-src')
+            const link =m.querySelector('.m-productCard__photo a').href
             return {
                 title,
-                price: lastPrice ? lastPrice : price
+                price: lastPrice ? lastPrice : price,
+                img,
+                link
 
             }
         })
@@ -44,6 +48,9 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
         return result.length > 0 ? result.map(m => { return { ...m, pageTitle, pageURL } }) : []
     })
 
+
+ 
+    
     debugger
     return data.map(m=>m.price.replace("Ek İndirimle\n",''))
 }

@@ -1,5 +1,5 @@
 
-import {second} from '../sites/product/oxxo.js'
+import {second} from '../sites/product/lcw.js'
 
 export default async function testRouter(props) {
     debugger
@@ -11,6 +11,6 @@ export default async function testRouter(props) {
     //test
 }
 
-const testUrl = ["https://www.bsl.com.tr/tr/yeniler?p=3"]
+const testUrl = ["https://www.adl.com.tr/siyah-moda-tutkusu-cizgili-salas-triko-kazak-8681927681200/"]
 
 export { testUrl }

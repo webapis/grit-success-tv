@@ -16,13 +16,18 @@ export default async function first({
   const data = await page.evaluate(() => {
     const pageTitle = document.title;
     const pageURL = document.URL;
-    const result = Array.from(document.querySelectorAll(".ItemOrj")).map(
+    const result =Array.from(document.querySelectorAll(".ItemOrj")).map(
       (m) => {
         const title = m.querySelector(".productName")?.innerText;
         const price = m.querySelector(".discountPrice")?.innerText;
+        const link =m.querySelector(".detailLink").href
+        const img =m.querySelector("[data-original]").getAttribute('data-original')
         return {
           title,
           price,
+            img,
+          link
+            
         };
       }
     );

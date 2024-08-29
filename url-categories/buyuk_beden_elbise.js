@@ -26,6 +26,8 @@ const urls = [
   //https://www.modaxlarge.com/urun-kategori/ust-giyim/buyuk-beden-elbise/
   //https://www.elbisebul.com/buyuk-beden-elbise
   //https://www.bedrinxxl.com/elbise
+  //https://www.selengiyim.com/buyuk-beden
+  //https://www.nelly.com.tr/buyuk-beden/
 ];
 
 export default urls;

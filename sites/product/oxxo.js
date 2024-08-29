@@ -42,9 +42,14 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
         const result = Array.from(document.querySelectorAll('.Prd')).map(m => {
             const title = m.querySelector('.PName')?.innerText
             const price = m.querySelector('.PPrice')?.innerText
+             const img =m.querySelector('[data-src]')?.getAttribute('data-src')
+             const img1 =m.querySelector('.PImage')?.src
+             const link =m.querySelector("a[data-product]").href
             return {
                 title,
-                price
+                price,
+                img:img|| img1,
+                link
             }
         })
 

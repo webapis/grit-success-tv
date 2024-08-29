@@ -31,11 +31,15 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
             const title = m.querySelector('.product__title ')?.innerText
             const actual = m.querySelector('.product__price.-actual')?.innerText
             const basket = m.querySelector('.wis-price-260995')?.innerText
+            const img =m.querySelector("[data-srcset]").getAttribute("data-srcset")
+            const link =m.querySelector('a').href
             return {
                 title,
                 basket,
                 actual,
-                price: basket ? basket : actual
+                price: basket ? basket : actual,
+                img,
+                link
             }
         })
 

@@ -30,14 +30,20 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     const data = await page.evaluate(() => {
         const pageTitle = document.title
         const pageURL = document.URL
-        const result = Array.from(document.querySelectorAll('.product-card')).map(m => {
+        const result = Array.from(document.querySelectorAll('[data-documents]')).map(m => {
 
             const title = m.querySelector('.product-card__title a')?.innerText
             const price = m.querySelector('.product-card__price--new')?.innerText
             const priceBacket = m.querySelector('.product-card__price--basket div')?.textContent
+            const img =m.querySelector('[data-srcset]')?.getAttribute('data-srcset').split(' ')[0]
+            const img1=m.querySelector('.product-card__image--item.swiper-slide.swiper-slide-active img')?.getAttribute('src')
+            const color = JSON.parse(m.getAttribute('data-documents')).ColorName
             return {
                 title,
-                price: priceBacket ? priceBacket : price
+                price: priceBacket ? priceBacket : price,
+                color,
+                img:'https:'+ (img1 ||img),
+
             }
 
         })

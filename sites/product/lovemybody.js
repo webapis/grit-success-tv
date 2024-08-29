@@ -21,12 +21,16 @@ export default async function first({ page, enqueueLinks, request, log, addReque
             const discount = m.querySelector('.product-discounted-price')?.innerText
 
             const price = m.querySelector('.product-list-price')?.innerText
+            const img = m.querySelector("[src]")?.src
+            const link = m.querySelector("a").href
 
             return {
                 title,
                 price: discount ? discount : price,
-                oldPrice:price,
-                discount
+                oldPrice: price,
+                discount,
+                img,
+                link
             }
         })
 

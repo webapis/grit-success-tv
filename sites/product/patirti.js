@@ -26,9 +26,13 @@ export default async function first({
                 : node.textContent;
             return price;
           })[0];
+          const img =m.querySelector("[data-src]").getAttribute('data-src')
+          const link ='https://www.patirti.com'+ m.querySelector('.categoryitemlink').href
         return {
           title,
           price,
+            img,
+            link
         };
       }
     );

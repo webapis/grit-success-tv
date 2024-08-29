@@ -21,10 +21,14 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         const pageURL = document.URL
         const result = Array.from(document.querySelectorAll('.product-grid-item')).map(m=>{
             const title = m.querySelector('.product__grid__title')?.innerText
-        const price = m.querySelector('.price')?.innerText
+            const price = m.querySelector('.price')?.innerText
+            const img ="https:"+ m.querySelector('[srcset]').getAttribute('srcset').trim().split(' ')[0]
+            const link =m.querySelector("a").href
         return {
             title,
-            price
+            price,
+            img,
+            link
             
         }
     })

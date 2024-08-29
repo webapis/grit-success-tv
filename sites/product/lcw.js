@@ -1,3 +1,5 @@
+import autoScroll from "../../src/autoscroll.js";
+
 export default async function first({
   page,
   enqueueLinks,
@@ -10,6 +12,7 @@ export default async function first({
   //     selector: ".lcw-site-map-category a",
   //     label: "first",
   //   });
+  await autoScroll(page, 150)
   const productCount = await page.evaluate(() =>
     parseInt(
       document
@@ -32,18 +35,22 @@ export default async function first({
       (m) => {
         const title = m.querySelector(".product-card__title")?.innerText;
         const price = m.querySelector(".product-price__price")?.innerText;
+        const img =m.querySelector(".product-image__image")?.src
+        const link =m.querySelector("[data-optionid]").href
 
         return {
           title,
           price,
+            img,
+            link
         };
       }
     );
 
     return result.length > 0
       ? result.map((m) => {
-          return { ...m, pageTitle, pageURL };
-        })
+        return { ...m, pageTitle, pageURL };
+      }).filter(f=>f.img)
       : [];
   });
 
@@ -57,6 +64,8 @@ export async function second({
   log,
   addRequests,
 }) {
+
+  await autoScroll(page, 150)
   const data = await page.evaluate(() => {
     const pageTitle = document.title;
     const pageURL = document.URL;
@@ -64,18 +73,22 @@ export async function second({
       (m) => {
         const title = m.querySelector(".product-card__title")?.innerText;
         const price = m.querySelector(".product-price__price")?.innerText;
+        const img =m.querySelector(".product-image__image")?.src
+        const link =m.querySelector("[data-optionid]").href
 
         return {
           title,
           price,
+            img,
+            link
         };
       }
     );
 
     return result.length > 0
       ? result.map((m) => {
-          return { ...m, pageTitle, pageURL };
-        })
+        return { ...m, pageTitle, pageURL };
+      }).filter(f=>f.img)
       : [];
   });
 
@@ -85,6 +98,6 @@ export async function second({
 const urls = [
   // "https://www.lcw.com/site-haritasi",
 
-  "https://www.lcw.com/elbise-t-149?koleksiyon=buyuk-beden",
+  "https://www.lcw.com/kadin-kazak-t-202",
 ];
 export { urls };

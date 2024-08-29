@@ -33,9 +33,13 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         const result = Array.from(document.querySelectorAll('.productItem')).map(m => {
             const title = m.querySelector('.productName')?.innerText
             const price = m.querySelector('.discountPrice')?.innerText
+            const img =m.querySelector('[data-original]').getAttribute("data-original")
+            const link =m.querySelector(".detailUrl").href
             return {
                 title,
-                price
+                price,
+                img,
+                link
             }
         })
 

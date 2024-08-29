@@ -15,9 +15,13 @@ export default async function first({ page, enqueueLinks, request, log, addReque
           const result = Array.from(document.querySelectorAll('.ems-prd')).map(m=>{
             const title =m.querySelector('.ems-prd-title').innerText
             const price =m.querySelector('.ems-prd-price-last').innerText
+            const link =m.querySelector(".item-link").href
+            const img =m.querySelector("[data-image-src]").getAttribute("data-image-src")
             return {
                 title,
-                price
+                price,
+                link,
+                img
             }
         })
   

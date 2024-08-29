@@ -17,11 +17,15 @@ export default async function first({ page, enqueueLinks, request, log, addReque
             const title =m.querySelector('.product-name')?.innerText
             const oldPrice = m.querySelector('.oneprice')?.innerText
             const newPrice = m.querySelector('.newprice')?.innerText
+            const img =m.querySelector('[data-original]')?.getAttribute('data-original')
+            const link =m.querySelector('.product-image a').href
                 return {
                     title,
                     newPrice,
                     oldPrice,
-                    price:newPrice?newPrice:oldPrice
+                    price:newPrice?newPrice:oldPrice,
+                    img,
+                    link
                 }
             })
 

@@ -17,9 +17,13 @@ export default async function first({
     ).map((m) => {
       const title = m.querySelector('[class^="ProductTitle_"]')?.innerText;
       const price = m.querySelector('span[class^="texts_bodyM"]')?.innerText;
+      const img =m.querySelector("[srcset]").getAttribute("srcset").split(" ")[0]
+      const link =m.querySelector("a").href
       return {
         title,
         price,
+        img,
+          link
       };
     });
 
