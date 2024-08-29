@@ -9,7 +9,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     // });
 
 
-    const productCount = await page.evaluate(() => parseInt(document.querySelector('.o-productList__top--breadcrumbCount')?.innerText.replace(/[^\d]/gi, '') ))
+    const productCount = await page.evaluate(() => parseInt(document.querySelector('.o-productList__top--breadcrumbCount')?.innerText?.replace(/[^\d]/gi, '') ))
     const totalPages = Math.ceil(productCount / 48)
     await addRequests([{ url, label: 'second' }])
     if (productCount > 0 && totalPages > 1) {
