@@ -1,30 +1,18 @@
-const urls =[
+const urls = [
     "https://www.adl.com.tr/kadin-kazak/",
     "https://www.beymen.com/tr/kadin-giyim-triko-kazak-10048",
-    "https://www.bsl.com.tr/tr/triko-kazak/",
+    { url: "https://www.bsl.com.tr/tr/triko-kazak/", filter: ["kazak"] },
     "https://www.defacto.com.tr/kadin-kazak",
-    "https://www.koton.com/kadin-kazak-suveter/",
+    { url: "https://www.koton.com/kadin-kazak-suveter/", filter: ["kazak"] },
     "https://www.lcw.com/kadin-kazak-t-202",
     "https://www.lovemybody.com.tr/kazak/",
-    "https://shop.mango.com/tr/tr/c/kadin/kazaklar-ve-h%C4%B1rkalar_f9a8c868",
-    "https://markapia.com/kadin-kazak-hirka",
+    { url: "https://shop.mango.com/tr/tr/c/kadin/kazaklar-ve-h%C4%B1rkalar_f9a8c868", filter: ["kazak"] },
+    { url: "https://markapia.com/kadin-kazak-hirka", filter: ["kazak"] },
     "https://www.network.com.tr/kadin-kazak-cesitleri-1325",
-    "https://www.nocturne.com.tr/triko",
-    "https://www.oxxo.com.tr/tr/giyim/trikolar/",
-    "https://www.patirti.com/triko/",
-    "https://www.sementa.com/collections/kadin-kazak",
-    "https://www.mudo.com.tr/kadin-kazak/",
-    "https://gustoeshop.com/triko-kazak",
-    "https://www.ekolonline.com/triko-kazak",
-    "https://www.ipekyol.com.tr/giyim/triko-modelleri",
-    "https://www.twist.com.tr/kadin-triko-kazak",
-    "https://www.colins.com.tr/c/kadin-kazak-199",
-    "https://www.pullandbear.com/tr/kadin/giyim/triko-n6618",
-    "https://www.bershka.com/tr/kadin/giyim/triko-n3844.html",
-    "https://joinus.com.tr/collections/kadin-kazak",
-    "https://clothing.beautyomelette.com/kadin-triko",
-    "https://www.sherin.com.tr/kadin-kazak-modelleri",
-    "https://www.ozsaricam.com/kazak"
+    { url: "https://www.nocturne.com.tr/", filter: ["kazak"] },
+    "https://www.oxxo.com.tr/tr/giyim/trikolar/kazaklar/",
+    "https://www.patirti.com/kadin-triko-kazak/",
+    "https://www.sementa.com/collections/kadin-kazak"
 ]
 
 export default urls
