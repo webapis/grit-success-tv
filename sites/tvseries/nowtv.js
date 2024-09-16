@@ -60,7 +60,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
                 POSTER: {
                     POSTER_ORIENTATION: 'landscape',
                     POSTER_QUALITY: 1,
-                    POSTER_IMG: 'https://www.nowtv.com.tr'+ m.querySelector('img').getAttribute('src')
+                    POSTER_IMG: 'https://tpsbayxekmes.merlincdn.net/'+ m.querySelector('img').getAttribute('src')
                 }
             }
         })
