@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "startProd": "node prodCrawler.js",
     "uploadData": "node src/pushToGit.js"
   },
   "keywords": [],

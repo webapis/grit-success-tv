@@ -17,16 +17,21 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         const pageTitle = document.title
         const pageURL = document.URL
         const result = Array.from(document.querySelectorAll('.product-item')).map(m => {
-            const title = m.querySelector('.product-item__name')?.innerText
-            const price = m.querySelector('.price__new')?.innerText
-            const img = m.querySelector('[srcset]')?.getAttribute('srcset')
-            const link = m.querySelector('.list-slider-item__link').href
-            return {
-                title,
-                price,
-                img,
-                link
+            try {
+                const title = m.querySelector('.product-item__name').innerText
+                const price = m.querySelector('.price__new').innerText
+                const img =  m.querySelector('[srcset]').getAttribute('srcset')
+                const link = m.querySelector('.product-item__name').href
+                return {
+                    title,
+                    price,
+                    img,
+                    link
+                }
+            } catch (error) {
+                return { error }
             }
+
         })
 
         return result.length > 0 ? result.map(m => { return { ...m, pageTitle, pageURL } }) : []
@@ -39,7 +44,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 
 
-const urls = ["https://www.adl.com.tr/kadin-kazak/"]
+const urls = ["https://www.adl.com.tr"]
 export { urls }
 
 //https://chatgpt.com/g/g-2DQzU5UZl-code-copilot/c/a5874bbc-35cb-4e6c-a6f9-237d252bdcd0
