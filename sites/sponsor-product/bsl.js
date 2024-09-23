@@ -1,5 +1,5 @@
 
-
+import autoscroll from "../../src/autoscroll.js";
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
@@ -7,7 +7,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         selector: '.SitemapSection a',
         label: 'first',
     });
-    //await autoscroll(page, 200)
+    await autoscroll(page, 200)
 
     //pagination
     const countProducts = await page.evaluate(() => parseInt(document.querySelector('.TotalProductCount')?.innerText.replace(/[^\d]/gi, '')))
@@ -49,5 +49,5 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
 }
 //.replace(/[^\d]/gi,''))
-const urls = ["https://www.bsl.com.tr"]
+const urls = ["https://www.bsl.com.tr/tr/elbise/gunluk-elbise"]
 export { urls }
