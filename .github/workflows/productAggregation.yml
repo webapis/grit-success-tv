@@ -1,4 +1,4 @@
-name: divitv
+name: productAggregation
 on:
    workflow_dispatch:
     inputs:
