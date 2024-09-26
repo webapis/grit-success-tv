@@ -1,9 +1,9 @@
 
-import {second} from '../sites/giyim-kadin/adl.js'
+//import first from '../sites/giyim-kadin/adl.js'
 
 export default async function testRouter(props) {
     debugger
-    const data = await second(props)
+   // const data = await first(props)
     debugger
 
     // return data
