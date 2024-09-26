@@ -5,7 +5,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     const data = await page.evaluate(() => {
         const collection = Array.from(document.querySelectorAll(".category-classic-item")).map(m => {
             // Check if elements exist before accessing properties
-            const TVSERIES_TITLE = m.querySelector("h2")?.innerText.toLocaleLowerCase();
+            const TVSERIES_TITLE = m.querySelector("h2")?.innerText.toLowerCase();
             const WATCH_LINK = m.querySelector("a")?.href + '/bolumler';
             const DETAIL_LINK = m.querySelector("a")?.href;
             const POSTER_IMG = m.querySelector("a img")?.getAttribute('src');
