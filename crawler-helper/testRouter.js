@@ -1,5 +1,5 @@
 
-import {second} from '../sites/sponsor-product/lcw.js'
+import {second} from '../sites/giyim-kadin/adl.js'
 
 export default async function testRouter(props) {
     debugger
