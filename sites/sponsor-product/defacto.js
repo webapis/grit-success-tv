@@ -54,7 +54,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     })
 
     debugger
-    return data.map(m => { return { ...m, price: price.replace('\nTL', '') } })
+    return data.map(m => { return { ...m, price: m.price.replace('\nTL', '') } })
 }
 
 const urls = ["https://www.defacto.com.tr/statik/sitemap"]
