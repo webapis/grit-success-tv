@@ -22,6 +22,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
                 const price = m.querySelector('.price__new').innerText
                 const img =  m.querySelector('[srcset]').getAttribute('srcset')
                 const link = m.querySelector('.product-item__name').href
+                
                 return {
                     title,
                     price,
