@@ -1,5 +1,5 @@
 
-export default async function first({ page, enqueueLinks, request, log, addRequests }) {
+export default async function first({ page, enqueueLinks }) {
 
 
     await enqueueLinks({

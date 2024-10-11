@@ -35,14 +35,16 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
             const title = m.querySelector('.product-card__title a')?.innerText
             const price = m.querySelector('.product-card__price--new')?.innerText
             const priceBacket = m.querySelector('.product-card__price--basket div')?.textContent
-            const img =m.querySelector('[data-srcset]')?.getAttribute('data-srcset').split(' ')[0]
-            const img1=m.querySelector('.product-card__image--item.swiper-slide.swiper-slide-active img')?.getAttribute('src')
+            const img = m.querySelector('[data-srcset]')?.getAttribute('data-srcset').split(' ')[0]
+            const img1 = m.querySelector('.product-card__image--item.swiper-slide.swiper-slide-active img')?.getAttribute('src')
             const color = JSON.parse(m.getAttribute('data-documents')).ColorName
+            const link = m.querySelector('.image-box a').href
             return {
                 title,
+                link,
                 price: priceBacket ? priceBacket : price,
                 color,
-                img:'https:'+ (img1 ||img),
+                img: 'https:' + (img1 || img),
 
             }
 
@@ -52,7 +54,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     })
 
     debugger
-    return data
+    return data.map(m => { return { ...m, price: price.replace('\nTL', '') } })
 }
 
 const urls = ["https://www.defacto.com.tr/statik/sitemap"]
