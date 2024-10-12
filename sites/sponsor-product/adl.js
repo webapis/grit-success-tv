@@ -14,7 +14,7 @@ const url =await page.url()
     //pagination
     const productItemsCount = await page.locator('.product-item').count();
 
-    const homepageElements = page.locator('.homepage').count();
+    const homepageElements = await page.locator('.homepage').count();
 
     if (productItemsCount > 0 && homepageElements===0) {
         const data = await page.evaluate(() => {
