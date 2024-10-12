@@ -10,15 +10,15 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     await autoscroll(page, 200)
 
     //pagination
-    const countProducts = await page.evaluate(() => parseInt(document.querySelector('.TotalProductCount')?.innerText.replace(/[^\d]/gi, '')))
-    const totalPages = Math.ceil(countProducts / 24)
+    // const countProducts = await page.evaluate(() => parseInt(document.querySelector('.TotalProductCount')?.innerText.replace(/[^\d]/gi, '')))
+    // const totalPages = Math.ceil(countProducts / 24)
 
 
-    for (let i = 2; i <= totalPages; i++) {
+    // for (let i = 2; i <= totalPages; i++) {
 
-        await addRequests([{ url: `${url}?p=${i}`, label: 'second' }])
+    //     await addRequests([{ url: `${url}?p=${i}`, label: 'second' }])
 
-    }
+    // }
 
 
 }
@@ -26,28 +26,34 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const data = await page.evaluate(() => {
-        const pageTitle = document.title
-        const pageURL = document.URL
-        const result = Array.from(document.querySelectorAll('.Prd')).map(m => {
-            const title = m.querySelector('.PName')?.innerText
-            const price = m.querySelector('.PPrice')?.innerText
-            const img = m.querySelector('[data-src]')?.getAttribute('data-src')
-            const link = m.querySelector('.PrdImgsBox a').href
-            return {
-                title,
-                price,
-                img,
-                link
-            }
-        })
 
-        return result.length > 0 ? result.map(m => { return { ...m, pageTitle, pageURL } }) : []
+        try {
+            const pageTitle = document.title
+            const pageURL = document.URL
+            const result = Array.from(document.querySelectorAll('.Prd')).map(m => {
+                const title = m.querySelector('.PName')?.innerText
+                const price = m.querySelector('.PPrice')?.innerText
+                const img = m.querySelector('[data-src]')?.getAttribute('data-src')
+                const link = m.querySelector('.PrdImgsBox a').href
+                return {
+                    title,
+                    price,
+                    img,
+                    link
+                }
+            })
+
+            return result.map(m => { return { ...m, pageTitle, pageURL } })
+        } catch (error) {
+            return { error, content: m.innerHTML }
+        }
+
     })
 
     debugger
     return data
 
 }
-//.replace(/[^\d]/gi,''))
+
 const urls = ["https://www.bsl.com.tr/tr/elbise/gunluk-elbise"]
 export { urls }
