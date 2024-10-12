@@ -20,9 +20,9 @@ export default async function first({ page, enqueueLinks }) {
             try {
                 const title = m.querySelector('.product-item__name').innerText
                 const price = m.querySelector('.price__new').innerText
-                const img =  m.querySelector('[srcset]').getAttribute('srcset')
+                const img = m.querySelector('[srcset]').getAttribute('srcset')
                 const link = m.querySelector('.product-item__name').href
-                
+
                 return {
                     title,
                     price,
@@ -30,7 +30,7 @@ export default async function first({ page, enqueueLinks }) {
                     link
                 }
             } catch (error) {
-                return { error }
+                return { error, content: m.innerHTML }
             }
 
         })
