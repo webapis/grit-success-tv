@@ -1,7 +1,7 @@
 
 export default async function first({ page, enqueueLinks }) {
 
-
+const url =await page.url()
     await enqueueLinks({
         selector: '.navigation a',
         label: 'first',
@@ -10,11 +10,13 @@ export default async function first({ page, enqueueLinks }) {
         selector: '.pagination a',
         label: 'first',
     });
-
+    
     //pagination
     const productItemsCount = await page.locator('.product-item').count();
 
-    if (productItemsCount > 0) {
+    const homepageElements = page.locator('.homepage').count();
+
+    if (productItemsCount > 0 && homepageElements===0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
