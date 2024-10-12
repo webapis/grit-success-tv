@@ -12,34 +12,44 @@ export default async function first({ page, enqueueLinks }) {
     });
 
     //pagination
+    const productItemsCount = await page.locator('.product-item').count();
 
-    const data = await page.evaluate(() => {
-        const pageTitle = document.title
-        const pageURL = document.URL
-        const result = Array.from(document.querySelectorAll('.product-item')).map(m => {
-            try {
-                const title = m.querySelector('.product-item__name').innerText
-                const price = m.querySelector('.price__new').innerText
-                const img = m.querySelector('[srcset]').getAttribute('srcset')
-                const link = m.querySelector('.product-item__name').href
+    if (productItemsCount > 0) {
+        const data = await page.evaluate(() => {
+            const pageTitle = document.title
+            const pageURL = document.URL
+            const result = Array.from(document.querySelectorAll('.product-item')).map(m => {
+                try {
+                    const title = m.querySelector('.product-item__name').innerText
+                    const price = m.querySelector('.price__new').innerText
+                    const img = m.querySelector('[srcset]').getAttribute('srcset')
+                    const link = m.querySelector('.product-item__name').href
 
-                return {
-                    title,
-                    price,
-                    img,
-                    link
+                    return {
+                        title,
+                        price,
+                        img,
+                        link
+                    }
+                } catch (error) {
+                    return { error, content: m.innerHTML }
                 }
-            } catch (error) {
-                return { error, content: m.innerHTML }
-            }
 
+            })
+
+            return result.length > 0 ? result.map(m => { return { ...m, pageTitle, pageURL } }) : []
         })
 
-        return result.length > 0 ? result.map(m => { return { ...m, pageTitle, pageURL } }) : []
-    })
+        console.log('.product-item exists');
+        return data
+
+    } else {
+        console.log('.product-item does not exist');
+        return []
 
 
-    return data
+    }
+
 
 }
 
