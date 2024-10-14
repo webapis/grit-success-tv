@@ -3,11 +3,14 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
+    // Array.from(document.querySelectorAll('#MainMenu li a[href^="/tr/"]')).map(m=>m.href).filter(f=>f.split('/').length<8 )
+    const urls = await page.evaluate(() => {
+        return Array.from(document.querySelectorAll('#MainMenu li a[href^="/tr/"]')).map(m => m.href).filter(f => f.split('/').length < 8)
+    })
+    for (let u of urls) {
 
-    await enqueueLinks({
-        selector: 'li a',
-        label: 'first',
-    });
+        await addRequests([{ url: u, label: 'first' }])
+    }
 
 
     const productItemsCount = await page.locator('.Products').count();
