@@ -2,38 +2,50 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
 
-//   await enqueueLinks({
-//         selector: '.main-menu a',
-//         label: 'first',
-//     });
+    await enqueueLinks({
+        selector: '.main-menu a',
+        label: 'first',
+    });
 
 
     //pagination
-   
-    const data = await page.evaluate(() => {
-        const pageTitle = document.title
-        const pageURL = document.URL
-        const result =Array.from(document.querySelectorAll('.pitem')).map(m=>{
-            const title =m.querySelector('.product-name')?.innerText
-            const oldPrice = m.querySelector('.oneprice')?.innerText
-            const newPrice = m.querySelector('.newprice')?.innerText
-            const img =m.querySelector('[data-original]')?.getAttribute('data-original')
-            const link =m.querySelector('.product-image a').href
-                return {
-                    title,
-                    newPrice,
-                    oldPrice,
-                    price:newPrice?newPrice:oldPrice,
-                    img,
-                    link
+    const productItemsCount = await page.locator('.product-list').count();
+    if (productItemsCount > 0) {
+        const data = await page.evaluate(() => {
+            const pageTitle = document.title
+            const pageURL = document.URL
+            const result = Array.from(document.querySelectorAll('.pitem')).map(document => {
+                try {
+                    const title = document.querySelector('.product-name')?.innerText
+                    const oldPrice = document.querySelector('.oneprice')?.innerText
+                    const newPrice = document.querySelector('.newprice')?.innerText
+                    const img = document.querySelector('[data-original]')?.getAttribute('data-original')
+                    const link = document.querySelector('.product-image a').href
+                    return {
+                        title,
+                        newPrice,
+                        oldPrice,
+                        price: newPrice ? newPrice : oldPrice,
+                        img,
+                        link,
+                        pageTitle,
+                        pageURL
+                    }
+                } catch (error) {
+                    return { error, content: document.innerHTML, pageURL }
                 }
+
             })
 
-        return result.length > 0 ? result.map(m => { return { ...m, pageTitle, pageURL } }) : []
-    })
+            return result
 
-    debugger
-    return data
+        })
+
+        return data
+    } else {
+
+        return []
+    }
 
 }
 
