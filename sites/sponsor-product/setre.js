@@ -34,7 +34,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
                         pageURL
                     }
                 } catch (error) {
-
+                    return { error, content: document.innerHTML, pageURL }
                 }
 
             })
