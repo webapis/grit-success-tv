@@ -5,7 +5,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     const url = await page.url()
 
     await enqueueLinks({
-        selector: '.main-menu a',
+        selector: 'li a',
         label: 'first',
     });
 
