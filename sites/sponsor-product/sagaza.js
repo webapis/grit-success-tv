@@ -2,42 +2,56 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
 
-    // await enqueueLinks({
-    //     selector: '.header__menu a',
-    //     label: 'first',
-    // });
-
-  await enqueueLinks({
-        selector: '.pagination-custom a',
+    await enqueueLinks({
+        selector: '.header__menu a',
         label: 'first',
     });
+
+      await enqueueLinks({
+            selector: '.pagination-custom a',
+            label: 'first',
+        });
 
 
     //pagination
 
+    const productItemsCount = await page.locator('.collection__content').count();
+    if (productItemsCount > 0) {
+        const data = await page.evaluate(() => {
+            const pageTitle = document.title
+            const pageURL = document.URL
+            const result = Array.from(document.querySelectorAll('.product-grid-item')).map(document => {
+                try {
+                    const title = document.querySelector('.product__grid__title')?.innerText
+                    const price = document.querySelector('.price')?.innerText
+                    const img = "https:" + document.querySelector('[srcset]').getAttribute('srcset').trim().split(' ')[0]
+                    const link = document.querySelector("a").href
+                    return {
+                        title,
+                        price,
+                        img,
+                        link,
+                        pageTitle,
+                        pageURL
+                    }
+                } catch (error) {
 
-    const data = await page.evaluate(() => {
-        const pageTitle = document.title
-        const pageURL = document.URL
-        const result = Array.from(document.querySelectorAll('.product-grid-item')).map(m=>{
-            const title = m.querySelector('.product__grid__title')?.innerText
-            const price = m.querySelector('.price')?.innerText
-            const img ="https:"+ m.querySelector('[srcset]').getAttribute('srcset').trim().split(' ')[0]
-            const link =m.querySelector("a").href
-        return {
-            title,
-            price,
-            img,
-            link
-            
-        }
-    })
+                    return { error, content: document.innerHTML, pageURL }
 
-        return result.length > 0 ? result.map(m => { return { ...m, pageTitle, pageURL } }) : []
-    })
+                }
 
-    debugger
-    return data
+            })
+
+            return result
+        })
+
+        debugger
+        return data
+    } else {
+
+        return []
+    }
+
 
 }
 
