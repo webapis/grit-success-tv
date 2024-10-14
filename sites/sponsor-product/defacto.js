@@ -8,20 +8,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         label: 'first',
     });
 
-    // const productCount = await page.evaluate(() => parseInt(document.querySelector('.catalog__meta--product-count')?.innerText.replace(/[^\d]/gi, '')))
-    // const totalPages = Math.ceil(productCount / 66)
 
-
-
-
-    // if (productCount > 0 && totalPages > 1) {
-
-    //     for (let i = 1; i <= totalPages; i++) {
-
-    //         await addRequests([{ url: `${url}?page=${i}`, label: 'second' }])
-
-    //     }
-    // }
     const productItemsCount = await page.locator('[data-documents]').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {

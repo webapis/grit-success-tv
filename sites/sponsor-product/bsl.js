@@ -7,18 +7,6 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         selector: '.SitemapSection a',
         label: 'first',
     });
-   // await autoscroll(page, 200)
-
-    //pagination
-    // const countProducts = await page.evaluate(() => parseInt(document.querySelector('.TotalProductCount')?.innerText.replace(/[^\d]/gi, '')))
-    // const totalPages = Math.ceil(countProducts / 24)
-
-
-    // for (let i = 2; i <= totalPages; i++) {
-
-    //     await addRequests([{ url: `${url}?p=${i}`, label: 'second' }])
-
-    // }
 
     
 

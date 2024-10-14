@@ -9,17 +9,17 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     // });
 
 
-    const productCount = await page.evaluate(() => parseInt(document.querySelector('.o-productList__top--breadcrumbCount')?.innerText?.replace(/[^\d]/gi, '')))
-    const totalPages = Math.ceil(productCount / 48)
-    await addRequests([{ url, label: 'second' }])
-    if (productCount > 0 && totalPages > 1) {
+    // const productCount = await page.evaluate(() => parseInt(document.querySelector('.o-productList__top--breadcrumbCount')?.innerText?.replace(/[^\d]/gi, '')))
+    // const totalPages = Math.ceil(productCount / 48)
+    // await addRequests([{ url, label: 'second' }])
+    // if (productCount > 0 && totalPages > 1) {
 
-        for (let i = 2; i <= totalPages; i++) {
+    //     for (let i = 2; i <= totalPages; i++) {
 
-            await addRequests([{ url: `${url}?sayfa=${i}`, label: 'second' }])
+    //         await addRequests([{ url: `${url}?sayfa=${i}`, label: 'second' }])
 
-        }
-    }
+    //     }
+    // }
 
 
 
