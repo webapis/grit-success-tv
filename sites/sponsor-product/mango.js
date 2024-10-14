@@ -7,7 +7,7 @@ export default async function first({
   log,
   addRequests,
 }) {
-  await autoScroll(page, 200);
+  //await autoScroll(page, 200);
 
   const data = await page.evaluate(() => {
     const pageTitle = document.title;
@@ -39,7 +39,7 @@ export default async function first({
 }
 
 const urls = [
-  "https://shop.mango.com/tr/tr/c/kadin/elbise-ve-tulum/buyuk-beden_d016b2c2",
+  "https://shop.mango.com/tr",
 ];
 
 export { urls };

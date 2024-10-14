@@ -3,35 +3,43 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 
     await enqueueLinks({
-          selector: '.ems-menu.modal a',
-          label: 'first',
-      });
+        selector: '.ems-menu.modal a',
+        label: 'first',
+    });
 
-      //pagination
-     
-      const data = await page.evaluate(() => {
-          const pageTitle = document.title
-          const pageURL = document.URL
-          const result = Array.from(document.querySelectorAll('.ems-prd')).map(m=>{
-            const title =m.querySelector('.ems-prd-title').innerText
-            const price =m.querySelector('.ems-prd-price-last').innerText
-            const link =m.querySelector(".item-link").href
-            const img =m.querySelector("[data-image-src]").getAttribute("data-image-src")
-            return {
-                title,
-                price,
-                link,
-                img
+    //pagination
+
+    const data = await page.evaluate(() => {
+        const pageTitle = document.title
+        const pageURL = document.URL
+        const result = Array.from(document.querySelectorAll('.ems-prd')).map(document => {
+
+            try {
+                const title = document.querySelector('.ems-prd-title').innerText
+                const price = document.querySelector('.ems-prd-price-last').innerText
+                const link = document.querySelector(".item-link").href
+                const img = document.querySelector("[data-image-src]").getAttribute("data-image-src")
+                return {
+                    title,
+                    price,
+                    link,
+                    img,
+                    pageTitle,
+                    pageURL
+                }
+            } catch (error) {
+                return { error, content: document.innerHTML, pageURL }
             }
+
         })
-  
-          return result.length > 0 ? result.map(m => { return { ...m, pageTitle, pageURL } }) : []
-      })
-  
-      debugger
-      return data
-  
-  }
-  
-  const urls = ["https://www.machka.com.tr/"]
-  export { urls }
+
+        return result
+    })
+
+    debugger
+    return data
+
+}
+
+const urls = ["https://www.machka.com.tr/"]
+export { urls }
