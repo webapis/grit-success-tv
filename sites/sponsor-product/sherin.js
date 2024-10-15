@@ -6,7 +6,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const urls = await page.evaluate(() => {
 
-        return Array.from(document.querySelectorAll('.header-nav-main a')).map(m => m.href)
+        return Array.from(document.querySelectorAll('.header-nav-main a')).map(m => m.href).filter(f=>!f.includes("javascript"))
     })
     if (urls.length === 0) {
         throw 'urls.length===0 :https://www.sherin.com.tr/'
