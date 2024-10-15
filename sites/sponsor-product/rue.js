@@ -6,10 +6,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const urls = await page.evaluate(() => {
 
-        return Array.from(document.querySelectorAll('.Drawer__Main a')).map(m => m.href)
+        return Array.from(document.querySelectorAll('.navigation a')).map(m => m.href)
     })
     if (urls.length === 0) {
-        throw 'urls.length===0 :https://tuvanam.com/'
+        throw 'urls.length===0 :https://www.rueonline.com/'
     }
     console.log('aggregation urls.length', urls.length)
     console.log('aggregation urls', urls)
@@ -30,10 +30,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const url = await page.url()
 
-    const productItemsCount = await page.locator('.ProductListWrapper').count();
+    const productItemsCount = await page.locator('.ProductList').count();
     if (productItemsCount > 0) {
-        await autoscroll(page, 200)
-        await page.waitForSelector('h2.ProductItem__Title.Heading a');
+
+
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
@@ -53,8 +53,6 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                         price,
                         img: img ? img : img2,
                         link,
-                        pageTitle,
-                        pageURL
 
 
                     }
@@ -74,5 +72,5 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     }
 }
 
-const urls = ["https://tuvanam.com/"]
+const urls = ["https://www.rueonline.com/"]
 export { urls }
