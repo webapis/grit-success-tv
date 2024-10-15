@@ -1,5 +1,5 @@
 
-import autoscroll from '../../src/autoscroll.js'
+
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
@@ -9,7 +9,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         return Array.from(document.querySelectorAll('.navigation a')).map(m => m.href)
     })
     if (urls.length === 0) {
-        throw 'urls.length===0 :https://www.rueonline.com/'
+        throw 'urls.length===0 :https://lovemetoo.com.tr/'
     }
     console.log('aggregation urls.length', urls.length)
     console.log('aggregation urls', urls)
@@ -30,34 +30,33 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const url = await page.url()
 
-    const productItemsCount = await page.locator('.ProductList').count();
+    const productItemsCount = await page.locator('.product-list').count();
     if (productItemsCount > 0) {
 
 
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
-            const result = Array.from(document.querySelectorAll('.ProductItem__Wrapper')).map(document => {
+            const result = Array.from(document.querySelectorAll('.product-block')).map(document => {
 
                 try {
 
-                    const title = document.querySelector('.ProductItem__Wrapper h2').innerText
+                    const title = document.querySelector('.product-block__title').innerText
 
-                    const price = document.querySelector('.ProductItem__Price.Price').innerText
-                    const img = document.querySelector('.ProductItem__Image[srcset]') && 'https:' + document.querySelector('.ProductItem__Image[srcset]')?.getAttribute('srcset').split(',')[1].trim().split(' ')[0]
-                    const img2 = 'https:' + document.querySelector('[data-src]')?.getAttribute('data-src').replace('{width}', '400')
-
-                    const link = document.querySelector('h2.ProductItem__Title.Heading a').href
+                    const price = document.querySelector('.money.conversion-bear-money').innerText
+                    const img = 'https:' + document.querySelector('[data-lazy-bgset-src]').getAttribute('data-lazy-bgset-src')
+                    const link = document.querySelector('.product-link').href
                     return {
                         title,
                         price,
-                        img: img ? img : img2,
+                        img,
                         link,
-
+                        pageTitle,
+                        pageURL
 
                     }
                 } catch (error) {
-                    return { error, meggage: error.message, content: document.innerHTML }
+                    return { error, meggage: error.message, content: document.innerHTML, pageURL }
                 }
 
             })
@@ -72,5 +71,5 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     }
 }
 
-const urls = ["https://www.rueonline.com/"]
+const urls = ["https://lovemetoo.com.tr/"]
 export { urls }
