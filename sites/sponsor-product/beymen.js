@@ -3,11 +3,18 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const url = await page.url()
 
-    await enqueueLinks({
-        selector: 'a.m-siteMap__link',
-        label: 'first',
-    });
+    // await enqueueLinks({
+    //     selector: 'a.m-siteMap__link',
+    //     label: 'first',
+    // });
 
+    const urls = await page.evaluate(() => {
+        return     Array.from(document.querySelectorAll('.m-siteMap__link.navLink')).map(m=>m.href).filter(f=>f.includes('kadin'))
+    })
+    for (let u of urls) {
+
+        await addRequests([{ url: u, label: 'first' }])
+    }
 
     // const productCount = await page.evaluate(() => parseInt(document.querySelector('.o-productList__top--breadcrumbCount')?.innerText?.replace(/[^\d]/gi, '')))
     // const totalPages = Math.ceil(productCount / 48)
