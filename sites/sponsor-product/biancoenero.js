@@ -6,7 +6,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const urls = await page.evaluate(() => {
 
-        return Array.from(document.querySelectorAll('ul.contents a')).map(m => m.href)
+        return Array.from(document.querySelectorAll('nav a')).map(m => m.href)
     })
     if (urls.length === 0) {
         throw 'urls.length===0 :https://biancoenero.com.tr/'
@@ -29,8 +29,11 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const url = await page.url()
-
-    const productItemsCount = await page.locator('.product-list').count();
+    await enqueueLinks({
+        selector: 'pagination a',
+        label: 'first',
+    });
+    const productItemsCount = await page.locator('.collection__main').count();
     if (productItemsCount > 0) {
 
 
@@ -43,8 +46,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
                     const title = document.querySelector('.product-title').innerText
 
-                    const price = document.querySelector('.discountPriceSpan').innerText
-                    const img = document.querySelector('.imageCustom img').getAttribute('srcset').split(',')[1].trim().split(' ')[0]
+                    const price = document.querySelector('sale-price').textContent.trim().replace('İndirimli fiyat', '').replaceAll('\n', '')
+                    const img = 'https:' + document.querySelector('.imageCustom img').getAttribute('srcset').split(',')[1].trim().split(' ')[0]
 
                     const link = document.querySelector('.product-title').href
                     return {
