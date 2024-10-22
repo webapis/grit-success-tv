@@ -21,7 +21,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     const productItemsCount = await page.locator('.products').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
-            const pageTitle = document.title
+            const breadcrumb = document.querySelectorAll('.breadcrumb a').length>0 ? Array.from(document.querySelectorAll('.breadcrumb a')).map(m => m.innerText).join(' ') : '_'
+            const pageTitle = document.title +' '+ breadcrumb
             const pageURL = document.URL
             const result = Array.from(document.querySelectorAll('.products__item')).map(document => {
                 try {
@@ -38,7 +39,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
                         img,
                         link,
                         pageTitle,
-                        pageURL
+                        pageURL,
+                        breadcrumb
                     }
                 } catch (error) {
                     return { error, content: document.innerHTML, pageURL }
