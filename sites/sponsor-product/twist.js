@@ -19,7 +19,7 @@ export default async function first({ page, enqueueLinks }) {
                 const pageURL = document.URL
                 const result = Array.from(document.querySelectorAll('.prd')).map(document => {
                     try {
-                        const title = document.querySelector('.prd-name').innerText
+                        const title = document.querySelector('.prd-lnk').getAttribute('title')
                         const price = document.querySelector('.urunListe_satisFiyat').innerText
                         const img1 =document.querySelector('[data-image-src]')?.getAttribute('data-image-src')
                         const img =document.querySelector('[data-large]')?.getAttribute('data-large')
