@@ -35,7 +35,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
         await autoscroll(page, 200)
         await page.waitForSelector('h2.ProductItem__Title.Heading a');
         const data = await page.evaluate(() => {
-            const pageTitle = document.title
+            const description = document.querySelector('.SectionHeader__Description')?.innerText
+            const pageTitle = document.title + ' ' + description
             const pageURL = document.URL
             const result = Array.from(document.querySelectorAll('.ProductItem__Wrapper')).map(document => {
 
