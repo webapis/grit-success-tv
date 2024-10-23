@@ -21,14 +21,13 @@ export default async function first({ page, enqueueLinks }) {
                     try {
                         const title = document.querySelector('.prd-lnk').getAttribute('title')
                         const price = document.querySelector('.urunListe_satisFiyat').innerText
-                        const img1 =document.querySelector('[data-image-src]')?.getAttribute('data-image-src')
-                        const img =document.querySelector('[data-large]')?.getAttribute('data-large')
+                        const img = document.querySelector('[data-large]')?.getAttribute('data-large')|| document.querySelector('[data-background]')?.getAttribute('data-background')
                         const link = document.querySelector('.prd-lnk').href
     
                         return {
                             title,
                             price,
-                            img:img?img:img1,
+                            img,
                             link,
                             pageTitle,
                             pageURL
