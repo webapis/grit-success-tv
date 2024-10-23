@@ -20,8 +20,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
                     const title = m.querySelector('.product-card__title a')?.innerText
                     const price = m.querySelector('.product-card__price--new')?.innerText
                     const priceBacket = m.querySelector('.product-card__price--basket div')?.textContent
-                    const img = m.querySelector('[data-srcset]')?.getAttribute('data-srcset').split(' ')[0]
-                    const img1 = m.querySelector('.product-card__image--item.swiper-slide.swiper-slide-active img')?.getAttribute('src')
+
+                    const img1 = JSON.parse(m.querySelector('[data-documents]').getAttribute('data-documents')).PictureName
                     const color = JSON.parse(m.getAttribute('data-documents')).ColorName
                     const link = m.querySelector('.image-box a').href
                     return {
@@ -29,7 +29,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
                         link,
                         price: priceBacket ? priceBacket : price,
                         color,
-                        img: 'https:' + (img1 || img),
+                        img: 'https://dfcdn.defacto.com.tr/376/' + img1
                     }
                 })
 
