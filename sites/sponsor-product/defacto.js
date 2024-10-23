@@ -21,7 +21,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
                     const price = m.querySelector('.product-card__price--new')?.innerText
                     const priceBacket = m.querySelector('.product-card__price--basket div')?.textContent
 
-                    const img1 = JSON.parse(m.querySelector('[data-documents]').getAttribute('data-documents')).PictureName
+                    const img1 = JSON.parse(m.getAttribute('data-documents')).PictureName
                     const color = JSON.parse(m.getAttribute('data-documents')).ColorName
                     const link = m.querySelector('.image-box a').href
                     return {
