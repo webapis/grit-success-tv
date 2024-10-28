@@ -3,10 +3,10 @@ import autscroll from '../../src/autoscroll.js'
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
-    await page.waitForSelector('.main-menu a')
+    await page.waitForSelector('.top-menu a')
     const urls = await page.evaluate(() => {
 
-        return Array.from(document.querySelectorAll('.main-menu a')).map(m => m.href)
+        return Array.from(document.querySelectorAll('.top-menu a')).map(m => m.href)
     })
     if (urls.length === 0) {
         throw 'urls.length===0 :https://www.dahliabianca.com/'
