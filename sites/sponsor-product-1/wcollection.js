@@ -3,7 +3,7 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
-
+    await page.waitForSelector('.page-sitemap')
     const urls = await page.evaluate(() => {
 
         return Array.from(document.querySelectorAll('.page-sitemap a')).map(m => m.href)
@@ -27,46 +27,53 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
         selector: '.w-pagination a',
         label: 'second',
     });
-    //await autscroll(page, 200)
 
-    const productItemsCount = await page.locator('wcollection-product-list').count();
-    if (productItemsCount > 0) {
-        const data = await page.evaluate(() => {
-            const pageTitle = document.title
-            const pageURL = document.URL
-            const content = document.innerHTML
-            try {
+    try {
 
-                const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
+        await page.waitForSelector('.product-item', { timeout: 5000 })
+        const productItemsCount = await page.locator('.product-item').count();
+        if (productItemsCount > 0) {
+            const data = await page.evaluate(() => {
+                const pageTitle = document.title
+                const pageURL = document.URL
+                const content = document.innerHTML
+                try {
 
-                    const title = document.querySelector('.product-title .title').innerText
-                    const price = document.querySelector('.product-item__price--retail').innerText
-                    const discountPrice = document.querySelector('.discount-price').innerText
-                    const img = document.querySelector('swiper-slide img').src
-                    const link = document.querySelector('wcollection-swiper').parentElement.href
-                    return {
-                        title,
-                        link,
-                        price: discountPrice ? discountPrice : price,
-                        img,
-                        pageTitle,
-                        pageURL
-                    }
-                })
+                    const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
 
-                return result
-            } catch (error) {
-                return { error, message: error.message, content, pageURL }
-            }
-        })
-        debugger
-        console.log('data.length', data.length)
-        return data
-    } else {
+                        const title = document.querySelector('.product-title .title').innerText
+                        const price = document.querySelector('.product-item__price--retail').innerText
+                        const discountPrice = document.querySelector('.discount-price').innerText
+                        const img = document.querySelector('swiper-slide img')?.src
+                        const link = document.querySelector('wcollection-swiper').parentElement.href
+                        return {
+                            title,
+                            link,
+                            price: discountPrice ? discountPrice : price,
+                            img,
+                            pageTitle,
+                            pageURL
+                        }
+                    })
 
-        console.log('not produсе page:', url)
-        return []
+                    return result
+                } catch (error) {
+                    return { error, message: error.message, content, pageURL }
+                }
+            })
+            debugger
+            console.log('data.length', data.length)
+            return data
+        } else {
+
+            console.log('not produсt page:', url)
+            return []
+        }
+    } catch (error) {
+
+        console.log('not produсt page:-', url)
     }
+
 }
 
 
