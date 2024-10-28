@@ -3,7 +3,7 @@ import autscroll from '../../src/autoscroll.js'
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
-    
+
     await enqueueLinks({
         selector: '.nav-links a',
         label: 'first',
@@ -17,11 +17,13 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     const productItemsCount = await page.locator('.category__list__main').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
-            const pageTitle = document.title
+            const breadcrumb = Array.from(document.querySelectorAll('.breadcrumb-item')).map(m => m.innerText).join(' ')
+            const pageTitle = document.title + ' ' + breadcrumb
             const pageURL = document.URL
-            const content= document.innerHTML
+            const content = document.innerHTML
+
             try {
- 
+
                 const result = Array.from(document.querySelectorAll('a.grid')).map(document => {
 
                     const title = document.querySelector(".product-name")?.innerText
@@ -43,7 +45,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
                 return result
             } catch (error) {
-                return { error, message: error.message, content ,pageURL }
+                return { error, message: error.message, content, pageURL }
             }
         })
         debugger
