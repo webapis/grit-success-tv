@@ -23,55 +23,58 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 }
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const url = await page.url()
-    await enqueueLinks({
-        selector: '.w-pagination a',
-        label: 'second',
-    });
 
 
+    try {
 
+        await page.waitForSelector('.product-item', { timeout: 5000 })
 
-    const productItemsCount = await page.locator('.product-grid').count();
-    if (productItemsCount > 0) {
-        //  await autscroll(page, 150)
-        const data = await page.evaluate(() => {
-            const pageTitle = document.title
-            const pageURL = document.URL
-            const content = document.innerHTML
-            try {
+        const productItemsCount = await page.locator('.product-grid').count();
+        if (productItemsCount > 0) {
+            //  await autscroll(page, 150)
+            const data = await page.evaluate(() => {
+                const pageTitle = document.title
+                const pageURL = document.URL
+                const content = document.innerHTML
+                try {
 
-                const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
+                    const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
 
-                    const title = document.querySelector('.product-title').innerText
+                        const title = document.querySelector('.product-title').innerText
 
-                    const price = document.querySelector('.price.actual-price').innerText
+                        const price = document.querySelector('.price.actual-price').innerText
 
-                    const img = document.querySelector('[data-src]').getAttribute('data-src')
+                        const img = document.querySelector('[data-src]').getAttribute('data-src')
 
-                    const link = document.querySelector('.product-title a').href
-                    return {
-                        title,
-                        link,
-                        price,
-                        img,
-                        pageTitle,
-                        pageURL
-                    }
-                })
+                        const link = document.querySelector('.product-title a').href
+                        return {
+                            title,
+                            link,
+                            price,
+                            img,
+                            pageTitle,
+                            pageURL
+                        }
+                    })
 
-                return result
-            } catch (error) {
-                return { error, message: error.message, content, pageURL }
-            }
-        })
-        debugger
-        console.log('data.length', data.length)
-        return data
-    } else {
+                    return result
+                } catch (error) {
+                    return { error, message: error.message, content, pageURL }
+                }
+            })
+            debugger
+            console.log('data.length', data.length)
+            return data
+        } else {
 
-        console.log('not produсt page:', url)
-        return []
+            console.log('not produсt page:', url)
+            return []
+        }
+    } catch (error) {
+        console.log('not produсt page:-', url)
     }
+
+
 
 
 }
