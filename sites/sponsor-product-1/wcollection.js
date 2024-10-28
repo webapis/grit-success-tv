@@ -1,5 +1,5 @@
 
-//import autscroll from '../../src/autoscroll.js'
+import autscroll from '../../src/autoscroll.js'
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
@@ -33,19 +33,20 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
         await page.waitForSelector('.product-item', { timeout: 5000 })
         const productItemsCount = await page.locator('.product-item').count();
         if (productItemsCount > 0) {
+            await autscroll(page, 150)
             const data = await page.evaluate(() => {
                 const pageTitle = document.title
                 const pageURL = document.URL
                 const content = document.innerHTML
                 try {
 
-                    const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
+                    const result = Array.from(document.querySelectorAll('.product-item.plp-item')).map(document => {
 
                         const title = document.querySelector('.product-title .title').innerText
-                        const price = document.querySelector('.product-item__price--retail').innerText
-                        const discountPrice = document.querySelector('.discount-price').innerText
+                        const price = document.querySelector('.product-item__price--retail')?.innerText
+                        const discountPrice = document.querySelector('.discount-price')?.innerText
                         const img = document.querySelector('swiper-slide img')?.src
-                        const link = document.querySelector('wcollection-swiper').parentElement.href
+                        const link =Array.from(document.querySelectorAll('a'))?.map(m=>m.href).reverse()[0]//|| document.querySelector('.wishlist-product-list ~a').href
                         return {
                             title,
                             link,
@@ -56,7 +57,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                         }
                     })
 
-                    return result
+                    return result.filter(f=>f.link)
                 } catch (error) {
                     return { error, message: error.message, content, pageURL }
                 }
