@@ -6,10 +6,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const urls = await page.evaluate(() => {
 
-        return Array.from(document.querySelectorAll('.menu-container a')).map(m => m.href)
+        return Array.from(document.querySelectorAll('.page-sitemap a')).map(m => m.href)
     })
     if (urls.length === 0) {
-        throw 'urls.length===0 :https://www.wcollection.com.tr/kadin-modasi'
+        throw 'urls.length===0 :https://www.wcollection.com.tr/site-haritasi'
     }
     console.log('aggregation urls.length', urls.length)
     console.log('aggregation urls', urls)
@@ -70,5 +70,5 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 }
 
 
-const urls = ["https://www.wcollection.com.tr/kadin-modasi", "https://www.wcollection.com.tr/erkek-modasi"]
+const urls = ["https://www.wcollection.com.tr/site-haritasi"]
 export { urls }
