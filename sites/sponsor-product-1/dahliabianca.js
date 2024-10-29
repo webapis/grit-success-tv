@@ -34,7 +34,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
             //  await autscroll(page, 150)
             const data = await page.evaluate(() => {
                 const breadcrumb=Array.from(document.querySelectorAll('.breadcrumb a')).map(m=>m.innerText).join(' ')
-                const pageTitle = document.title +'_ '+breadcrumb
+                const pageTitle = document.title +'_ '+ breadcrumb
                 const pageURL = document.URL
                 const content = document.innerHTML
                 try {
