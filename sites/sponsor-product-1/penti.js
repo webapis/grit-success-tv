@@ -42,8 +42,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
                 const result = Array.from(document.querySelectorAll('.prd-link')).map(document => {
 
-                    const title = document.querySelector('.prd-title').innerText
-                    const price = document.querySelector('.prc.prc-last').innerText
+                    const title = document.querySelector('.prd-title').innerText.trim()
+                    const price = document.querySelector('.prc.prc-last').innerText.trim()
                     const img = document.querySelector('[data-src]').getAttribute('data-src')
                     const link = document.href
                     return {
