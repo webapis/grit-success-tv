@@ -8,10 +8,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         selector: '.nav-links a',
         label: 'first',
     });
-    await enqueueLinks({
-        selector: '.paginations a',
-        label: 'first',
-    });
+    // await enqueueLinks({
+    //     selector: '.paginations a',
+    //     label: 'first',
+    // });
     await autscroll(page, 200)
 
     const productItemsCount = await page.locator('.category__list__main').count();
