@@ -12,7 +12,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     //     selector: '.paginations a',
     //     label: 'first',
     // });
-    await autscroll(page, 200)
+    //await autscroll(page, 200)
 
     const productItemsCount = await page.locator('.category__list__main').count();
     if (productItemsCount > 0) {
@@ -58,5 +58,5 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 
 
-const urls = ["https://dericompany.com.tr/kadin-deri-mont", "https://dericompany.com.tr/erkek-deri-ceket", "https://dericompany.com.tr/deri-kemer-deri-cuzdan"]
+const urls = ["https://dericompany.com.tr/kadin-deri-mont", "https://dericompany.com.tr/erkek-deri-ceket"]
 export { urls }
