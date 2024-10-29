@@ -12,14 +12,14 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     //     selector: '.paginations a',
     //     label: 'first',
     // });
-    //await autscroll(page, 200)
+    await autscroll(page, 200)
 
     const productItemsCount = await page.locator('.category__list__main').count();
     if (productItemsCount > 0) {
-        const data = await page.evaluate(() => {
+        const data = await page.evaluate((url) => {
             const breadcrumb = Array.from(document.querySelectorAll('.breadcrumb-item')).map(m => m.innerText).join(' ')
             const pageTitle = document.title + ' ' + breadcrumb
-            const pageURL = document.URL
+            const pageURL = url//document.URL
             const content = document.innerHTML
 
             try {
@@ -47,7 +47,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
             } catch (error) {
                 return { error, message: error.message, content, pageURL }
             }
-        })
+        }, url)
         debugger
         return data
     } else {
