@@ -33,7 +33,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
         if (productItemsCount > 0) {
             //  await autscroll(page, 150)
             const data = await page.evaluate(() => {
-                const pageTitle = document.title
+                const breadcrumb=Array.from(document.querySelectorAll('.breadcrumb a')).map(m=>m.innerText).join(' ')
+                const pageTitle = document.title +'_ '+breadcrumb
                 const pageURL = document.URL
                 const content = document.innerHTML
                 try {
