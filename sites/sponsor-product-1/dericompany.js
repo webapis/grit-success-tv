@@ -52,7 +52,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                         price,
                         img,
                         pageTitle,
-                        pageURL: element.baseURI
+                        pageURL: element.baseURI,
+                        pageURL_2: pageURL
                     }
                 })
 

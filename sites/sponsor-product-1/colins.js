@@ -37,22 +37,23 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
             const content = document.innerHTML
             try {
 
-                const result = Array.from(document.querySelectorAll('.productCartMain')).map(document => {
+                const result = Array.from(document.querySelectorAll('.productCartMain')).map(element => {
 
-                    const title = document.querySelector('.product-name h3').innerText
-                    const price = document.querySelector('.product-price')?.innerText
-                    const priceNew = document.querySelector('.product-new-price')?.innerText
+                    const title = element.querySelector('.product-name h3').innerText
+                    const price = element.querySelector('.product-price')?.innerText
+                    const priceNew = element.querySelector('.product-new-price')?.innerText
 
-                    const img = document.querySelector('[data-secondary-image-src]').getAttribute('data-secondary-image-src')
+                    const img = element.querySelector('[data-secondary-image-src]').getAttribute('data-secondary-image-src')
                     //const img1 = document.querySelector('[src]')?.src
-                    const link = document.querySelector('a.product-name').href
+                    const link = element.querySelector('a.product-name').href
                     return {
                         title,
                         link,
                         price: priceNew ? priceNew : price,
                         img,
                         pageTitle,
-                        pageURL
+                        pageURL: element.baseURI,
+                        pageURL_2: pageURL
                     }
                 })
 
