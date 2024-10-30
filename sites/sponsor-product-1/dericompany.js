@@ -20,6 +20,11 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
         await addRequests([{ url: u, label: 'second' }])
     }
+
+
+}
+
+export async function second({ page, enqueueLinks, request, log, addRequests }) {
     await autscroll(page, 200)
 
     const productItemsCount = await page.locator('.category__list__main').count();
@@ -61,10 +66,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     } else {
         return []
     }
-
 }
-
-
 
 const urls = ["https://dericompany.com.tr/kadin-deri-mont", "https://dericompany.com.tr/erkek-deri-ceket"]
 export { urls }
