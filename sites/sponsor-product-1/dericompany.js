@@ -5,10 +5,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     const url = await page.url()
 
 
-    await page.waitForSelector('.category-link-list-main a')
+    await page.waitForSelector('.nav-links a')
     const urls = await page.evaluate(() => {
 
-        return Array.from(document.querySelectorAll('.category-link-list-main a')).map(m => m.href)
+        return Array.from(document.querySelectorAll('.nav-links a') ).map(m => m.href)
     })
     if (urls.length === 0) {
         throw 'urls.length===0 :https://dericompany.com.tr/kadin-deri-mont'
