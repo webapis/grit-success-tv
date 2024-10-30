@@ -24,22 +24,22 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
             try {
 
-                const result = Array.from(document.querySelectorAll('a.grid')).map(document => {
+                const result = Array.from(document.querySelectorAll('a.grid')).map(element => {
 
-                    const title = document.querySelector(".product-name")?.innerText
+                    const title = element.querySelector(".product-name")?.innerText
 
-                    const price = document.querySelector(".price-main")?.innerText
+                    const price = element.querySelector(".price-main")?.innerText
 
-                    const img = document.querySelector('src')?.getAttribute('src') //|| document.querySelector('[srcset]')?.getAttribute('srcset') || document.innerHTML//.split(',')[8].trim().split(' ')[0]
+                    const img = element.querySelector('src')?.getAttribute('src') //|| document.querySelector('[srcset]')?.getAttribute('srcset') || document.innerHTML//.split(',')[8].trim().split(' ')[0]
                     //const img1 = document.querySelector('[src]')?.src
-                    const link = document.href
+                    const link = element.href
                     return {
                         title,
                         link,
                         price,
                         img,
                         pageTitle,
-                        pageURL
+                        pageURL: element.baseURI
                     }
                 })
 
