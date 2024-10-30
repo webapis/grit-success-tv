@@ -4,14 +4,22 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const url = await page.url()
 
-    await enqueueLinks({
-        selector: '.nav-links a',
-        label: 'first',
-    });
-    // await enqueueLinks({
-    //     selector: '.paginations a',
-    //     label: 'first',
-    // });
+
+    await page.waitForSelector('.category-link-list-main a')
+    const urls = await page.evaluate(() => {
+
+        return Array.from(document.querySelectorAll('.category-link-list-main a')).map(m => m.href)
+    })
+    if (urls.length === 0) {
+        throw 'urls.length===0 :https://dericompany.com.tr/kadin-deri-mont'
+    }
+    console.log('aggregation urls.length', urls.length)
+    console.log('aggregation urls', urls)
+
+    for (let u of urls) {
+
+        await addRequests([{ url: u, label: 'second' }])
+    }
     await autscroll(page, 200)
 
     const productItemsCount = await page.locator('.category__list__main').count();
