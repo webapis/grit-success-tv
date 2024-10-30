@@ -29,10 +29,10 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
     const productItemsCount = await page.locator('.category__list__main').count();
     if (productItemsCount > 0) {
-        const data = await page.evaluate((url) => {
+        const data = await page.evaluate(() => {
             const breadcrumb = Array.from(document.querySelectorAll('.breadcrumb-item')).map(m => m.innerText).join(' ')
             const pageTitle = document.title + ' ' + breadcrumb
-            const pageURL = url//document.URL
+            const pageURL = document.URL
             const content = document.innerHTML
 
             try {
@@ -60,7 +60,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
             } catch (error) {
                 return { error, message: error.message, content, pageURL }
             }
-        }, url)
+        })
         debugger
         return data
     } else {
