@@ -46,7 +46,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
                     const price = document.querySelector('.newPrice.active').innerText
 
-                    const img = document.querySelector('.imgInner.stImage [srcset]').getAttribute('srcset')
+                    const img = 'https://www.woody.com.tr'+ document.querySelector('.imgInner.stImage [srcset]').getAttribute('srcset')
 
                     const link = document.querySelector('.productName').href
                     return {
