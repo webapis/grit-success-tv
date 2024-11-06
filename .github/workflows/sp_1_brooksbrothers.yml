@@ -1,0 +1,19 @@
+name: sp_1_brooksbrothers
+
+on:
+  workflow_dispatch:  # Keeping manual trigger option
+  schedule:
+    # Runs at 00:00 UTC on Monday (3:00 AM Turkish time)
+    - cron: '0 0 * * 2'
+
+env:
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+
+jobs:
+  dizitv_job:
+    uses: ./.github/workflows/reusableProd.yml
+    with:
+      site: brooksbrothers
+      gitFolder: sponsor-product
+    secrets: inherit
