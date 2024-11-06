@@ -1,0 +1,13 @@
+name: adl
+on:
+   workflow_dispatch:
+env:
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+jobs:
+  dizitv_job:
+    uses: ./.github/workflows/sponspor-products/reusableProd.yml
+    with:
+      site: adl
+      gitFolder: sponsor-product
+    secrets: inherit
