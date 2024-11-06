@@ -6,7 +6,7 @@ env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:
   dizitv_job:
-    uses: ./.github/workflows/sponspor-products/reusableProd.yml
+    uses: ./.github/workflows/reusableProd.yml
     with:
       site: adl
       gitFolder: sponsor-product
