@@ -78,5 +78,5 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 }
 
 
-const urls = ["https://tr.manuatelier.com/"]
+const urls = ["https://manuatelier.com/"]
 export { urls }
