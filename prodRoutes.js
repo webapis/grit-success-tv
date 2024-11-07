@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { createPlaywrightRouter, Dataset, createPlaywrightRouter } from "crawlee";
+import { createPlaywrightRouter, Dataset } from "crawlee";
 
 const local = process.env.local;
 dotenv.config({ silent: true });
