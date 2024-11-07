@@ -65,7 +65,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
         return data
     } else {
 
-        console.log('not produсt page:', url)
+        console.log('not produсt page:', pageURL)
         return []
     }
 
