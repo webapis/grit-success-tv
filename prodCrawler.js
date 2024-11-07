@@ -1,4 +1,4 @@
-import { PlaywrightCrawler } from "crawlee";
+import { PlaywrightCrawler, PuppeteerCrawler } from "crawlee";
 import { router } from "./prodRoutes.js";
 import preNavigationHooks from "./crawler-helper/preNavigationHooks.js";
 import testRouter, { testUrl } from "./crawler-helper/testRouter.js";
@@ -13,7 +13,7 @@ const urls = convertUrlsToStrings(
         (await import(`./sites/${gitFolder}/${site}.js`)).urls
       );
 debugger;
-const crawler = new PlaywrightCrawler({
+const crawler = new PuppeteerCrawler({
   requestHandler: test === "true" ? testRouter : router,
   maxConcurrency: 1,
   preNavigationHooks,
