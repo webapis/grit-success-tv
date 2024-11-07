@@ -1,9 +1,9 @@
-
+import { enqueueLinks } from 'crawlee';
 import autscroll from '../../src/autoscroll.js'
-export default async function first({ page, enqueueLinks, request, log, addRequests }) {
+export default async function first({ page, request, log, addRequests }) {
 
     const url = await page.url()
-    await page.waitForSelector('nav a')
+    await page.waitForSelector('nav.header__menu a')
     // const urls = await page.evaluate(() => {
 
     //     return Array.from(document.querySelectorAll('nav a')).map(m => m.href)
@@ -20,11 +20,15 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     // }
     await enqueueLinks({
         selector: 'nav a',
-        label: 'first',
+        label: 'second',
     });
     
-    const pageURL = await page.url()
 
+
+}
+export async function second({ page, enqueueLinks, request, log, addRequests }) {
+
+    const pageURL = await page.url()
 
     const productItemsCount = await page.locator('.collection__products').count();
     if (productItemsCount > 0) {
@@ -69,11 +73,6 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         console.log('not produсt page:', pageURL)
         return []
     }
-
-}
-export async function second({ page, enqueueLinks, request, log, addRequests }) {
-
-
 
 
 }
