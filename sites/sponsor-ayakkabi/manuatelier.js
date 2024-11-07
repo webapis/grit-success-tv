@@ -27,17 +27,17 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
     const productItemsCount = await page.locator('.collection__products').count();
     if (productItemsCount > 0) {
-      //  await autscroll(page, 150)
+        await autscroll(page, 150)
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
             const content = document.innerHTML
 
 
-            const result = Array.from(document.querySelectorAll('.product-item')).map(element => {
+            const result = Array.from(document.querySelectorAll('.grid-item.product-item')).map(element => {
                 try {
                     const title = element.querySelector('.product-item__title').innerText.trim().replace('From', "")
-                    const price = element.querySelector('.new-price')?.innerText?.trim()
+                    const price = element.querySelector('.new-price').innerText.trim()
 
                     const img = element.querySelectorAll('[srcset]')[0].src
 
@@ -48,7 +48,6 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                         price,
                         img,
                         pageURL: element.baseURI,
-                        pageURL_2: pageURL,
                         pageTitle
                     }
                 } catch (error) {
