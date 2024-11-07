@@ -27,7 +27,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
     const productItemsCount = await page.locator('.collection__products').count();
     if (productItemsCount > 0) {
-        await autscroll(page, 150)
+      //  await autscroll(page, 150)
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL

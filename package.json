@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "crawlee": "3.11.1",
+    "crawlee": "^3.11.1",
     "dotenv": "^16.4.5",
     "make-dir": "4.0.0",
     "mongodb": "^6.8.0",
