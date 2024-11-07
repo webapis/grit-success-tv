@@ -1,6 +1,6 @@
 
 import autscroll from '../../src/autoscroll.js'
-export default async function first({ page, request, log,addRequests }) {
+export default async function first({ page, request, log, addRequests }) {
 
     const url = await page.url()
 
@@ -16,10 +16,10 @@ export default async function first({ page, request, log,addRequests }) {
 
     for (let u of urls) {
 
-        await addRequests([{ url: u, label: 'first' }])
+        await addRequests([{ url: u, label: 'second' }])
     }
 
-    
+
 
 
 }
@@ -28,11 +28,11 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
     // Count the number of product items on the page
     const productItemsCount = await page.locator('.collection__products').count();
-    
+
     if (productItemsCount > 0) {
         // Scroll down to load more products if necessary
         await autscroll(page, 150);
-        
+
         const data = await page.evaluate((_pageURL) => {
             const pageTitle = document.title;
             const content = document.documentElement.innerHTML; // Use document.documentElement for full HTML
@@ -41,19 +41,19 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
             const result = Array.from(document.querySelectorAll('.grid-item.product-item')).map(element => {
                 try {
                     const title = element.querySelector('.product-item__title').innerText.trim().replace('From', "");
-                    const price = element.querySelector('.price .new-price') ? 
-                                  element.querySelector('.price .new-price').innerText.trim() : 'N/A'; // Handle missing price
-                    const img = element.querySelector('[srcset]') ? 
-                                element.querySelector('[srcset]').src : ''; // Handle missing image
-                    const link = element.querySelector('.product-link') ? 
-                                 element.querySelector('.product-link').href : ''; // Handle missing link
+                    const price = element.querySelector('.price .new-price') ?
+                        element.querySelector('.price .new-price').innerText.trim() : 'N/A'; // Handle missing price
+                    const img = element.querySelector('[srcset]') ?
+                        element.querySelector('[srcset]').src : ''; // Handle missing image
+                    const link = element.querySelector('.product-link') ?
+                        element.querySelector('.product-link').href : ''; // Handle missing link
 
                     return {
                         title,
                         link,
                         price,
                         img,
-                        pageURL: _pageURL,
+                        pageURL: element.baseURI,
                         pageTitle
                     };
                 } catch (error) {
