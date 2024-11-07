@@ -28,16 +28,16 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     const productItemsCount = await page.locator('.collection__products').count();
     if (productItemsCount > 0) {
         await autscroll(page, 150)
-        const data = await page.evaluate(() => {
+        const data = await page.evaluate((_pageURL) => {
             const pageTitle = document.title
 
             const content = document.innerHTML
 
 
-            const result = Array.from(document.querySelectorAll('.grid-item.product-item')).map(element, _pageURL => {
+            const result = Array.from(document.querySelectorAll('.grid-item.product-item')).map( element => {
                 try {
                     const title = element.querySelector('.product-item__title').innerText.trim().replace('From', "")
-                    const price = element.querySelector('.new-price').innerText.trim()
+                    const price = element.querySelector('.price .new-price').innerText.trim()
 
                     const img = element.querySelectorAll('[srcset]')[0].src
 
@@ -52,14 +52,14 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                     }
                 } catch (error) {
 
-                    return { error, message: error.message, content, pageURL }
+                    return { error, message: error.message, content, pageURL:_pageURL }
                 }
 
-            }, pageURL)
+            })
 
             return result
 
-        })
+        },pageURL)
         debugger
         console.log('data.length', data.length)
         return data
