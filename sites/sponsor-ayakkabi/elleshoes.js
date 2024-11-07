@@ -3,13 +3,13 @@ import autscroll from '../../src/autoscroll.js'
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
-    await page.waitForSelector('nav a')
+    await page.waitForSelector('.nav-item a')
     const urls = await page.evaluate(() => {
 
-        return Array.from(document.querySelectorAll('nav a')).map(m => m.href)
+        return Array.from(document.querySelectorAll('.nav-item a')).map(m => m.href)
     })
     if (urls.length === 0) {
-        throw 'urls.length===0 :https://tr.manuatelier.com/'
+        throw 'urls.length===0 :https://www.elleshoes.com/'
     }
     console.log('aggregation urls.length', urls.length)
     console.log('aggregation urls', urls)
@@ -25,31 +25,31 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     const url = await page.url()
 
 
-    const productItemsCount = await page.locator('.collection__products').count();
+    const productItemsCount = await page.locator('.ProductList').count();
     if (productItemsCount > 0) {
-        await autscroll(page, 150)
+         await autscroll(page, 150)
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
             const content = document.innerHTML
 
 
-            const result = Array.from(document.querySelectorAll('.product-item')).map(element => {
+            const result = Array.from(document.querySelectorAll('.productItem')).map(element => {
                 try {
-                    const title = element.querySelector('.product-item__title').innerText.trim().replace('From', "")
-                    const price = element.querySelector('.new-price')?.innerText?.trim()
+                    const title = element.querySelector('.productName a').innerText.trim()
 
-                    const img = element.querySelectorAll('[srcset]')[0].src
+                    const price = document.querySelector('.KatSepetFiyat3')?.innerText
 
-                    const link = element.querySelector('.product-link').href
+                    const img = document.querySelector('[data-src]').getAttribute('data-src')
+
+                    const link = element.querySelector('.detailLink').href
                     return {
                         title,
                         link,
                         price,
                         img,
-                        pageURL: element.baseURI,
-                        pageURL_2: pageURL,
-                        pageTitle
+                        pageTitle,
+                        pageURL
                     }
                 } catch (error) {
 
@@ -76,5 +76,5 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 }
 
 
-const urls = ["https://tr.manuatelier.com/"]
+const urls = ["https://www.elleshoes.com/"]
 export { urls }
