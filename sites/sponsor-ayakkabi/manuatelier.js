@@ -1,27 +1,24 @@
-import { enqueueLinks } from 'crawlee';
+import {enqueueLinks,addRequests } from 'crawlee';
 import autscroll from '../../src/autoscroll.js'
-export default async function first({ page, request, log, addRequests }) {
+export default async function first({ page, request, log }) {
 
     const url = await page.url()
-    await page.waitForSelector('nav.header__menu a')
-    // const urls = await page.evaluate(() => {
 
-    //     return Array.from(document.querySelectorAll('nav a')).map(m => m.href)
-    // })
-    // if (urls.length === 0) {
-    //     throw 'urls.length===0 :https://tr.manuatelier.com/'
-    // }
-    // console.log('aggregation urls.length', urls.length)
-    // console.log('aggregation urls', urls)
+    const urls = await page.evaluate(() => {
 
-    // for (let u of urls) {
+        return Array.from(document.querySelectorAll('nav a')).map(m => m.href)
+    })
+    if (urls.length === 0) {
+        throw 'urls.length===0 :https://tr.manuatelier.com/'
+    }
+    console.log('aggregation urls.length', urls.length)
+    console.log('aggregation urls', urls)
 
-    //     await addRequests([{ url: u, label: 'first' }])
-    // }
-    await enqueueLinks({
-        selector: 'nav a',
-        label: 'second',
-    });
+    for (let u of urls) {
+
+        await addRequests([{ url: u, label: 'first' }])
+    }
+
     
 
 
@@ -78,5 +75,5 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 }
 
 
-const urls = ["https://manuatelier.com/"]
+const urls = ["https://tr.manuatelier.com/"]
 export { urls }
