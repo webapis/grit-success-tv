@@ -16,12 +16,9 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     for (let u of urls) {
 
-        await addRequests([{ url: u, label: 'second' }])
+        await addRequests([{ url: u, label: 'first' }])
     }
 
-
-}
-export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const pageURL = await page.url()
 
 
@@ -68,6 +65,9 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
         console.log('not produсt page:', pageURL)
         return []
     }
+
+}
+export async function second({ page, enqueueLinks, request, log, addRequests }) {
 
 
 
