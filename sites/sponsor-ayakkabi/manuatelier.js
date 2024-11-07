@@ -1,6 +1,6 @@
-import {enqueueLinks,addRequests } from 'crawlee';
+
 import autscroll from '../../src/autoscroll.js'
-export default async function first({ page, request, log }) {
+export default async function first({ page, request, log,addRequests }) {
 
     const url = await page.url()
 
