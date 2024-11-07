@@ -4,21 +4,25 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const url = await page.url()
     await page.waitForSelector('nav a')
-    const urls = await page.evaluate(() => {
+    // const urls = await page.evaluate(() => {
 
-        return Array.from(document.querySelectorAll('nav a')).map(m => m.href)
-    })
-    if (urls.length === 0) {
-        throw 'urls.length===0 :https://tr.manuatelier.com/'
-    }
-    console.log('aggregation urls.length', urls.length)
-    console.log('aggregation urls', urls)
+    //     return Array.from(document.querySelectorAll('nav a')).map(m => m.href)
+    // })
+    // if (urls.length === 0) {
+    //     throw 'urls.length===0 :https://tr.manuatelier.com/'
+    // }
+    // console.log('aggregation urls.length', urls.length)
+    // console.log('aggregation urls', urls)
 
-    for (let u of urls) {
+    // for (let u of urls) {
 
-        await addRequests([{ url: u, label: 'first' }])
-    }
-
+    //     await addRequests([{ url: u, label: 'first' }])
+    // }
+    await enqueueLinks({
+        selector: 'nav a',
+        label: 'first',
+    });
+    
     const pageURL = await page.url()
 
 
