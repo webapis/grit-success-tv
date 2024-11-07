@@ -24,26 +24,30 @@ export default async function first({ page, request, log,addRequests }) {
 
 }
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
+    const pageURL = await page.url();
 
-    const pageURL = await page.url()
-
+    // Count the number of product items on the page
     const productItemsCount = await page.locator('.collection__products').count();
+    
     if (productItemsCount > 0) {
-        await autscroll(page, 150)
+        // Scroll down to load more products if necessary
+        await autscroll(page, 150);
+        
         const data = await page.evaluate((_pageURL) => {
-            const pageTitle = document.title
+            const pageTitle = document.title;
+            const content = document.documentElement.innerHTML; // Use document.documentElement for full HTML
 
-            const content = document.innerHTML
-
-
-            const result = Array.from(document.querySelectorAll('.grid-item.product-item')).map( element => {
+            // Extract product information
+            const result = Array.from(document.querySelectorAll('.grid-item.product-item')).map(element => {
                 try {
-                    const title = element.querySelector('.product-item__title').innerText.trim().replace('From', "")
-                    const price = element.querySelector('.price .new-price').innerText.trim()
+                    const title = element.querySelector('.product-item__title').innerText.trim().replace('From', "");
+                    const price = element.querySelector('.price .new-price') ? 
+                                  element.querySelector('.price .new-price').innerText.trim() : 'N/A'; // Handle missing price
+                    const img = element.querySelector('[srcset]') ? 
+                                element.querySelector('[srcset]').src : ''; // Handle missing image
+                    const link = element.querySelector('.product-link') ? 
+                                 element.querySelector('.product-link').href : ''; // Handle missing link
 
-                    const img = element.querySelectorAll('[srcset]')[0].src
-
-                    const link = element.querySelector('.product-link').href
                     return {
                         title,
                         link,
@@ -51,27 +55,21 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                         img,
                         pageURL: _pageURL,
                         pageTitle
-                    }
+                    };
                 } catch (error) {
-
-                    return { error, message: error.message, content, pageURL:_pageURL }
+                    return { error: true, message: error.message, content, pageURL: _pageURL };
                 }
+            });
 
-            })
+            return result;
+        }, pageURL);
 
-            return result
-
-        },pageURL)
-        debugger
-        console.log('data.length', data.length)
-        return data
+        console.log('data.length', data.length);
+        return data;
     } else {
-
-        console.log('not produсt page:', pageURL)
-        return []
+        console.log('Not a product page:', pageURL);
+        return [];
     }
-
-
 }
 
 
