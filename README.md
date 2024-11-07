@@ -101,10 +101,6 @@ https://gemini.google.com/app/e2cb80fc1e2e0b41
 yarım boğazlı kazak
 https://www.modacelikler.com/triko-takim
 
-kazak yaka çeşitleri
-kazak örnekleri
-örgü kazak örnekleri
-
 
 
 
