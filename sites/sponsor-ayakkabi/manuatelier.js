@@ -37,7 +37,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
             const result = Array.from(document.querySelectorAll('.product-item')).map(element => {
                 try {
                     const title = element.querySelector('.product-item__title').innerText.trim()
-                    const price = element.querySelector('.new-price')?.innerHTML?.trim()
+                    const price = element.querySelector('.new-price')?.innerText?.trim()
 
                     const img = element.querySelectorAll('[srcset]')[0].src
 
