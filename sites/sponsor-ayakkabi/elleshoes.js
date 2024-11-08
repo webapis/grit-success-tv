@@ -27,7 +27,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
     const productItemsCount = await page.locator('.ProductList').count();
     if (productItemsCount > 0) {
-         await autscroll(page, 150)
+       //  await autscroll(page, 150)
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
@@ -38,9 +38,9 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                 try {
                     const title = element.querySelector('.productName a').innerText.trim()
 
-                    const price = document.querySelector('.KatSepetFiyat3')?.innerText
+                    const price = element.querySelector('.KatSepetFiyat3 span').innerText
 
-                    const img = document.querySelector('[data-src]').getAttribute('data-src')
+                    const img = element.querySelector('[data-src]').getAttribute('data-src')
 
                     const link = element.querySelector('.detailLink').href
                     return {

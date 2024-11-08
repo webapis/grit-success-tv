@@ -15,11 +15,8 @@ export default async function first({ page, request, log, addRequests }) {
     console.log('aggregation urls', urls)
 
     for (let u of urls) {
-
         await addRequests([{ url: u, label: 'second' }])
     }
-
-
 
 
 }
@@ -35,7 +32,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
         const data = await page.evaluate((_pageURL) => {
             const pageTitle = document.title;
-            const content = document.documentElement.innerHTML; // Use document.documentElement for full HTML
+            const content = document.innerHTML; // Use document.documentElement for full HTML
 
             // Extract product information
             const result = Array.from(document.querySelectorAll('.grid-item.product-item')).map(element => {
@@ -47,7 +44,6 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                         element.querySelector('[srcset]').src : ''; // Handle missing image
                     const link = document.querySelector('.product-item__image a') ?
                         document.querySelector('.product-item__image a').href : ''; // Handle missing link
-
                     return {
                         title,
                         link,
