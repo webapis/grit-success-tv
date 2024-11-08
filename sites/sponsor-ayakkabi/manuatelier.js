@@ -40,13 +40,13 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
             // Extract product information
             const result = Array.from(document.querySelectorAll('.grid-item.product-item')).map(element => {
                 try {
-                    const title = element.querySelector('.product-item__title').innerText.trim().replace('From', "");
+                    const title = element.querySelector('.product-item__bg img').alt
                     const price = element.querySelector('.price .new-price') ?
                         element.querySelector('.price .new-price').innerText.trim() : 'N/A'; // Handle missing price
                     const img = element.querySelector('[srcset]') ?
                         element.querySelector('[srcset]').src : ''; // Handle missing image
-                    const link = element.querySelector('.product-link') ?
-                        element.querySelector('.product-link').href : ''; // Handle missing link
+                    const link = document.querySelector('.product-item__image a') ?
+                        document.querySelector('.product-item__image a').href : ''; // Handle missing link
 
                     return {
                         title,
