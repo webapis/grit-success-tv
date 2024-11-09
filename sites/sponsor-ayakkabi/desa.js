@@ -4,6 +4,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const url = await page.url()
     await page.waitForSelector('.navigation a')
+    
     const urls = await page.evaluate(() => {
 
         return Array.from(document.querySelectorAll('.navigation a')).map(m => m.href).filter(f=>f)
@@ -24,7 +25,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const url = await page.url()
 
-
+    await enqueueLinks({
+        selector: ".category_sub_category",
+        label: "second",
+      });
     const productItemsCount = await page.locator('.js-list-content-item-wrapper').count();
     if (productItemsCount > 0) {
        //  await autscroll(page, 150)
