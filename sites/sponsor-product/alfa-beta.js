@@ -1,9 +1,9 @@
 
-export default async function first({ page, enqueueLinks }) {
+export default async function first({ page, enqueueLinks,addRequests }) {
 
     const url =await page.url()
 
-    await page.waitForSelector('.navigation a')
+    await page.waitForSelector('#navigation a')
     
     const urls = await page.evaluate(() => {
 
@@ -71,8 +71,9 @@ export default async function first({ page, enqueueLinks }) {
                     return result
                 })
         
-           
+                console.log('data.length',data.length)
                 return data
+
         
             } else {
                 console.log('not product page:-', url)
