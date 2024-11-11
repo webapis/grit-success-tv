@@ -3,30 +3,30 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const url = await page.url()
 
-    // await enqueueLinks({
-    //     selector: 'a.m-siteMap__link',
-    //     label: 'first',
-    // });
+
+    await page.waitForSelector('nav a')
 
     const urls = await page.evaluate(() => {
-        return     Array.from(document.querySelectorAll('.m-siteMap__link.navLink')).map(m=>m.href).filter(f=>f.includes('kadin'))
+        return Array.from(document.querySelectorAll('nav a')).map(m => m.href)
     })
+    if (urls.length === 0) {
+        throw 'urls.length===0 :https://clothing.beautyomelette.com/'
+    }
+    console.log('aggregation urls.length', urls.length)
+    console.log('aggregation urls', urls)
     for (let u of urls) {
 
-        await addRequests([{ url: u, label: 'first' }])
+        await addRequests([{ url: u, label: 'second' }])
     }
 
-    // const productCount = await page.evaluate(() => parseInt(document.querySelector('.o-productList__top--breadcrumbCount')?.innerText?.replace(/[^\d]/gi, '')))
-    // const totalPages = Math.ceil(productCount / 48)
-    // await addRequests([{ url, label: 'second' }])
-    // if (productCount > 0 && totalPages > 1) {
 
-    //     for (let i = 2; i <= totalPages; i++) {
 
-    //         await addRequests([{ url: `${url}?sayfa=${i}`, label: 'second' }])
 
-    //     }
-    // }
+
+}
+
+export async function second({ page }) {
+
     const productItemsCount = await page.locator('.o-productList').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
@@ -57,20 +57,16 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         })
 
 
-
+        console.log('data.length', data.length)
 
         debugger
         return data.map(m => { return { ...m, price: m.price.replace("Ek İndirimle\n", '') } })
     } else {
-
+        console.log('not a product page', url)
         return []
     }
 
-
-
 }
 
-
-
-const urls = ["https://www.beymen.com/home/sitemap"]
+const urls = ["https://www.beymen.com/tr"]
 export { urls }
