@@ -6,10 +6,10 @@ debugger
         selector: '.navigation a',
         label: 'first',
     });
-    await enqueueLinks({
-        selector: '.pagination a',
-        label: 'first',
-    });
+    // await enqueueLinks({
+    //     selector: '.pagination a',
+    //     label: 'first',
+    // });
 
     //pagination
 

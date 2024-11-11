@@ -6,10 +6,10 @@ const url =await page.url()
         selector: '.navigation a',
         label: 'first',
     });
-    await enqueueLinks({
-        selector: '.pagination a',
-        label: 'first',
-    });
+    // await enqueueLinks({
+    //     selector: '.pagination a',
+    //     label: 'first',
+    // });
     
     //pagination
     const productItemsCount = await page.locator('.product-item').count();

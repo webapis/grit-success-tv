@@ -23,10 +23,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 }
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const url = await page.url()
-    await enqueueLinks({
-        selector: '.w-pagination a',
-        label: 'second',
-    });
+    // await enqueueLinks({
+    //     selector: '.w-pagination a',
+    //     label: 'second',
+    // });
 
     try {
 

@@ -6,10 +6,10 @@ export default async function first({ page, enqueueLinks }) {
             selector: '#navigation a',
             label: 'first',
         });
-        await enqueueLinks({
-            selector: '.paginate-content a',
-            label: 'first',
-        });
+        // await enqueueLinks({
+        //     selector: '.paginate-content a',
+        //     label: 'first',
+        // });
         
         //pagination
         const productItemsCount = await page.locator('#product-list-container').count();

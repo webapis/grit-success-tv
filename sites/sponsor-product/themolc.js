@@ -30,10 +30,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const url = await page.url()
 
-    await enqueueLinks({
-        selector: '.paginate-content a',
-        label: 'second',
-    });
+    // await enqueueLinks({
+    //     selector: '.paginate-content a',
+    //     label: 'second',
+    // });
     const productItemsCount = await page.locator('#product-list-container').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {

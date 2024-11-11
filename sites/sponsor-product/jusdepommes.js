@@ -24,10 +24,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const url = await page.url()
-    await enqueueLinks({
-        selector: 'pagination-custom a',
-        label: 'second',
-    });
+    // await enqueueLinks({
+    //     selector: 'pagination-custom a',
+    //     label: 'second',
+    // });
 
    
     const productItemsCount = await page.locator('.collection__products').count();
