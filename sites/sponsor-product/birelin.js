@@ -3,6 +3,7 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
+    await page.waitForSelector('.navigation a')
 
     const urls = await page.evaluate(() => {
 
