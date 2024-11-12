@@ -4,10 +4,10 @@ export default async function first({ page, enqueueLinks }) {
     const url =await page.url()
 
 
-        await page.waitForSelector('.menu a')
+        await page.waitForSelector('.menu.main-menu a')
 
         const urls = await page.evaluate(() => {
-            return Array.from(document.querySelectorAll('.menu a')).map(m => m.href)
+            return Array.from(document.querySelectorAll('.menu.main-menu a')).map(m => m.href)
         })
         if (urls.length === 0) {
             throw 'urls.length===0 :https://www.ipekyol.com.tr/'
@@ -25,6 +25,7 @@ export default async function first({ page, enqueueLinks }) {
     }
     
     export async function second({page}){
+        const url =await page.url()
         const productItemsCount = await page.locator('.prd-list').count();
     
 
@@ -57,11 +58,11 @@ export default async function first({ page, enqueueLinks }) {
                 return result
             })
     
-          
+          console.log('data.length',data.length)
             return data
     
         } else {
-        
+            console.log('not product page:',url)
             return []
     
     
