@@ -31,14 +31,15 @@ export async function second({ page }) {
             const pageURL = document.URL
             const result = Array.from(document.querySelectorAll('.product-item')).map(m => {
                 try {
-                    const { product_image_url } = JSON.parse(m.querySelector('.js-insider-product').innerText)
+                    const data = JSON.parse(m.querySelector('.js-insider-product').innerText)
+                    const { product_image_url, unit_sale_price } = data
                     const title = m.querySelector('.product-item__info-name').innerText
-                    const price = m.querySelector(".product-item__info-price").innerText
+                   // const price = m.querySelector(".product-item__info-price").innerText
                     const img = product_image_url
                     const link = m.querySelector(".product-link").href
                     return {
                         title,
-                        price,
+                        price: unit_sale_price,
                         img,
                         link,
                         pageTitle,
