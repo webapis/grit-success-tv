@@ -2,13 +2,29 @@
 export default async function first({ page, enqueueLinks }) {
 
     const url =await page.url()
-        await enqueueLinks({
-            selector: '.menu a',
-            label: 'first',
-        });
 
-        
+
+        await page.waitForSelector('.menu a')
+
+        const urls = await page.evaluate(() => {
+            return Array.from(document.querySelectorAll('.menu a')).map(m => m.href)
+        })
+        if (urls.length === 0) {
+            throw 'urls.length===0 :https://www.ipekyol.com.tr/'
+        }
+        console.log('aggregation urls.length', urls.length)
+        console.log('aggregation urls', urls)
+        for (let u of urls) {
+    
+            await addRequests([{ url: u, label: 'second' }])
+        }
         //pagination
+
+    
+    
+    }
+    
+    export async function second({page}){
         const productItemsCount = await page.locator('.prd-list').count();
     
 
@@ -50,11 +66,7 @@ export default async function first({ page, enqueueLinks }) {
     
     
         }
-    
-    
     }
-    
-    
     
     const urls = ["https://www.ipekyol.com.tr/"]
     export { urls }
