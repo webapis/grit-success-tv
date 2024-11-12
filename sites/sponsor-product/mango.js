@@ -8,38 +8,55 @@ export default async function first({
   addRequests,
 }) {
   //await autoScroll(page, 200);
+  await page.waitForSelector('a.site-map-item')
 
-  const data = await page.evaluate(() => {
-    const pageTitle = document.title;
-    const pageURL = document.URL;
-    const result = Array.from(
-      document.querySelectorAll('div[class^="ProductCard_"]')
-    ).map((m) => {
-      const title = m.querySelector('[class^="ProductTitle_"]')?.innerText;
-      const price = m.querySelector('span[class^="texts_bodyM"]')?.innerText;
-      const img =m.querySelector("[srcset]").getAttribute("srcset").split(" ")[0]
-      const link =m.querySelector("a").href
-      return {
-        title,
-        price,
-        img,
-          link
-      };
-    });
+  const urls = await page.evaluate(() => {
 
-    return result.length > 0
-      ? result.map((m) => {
-          return { ...m, pageTitle, pageURL };
-        })
-      : [];
-  });
+    return Array.from(document.querySelectorAll('a.site-map-item')).map(m => m.href)
+  })
+
+  console.log('aggregation urls', urls)
+
+  for (let u of urls) {
+
+    await addRequests([{ url: u, label: 'second' }])
+  }
+
 
   debugger;
-  return data;
-}
 
+}
+export async function second({ page }) {
+  const url = await page.url()
+  const productItemsCount = await page.locator('[class^="Grid_grid"]').count();
+  if (productItemsCount > 0) {
+    const data = await page.evaluate(() => {
+      const pageTitle = document.title;
+      const pageURL = document.URL;
+      const result = Array.from(document.querySelectorAll('[class^="ProductCard_productCard"]')).map(m => {
+
+        return {
+          title: m.querySelector('div[class^="ProductDetails_productInfo"] meta[content]').getAttribute('content'),
+          price: m.querySelector('[class^="SinglePrice_start"]')?.innerText,
+          img: m.querySelector('[class^="ProductImage_productImage"] img').src,
+          link: m.querySelector('[class^="ProductImage_productImage"] a').href
+        }
+      })
+
+      return result.map((m) => {
+        return { ...m, pageTitle, pageURL };
+      })
+    });
+    console.log('data.length', data.length)
+    return data;
+
+  } else {
+    console.log('not product page:', url)
+  }
+
+}
 const urls = [
-  "https://shop.mango.com/tr",
+  "https://shop.mango.com/tr/sitemap",
 ];
 
 export { urls };
