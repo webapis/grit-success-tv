@@ -14,11 +14,11 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     //     })
 
     // }
-    const varTwo = await page.$$('.product-card__image')
+    const varTwo = await page.$$('.container.catalog__sub-categories--container .product-card__image')
     if (varTwo) {
         debugger
         urls = await page.evaluate(() => {
-            return Array.from(document.querySelectorAll('.product-card__image a')).map(m => m.href).filter(f => f)
+            return Array.from(document.querySelectorAll('.container.catalog__sub-categories--container .product-card__image a')).map(m => m.href).filter(f => f)
         })
     }
     debugger
