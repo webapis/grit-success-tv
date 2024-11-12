@@ -42,42 +42,49 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const url = await page.url()
-    const productItemsCount = await page.locator('[data-documents]').count();
-    if (productItemsCount > 0) {
-        const data = await page.evaluate(() => {
-            try {
-                const pageTitle = document.title
-                const pageURL = document.URL
-                const result = Array.from(document.querySelectorAll('[data-documents]')).map(m => {
+    try {
 
-                    const title = m.querySelector('.product-card__title a')?.innerText
-                    const price = m.querySelector('.product-card__price--new')?.innerText
-                    const priceBacket = m.querySelector('.product-card__price--basket div')?.textContent
+        await page.waitForSelector('#product-container')
+        const productItemsCount = await page.locator('#product-container').count();
+        if (productItemsCount > 0) {
+            const data = await page.evaluate(() => {
+                try {
+                    const pageTitle = document.title
+                    const pageURL = document.URL
+                    const result = Array.from(document.querySelectorAll('[data-documents]')).map(m => {
 
-                    const img1 = JSON.parse(m.getAttribute('data-documents')).PictureName
-                    const color = JSON.parse(m.getAttribute('data-documents')).ColorName
-                    const link = m.querySelector('.image-box a').href
-                    return {
-                        title,
-                        link,
-                        price: priceBacket ? priceBacket : price,
-                        color,
-                        img: 'https://dfcdn.defacto.com.tr/376/' + img1
-                    }
-                })
+                        const title = m.querySelector('.product-card__title a')?.innerText
+                        const price = m.querySelector('.product-card__price--new')?.innerText
+                        const priceBacket = m.querySelector('.product-card__price--basket div')?.textContent
 
-                return result.length > 0 ? result.map(m => { return { ...m, pageTitle, pageURL } }) : []
-            } catch (error) {
-                return { error, content: m.innerHTML }
-            }
-        })
-        debugger
-        console.log('data.length:', data.length, 'url:', url)
-        return data.map(m => { return { ...m, price: m.price.replace('\nTL', '') } })
-    } else {
-        console.log('not product page:', url)
-        return []
+                        const img1 = JSON.parse(m.getAttribute('data-documents')).PictureName
+                        const color = JSON.parse(m.getAttribute('data-documents')).ColorName
+                        const link = m.querySelector('.image-box a').href
+                        return {
+                            title,
+                            link,
+                            price: priceBacket ? priceBacket : price,
+                            color,
+                            img: 'https://dfcdn.defacto.com.tr/376/' + img1
+                        }
+                    })
+
+                    return result.length > 0 ? result.map(m => { return { ...m, pageTitle, pageURL } }) : []
+                } catch (error) {
+                    return { error, content: m.innerHTML }
+                }
+            })
+            debugger
+            console.log('data.length:', data.length, 'url:', url)
+            return data.map(m => { return { ...m, price: m.price.replace('\n', ' ') } })
+        } else {
+            console.log('not product page:', url)
+            return []
+        }
+    } catch (error) {
+        console.log('not product page:--', url)
     }
+
 }
 
 const urls = ["https://www.defacto.com.tr/kadin-giyim",
