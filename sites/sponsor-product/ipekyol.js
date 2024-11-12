@@ -1,13 +1,16 @@
 
-export default async function first({ page, enqueueLinks }) {
+export default async function first({ page, enqueueLinks,addRequests }) {
 
     const url =await page.url()
-
-
-        await page.waitForSelector('.menu.main-menu a')
-
+    debugger
+    await page.waitForSelector('.open-menu.desktop-open-menu', { visible: true })
+    debugger
+    await page.evaluate(()=>document.querySelector('.open-menu').click())
+debugger
+        await page.waitForSelector('.ems-sub-menu a')
+debugger
         const urls = await page.evaluate(() => {
-            return Array.from(document.querySelectorAll('.menu.main-menu a')).map(m => m.href)
+            return Array.from(document.querySelectorAll('.ems-sub-menu a')).map(m => m.href)
         })
         if (urls.length === 0) {
             throw 'urls.length===0 :https://www.ipekyol.com.tr/'

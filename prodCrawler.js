@@ -12,7 +12,7 @@ const HEADLESS = process.env.HEADLESS;
 const urls = convertUrlsToStrings(
         (await import(`./sites/${gitFolder}/${site}.js`)).urls
       );
-debugger;
+
 const crawler = new PlaywrightCrawler({
   requestHandler: test === "true" ? testRouter : router,
   maxConcurrency: 1,
