@@ -19,10 +19,10 @@ export default async function first({ page, enqueueLinks,addRequests }) {
 
         await addRequests([{ url: u, label: 'second' }])
     }
-        await enqueueLinks({
-            selector: '#navigation a',
-            label: 'first',
-        });
+        // await enqueueLinks({
+        //     selector: '#navigation a',
+        //     label: 'first',
+        // });
         // await enqueueLinks({
         //     selector: '.paginate-content a',
         //     label: 'first',

@@ -75,8 +75,6 @@ const urls = [
     "https://joinus.com.tr/collections/kadin-alt-giyim",
     "https://joinus.com.tr/collections/tum-alt-indirim",
     "https://joinus.com.tr/collections/kadin-elbise",
-    "https://joinus.com.tr/collections/kadin-elbise",
-    "https://joinus.com.tr/collections/kadin-elbise",
     "https://joinus.com.tr/collections/elbise-outlet",
     "https://joinus.com.tr/collections/dis-giyim",
     "https://joinus.com.tr/collections/aksesuar",
@@ -99,6 +97,6 @@ const urls = [
     "https://joinus.com.tr/collections/indirim-top",
     "https://joinus.com.tr/collections/indirim-bluz",
     "https://joinus.com.tr/collections/indirim-sort",
-    "https://joinus.com.tr/collections/kadin-elbise"
+
 ]
 export { urls }
