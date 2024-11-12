@@ -41,6 +41,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 }
 
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
+    const url = await page.url()
     const productItemsCount = await page.locator('[data-documents]').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
@@ -71,8 +72,10 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
             }
         })
         debugger
+        console.log('data.length:', data.length, 'url:', url)
         return data.map(m => { return { ...m, price: m.price.replace('\nTL', '') } })
     } else {
+        console.log('not product page:', url)
         return []
     }
 }
