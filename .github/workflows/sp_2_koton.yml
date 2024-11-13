@@ -1,4 +1,4 @@
-name: sp_koton
+name: sp_2_koton
 
 on:
   workflow_dispatch:  # Keeping manual trigger option
@@ -15,5 +15,5 @@ jobs:
     uses: ./.github/workflows/reusableProd.yml
     with:
       site: koton
-      gitFolder: sponsor-product
+      gitFolder: sponsor-product-2
     secrets: inherit
