@@ -1,4 +1,4 @@
-name: sp_mango
+name: sp_3_mango
 
 on:
   workflow_dispatch:  # Keeping manual trigger option
@@ -15,5 +15,5 @@ jobs:
     uses: ./.github/workflows/reusableProd.yml
     with:
       site: mango
-      gitFolder: sponsor-product
+      gitFolder: sponsor-product-3
     secrets: inherit
