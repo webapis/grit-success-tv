@@ -1,4 +1,4 @@
-name: sp_mudo
+name: sp_4_mudo
 
 on:
   workflow_dispatch:  # Keeping manual trigger option
@@ -15,5 +15,5 @@ jobs:
     uses: ./.github/workflows/reusableProd.yml
     with:
       site: mudo
-      gitFolder: sponsor-product
+      gitFolder: sponsor-product-4
     secrets: inherit
