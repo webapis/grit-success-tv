@@ -3,7 +3,7 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
-
+    await page.waitForSelector('.main-nav a')
     const urls = await page.evaluate(() => {
 
         return Array.from(document.querySelectorAll('.main-nav a')).map(m => m.href)
@@ -18,9 +18,6 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
         await addRequests([{ url: u, label: 'second' }])
     }
-
-
-
 
 
 
@@ -58,7 +55,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
         return data
     } else {
-     
+
         return []
     }
 }
