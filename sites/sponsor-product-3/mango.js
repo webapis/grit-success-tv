@@ -31,21 +31,25 @@ export async function second({ page }) {
   const productItemsCount = await page.locator('[class^="Grid_grid"]').count();
   if (productItemsCount > 0) {
     const data = await page.evaluate(() => {
+
       const pageTitle = document.title;
       const pageURL = document.URL;
       const result = Array.from(document.querySelectorAll('[class^="ProductCard_productCard"]')).map(m => {
-
-        return {
-          title: m.querySelector('div[class^="ProductDetails_productInfo"] meta[content]').getAttribute('content'),
-          price: m.querySelector('[class^="SinglePrice_start"]')?.innerText,
-          img: m.querySelector('[class^="ProductImage_productImage"] img').src,
-          link: m.querySelector('[class^="ProductImage_productImage"] a').href
+        try {
+          return {
+            title: m.querySelector('div[class^="ProductDetails_productInfo"] meta[content]').getAttribute('content'),
+            price: m.querySelector('[class^="SinglePrice_start"]')?.innerText,
+            img: m.querySelector('[class^="ProductImage_productImage"] img').src,
+            link: m.querySelector('[class^="ProductImage_productImage"] a').href,
+            pageTitle, pageURL
+          }
+        } catch (error) {
+          return { error, message: error.message, pageURL }
         }
+
       })
 
-      return result.map((m) => {
-        return { ...m, pageTitle, pageURL };
-      })
+      return result
     });
     console.log('data.length', data.length)
     return data;
