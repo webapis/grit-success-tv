@@ -1,4 +1,4 @@
-name: sp_beymen
+name: sp_4_beymen
 
 on:
   workflow_dispatch:  # Keeping manual trigger option
@@ -15,5 +15,5 @@ jobs:
     uses: ./.github/workflows/reusableProd.yml
     with:
       site: beymen
-      gitFolder: sponsor-product
+      gitFolder: sponsor-product-4
     secrets: inherit
