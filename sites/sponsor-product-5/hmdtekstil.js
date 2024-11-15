@@ -2,31 +2,6 @@
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
     const url = await page.url()
-
-
-    await page.waitForSelector('.menu-item a')
-
-    const urls = await page.evaluate(() => {
-        return Array.from(document.querySelectorAll('.menu-item a')).map(m => m.href)
-    })
-    if (urls.length === 0) {
-        throw 'urls.length===0 :https://www.hmdtekstil.com.tr'
-    }
-    console.log('aggregation urls.length', urls.length)
-    console.log('aggregation urls', urls)
-    for (let u of urls) {
-
-        await addRequests([{ url: u, label: 'second' }])
-    }
-
-
-
-
-
-}
-
-export async function second({ page }) {
-
     const productItemsCount = await page.locator('.main-products.product-grid').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
@@ -65,14 +40,48 @@ export async function second({ page }) {
         return []
     }
 
+
+
+
+
 }
 
-const urls = ["https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59",
-    "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=71",
-    "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=84",
-    "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=78"
+
+
+const urls =
+    [
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_61",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_68",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_62",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_64",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_65",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_66",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_63",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_60",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_70",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_97",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_67",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=59_69",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=71_74",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=71_76",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=71_73",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=71_72",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=71_75",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=71_77",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=84_89",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=84_90",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=84_88",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=84_85",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=84_101",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=78_81",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=78_82",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=78_80",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=78_92",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=78_83",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=78_79",
+        "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=78_100"
+    ]
 
 
 
-]
 export { urls }
