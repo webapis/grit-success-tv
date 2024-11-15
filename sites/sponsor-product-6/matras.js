@@ -3,32 +3,9 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const url = await page.url()
 
-
-    await page.waitForSelector('.nav.navbar-nav a')
-
-    const urls = await page.evaluate(() => {
-        return Array.from(document.querySelectorAll('.nav.navbar-nav a')).map(m => m.href)
-    })
-    if (urls.length === 0) {
-        throw `urls.length===0 :${url}`
-    }
-    console.log('aggregation urls.length', urls.length)
-    console.log('aggregation urls', urls)
-    for (let u of urls) {
-
-        await addRequests([{ url: u, label: 'second' }])
-    }
-
-
-
-
-
-}
-
-export async function second({ page, enqueueLinks }) {
     await enqueueLinks({
         selector: 'ul[role="menu"] li a',
-        label: 'second',
+        label: 'first',
     });
     const productItemsCount = await page.locator('.col-md-3.col-sm-3.col-xs-6.wow').count();
     if (productItemsCount > 0) {
@@ -65,13 +42,35 @@ export async function second({ page, enqueueLinks }) {
         console.log('data.length', data.length)
 
         debugger
-        return data.map(m => { return { ...m, price: m.price.replace("Ek İndirimle\n", '') } })
+        return data
     } else {
         console.log('not a product page', url)
         return []
     }
 
+
+
+
 }
 
-const urls = ["https://www.matras.com/"]
+
+
+const urls = [
+    "https://www.matras.com/yeni-urun",
+    "https://www.matras.com/canta-modelleri",
+    "https://www.matras.com/ayakkabi-modelleri",
+    "https://www.matras.com/bot",
+    "https://www.matras.com/cuzdan-modelleri",
+    "https://www.matras.com/kemer-modelleri",
+    "https://www.matras.com/aksesuar",
+    "https://www.matras.com/seyahat",
+    "https://www.matras.com/yeni-urun",
+    "https://www.matras.com/canta-modelleri",
+    "https://www.matras.com/ayakkabi-modelleri",
+    "https://www.matras.com/bot",
+    "https://www.matras.com/cuzdan-modelleri",
+    "https://www.matras.com/kemer-modelleri",
+    "https://www.matras.com/aksesuar",
+    "https://www.matras.com/seyahat"
+]
 export { urls }
