@@ -7,9 +7,10 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
+            const gender =Array.from(document.querySelectorAll('.breadcrumb a')).map(m=>m.innerText).join(' ')
             const result = Array.from(document.querySelectorAll('.product-layout')).map(document => {
                 try {
-                    const title = document.querySelector('.caption .name  a').innerText
+                    const title = document.querySelector('.caption .name  a').innerText +' '+gender
                     const price = document.querySelector('.price-normal')?.innerText
                     const img = document.querySelector('.img-responsive.img-first').srcset.split(' ')[0].trim()
                     const link = document.querySelector('.caption .name  a').href
