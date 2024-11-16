@@ -30,14 +30,17 @@ export async function second({ page }) {
             const result = Array.from(document.querySelectorAll('.product-grid-item')).map(document => {
                 try {
                     const title = document.querySelector('.product-tile-body__link').innerText
-
-                    const img = document.querySelector('.product-tile-image__picture source').dataset.srcset
+                    //lazyloaded        
+                    //swiper-lazy
+                    const img1 = document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr
+                    const img2 = document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
+                    //  const img = document.querySelector('.product-tile-image__picture source').dataset.srcset
 
                     const link = document.querySelector('.product-tile-body__link').href
                     return {
                         title,
                         price: 0,
-                        img,
+                        img: img1 || img2,
                         link,
                         pageTitle, pageURL
 
@@ -48,7 +51,7 @@ export async function second({ page }) {
 
             })
 
-            return result
+            return result.filter(f => f.img)
         })
 
 
