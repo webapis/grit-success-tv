@@ -29,14 +29,14 @@ export async function second({ page }) {
             const pageURL = document.URL
             const result = Array.from(document.querySelectorAll('.js-product-wrapper.product-item')).map(document => {
                 try {
-                    const title = document.querySelector('p.name').innerText
-                    const price = document.querySelector('[data-ge-price]').innerText
+                    const title = document.querySelector('.product-item__name').innerText
+                    const price = document.querySelector('.price__new').innerText
 
-                    const img1 = document.querySelector('picture.image source').srcset.trim()
+                    const img1 = document.querySelector('[data-src]').getAttribute('data-src')
                     // const img2 = document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
                     //  const img = document.querySelector('.product-tile-image__picture source').dataset.srcset
 
-                    const link = document.querySelector('[class^="style_productCard"] a').href
+                    const link = document.querySelector('.js-product-anchor').href
                     return {
                         title,
                         price,
