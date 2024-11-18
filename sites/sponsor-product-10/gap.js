@@ -10,7 +10,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const urls = await page.evaluate(() => {
 
-        return Array.from(document.querySelectorAll('a')).map(m => m.href).filter((f,i)=>i<5)
+        return Array.from(document.querySelectorAll('a')).map(m => m.href)
     })
     console.log('aggregation urls', urls)
     for (let u of urls) {
@@ -22,23 +22,27 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 export async function second({ page }) {
     const url = await page.url()
 
-    const productItemsCount = await page.locator('[data-product]').count();
+    const productItemsCount = await page.locator('.product-item').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
-            const result = Array.from(document.querySelectorAll('[data-product]')).map(document => {
+            const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
                 try {
 
-                    const { product: { name, price, productimage_set, absolute_url } } = JSON.parse(document.querySelector('[data-product]').getAttribute('data-product'))[0]
-                    const { image } = productimage_set[0]
-                    const link = 'https:/' + absolute_url
+                    const title = document.querySelector('.product-item__info-product-name').innerText
+                    const price = document.querySelector('.no-discount ')?.innerText
+                    const img1 = document.querySelector('picture source')?.srcset
+                    const img2 = document.querySelector('picture source')?.getAttribute('data-srcset')
+
+                    const link = document.querySelector('.product-item__body a').href
                     return {
-                        title: name,
+                        title,
                         price,
-                        img: image,
+                        img: img1 || img2,
                         link,
-                        pageTitle, pageURL
+                        pageTitle,
+                        pageURL
                     }
                 } catch (error) {
                     return { error, message: error.message, content: document.innerHTML, pageURL }
