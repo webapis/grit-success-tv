@@ -22,25 +22,25 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 export async function second({ page }) {
     const url = await page.url()
 
-    const productItemsCount = await page.locator('.product-grid-item').count();
+    const productItemsCount = await page.locator('.products__items').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
-            const result = Array.from(document.querySelectorAll('.product-grid-item')).map(document => {
+            const result = Array.from(document.querySelectorAll('.js-product-wrapper.product-item')).map(document => {
                 try {
-                    const title = document.querySelector('.product-tile-body__link').innerText
-                    //lazyloaded        
-                    //swiper-lazy
-                    const img1 = document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr
-                    const img2 = document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
+                    const title = document.querySelector('p.name').innerText
+                    const price = document.querySelector('[data-ge-price]').innerText
+
+                    const img1 = document.querySelector('picture.image source').srcset.trim()
+                    // const img2 = document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
                     //  const img = document.querySelector('.product-tile-image__picture source').dataset.srcset
 
-                    const link = document.querySelector('.product-tile-body__link').href
+                    const link = document.querySelector('[class^="style_productCard"] a').href
                     return {
                         title,
-                        price: 0,
-                        img: img1 || img2,
+                        price,
+                        img: img1,
                         link,
                         pageTitle, pageURL
 
