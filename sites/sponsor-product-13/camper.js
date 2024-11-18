@@ -22,25 +22,23 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 export async function second({ page }) {
     const url = await page.url()
 
-    const productItemsCount = await page.locator('.product-grid-item').count();
+    const productItemsCount = await page.locator('.grid-item').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
-            const result = Array.from(document.querySelectorAll('.product-grid-item')).map(document => {
+            const result = Array.from(document.querySelectorAll('.grid-item')).map(document => {
                 try {
-                    const title = document.querySelector('.product-tile-body__link').innerText
-                    //lazyloaded        
-                    //swiper-lazy
-                    const img1 = document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr
-                    const img2 = document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
-                    //  const img = document.querySelector('.product-tile-image__picture source').dataset.srcset
+                    const title = document.querySelector('p.name').innerText
+                    const price = document.querySelector('[data-ge-price]').innerText
 
-                    const link = document.querySelector('.product-tile-body__link').href
+                    const img1 = document.querySelector('[srcset]').getAttribute('srcset').trim()
+            
+                    const link = document.querySelector('.grid-item a').href
                     return {
                         title,
-                        price: 0,
-                        img: img1 || img2,
+                        price,
+                        img: img1,
                         link,
                         pageTitle, pageURL
 
