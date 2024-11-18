@@ -10,7 +10,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const urls = await page.evaluate(() => {
 
-        return Array.from(document.querySelectorAll('a')).map(m => m.href)
+        return Array.from(document.querySelectorAll('a')).map(m => m.href).filter((f,i)=>i<5)
     })
     console.log('aggregation urls', urls)
     for (let u of urls) {
@@ -22,28 +22,23 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 export async function second({ page }) {
     const url = await page.url()
 
-    const productItemsCount = await page.locator('.product-grid-item').count();
+    const productItemsCount = await page.locator('[data-product]').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
-            const result = Array.from(document.querySelectorAll('.product-grid-item')).map(document => {
+            const result = Array.from(document.querySelectorAll('[data-product]')).map(document => {
                 try {
-                    const title = document.querySelector('.product-tile-body__link').innerText
-                    //lazyloaded        
-                    //swiper-lazy
-                    const img1 = document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr
-                    const img2 = document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
-                    //  const img = document.querySelector('.product-tile-image__picture source').dataset.srcset
 
-                    const link = document.querySelector('.product-tile-body__link').href
+                    const { product: { name, price, productimage_set, absolute_url } } = JSON.parse(document.querySelector('[data-product]').getAttribute('data-product'))[0]
+                    const { image } = productimage_set[0]
+                    const link = 'https:/' + absolute_url
                     return {
-                        title,
-                        price: 0,
-                        img: img1 || img2,
+                        title: name,
+                        price,
+                        img: image,
                         link,
                         pageTitle, pageURL
-
                     }
                 } catch (error) {
                     return { error, message: error.message, content: document.innerHTML, pageURL }
@@ -51,7 +46,7 @@ export async function second({ page }) {
 
             })
 
-            return result.filter(f => f.img)
+            return result
         })
 
 
