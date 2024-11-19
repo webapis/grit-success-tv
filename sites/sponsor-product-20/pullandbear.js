@@ -30,8 +30,8 @@ export async function second({ page }) {
             const result = Array.from(document.querySelectorAll('legacy-product')).map(document => {
                 try {
                     const title = document.querySelector('.name span').innerText
-                    const img1 = document.querySelector('.image-responsive').src
-                    const price =document.querySelector('.product-price--price')?.innerText
+                    const img1 = document.querySelector('.image-responsive')?.src || document.querySelector('.image-responsive')?.getAttribute('data-src')
+                    const price = document.querySelector('.product-price--price')?.innerText
                     const link = document.querySelector('.carousel-item-container').href
                     return {
                         title,
@@ -63,7 +63,7 @@ export async function second({ page }) {
 }
 
 const urls = [
-     "https://www.pullandbear.com/tr/erkek-n6228",
-     "https://www.pullandbear.com/tr/kadin-n6417"
+    "https://www.pullandbear.com/tr/erkek-n6228",
+    "https://www.pullandbear.com/tr/kadin-n6417"
 ]
 export { urls }
