@@ -15,5 +15,5 @@ jobs:
     uses: ./.github/workflows/reusableProd.yml
     with:
       site: colins
-      gitFolder: sponsor-product
+      gitFolder: sponsor-product-1
     secrets: inherit

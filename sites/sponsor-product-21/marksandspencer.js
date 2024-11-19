@@ -22,14 +22,14 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 export async function second({ page }) {
     const url = await page.url()
 
-    const productItemsCount = await page.locator('.product-grid-item').count();
+    const productItemsCount = await page.locator('.product-item').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
-            const result = Array.from(document.querySelectorAll('.product-grid-item')).map(document => {
+            const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
                 try {
-                    const title = document.querySelector('.product-tile-body__link').innerText
+                    const title = document.querySelector('.product-item__name').innerText.replace('\n',' ')
                     //lazyloaded        
                     //swiper-lazy
                     const img1 = document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr
