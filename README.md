@@ -22,7 +22,7 @@ Dengeler: Biri Olmak
 Organize İşler
 Kızılelma: Bir Fetih Öyküsü
 
-//dizi yapım şirketleri
+///dizi yapım şirketleri
 
 https://www.dyapim.com/diziler
 http://www.arcfilm.net/en/productions/

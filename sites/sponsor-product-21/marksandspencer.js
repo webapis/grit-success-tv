@@ -30,17 +30,16 @@ export async function second({ page }) {
             const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
                 try {
                     const title = document.querySelector('.product-item__name').innerText.replace('\n',' ')
-                    //lazyloaded        
-                    //swiper-lazy
-                    const img1 = document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr
-                    const img2 = document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
-                    //  const img = document.querySelector('.product-tile-image__picture source').dataset.srcset
 
-                    const link = document.querySelector('.product-tile-body__link').href
+                    const img1 = document.querySelector('.pz-image-placeholder source ')?.srcset || document.querySelector('.pz-image-placeholder source ')?.getAttribute('data-srcset')
+                   
+                   const price = document.querySelector('pz-price')?.innerText
+
+                    const link = document.querySelector('.product-item__name').href
                     return {
                         title,
-                        price: 0,
-                        img: img1 || img2,
+                        price,
+                        img: img1,
                         link,
                         pageTitle, pageURL
 
