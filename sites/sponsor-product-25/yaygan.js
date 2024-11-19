@@ -21,48 +21,51 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page }) {
     const url = await page.url()
+    try {
+        await page.waitForSelector('.product-item')
 
-    const productItemsCount = await page.locator('.product-grid-item').count();
-    if (productItemsCount > 0) {
-        const data = await page.evaluate(() => {
-            const pageTitle = document.title
-            const pageURL = document.URL
-            const result = Array.from(document.querySelectorAll('.product-grid-item')).map(document => {
-                try {
-                    const title = document.querySelector('.product-tile-body__link').innerText
-                    //lazyloaded        
-                    //swiper-lazy
-                    const img1 = document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr
-                    const img2 = document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
-                    //  const img = document.querySelector('.product-tile-image__picture source').dataset.srcset
-
-                    const link = document.querySelector('.product-tile-body__link').href
-                    return {
-                        title,
-                        price: 0,
-                        img: img1 || img2,
-                        link,
-                        pageTitle, pageURL
-
+        const productItemsCount = await page.locator('.product-item').count();
+        if (productItemsCount > 0) {
+            const data = await page.evaluate(() => {
+                const pageTitle = document.title
+                const pageURL = document.URL
+                const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
+                    try {
+                        const title = document.querySelector('.product-title').innerText
+                        const price = document.querySelector('.product-price')?.innerText
+                        const img1 = document.querySelector('a.image-wrapper img')?.src
+                        const link = document.querySelector('.image-wrapper').href
+                        return {
+                            title,
+                            price,
+                            img: img1,
+                            link,
+                            pageTitle, pageURL
+    
+                        }
+                    } catch (error) {
+                        return { error, message: error.message, content: document.innerHTML, pageURL }
                     }
-                } catch (error) {
-                    return { error, message: error.message, content: document.innerHTML, pageURL }
-                }
-
+    
+                })
+    
+                return result.filter(f => f.img)
             })
-
-            return result.filter(f => f.img)
-        })
-
-
-        console.log('data.length', data.length)
-
-        debugger
-        return data
-    } else {
-        console.log('not a product page', url)
+    
+    
+            console.log('data.length', data.length)
+    
+            debugger
+            return data
+        } else {
+            console.log('not a product page', url)
+            return []
+        }
+    } catch (error) {
+        console.log('not a product page-', url)
         return []
     }
+ 
 
 }
 
