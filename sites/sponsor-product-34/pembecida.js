@@ -3,10 +3,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const url = await page.url()
 
-    //await autoScroll(page, 200);
-    debugger
 
-    //await page.waitForSelector('.navigation__item')
 
     const urls = await page.evaluate(() => {
 
@@ -22,28 +19,24 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 export async function second({ page }) {
     const url = await page.url()
 
-    const productItemsCount = await page.locator('.product-grid-item').count();
+    const productItemsCount = await page.locator('.product-item').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
-            const result = Array.from(document.querySelectorAll('.product-grid-item')).map(document => {
+            const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
                 try {
-                    const title = document.querySelector('.product-tile-body__link').innerText
-                    //lazyloaded        
-                    //swiper-lazy
-                    const img1 = document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr
-                    const img2 = document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
-                    //  const img = document.querySelector('.product-tile-image__picture source').dataset.srcset
-
-                    const link = document.querySelector('.product-tile-body__link').href
+                    const title = document.querySelector('.product-title').innerText
+                    const price= document.querySelector('.product-price')?.innerText
+                    const img1 = document.querySelector('[data-src]').getAttribute('data-src')
+     
+                    const link = document.querySelector('.product-title').href
                     return {
                         title,
-                        price: 0,
-                        img: img1 || img2,
+                        price,
+                        img: img1,
                         link,
                         pageTitle, pageURL
-
                     }
                 } catch (error) {
                     return { error, message: error.message, content: document.innerHTML, pageURL }
