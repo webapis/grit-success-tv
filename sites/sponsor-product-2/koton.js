@@ -1,7 +1,7 @@
 
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
 
-   // await page.waitForSelector('.site-map__list a')
+    // await page.waitForSelector('.site-map__list a')
 
     const urls = await page.evaluate(() => {
 
@@ -23,7 +23,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page }) {
     const url = await page.url()
-    await page.waitForSelector('.list__products')
+   
     const productItemsCount = await page.locator('.list__products').count();
     if (productItemsCount > 0) {
 
@@ -58,6 +58,7 @@ export async function second({ page }) {
             return result
         })
 
+        console.log('data.length', data.length)
         debugger
         return data
 
