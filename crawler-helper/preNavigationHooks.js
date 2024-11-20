@@ -1,6 +1,6 @@
 const preNavigationHooks =  [
     async (crawlingContext, gotoOptions) => {
-           gotoOptions.waitUntil = 'domcontentloaded';
+        //   gotoOptions.waitUntil = 'domcontentloaded';
   
         const { page } = crawlingContext;
        // await page.waitForNavigation({ waitUntil: 'networkidle2' });

@@ -35,17 +35,17 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
         await page.waitForSelector('.product-block')
         const productItemsCount = await page.locator('.product-block').count();
         if (productItemsCount > 0) {
-    
-    
+
+
             const data = await page.evaluate(() => {
                 const pageTitle = document.title
                 const pageURL = document.URL
                 const result = Array.from(document.querySelectorAll('.product-block')).map(document => {
-    
+
                     try {
-    
+
                         const title = document.querySelector('.product-block__title').innerText
-    
+
                         const price = document.querySelector('.money.conversion-bear-money').innerText
                         const img = 'https:' + document.querySelector('[data-lazy-bgset-src]').getAttribute('data-lazy-bgset-src')
                         const link = document.querySelector('.product-link').href
@@ -56,17 +56,17 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                             link,
                             pageTitle,
                             pageURL
-    
+
                         }
                     } catch (error) {
                         return { error, meggage: error.message, content: document.innerHTML, pageURL }
                     }
-    
+
                 })
-    
+
                 return result
             })
-    
+            console.log('data.length', data.length)
             return data
         } else {
             console.log('not product page:', url)
@@ -76,7 +76,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
         console.log('not product page:', url)
         return []
     }
-   
+
 }
 
 const urls = ["https://lovemetoo.com.tr/"]
