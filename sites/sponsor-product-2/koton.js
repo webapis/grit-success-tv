@@ -23,6 +23,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page }) {
     const url = await page.url()
+    await page.waitForSelector('.list__products')
     const productItemsCount = await page.locator('.list__products').count();
     if (productItemsCount > 0) {
 
@@ -34,7 +35,7 @@ export async function second({ page }) {
                     const data = JSON.parse(m.querySelector('.js-insider-product').innerText)
                     const { product_image_url, unit_sale_price } = data
                     const title = m.querySelector('.product-item__info-name').innerText
-                   // const price = m.querySelector(".product-item__info-price").innerText
+                    // const price = m.querySelector(".product-item__info-price").innerText
                     const img = product_image_url
                     const link = m.querySelector(".product-link").href
                     return {
