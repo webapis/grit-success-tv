@@ -15,7 +15,7 @@ const urls = convertUrlsToStrings(
 
 const crawler = new PlaywrightCrawler({
   requestHandler: test === "true" ? testRouter : router,
-  maxConcurrency: 5,
+  maxConcurrency: 1,
   preNavigationHooks,
   navigationTimeoutSecs: 120,
   headless: HEADLESS === "false" ? false : true,
