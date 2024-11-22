@@ -23,7 +23,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page }) {
     const url = await page.url()
-   
+
     const productItemsCount = await page.locator('.list__products').count();
     if (productItemsCount > 0) {
 
@@ -55,7 +55,7 @@ export async function second({ page }) {
 
             })
 
-            return result
+            return result.filter(f => f.img)
         })
 
         console.log('data.length', data.length)
