@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "startProd": "node prodCrawler.js",
+    "startProdPuppteer": "node prodCrawlerPuppeteer.js",
     "uploadData": "node src/pushToGit.js"
   },
   "keywords": [],
