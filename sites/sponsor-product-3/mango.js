@@ -40,7 +40,7 @@ export async function second({ page }) {
           return {
             title: m.querySelector('div[class^="ProductDetails_productInfo"] meta[content]').getAttribute('content'),
             price: m.querySelector('[class^="SinglePrice_start"]')?.innerText,
-            img: m.querySelector('[class^="ProductImage_productImage"] img').src,
+            img:document.querySelector('[class^="ProductImage_productImage"] img').srcset.split(',')[0],// m.querySelector('[class^="ProductImage_productImage"] img').src,
             link: m.querySelector('[class^="ProductImage_productImage"] a').href,
             pageTitle, pageURL
           }
