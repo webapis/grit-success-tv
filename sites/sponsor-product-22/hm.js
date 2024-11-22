@@ -22,36 +22,27 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 export async function second({ page }) {
     const url = await page.url()
 
-    const productItemsCount = await page.locator('.product-grid-item').count();
+    const productItemsCount = await page.locator('article[data-category]').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
-            const result = Array.from(document.querySelectorAll('.product-grid-item')).map(document => {
-                try {
-                    const title = document.querySelector('.product-tile-body__link').innerText
-                    //lazyloaded        
-                    //swiper-lazy
-                    const img1 = document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr
-                    const img2 = document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
-                    //  const img = document.querySelector('.product-tile-image__picture source').dataset.srcset
-
-                    const link = document.querySelector('.product-tile-body__link').href
-                    return {
-                        title,
-                        price: 0,
-                        img: img1 || img2,
-                        link,
-                        pageTitle, pageURL
-
-                    }
-                } catch (error) {
-                    return { error, message: error.message, content: document.innerHTML, pageURL }
+            const result =Array.from(document.querySelectorAll('article[data-category]')).map(m=>{
+                const title =m.querySelector('a').getAttribute('title')
+                const href =m.querySelector('a').href
+                const price =m.querySelector('p span')?.innerText
+                const img =m.querySelector('[imagetype="PRODUCT_IMAGE"]')?.srcset.split(',')[0].split(' ')[0]
+                return {
+                    title,
+                    price,
+                    img,
+                    href,
+                    pageTitle,
+                    pageURL
                 }
-
             })
+            return result.filter(f=>f.img)
 
-            return result.filter(f => f.img)
         })
 
 
