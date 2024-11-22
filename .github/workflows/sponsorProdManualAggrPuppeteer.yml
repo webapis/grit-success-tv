@@ -1,4 +1,4 @@
-name: sponsorProdManualAggreg
+name: sponsorProdManualAggregPuppeteer
 on:
    workflow_dispatch:
     inputs:
@@ -15,7 +15,7 @@ env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:
   dizitv_job:
-    uses: ./.github/workflows/reusableProd.yml
+    uses: ./.github/workflows/reusableProdPuppeteer.yml
     with:
       site: ${{inputs.site}}
       gitFolder: ${{inputs.gitFolder}}
