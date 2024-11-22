@@ -27,21 +27,26 @@ export async function second({ page }) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
-            const result =Array.from(document.querySelectorAll('article[data-category]')).map(m=>{
-                const title =m.querySelector('a').getAttribute('title')
-                const link =m.querySelector('a').href
-                const price =m.querySelector('p span')?.innerText
-                const img =m.querySelector('[imagetype="PRODUCT_IMAGE"]')?.srcset.split(',')[3].split(' ')[0]
-                return {
-                    title,
-                    price,
-                    img,
-                    link,
-                    pageTitle,
-                    pageURL
+            const result = Array.from(document.querySelectorAll('article[data-category]')).map(m => {
+                try {
+                    const title = m.querySelector('a').getAttribute('title')
+                    const href = m.querySelector('a').href
+                    const price = m.querySelector('p span')?.innerText
+                    const img = m.querySelector('[imagetype="PRODUCT_IMAGE"]').srcset.split(',')[8].trim().split(" ")[0]
+                    return {
+                        title,
+                        price,
+                        img,
+                        href,
+                        pageTitle,
+                        pageURL
+                    }
+                } catch (error) {
+                    return { error, message: error.message }
                 }
-            })
-            return result.filter(f=>f.img)
+
+            }).filter(f => f.img)
+            return result.filter(f => f.img)
 
         })
 
@@ -58,7 +63,7 @@ export async function second({ page }) {
 }
 
 const urls = [
-     "https://www2.hm.com/tr_tr/index.html",
- 
+    "https://www2.hm.com/tr_tr/index.html",
+
 ]
 export { urls }
