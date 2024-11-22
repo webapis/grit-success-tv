@@ -29,14 +29,14 @@ export async function second({ page }) {
             const pageURL = document.URL
             const result =Array.from(document.querySelectorAll('article[data-category]')).map(m=>{
                 const title =m.querySelector('a').getAttribute('title')
-                const href =m.querySelector('a').href
+                const link =m.querySelector('a').href
                 const price =m.querySelector('p span')?.innerText
-                const img =m.querySelector('[imagetype="PRODUCT_IMAGE"]')?.srcset.split(',')[0].split(' ')[0]
+                const img =m.querySelector('[imagetype="PRODUCT_IMAGE"]')?.srcset.split(',')[3].split(' ')[0]
                 return {
                     title,
                     price,
                     img,
-                    href,
+                    link,
                     pageTitle,
                     pageURL
                 }
