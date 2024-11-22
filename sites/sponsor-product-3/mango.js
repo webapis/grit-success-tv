@@ -28,7 +28,8 @@ export default async function first({
 }
 export async function second({ page }) {
   const url = await page.url()
-  const productItemsCount = await page.locator('[class^="Grid_grid"]').count();
+  const productItemsCount = await page.$$eval('[class^="Grid_grid"]', elements => elements.length);
+ // const productItemsCount = await page.locator('[class^="Grid_grid"]').count();
   if (productItemsCount > 0) {
     const data = await page.evaluate(() => {
 
