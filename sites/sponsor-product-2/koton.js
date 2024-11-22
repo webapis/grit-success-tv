@@ -36,7 +36,7 @@ export async function second({ page }) {
                     const { product_image_url, unit_sale_price } = data
                     const title = m.querySelector('.product-item__info-name').innerText
                     // const price = m.querySelector(".product-item__info-price").innerText
-                    const img = product_image_url
+                    const img =m.querySelector('.images.js-images source').srcset
                     const link = m.querySelector(".product-link").href
                     return {
                         title,

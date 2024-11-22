@@ -1,4 +1,4 @@
-name: sp_3_mango
+name: sp_22_hm
 
 on:
   workflow_dispatch:  # Keeping manual trigger option
@@ -12,8 +12,8 @@ env:
 
 jobs:
   dizitv_job:
-    uses: ./.github/workflows/reusableProdPuppeteer.yml
+    uses: ./.github/workflows/reusableProd.yml
     with:
-      site: mango
-      gitFolder: sponsor-product-3
+      site: reusableProdPuppeteer
+      gitFolder: sponsor-product-22
     secrets: inherit
