@@ -19,10 +19,19 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 }
 
+const getProductCount = async (page) => {
+    try {
+        await page.waitForSelector('.productItemLayout.ViewProduct', { timeout: 30000 });
+        const productItemsCount = await page.$$eval('.productItemLayout.ViewProduct', elements => elements.length);
+        return productItemsCount;
+    } catch (error) {
+        return 0;
+    }
+};
 export async function second({ page }) {
     const url = await page.url()
-    const productItemsCount = await page.$$eval('.productItemLayout.ViewProduct', elements => elements.length);
-   // const productItemsCount = await page.locator('.productItemLayout.ViewProduct').count();
+    const productItemsCount =await getProductCount(page)
+    // const productItemsCount = await page.locator('.productItemLayout.ViewProduct').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
@@ -30,7 +39,7 @@ export async function second({ page }) {
             const result = Array.from(document.querySelectorAll('.productItemLayout.ViewProduct')).map(document => {
                 try {
                     const title = document.querySelector('.product-name').innerText
-                    const price =document.querySelector('.second-price.discountActivePrice')?.innerText ||document.querySelector('.second-price')?.innerText
+                    const price = document.querySelector('.second-price.discountActivePrice')?.innerText || document.querySelector('.second-price')?.innerText
                     const img1 = document.querySelector('img.lazy').getAttribute('data-src')
 
 
@@ -65,7 +74,7 @@ export async function second({ page }) {
 }
 
 const urls = [
-     "https://www.paulmark.com.tr/",
- 
+    "https://www.paulmark.com.tr/",
+
 ]
 export { urls }
