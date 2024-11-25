@@ -26,7 +26,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
 
     try {
         await page.waitForSelector('.max-w-xl.fade-in')
-        const productItemsCount = await page.locator('.max-w-xl.fade-in').count();
+        const productItemsCount = await page.$$eval('.max-w-xl.fade-in', elements => elements.length);
+       // const productItemsCount = await page.locator('.max-w-xl.fade-in').count();
         if (productItemsCount > 0) {
             await autscroll(page, 150)
             const data = await page.evaluate(() => {

@@ -28,8 +28,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     //     label: 'first',
     // });
     //await autscroll(page, 200)
-
-    const productItemsCount = await page.locator('#product-list-panel').count();
+    const productItemsCount = await page.$$eval('#product-list-panel', elements => elements.length);
+   // const productItemsCount = await page.locator('#product-list-panel').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title

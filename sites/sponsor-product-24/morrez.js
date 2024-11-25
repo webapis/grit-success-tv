@@ -21,8 +21,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page }) {
     const url = await page.url()
-
-    const productItemsCount = await page.locator('.grid [data-id]').count();
+    const productItemsCount = await page.$$eval('.grid [data-id]', elements => elements.length);
+  //  const productItemsCount = await page.locator('.grid [data-id]').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title

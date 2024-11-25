@@ -30,8 +30,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
  */
 
 
-
-    const productItemsCount = await page.locator('.prd-link').count();
+    const productItemsCount = await page.$$eval('.prd-link', elements => elements.length);
+  //  const productItemsCount = await page.locator('.prd-link').count();
     if (productItemsCount > 0) {
         //  await autscroll(page, 150)
         const data = await page.evaluate(() => {

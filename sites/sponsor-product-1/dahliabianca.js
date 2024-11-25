@@ -28,8 +28,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     try {
 
         await page.waitForSelector('.product-item', { timeout: 5000 })
-
-        const productItemsCount = await page.locator('.product-grid').count();
+        const productItemsCount = await page.$$eval('.product-grid', elements => elements.length);
+      //  const productItemsCount = await page.locator('.product-grid').count();
         if (productItemsCount > 0) {
             //  await autscroll(page, 150)
             const data = await page.evaluate(() => {

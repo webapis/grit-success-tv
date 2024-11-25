@@ -23,8 +23,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page }) {
     const url = await page.url()
-
-    const productItemsCount = await page.locator('.product-listing-shelf__product-card').count();
+    const productItemsCount = await page.$$eval('.product-listing-shelf__product-card', elements => elements.length);
+  //  const productItemsCount = await page.locator('.product-listing-shelf__product-card').count();
     if (productItemsCount > 0) {
 
         const data = await page.evaluate(() => {

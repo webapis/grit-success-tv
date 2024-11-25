@@ -21,8 +21,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page }) {
     const url = await page.url()
-
-    const productItemsCount = await page.locator('legacy-product').count();
+    const productItemsCount = await page.$$eval('legacy-product', elements => elements.length);
+   // const productItemsCount = await page.locator('legacy-product').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title

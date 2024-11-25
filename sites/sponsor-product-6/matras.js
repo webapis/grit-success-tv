@@ -7,7 +7,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
         selector: 'ul[role="menu"] li a',
         label: 'first',
     });
-    const productItemsCount = await page.locator('.col-md-3.col-sm-3.col-xs-6.wow').count();
+    const productItemsCount = await page.$$eval('.col-md-3.col-sm-3.col-xs-6.wow', elements => elements.length);
+   // const productItemsCount = await page.locator('.col-md-3.col-sm-3.col-xs-6.wow').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
