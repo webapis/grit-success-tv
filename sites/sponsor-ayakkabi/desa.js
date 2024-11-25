@@ -29,7 +29,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
         selector: ".category_sub_category",
         label: "second",
       });
-    const productItemsCount = await page.locator('.js-list-content-item-wrapper').count();
+      const productItemsCount = await page.$$eval('.js-list-content-item-wrapper', elements => elements.length);
+   // const productItemsCount = await page.locator('.js-list-content-item-wrapper').count();
     if (productItemsCount > 0) {
        //  await autscroll(page, 150)
         const data = await page.evaluate(() => {

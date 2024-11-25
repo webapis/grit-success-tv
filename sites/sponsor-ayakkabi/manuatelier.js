@@ -24,7 +24,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     const pageURL = await page.url();
 
     // Count the number of product items on the page
-    const productItemsCount = await page.locator('.collection__products').count();
+    const productItemsCount = await page.$$eval('.collection__products', elements => elements.length);
+    //const productItemsCount = await page.locator('.collection__products').count();
 
     if (productItemsCount > 0) {
         // Scroll down to load more products if necessary
