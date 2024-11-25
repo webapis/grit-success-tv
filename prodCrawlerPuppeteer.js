@@ -1,5 +1,5 @@
 import { PuppeteerCrawler } from "crawlee";
-import { router } from "./prodRoutes.js";
+import { router } from "./prodRoutesPuppeteer.js";
 import preNavigationHooks from "./crawler-helper/preNavigationHooksProd2.js";
 import testRouter, { testUrl } from "./crawler-helper/testRouter.js";
 import convertUrlsToStrings from "./src/convertUrlsToStrings.js";
