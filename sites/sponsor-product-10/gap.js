@@ -55,7 +55,8 @@ export async function second({ page }) {
 
 
         console.log('data.length', data.length)
-
+        console.log('errors',data.filter(f=>f.error).length)
+        console.log('errors',data.filter(f=>f.error)[0])
         debugger
         return data
     } else {
