@@ -7,7 +7,7 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
     const urls = await page.evaluate(() => {
 
-        return Array.from(document.querySelectorAll('a')).map(m => m.href)
+        return Array.from(document.querySelectorAll('a')).map(m => m.href).filter(f => f)
     })
     console.log('aggregation urls', urls)
     for (let u of urls) {
@@ -18,19 +18,18 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page }) {
     const url = await page.url()
-    const productItemsCount = await page.$$eval('.product-item', elements => elements.length);
+    const productItemsCount = await page.$$eval('ac-product-card', elements => elements.length);
     //const productItemsCount = await page.locator('.product-item').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
-            const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
+            const result = Array.from(document.querySelectorAll('ac-product-card')).map(document => {
                 try {
-                    const title = document.querySelector('.product-title').innerText
-                    const price= document.querySelector('.product-price')?.innerText
-                    const img1 = document.querySelector('[data-src]').getAttribute('data-src')
-     
-                    const link = document.querySelector('.product-title').href
+                    const title = document.getAttribute('name')
+                    const price = document.getAttribute('price')
+                    const img1 = document.getAttribute('image').split(',')[0]
+                    const link = 'https://www.altinyildizclassics.com' + document.querySelector('ac-product-card').getAttribute('url')
                     return {
                         title,
                         price,
@@ -60,7 +59,7 @@ export async function second({ page }) {
 }
 
 const urls = [
-     "https://www.altinyildizclassics.com/",
- 
+    "https://www.altinyildizclassics.com/",
+
 ]
 export { urls }
