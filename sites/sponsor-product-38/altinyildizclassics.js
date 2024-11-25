@@ -27,7 +27,7 @@ export async function second({ page }) {
             const result = Array.from(document.querySelectorAll('ac-product-card')).map(document => {
                 try {
                     const title = document.getAttribute('name')
-                    const price = document.getAttribute('price')
+                    const price = document?.getAttribute('price')
                     const img1 = document.getAttribute('image').split(',')[0]
                     const link = 'https://www.altinyildizclassics.com' + document.querySelector('ac-product-card').getAttribute('url')
                     return {
@@ -43,7 +43,7 @@ export async function second({ page }) {
 
             })
 
-            return result.filter(f => f.img)
+            return result//.filter(f => f.img)
         })
 
 
