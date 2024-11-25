@@ -18,19 +18,19 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page }) {
     const url = await page.url()
-    const productItemsCount = await page.$$eval('.product-item', elements => elements.length);
+    const productItemsCount = await page.$$eval('.productItem', elements => elements.length);
     //const productItemsCount = await page.locator('.product-item').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title
             const pageURL = document.URL
-            const result = Array.from(document.querySelectorAll('.product-item')).map(document => {
+            const result = Array.from(document.querySelectorAll('.productItem')).map(document => {
                 try {
-                    const title = document.querySelector('.product-title').innerText
-                    const price= document.querySelector('.product-price')?.innerText
-                    const img1 = document.querySelector('[data-src]').getAttribute('data-src')
+                    const title = document.querySelector('.ndImage').alt
+                    const price= document.querySelector('.currentPrice')?.innerText
+                    const img1 = document.querySelector('.ndImage').src
      
-                    const link = document.querySelector('.product-title').href
+                    const link = document.querySelector('.detailLink').href
                     return {
                         title,
                         price,
