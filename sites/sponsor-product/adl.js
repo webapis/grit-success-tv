@@ -13,9 +13,10 @@ const url =await page.url()
     
     //pagination
     const productItemsCount = await page.$$eval('.product-item', elements => elements.length);
+    const homepageElements = await page.$$eval('.homepage', elements => elements.length);
   //  const productItemsCount = await page.locator('.product-item').count();
 
-    const homepageElements = await page.locator('.homepage').count();
+    //const homepageElements = await page.locator('.homepage').count();
 
     if (productItemsCount > 0 && homepageElements===0) {
         const data = await page.evaluate(() => {
