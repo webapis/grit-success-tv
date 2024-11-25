@@ -18,7 +18,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     // }
 
     //pagination
-    const productItemsCount = await page.locator('.products').count();
+    const productItemsCount = await page.$$eval('.products', elements => elements.length);
+   // const productItemsCount = await page.locator('.products').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const breadcrumb = document.querySelectorAll('.breadcrumb a').length>0 ? Array.from(document.querySelectorAll('.breadcrumb a')).map(m => m.innerText).join(' ') : '_'
