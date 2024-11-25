@@ -12,7 +12,7 @@ env:
 
 jobs:
   dizitv_job:
-    uses: ./.github/workflows/reusableProd.yml
+    uses: ./.github/workflows/reusableProdPuppeteer.yml
     with:
       site: modalogy
       gitFolder: sponsor-product
