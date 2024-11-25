@@ -18,6 +18,10 @@ if (filterError > 0) {
     await uploadCollection({ fileName: site || URL_CATEGORIES, data: filterError, gitFolder })
 }
 else {
+
+    const dataWithError = data.filter(f => f.error)
+    console.log('ERROR length:', dataWithError.length)
+    console.log('ERROR :',dataWithError[0])
     throw new Error(`no data ${filterError.length}`);
 
 
