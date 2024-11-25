@@ -58,7 +58,7 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                         }
                     })
 
-                    return result.filter(f=>f.link)
+                    return result//.filter(f=>f.link)
                 } catch (error) {
                     return { error, message: error.message, content, pageURL }
                 }

@@ -45,7 +45,7 @@ export async function second({ page }) {
                     return { error, message: error.message }
                 }
 
-            }).filter(f => f.img)
+            })//.filter(f => f.img)
             return result.filter(f => f.img)
 
         })

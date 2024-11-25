@@ -50,7 +50,7 @@ export async function second({ page }) {
 
       })
 
-      return result.filter(f=>f.img)
+      return result//.filter(f=>f.img)
     });
     console.log('data.length', data.length)
     return data;
