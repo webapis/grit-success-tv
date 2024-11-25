@@ -29,8 +29,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     //     label: 'second',
     // });
 
-   
-    const productItemsCount = await page.locator('.collection__products').count();
+    const productItemsCount = await page.$$eval('.collection__products', elements => elements.length);
+  //  const productItemsCount = await page.locator('.collection__products').count();
     if (productItemsCount > 0) {
 
         const data = await page.evaluate(() => {

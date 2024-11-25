@@ -11,8 +11,8 @@ export default async function first({
       selector: "#main-menu a",
       label: "first",
     });
-  
-    const productItemsCount = await page.locator("#catalog-list").count();
+    const productItemsCount = await page.$$eval('#catalog-list', elements => elements.length);
+  //  const productItemsCount = await page.locator("#catalog-list").count();
     if (productItemsCount > 0) {
       const data = await page.evaluate(() => {
         const pageTitle = document.title;

@@ -8,8 +8,9 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     });
 
 
-    //pagination
-    const productItemsCount = await page.locator('.product-list').count();
+    //pagination\
+    const productItemsCount = await page.$$eval('.product-list', elements => elements.length);
+   // const productItemsCount = await page.locator('.product-list').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title

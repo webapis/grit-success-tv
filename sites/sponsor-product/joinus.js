@@ -8,8 +8,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     //     label: 'first',
     // });
 
-   
-    const productItemsCount = await page.locator('.product-collection').count();
+    const productItemsCount = await page.$$eval('.product-collection', elements => elements.length);
+   // const productItemsCount = await page.locator('.product-collection').count();
     if (productItemsCount > 0) {
 
 

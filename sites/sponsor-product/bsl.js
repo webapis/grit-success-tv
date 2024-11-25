@@ -9,8 +9,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     });
 
     
-
-    const productItemsCount = await page.locator('.PrdContainer').count();
+    const productItemsCount = await page.$$eval('.PrdContainer', elements => elements.length);
+   // const productItemsCount = await page.locator('.PrdContainer').count();
 
     if(productItemsCount >0){
         const data = await page.evaluate(() => {

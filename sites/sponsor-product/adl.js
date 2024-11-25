@@ -12,7 +12,8 @@ const url =await page.url()
     // });
     
     //pagination
-    const productItemsCount = await page.locator('.product-item').count();
+    const productItemsCount = await page.$$eval('.product-item', elements => elements.length);
+  //  const productItemsCount = await page.locator('.product-item').count();
 
     const homepageElements = await page.locator('.homepage').count();
 

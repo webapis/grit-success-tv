@@ -26,8 +26,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     const url = await page.url()
 
 
-
-    const productItemsCount = await page.locator('.ProductList').count();
+    const productItemsCount = await page.$$eval('.productItem', elements => elements.length);
+   // const productItemsCount = await page.locator('.productItem').count();
     if (productItemsCount > 0) {
 
         const data = await page.evaluate(() => {

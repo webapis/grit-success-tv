@@ -29,8 +29,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
 
 export async function second({ page, enqueueLinks, request, log, addRequests }) {
     const url = await page.url()
-
-    const productItemsCount = await page.locator('.ProductListWrapper').count();
+    const productItemsCount = await page.$$eval('.ProductListWrapper', elements => elements.length);
+   // const productItemsCount = await page.locator('.ProductListWrapper').count();
     if (productItemsCount > 0) {
         await autoscroll(page, 200)
         await page.waitForSelector('h2.ProductItem__Title.Heading a');

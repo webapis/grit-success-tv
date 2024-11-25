@@ -9,7 +9,8 @@ export default async function first({ page, enqueueLinks }) {
 
         
         //pagination
-        const productItemsCount = await page.locator('.prd-list').count();
+        const productItemsCount = await page.$$eval('.prd-list', elements => elements.length);
+      //  const productItemsCount = await page.locator('.prd-list').count();
     
 
     

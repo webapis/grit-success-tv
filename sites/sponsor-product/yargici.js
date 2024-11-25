@@ -7,7 +7,8 @@ export default async function first({ page, enqueueLinks, request, log, addReque
     });
 
     //pagination
-    const productItemsCount = await page.locator('.product-list-container').count();
+    const productItemsCount = await page.$$eval('.product-list-container', elements => elements.length);
+  //  const productItemsCount = await page.locator('.product-list-container').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const breadcrumb = document.querySelectorAll('.breadcrumb a') ? Array.from(document.querySelectorAll('.breadcrumb a')).map(m => m.innerText).join(' ') : ' '

@@ -34,7 +34,9 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     //     selector: '.paginate-content a',
     //     label: 'second',
     // });
-    const productItemsCount = await page.locator('#product-list-container').count();
+
+    const productItemsCount = await page.$$eval('#product-list-container', elements => elements.length);
+   // const productItemsCount = await page.locator('#product-list-container').count();
     if (productItemsCount > 0) {
         const data = await page.evaluate(() => {
             const pageTitle = document.title

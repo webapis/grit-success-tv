@@ -29,7 +29,9 @@ debugger
     
     export async function second({page}){
         const url =await page.url()
-        const productItemsCount = await page.locator('.prd-list').count();
+
+        const productItemsCount = await page.$$eval('.prd-list', elements => elements.length);
+      //  const productItemsCount = await page.locator('.prd-list').count();
     
 
     

@@ -39,7 +39,8 @@ export default async function first({ page, enqueueLinks,addRequests }) {
     export async function second ({ page, enqueueLinks }){
         try {
             await page.waitForSelector('#product-list-container')
-            const productItemsCount = await page.locator('#product-list-container').count();
+            const productItemsCount = await page.$$eval('#product-list-container', elements => elements.length);
+          //  const productItemsCount = await page.locator('#product-list-container').count();
         
     
         

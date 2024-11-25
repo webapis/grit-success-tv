@@ -33,7 +33,8 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
     //     selector: 'pagination a',
     //     label: 'first',
     // });
-    const productItemsCount = await page.locator('.collection__main').count();
+    const productItemsCount = await page.$$eval('.collection__main', elements => elements.length);
+    //const productItemsCount = await page.locator('.collection__main').count();
     if (productItemsCount > 0) {
 
 
