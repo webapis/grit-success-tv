@@ -13,7 +13,7 @@ const filterError = data.filter(f => !f.error)
 const fileName = Date.now()
 
 //await uploadCollection({fileName, data,gitFolder})
-if (filterError > 0) {
+if (filterError.length > 0) {
     console.log('collected data length', filterError.length)
     await uploadCollection({ fileName: site || URL_CATEGORIES, data: filterError, gitFolder })
 }
@@ -22,7 +22,7 @@ else {
     const dataWithError = data.filter(f => f.error)
     console.log('ERROR length:', dataWithError.length)
     console.log('ERROR :',dataWithError[0])
-    throw new Error(`no data ${filterError.length}`);
+    throw new Error(`data length:${filterError.length}`);
 
 
 }
