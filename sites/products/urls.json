@@ -246,7 +246,7 @@
         "productItemSelector": ".product-grid-item",
         "titleSelector": ".product__grid__title",
         "imageSelector": "(document)=>'https:' + document.querySelector('[data-bgset]').getAttribute('data-bgset').trim().split(',')[2].trim().split(' ')",
-        "linkSelector": "",
+        "linkSelector": ".product__grid__info a",
         "schedule": "0 0 * * 4"
     } ,
     {
