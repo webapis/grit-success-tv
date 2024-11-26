@@ -184,6 +184,33 @@
     }
     ,
     {
+        "site": "fever",
+        "urls": [
+            "https://www.fever.com.tr/"
+        ],
+        "productListSelector": ".catalogWrapper",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".productDetails .detailLink",
+        "imageSelector": "[itemprop='image'][content]",
+        "imageAttr": "content",
+        "linkSelector": ".productDetails .detailLink",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }  ,
+    {
         "site": "",
         "urls": [
             ""
