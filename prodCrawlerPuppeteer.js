@@ -15,7 +15,7 @@ debugger
 
 
 const crawler = new PuppeteerCrawler({
-  launchContext: { useChrome: true },
+  launchContext: { useChrome: local === 'true' ? true : false },
   requestHandler: router,
   maxConcurrency: 1,
   preNavigationHooks,
