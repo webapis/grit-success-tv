@@ -108,6 +108,18 @@
         "schedule": "0 0 * * 4"
     },
     {
+        "site": "bsl",
+        "urls": [
+            "https://www.bsl.com.tr/tr/site-haritasi"
+        ],
+        "productListSelector": ".PrdContainer",
+        "productItemSelector": ".Prd",
+        "titleSelector": ".PName",
+        "imageSelector": ".PImage",
+        "linkSelector": ".PrdImgsBox a",
+        "schedule": "0 0 * * 4"
+    },
+    {
         "site": "",
         "urls": [
             ""
