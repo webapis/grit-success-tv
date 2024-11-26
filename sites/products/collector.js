@@ -1,7 +1,8 @@
 
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
+    debugger
     await page.evaluate(() => {
-        return new Promise(resolve => setTimeout(resolve, 10000));
+        return new Promise(resolve => setTimeout(resolve, 5000));
       });
 console.log('inside first route')
     await enqueueLinks({
@@ -21,7 +22,7 @@ export async function second({
 
 }) {
     const url = await page.url()
-
+debugger
     // Check if there are any product items on the page
     const productItemsCount = await page.$$eval(productListSelector, elements => elements.length);
 

@@ -1,11 +1,12 @@
 import dotenv from "dotenv";
 import { createPuppeteerRouter, Dataset } from "crawlee";
-import { second, urls } from "./sites/products/collector.js";
+import first, { second, urls } from "./sites/products/collector.js";
 const local = process.env.local;
 dotenv.config({ silent: true });
 
 const site = process.env.site;
 const gitFolder = process.env.gitFolder;
+
 const productsDataset = await Dataset.open(site);
 
 const selectors = urls.find(f => f.brand === site)
@@ -13,13 +14,22 @@ const selectors = urls.find(f => f.brand === site)
 export const router = createPuppeteerRouter();
 
 router.addDefaultHandler(async (props) => {
+  debugger
 
-  await resultHandler({ ...props, label: "default" });
+  const data = await first({ ...props, label: "default", ...selectors })
+  debugger
+  if (data) {
+    await productsDataset.pushData(data);
+  }
 });
 
 router.addHandler("second", async (props) => {
 
-  await resultHandler({ ...props, label: "second" });
+  const data = await second({ ...props, label: "second", ...selectors })
+  debugger
+  if (data) {
+    await productsDataset.pushData(data);
+  }
 });
 
 async function resultHandler({
@@ -33,7 +43,7 @@ async function resultHandler({
 }) {
   const url = await page.url();
 
-
+  debugger
   console.log(`enqueueing new URLs: ${label}`, url);
 
 
