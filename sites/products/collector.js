@@ -20,6 +20,7 @@ export async function second({
     titleSelector,
     imageSelector,
     imageAttr = 'src',
+    imagePrefix = '',
     linkSelector,
 
 }) {
@@ -33,12 +34,14 @@ export async function second({
         const data = await page.evaluate((params) => {
             const pageTitle = document.title
             const pageURL = document.URL
-
+            function isFunction(value) {
+                return value instanceof Function;
+            }
             const result = Array.from(document.querySelectorAll(params.productItemSelector)).map(m => {
                 try {
 
                     const title = m.querySelector(params.titleSelector).innerText
-                    const img = m.querySelector(params.imageSelector).getAttribute(params.imageAttr)
+                    const img = isFunction(params.imageSelector) ? eval(params.imageSelector) : m.querySelector(params.imageSelector).getAttribute(params.imageAttr)
                     const link = m.querySelector(params.linkSelector).href
                     return {
                         title,
@@ -64,6 +67,7 @@ export async function second({
             titleSelector,
             imageSelector,
             imageAttr,
+            imagePrefix,
             linkSelector,
         })
 
