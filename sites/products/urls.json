@@ -8,7 +8,8 @@
         "productItemSelector": ".product-item",
         "titleSelector": ".product-item__info-name",
         "imageSelector": ".images.js-images source",
-        "linkSelector": ".product-link"
+        "linkSelector": ".product-link",
+        "schedule": "0 0 * * 2"
     },
     {
         "brand": "defacto",
@@ -19,7 +20,8 @@
         "productItemSelector": "[data-documents]",
         "titleSelector": ".product-card__title a",
         "imageSelector": ".product-card__image--item img",
-        "linkSelector": ".image-box a"
+        "linkSelector": ".image-box a",
+        "schedule": "0 0 * * 3"
     },
     {
         "brand": "desa",
@@ -30,6 +32,19 @@
         "productItemSelector": ".product-item-box",
         "titleSelector": ".product-name a",
         "imageSelector": ".product-item-image-2",
-        "linkSelector": ".product-name a"
+        "linkSelector": ".product-name a",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "brand": "divarese",
+        "urls": [
+            "https://www.divarese.com.tr/"
+        ],
+        "productListSelector": ".products",
+        "productItemSelector": ".products__item",
+        "titleSelector": ".product__title",
+        "imageSelector": ".product__picture img",
+        "linkSelector": "a.product__imageWrapper",
+        "schedule": "0 0 * * 4"
     }
 ]

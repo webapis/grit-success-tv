@@ -1,10 +1,11 @@
 
+import scroller from "./scroller.js";
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
     debugger
     await page.evaluate(() => {
         return new Promise(resolve => setTimeout(resolve, 5000));
-      });
-console.log('inside first route')
+    });
+    console.log('inside first route')
     await enqueueLinks({
         selector: 'a',
         label: 'second',
@@ -22,11 +23,12 @@ export async function second({
 
 }) {
     const url = await page.url()
-debugger
+    debugger
     // Check if there are any product items on the page
     const productItemsCount = await page.$$eval(productListSelector, elements => elements.length);
 
     if (productItemsCount > 0) {
+        await scroller(page, 150, 5)
         const data = await page.evaluate((params) => {
             const pageTitle = document.title
             const pageURL = document.URL
@@ -74,27 +76,4 @@ debugger
 }
 
 
-const urls = [
 
-    {
-        brand: "koton",
-        urls: ["https://www.koton.com/"],
-        productListSelector: '.list__products',
-        productItemSelector: '.product-item',
-        titleSelector: '.product-item__info-name',
-        imageSelector: '.images.js-images source',
-        linkSelector: '.product-link',
-    },
-    {
-        brand: "defacto",
-        urls: ["https://www.defacto.com.tr/statik/sitemap"],
-        productListSelector: '#product-container',
-        productItemSelector: '[data-documents]',
-        titleSelector: '.product-card__title a',
-        imageSelector: '.product-card__image--item img',
-        linkSelector: '.image-box a',
-    }
-]
-
-
-export { urls }
