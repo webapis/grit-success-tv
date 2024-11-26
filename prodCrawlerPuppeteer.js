@@ -3,7 +3,7 @@ import { router } from "./prodRoutesPuppeteer.js";
 import preNavigationHooks from "./crawler-helper/preNavigationHooksProd2.js";
 
 
-import { urls } from "./sites/products/collector.js";
+import urls from './sites/products/urls.json' assert { type: 'json' };
 const gitFolder = process.env.gitFolder;
 const site = process.env.site;
 const local = process.env.local;

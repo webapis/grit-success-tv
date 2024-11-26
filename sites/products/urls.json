@@ -1,0 +1,35 @@
+[
+    {
+        "brand": "koton",
+        "urls": [
+            "https://www.koton.com/"
+        ],
+        "productListSelector": ".list__products",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-item__info-name",
+        "imageSelector": ".images.js-images source",
+        "linkSelector": ".product-link"
+    },
+    {
+        "brand": "defacto",
+        "urls": [
+            "https://www.defacto.com.tr/statik/sitemap"
+        ],
+        "productListSelector": "#product-container",
+        "productItemSelector": "[data-documents]",
+        "titleSelector": ".product-card__title a",
+        "imageSelector": ".product-card__image--item img",
+        "linkSelector": ".image-box a"
+    },
+    {
+        "brand": "desa",
+        "urls": [
+            "https://www.desa.com.tr/"
+        ],
+        "productListSelector": ".js-list-content-item-wrapper",
+        "productItemSelector": ".product-item-box",
+        "titleSelector": ".product-name a",
+        "imageSelector": ".product-item-image-2",
+        "linkSelector": ".product-name a"
+    }
+]
