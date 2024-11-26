@@ -198,16 +198,16 @@
     }
     ,
     {
-        "site": "",
+        "site": "gustoeshop",
         "urls": [
-            ""
+            "https://gustoeshop.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": "#catalog-list",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-title a",
+        "imageSelector": ".image-inner source",
+        "imageAttr": "srcset",
+        "linkSelector": ".product-title a",
         "schedule": "0 0 * * 4"
     }  ,
     {
