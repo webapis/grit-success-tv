@@ -225,6 +225,32 @@
     }
     ,
     {
+        "site": "joinus",
+        "urls": [
+            "https://joinus.com.tr"
+        ],
+        "productListSelector": ".product-collection",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-title",
+        "imageSelector": "[data-srcset]",
+        "imageAttr": "data-srcset",
+        "linkSelector": ".product-title",
+        "schedule": "0 0 * * 4"
+    } ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    } ,
+    {
         "site": "",
         "urls": [
             ""
