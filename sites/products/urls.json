@@ -144,6 +144,21 @@
         "schedule": "0 0 * * 4"
     },
     {
+        "site": "beautyomelette",
+        "urls": [
+                "https://clothing.beautyomelette.com/",
+    "https://cosmetics.beautyomelette.com/"
+        ],
+        "productListSelector": ".productItem",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".productName a",
+        "imageSelector": "[data-original]",
+        "imageAttr":"[data-original]",
+        "linkSelector": ".productName a",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
         "site": "",
         "urls": [
             ""
@@ -152,6 +167,7 @@
         "productItemSelector": "",
         "titleSelector": "",
         "imageSelector": "",
+        "imageAttr":"srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
     }
