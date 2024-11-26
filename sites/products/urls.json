@@ -262,6 +262,21 @@
         "linkSelector": ".product-link",
         "schedule": "0 0 * * 4"
     }
+
+    ,
+    {
+        "site": "machka",
+        "urls": [
+            "https://www.machka.com.tr/"
+        ],
+        "productListSelector": ".ems-prd",
+        "productItemSelector": ".ems-prd",
+        "titleSelector": ".ems-prd-title",
+        "imageSelector": "[data-image-src]",
+        "imageAttr": "data-image-src",
+        "linkSelector": ".item-link",
+        "schedule": "0 0 * * 4"
+    }
     ,
     {
         "site": "",
