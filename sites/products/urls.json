@@ -46,5 +46,17 @@
         "imageSelector": ".product__picture img",
         "linkSelector": "a.product__imageWrapper",
         "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "elleshoes",
+        "urls": [
+            "https://www.elleshoes.com/"
+        ],
+        "productListSelector": ".ProductList",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".productName a",
+        "imageSelector": ".productSliderImage",
+        "linkSelector": ".detailLink",
+        "schedule": "0 0 * * 4"
     }
 ]
