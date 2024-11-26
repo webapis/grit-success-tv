@@ -96,7 +96,7 @@ const urls = [
     },
     {
         brand: "defacto",
-        urls: ["https://www.defacto.com.tr"],
+        urls: ["https://www.defacto.com.tr/statik/sitemap"],
         productListSelector: '#product-container',
         productItemSelector: '[data-documents]',
         titleSelector: '.product-card__title a',
