@@ -10,7 +10,7 @@ const local = process.env.local;
 const test = process.env.test;
 const HEADLESS = process.env.HEADLESS;
 
-const brandUrls = urls.find(f => f.brand === site)
+const siteUrls = urls.find(f => f.site === site)
 debugger
 
 
@@ -24,5 +24,5 @@ const crawler = new PuppeteerCrawler({
   requestHandlerTimeoutSecs: 600000,
 });
 
-crawler.run(brandUrls.urls);
+crawler.run(siteUrls.urls);
 

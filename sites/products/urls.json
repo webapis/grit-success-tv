@@ -1,6 +1,6 @@
 [
     {
-        "brand": "koton",
+        "site": "koton",
         "urls": [
             "https://www.koton.com/"
         ],
@@ -12,7 +12,7 @@
         "schedule": "0 0 * * 2"
     },
     {
-        "brand": "defacto",
+        "site": "defacto",
         "urls": [
             "https://www.defacto.com.tr/statik/sitemap"
         ],
@@ -24,7 +24,7 @@
         "schedule": "0 0 * * 3"
     },
     {
-        "brand": "desa",
+        "site": "desa",
         "urls": [
             "https://www.desa.com.tr/"
         ],
@@ -36,7 +36,7 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "brand": "divarese",
+        "site": "divarese",
         "urls": [
             "https://www.divarese.com.tr/"
         ],
