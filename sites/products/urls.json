@@ -170,6 +170,20 @@
         "schedule": "0 0 * * 4"
     },
     {
+        "site": "ekolonline",
+        "urls": [
+            "https://www.ekolonline.com"
+        ],
+        "productListSelector": ".productList",
+        "productItemSelector": ".product-list-item",
+        "titleSelector": ".mainTitle",
+        "imageSelector": "[data-img]",
+        "imageAttr": "data-img",
+        "linkSelector": "a.product-figure",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
         "site": "",
         "urls": [
             ""
