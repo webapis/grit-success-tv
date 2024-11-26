@@ -82,5 +82,29 @@
         "imageSelector": ".list-slider-item__link img",
         "linkSelector": ".product-item__name",
         "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "alfa-beta",
+        "urls": [
+            "https://www.alfa-beta.com.tr"
+        ],
+        "productListSelector": "#product-list-container",
+        "productItemSelector": ".showcase",
+        "titleSelector": ".showcase-title a",
+        "imageSelector": ".showcase-image img",
+        "linkSelector": ".showcase-image a",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
     }
 ]
