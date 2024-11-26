@@ -248,7 +248,21 @@
         "imageSelector": "(document)=>'https:' + document.querySelector('[data-bgset]').getAttribute('data-bgset').trim().split(',')[2].trim().split(' ')",
         "linkSelector": ".product__grid__info a",
         "schedule": "0 0 * * 4"
-    } ,
+    }
+    ,
+    {
+        "site": "lovemetoo",
+        "urls": [
+            "https://lovemetoo.com.tr/"
+        ],
+        "productListSelector": ".product-block",
+        "productItemSelector": ".product-block",
+        "titleSelector": ".product-block__title",
+        "imageSelector": "(document)=>'https:' + document.querySelector('[data-lazy-bgset-src]').getAttribute('data-lazy-bgset-src')",
+        "linkSelector": ".product-link",
+        "schedule": "0 0 * * 4"
+    }
+    ,
     {
         "site": "",
         "urls": [
