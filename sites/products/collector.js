@@ -41,7 +41,7 @@ export async function second({
                 try {
 
                     const title = m.querySelector(params.titleSelector).innerText
-                    const img = isFunction(params.imageSelector) ? eval(params.imageSelector) : m.querySelector(params.imageSelector).getAttribute(params.imageAttr)
+                    const img = isFunction(params.imageSelector) ? eval(params.imageSelector)() : m.querySelector(params.imageSelector).getAttribute(params.imageAttr)
                     const link = m.querySelector(params.linkSelector).href
                     return {
                         title,
