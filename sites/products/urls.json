@@ -211,6 +211,20 @@
         "schedule": "0 0 * * 4"
     }  ,
     {
+        "site": "ipekyol",
+        "urls": [
+            "https://www.ipekyol.com.tr/"
+        ],
+        "productListSelector": ".prd-list",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".name",
+        "imageSelector": "[data-image-src]",
+        "imageAttr": "data-image-src",
+        "linkSelector": ".prd-lnk",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
         "site": "",
         "urls": [
             ""
