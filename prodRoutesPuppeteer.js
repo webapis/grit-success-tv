@@ -10,7 +10,7 @@ const gitFolder = process.env.gitFolder;
 
 const productsDataset = await Dataset.open(site);
 
-const selectors = urls.find(f => f.brand === site)
+const selectors = urls.find(f => f.site === site)
 debugger
 export const router = createPuppeteerRouter();
 
