@@ -66,8 +66,8 @@
         ],
         "productListSelector": ".collection__products",
         "productItemSelector": ".grid-item.product-item",
-        "titleSelector": "",
-        "imageSelector": "",
+        "titleSelector": ".product-item__image a",
+        "imageSelector": "img",
         "linkSelector": ".product-item__image a",
         "schedule": "0 0 * * 4"
     },
