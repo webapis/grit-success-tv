@@ -58,5 +58,29 @@
         "imageSelector": ".productSliderImage",
         "linkSelector": ".detailLink",
         "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "manuatelier",
+        "urls": [
+            "https://tr.manuatelier.com/"
+        ],
+        "productListSelector": ".collection__products",
+        "productItemSelector": ".grid-item.product-item",
+        "titleSelector": "",
+        "imageSelector": "",
+        "linkSelector": ".product-item__image a",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "adl",
+        "urls": [
+            "https://www.adl.com.tr"
+        ],
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-item__name",
+        "imageSelector": ".list-slider-item__link img",
+        "linkSelector": ".product-item__name",
+        "schedule": "0 0 * * 4"
     }
 ]
