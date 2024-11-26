@@ -8,7 +8,7 @@
         "productItemSelector": ".product-item",
         "titleSelector": ".product-item__info-name",
         "imageSelector": ".images.js-images source",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": ".product-link",
         "schedule": "0 0 * * 2"
     },
@@ -21,7 +21,7 @@
         "productItemSelector": "[data-documents]",
         "titleSelector": ".product-card__title a",
         "imageSelector": ".product-card__image--item img",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": ".image-box a",
         "schedule": "0 0 * * 3"
     },
@@ -34,7 +34,7 @@
         "productItemSelector": ".product-item-box",
         "titleSelector": ".product-name a",
         "imageSelector": ".product-item-image-2",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": ".product-name a",
         "schedule": "0 0 * * 4"
     },
@@ -47,7 +47,7 @@
         "productItemSelector": ".products__item",
         "titleSelector": ".product__title",
         "imageSelector": ".product__picture img",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": "a.product__imageWrapper",
         "schedule": "0 0 * * 4"
     },
@@ -60,7 +60,7 @@
         "productItemSelector": ".productItem",
         "titleSelector": ".productName a",
         "imageSelector": ".productSliderImage",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": ".detailLink",
         "schedule": "0 0 * * 4"
     },
@@ -73,7 +73,7 @@
         "productItemSelector": ".grid-item.product-item",
         "titleSelector": ".product-item__image a",
         "imageSelector": "img",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": ".product-item__image a",
         "schedule": "0 0 * * 4"
     },
@@ -86,7 +86,7 @@
         "productItemSelector": ".product-item",
         "titleSelector": ".product-item__name",
         "imageSelector": ".list-slider-item__link img",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": ".product-item__name",
         "schedule": "0 0 * * 4"
     },
@@ -99,7 +99,7 @@
         "productItemSelector": ".showcase",
         "titleSelector": ".showcase-title a",
         "imageSelector": ".showcase-image img",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": ".showcase-image a",
         "schedule": "0 0 * * 4"
     },
@@ -112,7 +112,7 @@
         "productItemSelector": ".product-card",
         "titleSelector": ".product-title",
         "imageSelector": ".imageCustom img",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": ".product-title",
         "schedule": "0 0 * * 4"
     },
@@ -125,7 +125,7 @@
         "productItemSelector": ".Prd",
         "titleSelector": ".PName",
         "imageSelector": ".PImage",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": ".PrdImgsBox a",
         "schedule": "0 0 * * 4"
     },
@@ -138,26 +138,37 @@
         "productItemSelector": ".product-item-box",
         "titleSelector": ".product-name",
         "imageSelector": "img",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": "a.product-name",
-
         "schedule": "0 0 * * 4"
     },
     {
         "site": "beautyomelette",
         "urls": [
-                "https://clothing.beautyomelette.com/",
-    "https://cosmetics.beautyomelette.com/"
+            "https://clothing.beautyomelette.com/",
+            "https://cosmetics.beautyomelette.com/"
         ],
         "productListSelector": ".productItem",
         "productItemSelector": ".productItem",
         "titleSelector": ".productName a",
         "imageSelector": "[data-original]",
-        "imageAttr":"[data-original]",
+        "imageAttr": "[data-original]",
         "linkSelector": ".productName a",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
+    {
+        "site": "birelin",
+        "urls": [
+            "https://www.birelin.com/"
+        ],
+        "productListSelector": ".ProductList",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".productName.detailUrl a",
+        "imageSelector": "[data-original]",
+        "imageAttr": "data-original",
+        "linkSelector": ".productName.detailUrl a",
+        "schedule": "0 0 * * 4"
+    },
     {
         "site": "",
         "urls": [
@@ -167,7 +178,7 @@
         "productItemSelector": "",
         "titleSelector": "",
         "imageSelector": "",
-        "imageAttr":"srс",
+        "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
     }
