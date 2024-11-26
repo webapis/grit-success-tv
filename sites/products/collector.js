@@ -1,5 +1,6 @@
 
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
+    
 console.log('inside first route')
     await enqueueLinks({
         selector: 'a',
