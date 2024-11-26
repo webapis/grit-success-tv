@@ -1,23 +1,10 @@
 
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
-
-    // await page.waitForSelector('.site-map__list a')
-
-    const urls = await page.evaluate(() => {
-
-        return Array.from(document.querySelectorAll('a')).map(m => m.href).filter(f => f)
-    })
-    if (urls.length === 0) {
-        throw 'urls.length===0 :https://www.koton.com/'
-    }
-    console.log('aggregation urls.length', urls.length)
-    console.log('aggregation urls', urls)
-
-    for (let u of urls) {
-
-        await addRequests([{ url: u, label: 'second' }])
-    }
-
+console.log('inside first route')
+    await enqueueLinks({
+        selector: 'a',
+        label: 'second',
+    });
 
 }
 
@@ -105,5 +92,5 @@ const urls = [
     }
 ]
 
-  
+
 export { urls }
