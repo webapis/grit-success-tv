@@ -279,6 +279,34 @@
     }
     ,
     {
+        "site": "modalogy",
+        "urls": [
+            "https://www.modalogy.com.tr/"
+        ],
+        "productListSelector": ".ProductListContent",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".productName",
+        "imageSelector": "[data-original]",
+        "imageAttr": "data-original",
+        "linkSelector": ".detailUrl",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
         "site": "",
         "urls": [
             ""
