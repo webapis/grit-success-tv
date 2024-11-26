@@ -1,6 +1,8 @@
 
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
-    
+    await page.evaluate(() => {
+        return new Promise(resolve => setTimeout(resolve, 10000));
+      });
 console.log('inside first route')
     await enqueueLinks({
         selector: 'a',

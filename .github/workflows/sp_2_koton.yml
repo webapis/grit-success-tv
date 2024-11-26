@@ -28,3 +28,4 @@ jobs:
       site: ${{ matrix.site }}
       # gitFolder: sponsor-product
     secrets: inherit
+    #https://claude.ai/chat/5977f129-c720-4615-b1e0-7f80aa3b5eed
