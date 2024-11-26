@@ -120,6 +120,18 @@
         "schedule": "0 0 * * 4"
     },
     {
+        "site": "lovemybody",
+        "urls": [
+            "https://www.lovemybody.com.tr/"
+        ],
+        "productListSelector": ".product-item-box",
+        "productItemSelector": ".product-item-box",
+        "titleSelector": ".product-name",
+        "imageSelector": "img",
+        "linkSelector": "a.product-name",
+        "schedule": "0 0 * * 4"
+    },
+    {
         "site": "",
         "urls": [
             ""
