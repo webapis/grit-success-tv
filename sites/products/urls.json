@@ -96,6 +96,18 @@
         "schedule": "0 0 * * 4"
     },
     {
+        "site": "biancoenero",
+        "urls": [
+            "https://biancoenero.com.tr/"
+        ],
+        "productListSelector": ".collection__main",
+        "productItemSelector": ".product-card",
+        "titleSelector": ".product-title",
+        "imageSelector": ".imageCustom img",
+        "linkSelector": ".product-title",
+        "schedule": "0 0 * * 4"
+    },
+    {
         "site": "",
         "urls": [
             ""
