@@ -37,7 +37,7 @@ export async function second({
                 try {
 
                     const title = m.querySelector(params.titleSelector).innerText
-                    const img = m.querySelector(params.imageSelector).srcset
+                    const img = m.querySelector(params.imageSelector)[params.imageAttr]
                     const link = m.querySelector(params.linkSelector).href
 
 
@@ -64,6 +64,7 @@ export async function second({
             productItemSelector,
             titleSelector,
             imageSelector,
+            imageAttr,
             linkSelector,
         })
 
