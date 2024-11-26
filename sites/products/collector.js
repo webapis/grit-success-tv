@@ -34,14 +34,21 @@ export async function second({
         const data = await page.evaluate((params) => {
             const pageTitle = document.title
             const pageURL = document.URL
-            function isFunction(value) {
-                return value instanceof Function;
+            function isStringAFunction(str) {
+                try {
+                    // Attempt to create a function from the string
+                    const fn = new Function(`return (${str})`)();
+                    return typeof fn === 'function';
+                } catch (e) {
+                    // If an error occurs, it's not a valid function
+                    return false;
+                }
             }
             const result = Array.from(document.querySelectorAll(params.productItemSelector)).map(m => {
                 try {
 
                     const title = m.querySelector(params.titleSelector).innerText
-                    const img = isFunction(params.imageSelector) ? eval(params.imageSelector)() : m.querySelector(params.imageSelector).getAttribute(params.imageAttr)
+                    const img = isStringAFunction(params.imageSelector) ? new Function(`return (${params.imageSelector})`)()(m) : m.querySelector(params.imageSelector).getAttribute(params.imageAttr)
                     const link = m.querySelector(params.linkSelector).href
                     return {
                         title,
