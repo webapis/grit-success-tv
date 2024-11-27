@@ -360,16 +360,16 @@
         "schedule": "0 0 * * 4"
     } ,
     {
-        "site": "",
+        "site": "sherin",
         "urls": [
-            ""
+            "https://www.sherin.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".ProductList",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".productName.detailUrl a",
+        "imageSelector": ".imageItem img",
+        "imageAttr": "data-src",
+        "linkSelector": ".productName.detailUrl a",
         "schedule": "0 0 * * 4"
     } ,
     {
