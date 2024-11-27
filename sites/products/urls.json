@@ -1048,16 +1048,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "milkywilky",
         "urls": [
-            ""
+            "https://www.milkywilky.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".products",
+        "productItemSelector": ".product",
+        "titleSelector": ".woocommerce-loop-product__title",
+        "imageSelector": ".attachment-woocommerce_thumbnail",
+        "linkSelector": ".woocommerce-LoopProduct-link",
         "schedule": "0 0 * * 4"
     },
     {
