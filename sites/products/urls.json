@@ -557,16 +557,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "beymen",
         "urls": [
-            ""
+            "https://www.beymen.com/tr"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".o-productList",
+        "productItemSelector": ".o-productList__itemWrapper",
+        "titleSelector": ".m-productCard__desc",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": ".m-productCard__photo a",
         "schedule": "0 0 * * 4"
     },
     {
