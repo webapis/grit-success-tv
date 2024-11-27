@@ -1185,16 +1185,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "kigili",
         "urls": [
-            ""
+            "https://www.kigili.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".js-list-content-product-item",
+        "productItemSelector": ".js-list-content-product-item",
+        "titleSelector": ".product-name a",
+        "imageSelector": ".product-item-image",
+        "imageAttr": "data-src",
+        "linkSelector": ".product-name a",
         "schedule": "0 0 * * 4"
     },
     {
