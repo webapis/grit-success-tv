@@ -1023,16 +1023,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "panco",
         "urls": [
-            ""
+            "https://www.panco.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": "[data-testid='product-box']",
+        "productItemSelector": "[data-testid='product-box']",
+        "titleSelector": "[class^='product_card_product_title']",
+        "imageSelector": ".inline-block img",
+        "linkSelector": "[class^='product_card_product_title']",
         "schedule": "0 0 * * 4"
     },
     {
