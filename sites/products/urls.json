@@ -1211,16 +1211,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "wemsey",
         "urls": [
-            ""
+            "https://www.wemsey.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product_item",
+        "productItemSelector": ".product_item",
+        "titleSelector": ".pro_name a",
+        "imageSelector": ".img_box img",
+        "linkSelector": ".pro_name a",
         "schedule": "0 0 * * 4"
     },
     {
