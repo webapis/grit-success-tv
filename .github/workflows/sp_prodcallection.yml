@@ -1,5 +1,4 @@
-name: sponsorMMMMM
-on:
+name: sponsorProdNNNN
    workflow_dispatch:
     inputs:
       sites:
@@ -20,7 +19,10 @@ jobs:
       sites: ${{ steps.set-sites.outputs.sites }}
     steps:
       - id: set-sites
-        run: echo "sites=${{ fromJSON(format('[{0}]', replace(inputs.sites, ',', '", "'))) }}" >> $GITHUB_OUTPUT
+        run: |
+          SITES="${{ inputs.sites }}"
+          SITES_ARRAY=$(echo $SITES | tr ',' '\n' | jq -R . | jq -s .)
+          echo "sites=$SITES_ARRAY" >> $GITHUB_OUTPUT
 
   dizitv_job:
     needs: prepare_matrix
