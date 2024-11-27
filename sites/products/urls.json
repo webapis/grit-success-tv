@@ -613,16 +613,30 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "matras",
         "urls": [
-            ""
+            "https://www.matras.com/yeni-urun",
+            "https://www.matras.com/canta-modelleri",
+            "https://www.matras.com/ayakkabi-modelleri",
+            "https://www.matras.com/bot",
+            "https://www.matras.com/cuzdan-modelleri",
+            "https://www.matras.com/kemer-modelleri",
+            "https://www.matras.com/aksesuar",
+            "https://www.matras.com/seyahat",
+            "https://www.matras.com/yeni-urun",
+            "https://www.matras.com/canta-modelleri",
+            "https://www.matras.com/ayakkabi-modelleri",
+            "https://www.matras.com/bot",
+            "https://www.matras.com/cuzdan-modelleri",
+            "https://www.matras.com/kemer-modelleri",
+            "https://www.matras.com/aksesuar",
+            "https://www.matras.com/seyahat"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".col-md-3.col-sm-3.col-xs-6.wow",
+        "productItemSelector": ".col-md-3.col-sm-3.col-xs-6.wow",
+        "titleSelector": ".product_name",
+        "imageSelector": ".product_image img",
+        "linkSelector": ".product_name",
         "schedule": "0 0 * * 4"
     },
     {
