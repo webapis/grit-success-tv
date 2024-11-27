@@ -1,0 +1,35 @@
+name: sheduledruns
+on:
+  schedule:
+    - cron: '0 1 * * *'
+    - cron: '0 2 * * *'
+env:
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+jobs:
+  prepare_matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      sites: ${{ steps.set-sites.outputs.sites }}
+    steps:
+      - id: set-sites
+        run: |
+          declare -A SITE_SCHEDULES=(
+            ["0 1 * * *"]="koton,zara"
+            ["0 2 * * *"]="defacto,mango"
+          )
+          
+          # Find the sites for the current schedule
+          sites=$(echo "${SITE_SCHEDULES["${{ github.event.schedule }}"]}" | tr ',' '\n' | jq -R . | jq -s .)
+          echo "sites=$sites" >> $GITHUB_OUTPUT
+
+  dizitv_job:
+    needs: prepare_matrix
+    strategy:
+      matrix:
+        site: ${{ fromJSON(needs.prepare_matrix.outputs.sites) }}
+    uses: ./.github/workflows/reusableProdPuppeteer.yml
+    with:
+      site: ${{ matrix.site }}
+    secrets: inherit
+    #https://claude.ai/chat/f9afc4d8-9e1c-41c5-a416-7c350a8cb166
