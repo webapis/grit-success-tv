@@ -471,16 +471,17 @@
     }
     ,
     {
-        "site": "",
+        "site": "dahliabianca",
         "urls": [
-            ""
+            "https://www.dahliabianca.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-grid",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-title",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": ".product-title a",
+        "breadcrumb":"(document)=>Array.from(document.querySelectorAll('.breadcrumb a')).map(m=>m.innerText).join(' ')",
         "schedule": "0 0 * * 4"
     }
     ,
