@@ -6,10 +6,6 @@ on:
         description: 'Comma-separated list of sites'
         required: true
         type: string
-      gitFolder:
-        description: 'gitFolder'
-        required: true
-        type: string
 
 env:
   MONGODB_URL: ${{ secrets.MONGODB_URL }}
@@ -36,5 +32,4 @@ jobs:
       matrix: ${{ fromJson(needs.generate_matrix.outputs.matrix).include }}
     with:
       site: ${{ matrix.site }}
-      gitFolder: ${{ inputs.gitFolder }}
     secrets: inherit
