@@ -1,32 +1,37 @@
-name: sponsorProdManualAggregPuppeteerMulti
+name: sponsorProdManuaMatrix
 on:
-  workflow_dispatch:
+   workflow_dispatch:
     inputs:
-      sites:
-        description: 'Comma-separated list of sites'
+      sites:   # Renamed from 'site' to 'sites'
+        description: 'Comma-separated list of target sites'
         required: true
         type: string
-
+      gitFolder:
+        description: 'Git folder'
+        required: true
+        type: string
 env:
-  MONGODB_URL: ${{ secrets.MONGODB_URL }}
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
 
 jobs:
-  create_jobs:
+  process_sites:
     runs-on: ubuntu-latest
-    outputs:
-      site_list: ${{ steps.prepare.outputs.site_list }}
     steps:
-      - name: Prepare site list
-        id: prepare
-        run: echo "::set-output name=site_list::$(echo '${{ inputs.sites }}' | tr ',' '\n')"
+      - name: Split sites into array
+        id: split_sites
+        run: |
+          echo "sites=$(echo '${{ inputs.sites }}' | tr ',' '\n')" >> $GITHUB_ENV
 
-  run_puppeteer:
-    needs: create_jobs
+  # Dynamically create jobs for each site
+  site_jobs:
+    needs: process_sites
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        site: ${{ fromJson(needs.create_jobs.outputs.site_list) }}
+        site: ${{ fromJson(env.sites) }}
     uses: ./.github/workflows/reusableProdPuppeteer.yml
     with:
       site: ${{ matrix.site }}
+      gitFolder: ${{ inputs.gitFolder }}
     secrets: inherit
