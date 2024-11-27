@@ -293,16 +293,17 @@
     }
     ,
     {
-        "site": "",
+        "site": "network",
         "urls": [
-            ""
+            "https://www.network.com.tr"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".products",
+        "productItemSelector": ".products__item",
+        "titleSelector": ".product__title",
+        "imageSelector": "[data-srcset]",
+        "imageAttr": "data-srcset",
+        "linkSelector": "a",
+        "breadcrumb":"(document)=>document.querySelectorAll('.breadcrumb a').length>0 ? Array.from(document.querySelectorAll('.breadcrumb a')).map(m => m.innerText).join(' ') : '_'",
         "schedule": "0 0 * * 4"
     }
     ,

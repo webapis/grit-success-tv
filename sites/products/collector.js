@@ -22,6 +22,7 @@ export async function second({
     imageAttr = 'src',
     imagePrefix = '',
     linkSelector,
+    breadcrumb = () => ""
 
 }) {
     const url = await page.url()
@@ -32,8 +33,10 @@ export async function second({
     if (productItemsCount > 0) {
         await scroller(page, 150, 5)
         const data = await page.evaluate((params) => {
-            const pageTitle = document.title
+            const breadcrumb = new Function(`return (${params.breadcrumb})`)(m)
+            const pageTitle = document.title + ' ' + breadcrumb
             const pageURL = document.URL
+
             function isStringAFunction(str) {
                 try {
                     // Attempt to create a function from the string
@@ -76,6 +79,7 @@ export async function second({
             imageAttr,
             imagePrefix,
             linkSelector,
+            breadcrumb
         })
 
         console.log('data.length', data.length)
