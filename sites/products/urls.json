@@ -1004,9 +1004,9 @@
         ],
         "productListSelector": ".products__items",
         "productItemSelector": ".product-item",
-        "titleSelector": "product-name",
+        "titleSelector": ".product-name",
         "imageSelector": ".swiper-slide.swiper-slide-active img",
-        "linkSelector": "d-block",
+        "linkSelector": ".d-block",
         "schedule": "0 0 * * 4",
         "id":"69"
     },
