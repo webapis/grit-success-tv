@@ -403,16 +403,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "wheneverco",
         "urls": [
-            ""
+            "https://www.wheneverco.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-list",
+        "productItemSelector": ".product-list-item",
+        "titleSelector": ".product-name",
+        "imageSelector": "(document)=>'https:' + document.querySelector('.product-image [data-lazysrc]').getAttribute('data-lazysrc')",
+        "linkSelector": ".product-image a",
         "schedule": "0 0 * * 4"
     },
     {
