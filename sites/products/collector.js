@@ -59,7 +59,7 @@ export async function second({
 
                     const title = m.querySelector(params.titleSelector).getAttribute(params.titleAttr)
                     const img = isStringAFunction(params.imageSelector) ? new Function(`return (${params.imageSelector})`)(m) : m.querySelector(params.imageSelector).getAttribute(params.imageAttr)
-                    const link = isStringAFunction(params.linkSelector) ? new Function(`return (${params.linkSelector})`)(m) : m.querySelector(params.linkSelector).href
+                    const link = isStringAFunction(params.linkSelector) ? new Function(`return (${params.linkSelector})`)(m) : m.querySelector(params.linkSelector).getAttribute('href')
                     return {
                         title,
                         price: 0,

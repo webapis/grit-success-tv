@@ -1159,16 +1159,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "dsdamat",
         "urls": [
-            ""
+            "https://www.dsdamat.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-item__name",
+        "imageSelector": ".product-item__img",
         "imageAttr": "srс",
-        "linkSelector": "",
+        "linkSelector": ".product-item__name",
         "schedule": "0 0 * * 4"
     }
     ,
