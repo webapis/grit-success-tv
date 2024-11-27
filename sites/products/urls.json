@@ -500,16 +500,16 @@
     }
     ,
     {
-        "site": "",
+        "site": "lufian",
         "urls": [
-            ""
+            "https://www.lufian.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": "#product-list-panel",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-title",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": "a.product-title",
         "schedule": "0 0 * * 4"
     }  ,
     {
