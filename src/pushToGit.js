@@ -7,7 +7,7 @@ dotenv.config({ silent: true });
 const gitFolder = process.env.gitFolder
 const URL_CATEGORIES = process.env.URL_CATEGORIES
 const site = process.env.site
-const dataset = await Dataset.open(gitFolder);
+const dataset = await Dataset.open(site);
 const { items: data } = await dataset.getData()
 
 const filterError = data.filter(f => !f.error)
@@ -16,7 +16,7 @@ const fileName = Date.now()
 //await uploadCollection({fileName, data,gitFolder})
 if (filterError.length > 0) {
     console.log('collected data length', filterError.length)
-    await uploadCollection({ fileName: site || URL_CATEGORIES, data: filterError, gitFolder })
+    await uploadCollection({ fileName: site || URL_CATEGORIES, data: filterError, gitFolder:site })
 }
 else {
 
