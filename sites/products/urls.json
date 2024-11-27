@@ -444,16 +444,15 @@
     }
     ,
     {
-        "site": "",
+        "site": "brooksbrothers",
         "urls": [
-            ""
+            "https://www.brooksbrothers.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".max-w-xl.fade-in",
+        "productItemSelector": ".max-w-xl.fade-in",
+        "titleSelector": "h3.text-primary a.inline-block.line-clamp-2",
+        "imageSelector": "(document)=>document.querySelector('[srcset]')?.getAttribute('srcset').split(',')[7].trim().split(' ')[0]",
+        "linkSelector": "h3.text-primary a.inline-block.line-clamp-2",
         "schedule": "0 0 * * 4"
     }
     ,
