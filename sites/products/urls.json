@@ -390,16 +390,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "twist",
         "urls": [
-            ""
+            "https://www.twist.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".prd-list",
+        "productItemSelector": ".prd",
+        "titleSelector": ".prd-lnk",
+        "titleAttr":"title",
+        "imageSelector": "(document)=>document.querySelector('[data-large]')?.getAttribute('data-large')|| document.querySelector('[data-background]')?.getAttribute('data-background')",
+        "linkSelector": ".prd-lnk",
         "schedule": "0 0 * * 4"
     },
     {
