@@ -347,16 +347,16 @@
         "schedule": "0 0 * * 4"
     } ,
     {
-        "site": "",
+        "site": "setre",
         "urls": [
-            ""
+            "https://www.setre.com"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".ProductListContent",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".productName.detailUrl",
+        "imageSelector": ".productImage [data-original]",
+        "imageAttr": "data-original",
+        "linkSelector": ".productName.detailUrl a",
         "schedule": "0 0 * * 4"
     } ,
     {
