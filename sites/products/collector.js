@@ -31,7 +31,7 @@ export async function second({
     debugger
     if (waitForSeconds > 0) {
         await page.evaluate(async () => {
-            await new Promise(resolve => setTimeout(resolve, waitForSeconds)); // 5 seconds delay
+            await new Promise(resolve => setTimeout(resolve, 5000)); // 5 seconds delay
         });
     }
     // Check if there are any product items on the page
