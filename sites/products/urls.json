@@ -1012,16 +1012,15 @@
         "id":"69"
     },
     {
-        "site": "",
+        "site": "sagaza",
         "urls": [
-            ""
+            "https://sagaza.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".collection__content",
+        "productItemSelector": ".product-grid-item",
+        "titleSelector": ".product__grid__title",
+        "imageSelector": "(document)=> 'https:'  + document.querySelector('[srcset]').getAttribute('srcset').trim().split(' ')[0]",
+        "linkSelector": "a",
         "schedule": "0 0 * * 4"
     },
     {
