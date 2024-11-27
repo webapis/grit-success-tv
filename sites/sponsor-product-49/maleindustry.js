@@ -60,7 +60,7 @@ export async function second({ page }) {
 }
 
 const urls = [
-     "https://www.maleindustry.com.tr/",
+     "https://www.maleindustry.com.tr/erkek-sneaker-modelleri",
  
 ]
 export { urls }

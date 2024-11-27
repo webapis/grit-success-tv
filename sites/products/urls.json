@@ -1198,16 +1198,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "maleindustry",
         "urls": [
-            ""
+            "https://www.maleindustry.com.tr/erkek-sneaker-modelleri"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".divUrun",
+        "productItemSelector": ".divUrun",
+        "titleSelector": ".divUAd a",
+        "titleAttr":"title",
+        "imageSelector": "(document)=>'https://www.maleindustry.com.tr/'+ document.querySelector('[data-src]').getAttribute('data-src')",
+        "linkSelector": ".divUAd a",
         "schedule": "0 0 * * 4"
     },
     {
