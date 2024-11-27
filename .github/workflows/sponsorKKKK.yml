@@ -18,6 +18,8 @@ jobs:
   dizitv_job:
     needs: prepare_matrix
     strategy:
+      # Ensure other jobs continue even if one fails
+      fail-fast: false
       matrix:
         site: ${{ fromJSON(needs.prepare_matrix.outputs.sites) }}
     uses: ./.github/workflows/reusableProdPuppeteer.yml
