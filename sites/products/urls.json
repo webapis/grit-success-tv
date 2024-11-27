@@ -1173,16 +1173,15 @@
     }
     ,
     {
-        "site": "",
+        "site": "duk",
         "urls": [
-            ""
+            "https://www.duk.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".item",
+        "productItemSelector": ".item",
+        "titleSelector": ".p-name",
+        "imageSelector": ".image img",
+        "linkSelector": ".image",
         "schedule": "0 0 * * 4"
     },
     {
