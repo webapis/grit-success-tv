@@ -1,4 +1,4 @@
-name: sponsorProdManualMAtrixAggregPuppeteer
+name: sponsorMMMMM
 on:
    workflow_dispatch:
     inputs:
@@ -14,10 +14,19 @@ env:
   MONGODB_URL: ${{secrets.MONGODB_URL}}
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:
+  prepare_matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      sites: ${{ steps.set-sites.outputs.sites }}
+    steps:
+      - id: set-sites
+        run: echo "sites=${{ fromJSON(format('[{0}]', replace(inputs.sites, ',', '", "'))) }}" >> $GITHUB_OUTPUT
+
   dizitv_job:
+    needs: prepare_matrix
     strategy:
       matrix:
-        site: ${{ fromCSV(inputs.sites) }}
+        site: ${{ fromJSON(needs.prepare_matrix.outputs.sites) }}
     uses: ./.github/workflows/reusableProdPuppeteer.yml
     with:
       site: ${{ matrix.site }}
