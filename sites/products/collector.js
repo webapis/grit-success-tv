@@ -23,11 +23,17 @@ export async function second({
     imageAttr = 'src',
     imagePrefix = '',
     linkSelector,
-    breadcrumb = () => ""
+    breadcrumb = () => "",
+    waitForSeconds = 0
 
 }) {
     const url = await page.url()
     debugger
+    if (waitForSeconds > 0) {
+        await page.evaluate(async () => {
+            await new Promise(resolve => setTimeout(resolve, waitForSeconds)); // 5 seconds delay
+        });
+    }
     // Check if there are any product items on the page
     const productItemsCount = await page.$$eval(productListSelector, elements => elements.length);
 

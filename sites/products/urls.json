@@ -529,6 +529,7 @@
         "titleSelector": ".product-title .title",
         "imageSelector": "swiper-slide img",
         "linkSelector": "(document)=>Array.from(document.querySelectorAll('a'))?.map(m=>m.href).reverse()[0]",
+        "waitForSeconds": 5000,
         "schedule": "0 0 * * 4"
     },
     {
