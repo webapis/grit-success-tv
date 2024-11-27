@@ -33,7 +33,7 @@ export async function second({
     if (productItemsCount > 0) {
         await scroller(page, 150, 5)
         const data = await page.evaluate((params) => {
-            const breadcrumb = new Function(`return (${params.breadcrumb})`)(m)
+            const breadcrumb = new Function(`return (${params.breadcrumb})`)(document)
             const pageTitle = document.title + ' ' + breadcrumb
             const pageURL = document.URL
 
