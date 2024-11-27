@@ -701,51 +701,241 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "buenoshoes",
         "urls": [
-            ""
+            "https://www.buenoshoes.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".divUrun",
+        "productItemSelector": ".divUrun",
+        "titleSelector": ".divUAd a",
+        "imageSelector": "(document)=>'https://www.buenoshoes.com.tr/' + document.querySelector('[data-src]').getAttribute('data-src')",
+        "linkSelector": ".divUAd a",
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "camper",
         "urls": [
-            ""
+            "https://www.camper.com/tr_TR"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".grid-item",
+        "productItemSelector": ".grid-item",
+        "titleSelector": "p.name",
+        "imageSelector": "[srcset]",
+        "imageAttr": "srcset",
+        "linkSelector": ".grid-item a",
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "converse",
         "urls": [
-            ""
+            "https://www.converse.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".products__items",
+        "productItemSelector": ".js-product-wrapper.product-item",
+        "titleSelector": ".product-item__name",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": ".js-product-anchor",
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "eclecticconceptstore",
         "urls": [
-            ""
+            "https://eclecticconceptstore.com.tr/product-category/men/",
+            "https://eclecticconceptstore.com.tr/product-category/women/",
+            "https://eclecticconceptstore.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
+        "productListSelector": ".c-product-grid__item",
+        "productItemSelector": ".c-product-grid__item",
+        "titleSelector": ".c-product-grid__title",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": ".woocommerce-loop-product__link",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "edwards",
+        "urls": [
+            "https://www.edwards.com.tr/kadin/",
+            "https://www.edwards.com.tr/erkek/"
+        ],
+        "productListSelector": ".product-grid-item",
+        "productItemSelector": ".product-grid-item",
+        "titleSelector": ".product-tile-body__link",
+        "imageSelector": "(document)=> document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr ||document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src",
+        "linkSelector": ".product-tile-body__link",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "gant",
+        "urls": [
+            "https://www.gant.com.tr/"
+        ],
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-name__link",
+        "imageSelector": ".product-item-image",
+        "linkSelector": ".product-name__link",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "lacoste",
+        "urls": [
+            "https://www.lacoste.com.tr/"
+        ],
+        "productListSelector": ".product-item-box",
+        "productItemSelector": ".product-item-box",
+        "titleSelector": ".product-info--name",
+        "imageSelector": ".js-product-item-image",
+        "linkSelector": ".product-info--name a",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "pierrecardin",
+        "urls": [
+            "https://www.pierrecardin.com.tr/"
+        ],
+        "productListSelector": ".js-product-list-item",
+        "productItemSelector": ".js-product-list-item",
+        "titleSelector": ".product__listing--content h3",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": ".product__listing--content h3 a",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "pullandbear",
+        "urls": [
+            "https://www.pullandbear.com/tr/erkek-n6228",
+            "https://www.pullandbear.com/tr/kadin-n6417"
+        ],
+        "productListSelector": "legacy-product",
+        "productItemSelector": "legacy-product",
+        "titleSelector": ".name span",
+        "imageSelector": "(document)=>document.querySelector('.image-responsive')?.src || document.querySelector('.image-responsive')?.getAttribute('data-src')",
+        "linkSelector": ".carousel-item-container",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "marksandspencer",
+        "urls": [
+            "https://www.marksandspencer.com.tr/"
+        ],
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-item__name",
+        "imageSelector": "(document)=> document.querySelector('.pz-image-placeholder source ')?.srcset || document.querySelector('.pz-image-placeholder source ')?.getAttribute('data-srcset')",
+        "linkSelector": ".product-item__name",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "hm",
+        "urls": [
+            "https://www2.hm.com/tr_tr/index.html"
+        ],
+        "productListSelector": "article[data-category]",
+        "productItemSelector": "article[data-category]",
+        "titleSelector": "a",
+        "titleAttr": "title",
+        "imageSelector": "(document)=>m.querySelector('[imagetype='PRODUCT_IMAGE']').srcset.split(',')[8].trim().split(' ')[0]",
+        "linkSelector": "a",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "paulmark",
+        "urls": [
+            "https://www.paulmark.com.tr/"
+        ],
+        "productListSelector": ".productItemLayout.ViewProduct",
+        "productItemSelector": ".productItemLayout.ViewProduct",
+        "titleSelector": "img",
+        "titleAttr": "alt",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": "a.item-img",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "morrez",
+        "urls": [
+            "https://morrez.com/"
+        ],
+        "productListSelector": ".grid [data-id]",
+        "productItemSelector": ".grid [data-id]",
+        "titleSelector": ".product-name",
+        "imageSelector": "(document)=>document.querySelector('.product-slider-image-container img').srcset.split(',')[10].trim().split(' ')[0]",
+        "linkSelector": "a",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "yaygan",
+        "urls": [
+            "https://www.yaygan.com/"
+        ],
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-title",
+        "imageSelector": "a.image-wrapper img",
+        "linkSelector": ".image-wrapper",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "ltbjeans",
+        "urls": [
+            "https://www.ltbjeans.com/tr-TR"
+        ],
+        "productListSelector": ".product-grid-item",
+        "productItemSelector": ".product-grid-item",
+        "titleSelector": ".product-tile-body__link",
+        "imageSelector": "(document)=> document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr ||document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src",
+        "linkSelector": ".product-tile-body__link",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "efor",
+        "urls": [
+            "https://www.efor.com.tr/"
+        ],
+        "productListSelector": ".js-product-item",
+        "productItemSelector": ".js-product-item",
+        "titleSelector": ".product-details  [itemprop='name']",
+        "imageSelector": "[data-original]",
+        "imageAttr": "data-original",
+        "linkSelector": ".innerwrap.product.ecommerceClick",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "edliskids",
+        "urls": [
+            "https://edliskids.com/"
+        ],
+        "productListSelector": ".product-grid-item",
+        "productItemSelector": ".product-grid-item",
+        "titleSelector": ".product-tile-body__link",
+        "imageSelector": "(document)=>document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr || document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src",
+        "linkSelector": ".product-tile-body__link",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "breeze",
+        "urls": [
+            "https://www.breeze.com.tr/"
+        ],
+        "productListSelector": ".product-grid-item",
+        "productItemSelector": ".product-grid-item",
+        "titleSelector": ".product-tile-body__link",
+        "imageSelector": "(document)=> document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr ||document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src",
+        "linkSelector": ".product-tile-body__link",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "cartersoshkosh",
+        "urls": [
+            "https://www.cartersoshkosh.com.tr/"
+        ],
+        "productListSelector": ".product-grid-item",
+        "productItemSelector": ".product-grid-item",
         "titleSelector": "",
         "imageSelector": "",
         "imageAttr": "srс",

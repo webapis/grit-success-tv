@@ -32,7 +32,7 @@ export async function second({ page }) {
                     const title = document.querySelector('.product-tile-body__link').innerText
                     //lazyloaded        
                     //swiper-lazy
-                    const img1 = document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr
+                    const img1 = document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr ||document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
                     const img2 = document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src
                     //  const img = document.querySelector('.product-tile-image__picture source').dataset.srcset
 
