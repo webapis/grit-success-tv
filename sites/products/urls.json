@@ -1103,9 +1103,9 @@
         ],
         "productListSelector": "ac-product-card",
         "productItemSelector": "ac-product-card",
-        "titleSelector": ".name",
-        "imageSelector": "(document)=>document.getAttribute('image').split(',')[0]",
-        "linkSelector": "(document)=>'https://www.altinyildizclassics.com' + document.querySelector('ac-product-card').getAttribut",
+        "titleSelector": ".ac-pc__name",
+        "imageSelector": "img",
+        "linkSelector": "a",
         "schedule": "0 0 * * 4"
     },
     {
