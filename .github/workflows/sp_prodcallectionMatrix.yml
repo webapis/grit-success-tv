@@ -21,9 +21,9 @@ jobs:
         id: set-matrix
         run: |
           sites="${{ inputs.sites }}"
-          site_array=(${sites//,/ })   # Splitting by comma
-          json=$(jq -n --argjson sites "$(printf '%s\n' "${site_array[@]}" | jq -R . | jq -s .)" '{"include": [{"site": $sites[]}]}')
-          echo "matrix=${json}" >> $GITHUB_OUTPUT
+          site_array=(${sites//,/ })  # Split the comma-separated string into an array
+          json=$(printf '%s\n' "${site_array[@]}" | jq -R . | jq -s '{include: map({site: .})}')
+          echo "matrix=$json" >> $GITHUB_OUTPUT
 
   dizitv_job:
     needs: generate_matrix
