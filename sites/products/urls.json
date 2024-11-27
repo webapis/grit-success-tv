@@ -1072,16 +1072,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "smile",
         "urls": [
-            ""
+            "https://smile.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".productItem",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".ndImage",
+        "titleAttr":"alt",
+        "imageSelector": ".ndImage",
+        "linkSelector": ".detailLink",
         "schedule": "0 0 * * 4"
     },
     {
