@@ -1134,16 +1134,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "damattween",
         "urls": [
-            ""
+            "https://www.damattween.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-item__name",
+        "imageSelector": ".product-item__img",
+        "linkSelector": "a",
         "schedule": "0 0 * * 4"
     },
     {
