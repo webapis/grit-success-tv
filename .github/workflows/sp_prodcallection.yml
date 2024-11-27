@@ -1,38 +1,32 @@
-name: Sponsor Product Scraping
-
+name: sponsorProdManualAggregPuppeteerMulti
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * 2'  # Brooksbrothers on Tuesday
-    - cron: '0 0 * * 3'  # Othersite1 on Wednesday
-    - cron: '0 0 * * 4'  # Othersite2 on Thursday
+    inputs:
+      sites:
+        description: 'Comma-separated list of sites'
+        required: true
+        type: string
 
 env:
-  MONGODB_URL: ${{secrets.MONGODB_URL}}
-  GH_TOKEN: ${{secrets.GH_TOKEN}}
+  MONGODB_URL: ${{ secrets.MONGODB_URL }}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
-  load-sites:
+  create_jobs:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      site_list: ${{ steps.prepare.outputs.site_list }}
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Read sites JSON
-        id: set-matrix
-        run: |
-          # Read the JSON file and convert it to a matrix
-          matrix=$(jq -c '.' sites/products/urls.json)
-          echo "matrix=$matrix" >> $GITHUB_OUTPUT
+      - name: Prepare site list
+        id: prepare
+        run: echo "::set-output name=site_list::$(echo '${{ inputs.sites }}' | tr ',' '\n')"
 
-  dizitv_job:
-    needs: load-sites
+  run_puppeteer:
+    needs: create_jobs
     strategy:
-      matrix: ${{ fromJson(needs.load-sites.outputs.matrix) }}
+      matrix:
+        site: ${{ fromJson(needs.create_jobs.outputs.site_list) }}
     uses: ./.github/workflows/reusableProdPuppeteer.yml
     with:
       site: ${{ matrix.site }}
-      # Optional: Add more configurations from the JSON if needed
-      # gitFolder: sponsor-product
     secrets: inherit
