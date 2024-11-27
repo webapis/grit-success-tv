@@ -10,7 +10,8 @@
         "imageSelector": ".images.js-images source",
         "imageAttr": "srcset",
         "linkSelector": ".product-link",
-        "schedule": "0 0 * * 2"
+        "schedule": "0 0 * * 2",
+        "id":"1"
     },
     {
         "site": "defacto",
@@ -23,7 +24,8 @@
         "imageSelector": ".product-card__image--item img",
         "imageAttr": "srс",
         "linkSelector": ".image-box a",
-        "schedule": "0 0 * * 3"
+        "schedule": "0 0 * * 3",
+        "id":"2"
     },
     {
         "site": "desa",
@@ -36,7 +38,8 @@
         "imageSelector": ".product-item-image-2",
         "imageAttr": "srс",
         "linkSelector": ".product-name a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"3"
     },
     {
         "site": "divarese",
@@ -49,7 +52,8 @@
         "imageSelector": ".product__picture img",
         "imageAttr": "srс",
         "linkSelector": "a.product__imageWrapper",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"4"
     },
     {
         "site": "elleshoes",
@@ -62,7 +66,8 @@
         "imageSelector": ".productSliderImage",
         "imageAttr": "srс",
         "linkSelector": ".detailLink",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"5"
     },
     {
         "site": "manuatelier",
@@ -75,7 +80,8 @@
         "imageSelector": "img",
         "imageAttr": "srс",
         "linkSelector": ".product-item__image a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"6"
     },
     {
         "site": "adl",
@@ -88,7 +94,8 @@
         "imageSelector": ".list-slider-item__link img",
         "imageAttr": "srс",
         "linkSelector": ".product-item__name",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"7"
     },
     {
         "site": "alfa-beta",
@@ -101,7 +108,8 @@
         "imageSelector": ".showcase-image img",
         "imageAttr": "srс",
         "linkSelector": ".showcase-image a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"8"
     },
     {
         "site": "biancoenero",
@@ -114,7 +122,8 @@
         "imageSelector": ".imageCustom img",
         "imageAttr": "srс",
         "linkSelector": ".product-title",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"9"
     },
     {
         "site": "bsl",
@@ -127,7 +136,8 @@
         "imageSelector": ".PImage",
         "imageAttr": "srс",
         "linkSelector": ".PrdImgsBox a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"10"
     },
     {
         "site": "lovemybody",
@@ -140,7 +150,8 @@
         "imageSelector": "img",
         "imageAttr": "srс",
         "linkSelector": "a.product-name",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"11"
     },
     {
         "site": "beautyomelette",
@@ -154,7 +165,8 @@
         "imageSelector": "[data-original]",
         "imageAttr": "[data-original]",
         "linkSelector": ".productName a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"12"
     },
     {
         "site": "birelin",
@@ -167,7 +179,8 @@
         "imageSelector": "[data-original]",
         "imageAttr": "data-original",
         "linkSelector": ".productName.detailUrl a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"13"
     },
     {
         "site": "ekolonline",
@@ -180,7 +193,8 @@
         "imageSelector": "[data-img]",
         "imageAttr": "data-img",
         "linkSelector": "a.product-figure",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"14"
     },
     {
         "site": "fever",
@@ -193,7 +207,8 @@
         "imageSelector": "[itemprop='image'][content]",
         "imageAttr": "content",
         "linkSelector": ".productDetails .detailLink",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"15"
     },
     {
         "site": "gustoeshop",
@@ -206,7 +221,8 @@
         "imageSelector": ".image-inner source",
         "imageAttr": "srcset",
         "linkSelector": ".product-title a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"16"
     },
     {
         "site": "ipekyol",
@@ -219,7 +235,8 @@
         "imageSelector": "[data-image-src]",
         "imageAttr": "data-image-src",
         "linkSelector": ".prd-lnk",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"17"
     },
     {
         "site": "joinus",
@@ -232,7 +249,8 @@
         "imageSelector": "[data-srcset]",
         "imageAttr": "data-srcset",
         "linkSelector": ".product-title",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"18"
     },
     {
         "site": "jusdepommes",
@@ -244,7 +262,8 @@
         "titleSelector": ".product__grid__title",
         "imageSelector": "(document)=>'https:' + document.querySelector('[data-bgset]').getAttribute('data-bgset').trim().split(',')[2].trim().split(' ')",
         "linkSelector": ".product__grid__info a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"19"
     },
     {
         "site": "lovemetoo",
@@ -256,7 +275,8 @@
         "titleSelector": ".product-block__title",
         "imageSelector": "(document)=>'https:' + document.querySelector('[data-lazy-bgset-src]').getAttribute('data-lazy-bgset-src')",
         "linkSelector": ".product-link",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"20"
     },
     {
         "site": "machka",
@@ -269,7 +289,8 @@
         "imageSelector": "[data-image-src]",
         "imageAttr": "data-image-src",
         "linkSelector": ".item-link",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"21"
     },
     {
         "site": "modalogy",
@@ -282,7 +303,8 @@
         "imageSelector": "[data-original]",
         "imageAttr": "data-original",
         "linkSelector": ".detailUrl",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"22"
     },
     {
         "site": "network",
@@ -296,7 +318,8 @@
         "imageAttr": "data-srcset",
         "linkSelector": "a",
         "breadcrumb": "(document)=>document.querySelectorAll('.breadcrumb a').length>0 ? Array.from(document.querySelectorAll('.breadcrumb a')).map(m => m.innerText).join(' ') : '_'",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"23"
     },
     {
         "site": "nocturne",
@@ -309,7 +332,8 @@
         "imageSelector": "[data-original]",
         "imageAttr": "data-original",
         "linkSelector": ".product-image a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"24"
     },
     {
         "site": "oxxo",
@@ -322,7 +346,8 @@
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": "a[data-product]",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"25"
     },
     {
         "site": "rueonline",
@@ -335,7 +360,8 @@
         "imageSelector": "[data-original]",
         "imageAttr": "data-original",
         "linkSelector": ".productName.detailUrl a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"26"
     },
     {
         "site": "setre",
@@ -348,7 +374,8 @@
         "imageSelector": ".productImage [data-original]",
         "imageAttr": "data-original",
         "linkSelector": ".productName.detailUrl a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"27"
     },
     {
         "site": "sherin",
@@ -361,7 +388,8 @@
         "imageSelector": ".imageItem img",
         "imageAttr": "data-src",
         "linkSelector": ".productName.detailUrl a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"28"
     },
     {
         "site": "themolc",
@@ -375,7 +403,8 @@
         "imageSelector": ".showcase-image [data-src]",
         "imageAttr": "data-src",
         "linkSelector": ".showcase-image a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"29"
     },
     {
         "site": "tuvanam",
@@ -387,7 +416,8 @@
         "titleSelector": "h2",
         "imageSelector": "(document)=>{const img=document.querySelector('.ProductItem__Image[srcset]')&&'https:'+document.querySelector('.ProductItem__Image[srcset]')?.getAttribute('srcset').split(',')[1].trim().split(' ')[0];const img2='https:'+document.querySelector('[data-src]')?.getAttribute('data-src').replace('{width}','400');return img||img2;}",
         "linkSelector": "h2.ProductItem__Title.Heading a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"30"
     },
     {
         "site": "twist",
@@ -400,7 +430,8 @@
         "titleAttr": "title",
         "imageSelector": "(document)=>document.querySelector('[data-large]')?.getAttribute('data-large')|| document.querySelector('[data-background]')?.getAttribute('data-background')",
         "linkSelector": ".prd-lnk",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"31"
     },
     {
         "site": "wheneverco",
@@ -412,7 +443,8 @@
         "titleSelector": ".product-name",
         "imageSelector": "(document)=>'https:' + document.querySelector('.product-image [data-lazysrc]').getAttribute('data-lazysrc')",
         "linkSelector": ".product-image a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"32"
     },
     {
         "site": "",
@@ -439,7 +471,8 @@
         "imageAttr": "data-src",
         "linkSelector": "a",
         "breadcrumb": "document.querySelectorAll('.breadcrumb a') ? Array.from(document.querySelectorAll('.breadcrumb a')).map(m => m.innerText).join(' ') : ' '",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"33"
     },
     {
         "site": "brooksbrothers",
@@ -451,7 +484,8 @@
         "titleSelector": "h3.text-primary a.inline-block.line-clamp-2",
         "imageSelector": "(document)=>document.querySelector('[srcset]')?.getAttribute('srcset').split(',')[7].trim().split(' ')[0]",
         "linkSelector": "h3.text-primary a.inline-block.line-clamp-2",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"34"
     },
     {
         "site": "colins",
@@ -464,7 +498,8 @@
         "imageSelector": "[data-secondary-image-src]",
         "imageAttr": "data-secondary-image-src",
         "linkSelector": "a.product-name",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"35"
     },
     {
         "site": "dahliabianca",
@@ -478,7 +513,8 @@
         "imageAttr": "data-src",
         "linkSelector": ".product-title a",
         "breadcrumb": "(document)=>Array.from(document.querySelectorAll('.breadcrumb a')).map(m=>m.innerText).join(' ')",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"36"
     },
     {
         "site": "ilvi",
@@ -491,7 +527,8 @@
         "imageSelector": "[data-original]",
         "imageAttr": "data-original",
         "linkSelector": ".productName a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"37"
     },
     {
         "site": "lufian",
@@ -504,7 +541,8 @@
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": "a.product-title",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"38"
     },
     {
         "site": "penti",
@@ -517,7 +555,8 @@
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": "(document)=>document.href",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"39"
     },
     {
         "site": "wcollection",
@@ -530,7 +569,8 @@
         "imageSelector": "swiper-slide img",
         "linkSelector": "(document)=>Array.from(document.querySelectorAll('a'))?.map(m=>m.href).reverse()[0]",
         "waitForSeconds": 5000,
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"40"
     },
     {
         "site": "woody",
@@ -542,7 +582,8 @@
         "titleSelector": ".productName",
         "imageSelector": "(document)=>'https://www.woody.com.tr'+ document.querySelector('.imgInner.stImage [srcset]').getAttribute('srcset')",
         "linkSelector": ".productName",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"41"
     },
     {
         "site": "mango",
@@ -555,7 +596,8 @@
         "titleAttr": "content",
         "imageSelector": "(document)=>document.querySelector('[class^='ProductImage_productImage'] img').srcset.split(',')[0]",
         "linkSelector": "[class^='ProductImage_productImage'] a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"42"
     },
     {
         "site": "beymen",
@@ -568,7 +610,8 @@
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": ".m-productCard__photo a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"43"
     },
     {
         "site": "hmdtekstil",
@@ -610,7 +653,8 @@
         "imageSelector": "(document)=>document.querySelector('.img-responsive.img-first').srcset.split(' ')[0].trim()",
         "linkSelector": "",
         "breadcrumb": "(document)=>Array.from(document.querySelectorAll('.breadcrumb a')).map(m=>m.innerText).join(' ')",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"44"
     },
     {
         "site": "matras",
@@ -637,7 +681,8 @@
         "titleSelector": ".product_name",
         "imageSelector": ".product_image img",
         "linkSelector": ".product_name",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"45"
     },
     {
         "site": "ateliergalin",
@@ -649,7 +694,8 @@
         "titleSelector": ".card__heading a",
         "imageSelector": "(document)=>'https:'+ document.querySelector('.card__media img').srcset.split(',')[4].split(' ')[0]",
         "linkSelector": "h3.card__heading a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"46"
     },
     {
         "site": "diesel",
@@ -661,7 +707,8 @@
         "titleSelector": ".product-tile-body__link",
         "imageSelector": "(document)=>document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr ||document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src",
         "linkSelector": ".product-tile-body__link",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"47"
     },
     {
         "site": "uspoloassn",
@@ -674,7 +721,8 @@
         "imageSelector": ".swiper-wrapper img",
         "imageAttr": "data-src",
         "linkSelector": ".product__name a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"48"
     },
     {
         "site": "gap",
@@ -686,7 +734,8 @@
         "titleSelector": ".product-item__info-product-name",
         "imageSelector": "(document)=>document.querySelector('picture source')?.srcset ||document.querySelector('picture source')?.getAttribute('data-srcset')",
         "linkSelector": ".product-item__body a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"49"
     },
     {
         "site": "burberry",
@@ -698,7 +747,8 @@
         "titleSelector": ".product-card-v2-title",
         "imageSelector": ".media-carousel-container__media.product-card-v2-carousel-container__media__source",
         "linkSelector": "a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"50"
     },
     {
         "site": "buenoshoes",
@@ -710,7 +760,8 @@
         "titleSelector": ".divUAd a",
         "imageSelector": "(document)=>'https://www.buenoshoes.com.tr/' + document.querySelector('[data-src]').getAttribute('data-src')",
         "linkSelector": ".divUAd a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"51"
     },
     {
         "site": "camper",
@@ -723,7 +774,8 @@
         "imageSelector": "[srcset]",
         "imageAttr": "srcset",
         "linkSelector": ".grid-item a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"52"
     },
     {
         "site": "converse",
@@ -736,7 +788,8 @@
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": ".js-product-anchor",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"53"
     },
     {
         "site": "eclecticconceptstore",
@@ -751,7 +804,8 @@
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": ".woocommerce-loop-product__link",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"54"
     },
     {
         "site": "edwards",
@@ -764,7 +818,8 @@
         "titleSelector": ".product-tile-body__link",
         "imageSelector": "(document)=> document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr ||document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src",
         "linkSelector": ".product-tile-body__link",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"55"
     },
     {
         "site": "gant",
@@ -776,7 +831,8 @@
         "titleSelector": ".product-name__link",
         "imageSelector": ".product-item-image",
         "linkSelector": ".product-name__link",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"56"
     },
     {
         "site": "lacoste",
@@ -788,7 +844,8 @@
         "titleSelector": ".product-info--name",
         "imageSelector": ".js-product-item-image",
         "linkSelector": ".product-info--name a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"57"
     },
     {
         "site": "pierrecardin",
@@ -801,7 +858,8 @@
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": ".product__listing--content h3 a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"58"
     },
     {
         "site": "pullandbear",
@@ -814,7 +872,8 @@
         "titleSelector": ".name span",
         "imageSelector": "(document)=>document.querySelector('.image-responsive')?.src || document.querySelector('.image-responsive')?.getAttribute('data-src')",
         "linkSelector": ".carousel-item-container",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"59"
     },
     {
         "site": "marksandspencer",
@@ -826,7 +885,8 @@
         "titleSelector": ".product-item__name",
         "imageSelector": "(document)=> document.querySelector('.pz-image-placeholder source ')?.srcset || document.querySelector('.pz-image-placeholder source ')?.getAttribute('data-srcset')",
         "linkSelector": ".product-item__name",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"60"
     },
     {
         "site": "hm",
@@ -839,7 +899,8 @@
         "titleAttr": "title",
         "imageSelector": "(document)=>m.querySelector('[imagetype='PRODUCT_IMAGE']').srcset.split(',')[8].trim().split(' ')[0]",
         "linkSelector": "a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"61"
     },
     {
         "site": "paulmark",
@@ -853,7 +914,8 @@
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": "a.item-img",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"62"
     },
     {
         "site": "morrez",
@@ -865,7 +927,8 @@
         "titleSelector": ".product-name",
         "imageSelector": "(document)=>document.querySelector('.product-slider-image-container img').srcset.split(',')[10].trim().split(' ')[0]",
         "linkSelector": "a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"63"
     },
     {
         "site": "yaygan",
@@ -877,7 +940,8 @@
         "titleSelector": ".product-title",
         "imageSelector": "a.image-wrapper img",
         "linkSelector": ".image-wrapper",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"64"
     },
     {
         "site": "ltbjeans",
@@ -889,7 +953,8 @@
         "titleSelector": ".product-tile-body__link",
         "imageSelector": "(document)=> document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr ||document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src",
         "linkSelector": ".product-tile-body__link",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"65"
     },
     {
         "site": "efor",
@@ -902,7 +967,8 @@
         "imageSelector": "[data-original]",
         "imageAttr": "data-original",
         "linkSelector": ".innerwrap.product.ecommerceClick",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"66"
     },
     {
         "site": "edliskids",
@@ -914,7 +980,8 @@
         "titleSelector": ".product-tile-body__link",
         "imageSelector": "(document)=>document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr || document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src",
         "linkSelector": ".product-tile-body__link",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"67"
     }
     ,
     {
@@ -927,7 +994,8 @@
         "titleSelector": ".product-tile-body__link",
         "imageSelector": "(document)=> document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr ||document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src",
         "linkSelector": ".product-tile-body__link",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"68"
     },
     {
         "site": "cartersoshkosh",
@@ -940,7 +1008,8 @@
         "imageSelector": "",
         "imageAttr": "srс",
         "linkSelector": "",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"69"
     },
     {
         "site": "",
