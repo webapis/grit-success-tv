@@ -1146,6 +1146,137 @@
         "schedule": "0 0 * * 4"
     },
     {
+        "site": "centone",
+        "urls": [
+            "https://www.centone.com.tr/"
+        ],
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".name",
+        "imageSelector": "img",
+        "imageAttr": "srс",
+        "linkSelector": ".name",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    },
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    },
+    {
         "site": "",
         "urls": [
             ""
