@@ -538,6 +538,136 @@
         "schedule": "0 0 * * 4"
     }  ,
     {
+        "site": "woody",
+        "urls": [
+            "https://www.woody.com.tr/"
+        ],
+        "productListSelector": ".product-grid",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".productName",
+        "imageSelector": "(document)=>'https://www.woody.com.tr'+ document.querySelector('.imgInner.stImage [srcset]').getAttribute('srcset')",
+        "linkSelector": ".productName",
+        "schedule": "0 0 * * 4"
+    }  ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }  ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }  ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }  ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }  ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }  ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }  ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }  ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }  ,
+    {
         "site": "",
         "urls": [
             ""
