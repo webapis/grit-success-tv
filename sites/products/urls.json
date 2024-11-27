@@ -1060,16 +1060,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "jackjones",
         "urls": [
-            ""
+            "https://jackjones.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".scroll-product-item",
+        "productItemSelector": ".scroll-product-item",
+        "titleSelector": ".card-title",
+        "imageSelector": ".card-product img",
+        "linkSelector": ".card-product a[data-href]",
         "schedule": "0 0 * * 4"
     },
     {
