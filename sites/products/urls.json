@@ -308,6 +308,123 @@
     }
     ,
     {
+        "site": "nocturne",
+        "urls": [
+            "https://www.nocturne.com.tr/"
+        ],
+        "productListSelector": ".product-list",
+        "productItemSelector": ".pitem",
+        "titleSelector": ".product-name",
+        "imageSelector": "[data-original]",
+        "imageAttr": "data-original",
+        "linkSelector": ".product-image a",
+        "schedule": "0 0 * * 4"
+    } ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    } ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    } ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    } ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    } ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    } ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    } ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    } ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    } ,
+    {
         "site": "",
         "urls": [
             ""
