@@ -1,10 +1,7 @@
-name: sponsorProdNNNN
+name: sponsorKKKK
+on:
    workflow_dispatch:
     inputs:
-      sites:
-        description: 'Comma-separated list of sites'
-        required: true
-        type: string
       gitFolder:
         description: 'gitFolder'
         required: true
@@ -20,8 +17,7 @@ jobs:
     steps:
       - id: set-sites
         run: |
-          SITES="${{ inputs.sites }}"
-          SITES_ARRAY=$(echo $SITES | tr ',' '\n' | jq -R . | jq -s .)
+          SITES_ARRAY='["koton", "defacto"]'
           echo "sites=$SITES_ARRAY" >> $GITHUB_OUTPUT
 
   dizitv_job:
