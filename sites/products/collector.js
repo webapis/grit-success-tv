@@ -85,6 +85,10 @@ export async function second({
         })
 
         console.log('data.length', data.length)
+        console.log('error.length', data.filter(f => f.error).length)
+        if (data.filter(f => f.error).length > 0) {
+            console.log(data.filter(f => f.error)[0])
+        }
         return data
     } else {
         console.log('not product page', url)

@@ -42,20 +42,24 @@ export async function second({ page, enqueueLinks, request, log, addRequests }) 
                 try {
 
                     const result = Array.from(document.querySelectorAll('.product-item.plp-item')).map(document => {
-
-                        const title = document.querySelector('.product-title .title').innerText
-                        const price = document.querySelector('.product-item__price--retail')?.innerText
-                        const discountPrice = document.querySelector('.discount-price')?.innerText
-                        const img = document.querySelector('swiper-slide img')?.src
-                        const link =Array.from(document.querySelectorAll('a'))?.map(m=>m.href).reverse()[0]//|| document.querySelector('.wishlist-product-list ~a').href
-                        return {
-                            title,
-                            link,
-                            price: discountPrice ? discountPrice : price,
-                            img,
-                            pageTitle,
-                            pageURL
+                        try {
+                            const title = document.querySelector('.product-title .title').innerText
+                            const price = document.querySelector('.product-item__price--retail')?.innerText
+                            const discountPrice = document.querySelector('.discount-price')?.innerText
+                            const img = document.querySelector('swiper-slide img')?.src
+                            const link =Array.from(document.querySelectorAll('a'))?.map(m=>m.href).reverse()[0]//|| document.querySelector('.wishlist-product-list ~a').href
+                            return {
+                                title,
+                                link,
+                                price: discountPrice ? discountPrice : price,
+                                img,
+                                pageTitle,
+                                pageURL
+                            }  
+                        } catch (error) {
+                            return { error, message:error.message, content: document.innerHTML, pageURL }
                         }
+                     
                     })
 
                     return result//.filter(f=>f.link)
