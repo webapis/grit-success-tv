@@ -526,16 +526,15 @@
         "schedule": "0 0 * * 4"
     }  ,
     {
-        "site": "",
+        "site": "wcollection",
         "urls": [
-            ""
+            "https://www.wcollection.com.tr/site-haritasi"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-title .title",
+        "imageSelector": "swiper-slide img",
+        "linkSelector": "(document)=>Array.from(document.querySelectorAll('a'))?.map(m=>m.href).reverse()[0]",
         "schedule": "0 0 * * 4"
     }  ,
     {
