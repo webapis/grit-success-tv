@@ -604,12 +604,12 @@
             "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=78_79",
             "https://www.hmdtekstil.com.tr/index.php?route=product/category&path=78_100"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
+        "productListSelector": ".main-products.product-grid",
+        "productItemSelector": ".product-layout",
+        "titleSelector": ".caption .name  a",
+        "imageSelector": "(document)=>document.querySelector('.img-responsive.img-first').srcset.split(' ')[0].trim()",
         "linkSelector": "",
+        "breadcrumb":"(document)=>Array.from(document.querySelectorAll('.breadcrumb a')).map(m=>m.innerText).join(' ')",
         "schedule": "0 0 * * 4"
     },
     {
