@@ -486,16 +486,16 @@
     }
     ,
     {
-        "site": "",
+        "site": "ilvi",
         "urls": [
-            ""
+            "https://www.ilvi.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".ProductList",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".productName a",
+        "imageSelector": "[data-original]",
+        "imageAttr": "data-original",
+        "linkSelector": ".productName a",
         "schedule": "0 0 * * 4"
     }
     ,
