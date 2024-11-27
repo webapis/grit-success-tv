@@ -1121,16 +1121,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "brango",
         "urls": [
-            ""
+            "https://www.brango.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".products-list__item",
+        "productItemSelector": ".products-list__item",
+        "titleSelector": ".product-info-detail",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": ".product-info-detail",
         "schedule": "0 0 * * 4"
     },
     {
