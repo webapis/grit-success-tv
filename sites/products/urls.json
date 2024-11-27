@@ -1109,16 +1109,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "bisse",
         "urls": [
-            ""
+            "https://www.bisse.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-title",
+        "imageSelector": ".image-nd",
+        "linkSelector": ".image-wrapper",
         "schedule": "0 0 * * 4"
     },
     {
