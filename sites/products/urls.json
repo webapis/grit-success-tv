@@ -513,16 +513,16 @@
         "schedule": "0 0 * * 4"
     }  ,
     {
-        "site": "",
+        "site": "penti",
         "urls": [
-            ""
+            "https://www.penti.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".prd-link",
+        "productItemSelector": ".prd-link",
+        "titleSelector": ".prd-title",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": "(document)=>document.href",
         "schedule": "0 0 * * 4"
     }  ,
     {
