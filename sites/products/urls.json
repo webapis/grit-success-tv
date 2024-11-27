@@ -1035,16 +1035,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "pembecida",
         "urls": [
-            ""
+            "https://www.pembecida.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-title",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": ".product-title",
         "schedule": "0 0 * * 4"
     },
     {
