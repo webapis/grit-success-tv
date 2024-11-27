@@ -181,8 +181,7 @@
         "imageAttr": "data-img",
         "linkSelector": "a.product-figure",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "fever",
         "urls": [
@@ -195,8 +194,7 @@
         "imageAttr": "content",
         "linkSelector": ".productDetails .detailLink",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "gustoeshop",
         "urls": [
@@ -209,7 +207,7 @@
         "imageAttr": "srcset",
         "linkSelector": ".product-title a",
         "schedule": "0 0 * * 4"
-    }  ,
+    },
     {
         "site": "ipekyol",
         "urls": [
@@ -222,8 +220,7 @@
         "imageAttr": "data-image-src",
         "linkSelector": ".prd-lnk",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "joinus",
         "urls": [
@@ -236,7 +233,7 @@
         "imageAttr": "data-srcset",
         "linkSelector": ".product-title",
         "schedule": "0 0 * * 4"
-    } ,
+    },
     {
         "site": "jusdepommes",
         "urls": [
@@ -248,8 +245,7 @@
         "imageSelector": "(document)=>'https:' + document.querySelector('[data-bgset]').getAttribute('data-bgset').trim().split(',')[2].trim().split(' ')",
         "linkSelector": ".product__grid__info a",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "lovemetoo",
         "urls": [
@@ -261,9 +257,7 @@
         "imageSelector": "(document)=>'https:' + document.querySelector('[data-lazy-bgset-src]').getAttribute('data-lazy-bgset-src')",
         "linkSelector": ".product-link",
         "schedule": "0 0 * * 4"
-    }
-
-    ,
+    },
     {
         "site": "machka",
         "urls": [
@@ -276,8 +270,7 @@
         "imageAttr": "data-image-src",
         "linkSelector": ".item-link",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "modalogy",
         "urls": [
@@ -290,8 +283,7 @@
         "imageAttr": "data-original",
         "linkSelector": ".detailUrl",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "network",
         "urls": [
@@ -303,10 +295,9 @@
         "imageSelector": "[data-srcset]",
         "imageAttr": "data-srcset",
         "linkSelector": "a",
-        "breadcrumb":"(document)=>document.querySelectorAll('.breadcrumb a').length>0 ? Array.from(document.querySelectorAll('.breadcrumb a')).map(m => m.innerText).join(' ') : '_'",
+        "breadcrumb": "(document)=>document.querySelectorAll('.breadcrumb a').length>0 ? Array.from(document.querySelectorAll('.breadcrumb a')).map(m => m.innerText).join(' ') : '_'",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "nocturne",
         "urls": [
@@ -319,7 +310,7 @@
         "imageAttr": "data-original",
         "linkSelector": ".product-image a",
         "schedule": "0 0 * * 4"
-    } ,
+    },
     {
         "site": "oxxo",
         "urls": [
@@ -332,7 +323,7 @@
         "imageAttr": "data-src",
         "linkSelector": "a[data-product]",
         "schedule": "0 0 * * 4"
-    } ,
+    },
     {
         "site": "rueonline",
         "urls": [
@@ -345,7 +336,7 @@
         "imageAttr": "data-original",
         "linkSelector": ".productName.detailUrl a",
         "schedule": "0 0 * * 4"
-    } ,
+    },
     {
         "site": "setre",
         "urls": [
@@ -358,7 +349,7 @@
         "imageAttr": "data-original",
         "linkSelector": ".productName.detailUrl a",
         "schedule": "0 0 * * 4"
-    } ,
+    },
     {
         "site": "sherin",
         "urls": [
@@ -371,7 +362,21 @@
         "imageAttr": "data-src",
         "linkSelector": ".productName.detailUrl a",
         "schedule": "0 0 * * 4"
-    } ,
+    },
+    {
+        "site": "themolc",
+        "urls": [
+            "https://www.themolc.com/"
+        ],
+        "productListSelector": "#product-list-container",
+        "productItemSelector": ".showcase",
+        "titleSelector": ".showcase-image a",
+        "titleAttr": "title",
+        "imageSelector": ".showcase-image [data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": ".showcase-image a",
+        "schedule": "0 0 * * 4"
+    },
     {
         "site": "",
         "urls": [
@@ -384,7 +389,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    } ,
+    },
     {
         "site": "",
         "urls": [
@@ -397,7 +402,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    } ,
+    },
     {
         "site": "",
         "urls": [
@@ -410,20 +415,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    } ,
-    {
-        "site": "",
-        "urls": [
-            ""
-        ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
-        "schedule": "0 0 * * 4"
-    } ,
+    },
     {
         "site": "",
         "urls": [

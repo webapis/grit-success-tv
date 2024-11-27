@@ -18,6 +18,7 @@ export async function second({
     productListSelector,
     productItemSelector,
     titleSelector,
+    titleAttr = "innerText",
     imageSelector,
     imageAttr = 'src',
     imagePrefix = '',
@@ -50,7 +51,7 @@ export async function second({
             const result = Array.from(document.querySelectorAll(params.productItemSelector)).map(m => {
                 try {
 
-                    const title = m.querySelector(params.titleSelector).innerText
+                    const title = m.querySelector(params.titleSelector).getAttribute(params.titleAttr)
                     const img = isStringAFunction(params.imageSelector) ? new Function(`return (${params.imageSelector})`)(m) : m.querySelector(params.imageSelector).getAttribute(params.imageAttr)
                     const link = m.querySelector(params.linkSelector).href
                     return {
@@ -75,6 +76,7 @@ export async function second({
             productListSelector,
             productItemSelector,
             titleSelector,
+            titleAttr,
             imageSelector,
             imageAttr,
             imagePrefix,
