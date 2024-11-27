@@ -1,4 +1,4 @@
-name: sponsorProdMatrix
+name: sponsorProdMat
 on:
   workflow_dispatch:
     inputs:
@@ -12,20 +12,27 @@ on:
         type: string
 
 env:
-  MONGODB_URL: ${{ secrets.MONGODB_URL }}
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
 
 jobs:
-  dizitv_job:
+  generate_matrix:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        site: [${{ fromJson(inputs.sites) }}]
-    
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - name: Run Puppeteer for each site
-        uses: ./.github/workflows/reusableProdPuppeteer.yml
-        with:
-          site: ${{ matrix.site }}
-          gitFolder: ${{ inputs.gitFolder }}
-        secrets: inherit
+      - name: Split sites into matrix
+        id: set-matrix
+        run: |
+          sites=(${{ inputs.sites//,/ }})
+          echo "matrix=$(jq -n --argjson sites "$(printf '%s\n' "${sites[@]}" | jq -R . | jq -s .)" '{"include": [{"site": $sites[]}]}')" >> $GITHUB_OUTPUT
+
+  dizitv_job:
+    needs: generate_matrix
+    uses: ./.github/workflows/reusableProdPuppeteer.yml
+    strategy:
+      matrix: ${{ fromJson(needs.generate_matrix.outputs.matrix) }}
+    with:
+      site: ${{ matrix.site }}
+      gitFolder: ${{ inputs.gitFolder }}
+    secrets: inherit
