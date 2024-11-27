@@ -32,7 +32,7 @@ export async function second({ page }) {
 
                     const title = document.querySelector('.product-item__info-product-name').innerText
                     const price = document.querySelector('.no-discount ')?.innerText
-                    const img1 = document.querySelector('picture source')?.srcset
+                    const img1 = document.querySelector('picture source')?.srcset 
                     const img2 = document.querySelector('picture source')?.getAttribute('data-srcset')
 
                     const link = document.querySelector('.product-item__body a').href
