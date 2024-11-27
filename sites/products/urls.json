@@ -334,16 +334,16 @@
         "schedule": "0 0 * * 4"
     } ,
     {
-        "site": "",
+        "site": "rueonline",
         "urls": [
-            ""
+            "https://www.rueonline.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".ProductList",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".productName.detailUrl a",
+        "imageSelector": "[data-original]",
+        "imageAttr": "data-original",
+        "linkSelector": ".productName.detailUrl a",
         "schedule": "0 0 * * 4"
     } ,
     {
