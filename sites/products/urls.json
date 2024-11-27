@@ -378,16 +378,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "tuvanam",
         "urls": [
-            ""
+            "https://tuvanam.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".ProductListWrapper",
+        "productItemSelector": ".ProductItem__Wrapper",
+        "titleSelector": "h2",
+        "imageSelector": "(document)=>{const img=document.querySelector('.ProductItem__Image[srcset]')&&'https:'+document.querySelector('.ProductItem__Image[srcset]')?.getAttribute('srcset').split(',')[1].trim().split(' ')[0];const img2='https:'+document.querySelector('[data-src]')?.getAttribute('data-src').replace('{width}','400');return img||img2;}",
+        "linkSelector": "h2.ProductItem__Title.Heading a",
         "schedule": "0 0 * * 4"
     },
     {
