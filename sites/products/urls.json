@@ -1097,16 +1097,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "altinyildizclassics",
         "urls": [
-            ""
+            "https://www.altinyildizclassics.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": "ac-product-card",
+        "productItemSelector": "ac-product-card",
+        "titleSelector": ".name",
+        "imageSelector": "(document)=>document.getAttribute('image').split(',')[0]",
+        "linkSelector": "(document)=>'https://www.altinyildizclassics.com' + document.querySelector('ac-product-card').getAttribut",
         "schedule": "0 0 * * 4"
     },
     {
