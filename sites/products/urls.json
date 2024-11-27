@@ -1085,16 +1085,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "victorbaron",
         "urls": [
-            ""
+            "https://victorbaron.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-layout",
+        "productItemSelector": ".product-layout",
+        "titleSelector": ".description",
+        "imageSelector": ".product-img img",
+        "linkSelector": ".product-img",
         "schedule": "0 0 * * 4"
     },
     {
