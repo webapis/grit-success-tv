@@ -1,11 +1,6 @@
 name: sponsorKKKK
 on:
    workflow_dispatch:
-    inputs:
-      gitFolder:
-        description: 'gitFolder'
-        required: true
-        type: string
 env:
   MONGODB_URL: ${{secrets.MONGODB_URL}}
   GH_TOKEN: ${{secrets.GH_TOKEN}}
@@ -28,5 +23,4 @@ jobs:
     uses: ./.github/workflows/reusableProdPuppeteer.yml
     with:
       site: ${{ matrix.site }}
-      gitFolder: ${{inputs.gitFolder}}
     secrets: inherit
