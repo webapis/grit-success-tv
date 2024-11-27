@@ -457,16 +457,16 @@
     }
     ,
     {
-        "site": "",
+        "site": "colins",
         "urls": [
-            ""
+            "https://www.colins.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".catalog-category",
+        "productItemSelector": ".productCartMain",
+        "titleSelector": ".product-name h3",
+        "imageSelector": "[data-secondary-image-src]",
+        "imageAttr": "data-secondary-image-src",
+        "linkSelector": "a.product-name",
         "schedule": "0 0 * * 4"
     }
     ,
