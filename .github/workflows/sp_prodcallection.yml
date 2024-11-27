@@ -1,8 +1,7 @@
-name: sponsorProdManuaMatrix
-on:
+name: sponsorProdMatrix
    workflow_dispatch:
     inputs:
-      sites:   # Renamed from 'site' to 'sites'
+      sites:   # Comma-separated list of sites
         description: 'Comma-separated list of target sites'
         required: true
         type: string
@@ -11,25 +10,30 @@ on:
         required: true
         type: string
 env:
-  MONGODB_URL: ${{secrets.MONGODB_URL}}
-  GH_TOKEN: ${{secrets.GH_TOKEN}}
+  MONGODB_URL: ${{ secrets.MONGODB_URL }}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
   process_sites:
     runs-on: ubuntu-latest
+    outputs:
+      sites: ${{ steps.split_sites.outputs.sites_json }}
     steps:
-      - name: Split sites into array
+      - name: Split sites into JSON array
         id: split_sites
         run: |
-          echo "sites=$(echo '${{ inputs.sites }}' | tr ',' '\n')" >> $GITHUB_ENV
+          sites_json=$(echo "${{ inputs.sites }}" | jq -R 'split(",")')
+          echo "sites_json=$sites_json" >> $GITHUB_OUTPUT
+        env:
+          SITES: ${{ inputs.sites }}
 
-  # Dynamically create jobs for each site
+  # Job to run reusable workflow for each site
   site_jobs:
     needs: process_sites
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        site: ${{ fromJson(env.sites) }}
+        site: ${{ fromJson(needs.process_sites.outputs.sites) }}
     uses: ./.github/workflows/reusableProdPuppeteer.yml
     with:
       site: ${{ matrix.site }}
