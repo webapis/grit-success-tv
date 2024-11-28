@@ -42,6 +42,36 @@ export async function second({
         await scroller(page, 150, 5);
 
         const data = await page.evaluate((params) => {
+
+            function isFunctionString(str) {
+                // If it's not a string, return false
+                if (typeof str !== 'string') return false;
+
+                // Trim whitespace
+                str = str.trim();
+
+                try {
+                    // Test for arrow function pattern
+                    const arrowFnPattern = /^\([^)]*\)\s*=>\s*.+/;
+                    if (arrowFnPattern.test(str)) {
+                        // Try to evaluate the arrow function
+                        const fn = new Function(`return ${str}`)();
+                        return typeof fn === 'function';
+                    }
+
+                    // Test for regular function pattern
+                    const regularFnPattern = /^function\s*\([^)]*\)\s*{[\s\S]*}$/;
+                    if (regularFnPattern.test(str)) {
+                        // Try to evaluate the regular function
+                        const fn = new Function(`return ${str}`)();
+                        return typeof fn === 'function';
+                    }
+
+                    return false;
+                } catch (e) {
+                    return false;
+                }
+            }
             function parseFunctionString2(functionString) {
                 // Remove the arrow function syntax if present
                 const arrowFunctionMatch = functionString.match(/^\((.*?)\)\s*=>\s*(.*)$/);
@@ -54,15 +84,8 @@ export async function second({
                 // For regular functions
                 return new Function('return ' + functionString)();
             }
-            function isStringAFunction(str) {
-                try {
-                    const fn = new Function(`return (${str})`)();
-                    return typeof fn === 'function';
-                } catch (e) {
-                    return false;
-                }
-            }
-            const breadcrumbFunc = isStringAFunction(params.breadcrumb) ? new Function(`return (${params.breadcrumb})`)() : ''
+
+            const breadcrumbFunc = isFunctionString(params.breadcrumb) ? parseFunctionString2(params.breadcrumb)(document) : ''
             const pageTitle = document.title + ' ' + breadcrumbFunc;
             const pageURL = document.URL;
 
@@ -70,9 +93,9 @@ export async function second({
 
             return Array.from(document.querySelectorAll(params.productItemSelector)).map(m => {
                 try {
-                    const title = isStringAFunction(params.titleSelector) ? new Function(`return (${params.titleSelector})`)(m) : m.querySelector(params.titleSelector).innerText;
-                    const img = isStringAFunction(params.imageSelector) ? parseFunctionString2(params.imageSelector)(m) : m.querySelector(params.imageSelector).getAttribute(params.imageAttr);
-                    const link = isStringAFunction(params.linkSelector) ? new Function(`return (${params.linkSelector})`)(m) : m.querySelector(params.linkSelector).href;
+                    const title = isFunctionString(params.titleSelector) ? parseFunctionString2(params.imageSelector)(m) : m.querySelector(params.titleSelector).innerText;
+                    const img = isFunctionString(params.imageSelector) ? parseFunctionString2(params.imageSelector)(m) : (params.imageAttr === 'src' ? m.querySelector(params.imageSelector).src : m.querySelector(params.imageSelector).getAttribute(params.imageAttr))
+                    const link = isFunctionString(params.linkSelector) ? parseFunctionString2(params.imageSelector)(m) : m.querySelector(params.linkSelector).href;
 
                     return {
                         title,
