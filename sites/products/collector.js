@@ -51,7 +51,7 @@ export async function second({
                 }
             }
             const breadcrumbFunc = isStringAFunction(params.breadcrumb) ? new Function(`return (${params.breadcrumb})`)() : ''
-            const pageTitle = document.title + ' ' + breadcrumbFunc();
+            const pageTitle = document.title + ' ' + breadcrumbFunc;
             const pageURL = document.URL;
 
 
