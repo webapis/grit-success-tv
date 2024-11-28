@@ -4,6 +4,8 @@ on:
 env:
   MONGODB_URL: ${{secrets.MONGODB_URL}}
   GH_TOKEN: ${{secrets.GH_TOKEN}}
+  GOOGLE_SERVICE_ACCOUNT_CREDENTIALS: ${{secrets.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS}}
+  GOOGLE_SHEET_ID: ${{secrets.GOOGLE_SHEET_ID}}
 jobs:
   prepare_matrix:
     runs-on: ubuntu-latest
@@ -18,7 +20,6 @@ jobs:
   dizitv_job:
     needs: prepare_matrix
     strategy:
-      # Ensure other jobs continue even if one fails
       fail-fast: false
       matrix:
         site: ${{ fromJSON(needs.prepare_matrix.outputs.sites) }}
@@ -26,3 +27,32 @@ jobs:
     with:
       site: ${{ matrix.site }}
     secrets: inherit
+
+# name: sponsor1-10
+# on:
+#    workflow_dispatch:
+# env:
+#   MONGODB_URL: ${{secrets.MONGODB_URL}}
+#   GH_TOKEN: ${{secrets.GH_TOKEN}}
+# jobs:
+#   prepare_matrix:
+#     runs-on: ubuntu-latest
+#     outputs:
+#       sites: ${{ steps.set-sites.outputs.sites }}
+#     steps:
+#       - id: set-sites
+#         run: |
+#           SITES_ARRAY='["koton", "defacto","desa","divarese","elleshoes","manuatelier","adl","alfa-beta","biancoenero","bsl"]'
+#           echo "sites=$SITES_ARRAY" >> $GITHUB_OUTPUT
+
+#   dizitv_job:
+#     needs: prepare_matrix
+#     strategy:
+#       # Ensure other jobs continue even if one fails
+#       fail-fast: false
+#       matrix:
+#         site: ${{ fromJSON(needs.prepare_matrix.outputs.sites) }}
+#     uses: ./.github/workflows/reusableProdPuppeteer.yml
+#     with:
+#       site: ${{ matrix.site }}
+#     secrets: inherit

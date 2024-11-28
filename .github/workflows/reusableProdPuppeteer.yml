@@ -12,6 +12,8 @@ env:
   site: ${{inputs.site}}
   MONGODB_URL: ${{secrets.MONGODB_URL}}
   GH_TOKEN: ${{secrets.GH_TOKEN}}
+  GOOGLE_SERVICE_ACCOUNT_CREDENTIALS: ${{secrets.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS}}
+  GOOGLE_SHEET_ID: ${{secrets.GOOGLE_SHEET_ID}}
 
 jobs:
   playwright-test:
@@ -26,12 +28,6 @@ jobs:
       with:
         node-version: '18'
 
-    # - name: Install Playwright
-    #   run: |
-    #     npm init -y
-    #     npm install -D @playwright/test
-    #     npx playwright install --with-deps
-
     - name: Install dependencies
       run: npm install
 
@@ -40,6 +36,48 @@ jobs:
 
     - name: Run data upload
       run: node src/pushToGit.js
+# name: reusableProdPuppeteer
 
-    # - name: Run data upload mongodb
-    #   run: node src/mongodb.js
+# on: 
+#   workflow_call:
+#     inputs:
+#       site:
+#         description: 'site'
+#         required: true
+#         type: string
+
+# env:
+#   site: ${{inputs.site}}
+#   MONGODB_URL: ${{secrets.MONGODB_URL}}
+#   GH_TOKEN: ${{secrets.GH_TOKEN}}
+
+# jobs:
+#   playwright-test:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v3
+
+#     - name: Install Node.js
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: '18'
+
+#     # - name: Install Playwright
+#     #   run: |
+#     #     npm init -y
+#     #     npm install -D @playwright/test
+#     #     npx playwright install --with-deps
+
+#     - name: Install dependencies
+#       run: npm install
+
+#     - name: Run data agr
+#       run: node prodCrawlerPuppeteer.js
+
+#     - name: Run data upload
+#       run: node src/pushToGit.js
+
+#     # - name: Run data upload mongodb
+#     #   run: node src/mongodb.js
