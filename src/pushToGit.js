@@ -17,7 +17,7 @@ const dataWithoutError = data.filter(f => !f.error)
 const dataWithError = data.filter(f => f.error)
 
 //await uploadCollection({fileName, data,gitFolder})
-if (dataWithoutErrorLength.length > 0) {
+if (dataWithoutError.length > 0) {
     console.log('collected data length', dataWithoutErrorLength.length)
     await uploadCollection({ fileName: site || URL_CATEGORIES, data: dataWithoutError, gitFolder: site })
     await logDataToGoogleSheet({ dataWithoutErrorLength: dataWithoutError.length, dataWithErrorLength: dataWithError.length, site, serviceAccountCredentials:GOOGLE_SERVICE_ACCOUNT_CREDENTIALS,GOOGLE_SHEET_ID })
