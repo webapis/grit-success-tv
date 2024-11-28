@@ -59,7 +59,7 @@ export async function second({
             return Array.from(document.querySelectorAll(params.productItemSelector)).map(m => {
                 try {
                     const title = isStringAFunction(params.titleSelector) ? new Function(`return (${params.titleSelector})`)(m) : m.querySelector(params.titleSelector).innerText;
-                    const img = isStringAFunction(params.imageSelector) ? new Function(`return (${params.imageSelector})`)(m) : m.querySelector(params.imageSelector).getAttribute(params.imageAttr);
+                    const img = isStringAFunction(params.imageSelector) ? new Function(`return (${JSON.parse(params.imageSelector)})`)(m) : m.querySelector(params.imageSelector).getAttribute(params.imageAttr);
                     const link = isStringAFunction(params.linkSelector) ? new Function(`return (${params.linkSelector})`)(m) : m.querySelector(params.linkSelector).href;
 
                     return {
