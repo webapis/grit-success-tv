@@ -1,4 +1,4 @@
-name: sponsor56-70
+name: sponsor71-85
 on:
    workflow_dispatch:
 env:
@@ -12,7 +12,7 @@ jobs:
     steps:
       - id: set-sites
         run: |
-          SITES_ARRAY='["gant","lacoste","pierrecardin","pullandbear","marksandspencer","hm","paulmark","morrez","yaygan","ltbjeans","efor","edliskids","breeze","cartersoshkosh","sagaza"]'
+          SITES_ARRAY='["panco","pembecida","milkywilky","jackjones","smile","victorbaron","altinyildizclassics","bisse","brango","damattween","centone","dsdamat","duk","kigili","maleindustry"]'
           echo "sites=$SITES_ARRAY" >> $GITHUB_OUTPUT
 
   dizitv_job:

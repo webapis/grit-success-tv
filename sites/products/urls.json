@@ -1020,7 +1020,8 @@
         "titleSelector": ".product__grid__title",
         "imageSelector": "(document)=> 'https:'  + document.querySelector('[srcset]').getAttribute('srcset').trim().split(' ')[0]",
         "linkSelector": "a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"70"
     },
     {
         "site": "panco",
@@ -1032,7 +1033,8 @@
         "titleSelector": "[class^='product_card_product_title']",
         "imageSelector": ".inline-block img",
         "linkSelector": "[class^='product_card_product_title']",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"71"
     },
     {
         "site": "pembecida",
@@ -1045,7 +1047,8 @@
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": ".product-title",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"72"
     },
     {
         "site": "milkywilky",
@@ -1057,7 +1060,8 @@
         "titleSelector": ".woocommerce-loop-product__title",
         "imageSelector": ".attachment-woocommerce_thumbnail",
         "linkSelector": ".woocommerce-LoopProduct-link",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"73"
     },
     {
         "site": "jackjones",
@@ -1069,7 +1073,8 @@
         "titleSelector": ".card-title",
         "imageSelector": ".card-product img",
         "linkSelector": ".card-product a[data-href]",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"74"
     },
     {
         "site": "smile",
@@ -1082,7 +1087,8 @@
         "titleAttr":"alt",
         "imageSelector": ".ndImage",
         "linkSelector": ".detailLink",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"75"
     },
     {
         "site": "victorbaron",
@@ -1094,7 +1100,8 @@
         "titleSelector": ".description",
         "imageSelector": ".product-img img",
         "linkSelector": ".product-img",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"76"
     },
     {
         "site": "altinyildizclassics",
@@ -1106,7 +1113,8 @@
         "titleSelector": ".ac-pc__name",
         "imageSelector": "img",
         "linkSelector": "a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"77"
     },
     {
         "site": "bisse",
@@ -1118,7 +1126,8 @@
         "titleSelector": ".product-title",
         "imageSelector": ".image-nd",
         "linkSelector": ".image-wrapper",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"78"
     },
     {
         "site": "brango",
@@ -1131,7 +1140,8 @@
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": ".product-info-detail",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"79"
     },
     {
         "site": "damattween",
@@ -1143,7 +1153,8 @@
         "titleSelector": ".product-item__name",
         "imageSelector": ".product-item__img",
         "linkSelector": "a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"80"
     },
     {
         "site": "centone",
@@ -1156,7 +1167,8 @@
         "imageSelector": "img",
         "imageAttr": "srс",
         "linkSelector": ".name",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"81"
     },
     {
         "site": "dsdamat",
@@ -1169,7 +1181,8 @@
         "imageSelector": ".product-item__img",
         "imageAttr": "srс",
         "linkSelector": ".product-item__name",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"82"
     }
     ,
     {
@@ -1182,7 +1195,8 @@
         "titleSelector": ".p-name",
         "imageSelector": ".image img",
         "linkSelector": ".image",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"83"
     },
     {
         "site": "kigili",
@@ -1195,7 +1209,8 @@
         "imageSelector": ".product-item-image",
         "imageAttr": "data-src",
         "linkSelector": ".product-name a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"84"
     },
     {
         "site": "maleindustry",
@@ -1208,8 +1223,10 @@
         "titleAttr":"title",
         "imageSelector": "(document)=>'https://www.maleindustry.com.tr/'+ document.querySelector('[data-src]').getAttribute('data-src')",
         "linkSelector": ".divUAd a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"85"
     },
+    
     {
         "site": "wemsey",
         "urls": [
@@ -1220,7 +1237,8 @@
         "titleSelector": ".pro_name a",
         "imageSelector": ".img_box img",
         "linkSelector": ".pro_name a",
-        "schedule": "0 0 * * 4"
+        "schedule": "0 0 * * 4",
+        "id":"86"
     },
     {
         "site": "",
