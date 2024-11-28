@@ -42,18 +42,6 @@ export async function second({
         await scroller(page, 150, 5);
 
         const data = await page.evaluate((params) => {
-            function parseFunctionString2(functionString) {
-                // Remove the arrow function syntax if present
-                const arrowFunctionMatch = functionString.match(/^\((.*?)\)\s*=>\s*(.*)$/);
-
-                if (arrowFunctionMatch) {
-                    const [, params, body] = arrowFunctionMatch;
-                    return new Function(params, `return ${body}`);
-                }
-
-                // For regular functions
-                return new Function('return ' + functionString)();
-            }
             function isStringAFunction(str) {
                 try {
                     const fn = new Function(`return (${str})`)();
@@ -71,7 +59,7 @@ export async function second({
             return Array.from(document.querySelectorAll(params.productItemSelector)).map(m => {
                 try {
                     const title = isStringAFunction(params.titleSelector) ? new Function(`return (${params.titleSelector})`)(m) : m.querySelector(params.titleSelector).innerText;
-                    const img = isStringAFunction(params.imageSelector) ? parseFunctionString2(params.imageSelector)(m) : m.querySelector(params.imageSelector).getAttribute(params.imageAttr);
+                    const img = isStringAFunction(params.imageSelector) ? new Function(`return (${params.imageSelector}`)(m) : m.querySelector(params.imageSelector).getAttribute(params.imageAttr);
                     const link = isStringAFunction(params.linkSelector) ? new Function(`return (${params.linkSelector})`)(m) : m.querySelector(params.linkSelector).href;
 
                     return {
