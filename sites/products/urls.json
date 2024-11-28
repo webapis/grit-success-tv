@@ -90,8 +90,8 @@
         "productListSelector": ".product-item",
         "productItemSelector": ".product-item",
         "titleSelector": ".product-item__name",
-        "imageSelector": ".list-slider-item__link img",
-        "imageAttr": "srс",
+        "imageSelector": ".d-block source",
+        "imageAttr": "srcset",
         "linkSelector": ".product-item__name",
         "schedule": "0 0 * * 4",
         "id": "7"
