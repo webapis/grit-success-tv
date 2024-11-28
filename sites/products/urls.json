@@ -48,7 +48,8 @@
         "productListSelector": ".products",
         "productItemSelector": ".products__item",
         "titleSelector": ".product__title",
-        "imageSelector": ".product__picture img",
+        "imageSelector": ".product__previewPicture [data-srcset]",
+        "imageAttr": "data-srcset",
         "linkSelector": "a.product__imageWrapper",
         "schedule": "0 0 * * 4",
         "id": "4"
