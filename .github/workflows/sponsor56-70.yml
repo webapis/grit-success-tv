@@ -1,6 +1,9 @@
 name: sponsor56-70
 on:
-   workflow_dispatch:
+   workflow_dispatch:  # Allows manual triggering
+   schedule:
+     - cron: '0 5 * * 5'  # Runs at 5:00 AM UTC on Friday
+    #  - cron: '0 14 * * *'  # Runs at 2:00 PM UTC daily
 env:
   MONGODB_URL: ${{secrets.MONGODB_URL}}
   GH_TOKEN: ${{secrets.GH_TOKEN}}
