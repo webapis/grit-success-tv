@@ -28,7 +28,7 @@ export async function second({
     waitForSeconds = 0
 }) {
     const url = await page.url();
-    
+
     if (waitForSeconds > 0) {
         await page.evaluate(async (seconds) => {
             await new Promise(resolve => setTimeout(resolve, seconds * 1000)); // Wait for specified seconds
@@ -40,12 +40,8 @@ export async function second({
 
     if (productItemsCount > 0) {
         await scroller(page, 150, 5);
-        
-        const data = await page.evaluate((params) => {
-            const breadcrumbFunc = new Function(`return (${params.breadcrumb})`)();
-            const pageTitle = document.title + ' ' + breadcrumbFunc();
-            const pageURL = document.URL;
 
+        const data = await page.evaluate((params) => {
             function isStringAFunction(str) {
                 try {
                     const fn = new Function(`return (${str})`)();
@@ -54,13 +50,18 @@ export async function second({
                     return false;
                 }
             }
+            const breadcrumbFunc = isStringAFunction(params.breadcrumb) ? new Function(`return (${params.breadcrumb})`)() : ''
+            const pageTitle = document.title + ' ' + breadcrumbFunc();
+            const pageURL = document.URL;
+
+
 
             return Array.from(document.querySelectorAll(params.productItemSelector)).map(m => {
                 try {
                     const title = m.querySelector(params.titleSelector).getAttribute(params.titleAttr);
                     const img = isStringAFunction(params.imageSelector) ? new Function(`return (${params.imageSelector})`)(m) : m.querySelector(params.imageSelector).getAttribute(params.imageAttr);
                     const link = isStringAFunction(params.linkSelector) ? new Function(`return (${params.linkSelector})`)(m) : m.querySelector(params.linkSelector).getAttribute('href');
-                    
+
                     return {
                         title,
                         price: 0, // Assuming price is fetched later
