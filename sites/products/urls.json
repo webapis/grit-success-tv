@@ -63,7 +63,6 @@
         "productItemSelector": ".productItem",
         "titleSelector": ".productName a",
         "imageSelector": ".productSliderImage",
-        "imageAttr": "srс",
         "linkSelector": ".detailLink",
         "schedule": "0 0 * * 4",
         "id": "5"
