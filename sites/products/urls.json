@@ -105,7 +105,6 @@
         "productItemSelector": ".showcase",
         "titleSelector": ".showcase-title a",
         "imageSelector": ".showcase-image img",
-        "imageAttr": "srс",
         "linkSelector": ".showcase-image a",
         "schedule": "0 0 * * 4",
         "id": "8"
