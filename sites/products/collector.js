@@ -1,3 +1,19 @@
+
+
+import scroller from "./scroller.js";
+export default async function first({ page, enqueueLinks, request, log, addRequests }) {
+    debugger
+    await page.evaluate(() => {
+        return new Promise(resolve => setTimeout(resolve, 5000));
+    });
+    console.log('inside first route')
+    await enqueueLinks({
+        selector: 'a',
+        label: 'second',
+    });
+
+}
+
 export async function second({
     page,
     productListSelector,
