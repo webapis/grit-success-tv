@@ -130,8 +130,8 @@
         "productListSelector": ".PrdContainer",
         "productItemSelector": ".Prd",
         "titleSelector": ".PName",
-        "imageSelector": ".PImage",
-        "imageAttr": "srс",
+        "imageSelector": "source[data-srcset]",
+        "imageAttr": "data-srcset",
         "linkSelector": ".PrdImgsBox a",
         "schedule": "0 0 * * 4",
         "id": "10"
