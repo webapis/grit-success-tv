@@ -242,8 +242,7 @@
         "productListSelector": ".product-collection",
         "productItemSelector": ".product-item",
         "titleSelector": ".product-title",
-        "imageSelector": "[data-srcset]",
-        "imageAttr": "data-srcset",
+        "imageSelector": "(document)=> 'https:'  + document.querySelector('[data-srcset]').getAttribute('data-srcset')",
         "linkSelector": ".product-title",
         "schedule": "0 0 * * 4",
         "id": "18"
