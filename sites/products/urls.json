@@ -144,8 +144,7 @@
         "productListSelector": ".product-item-box",
         "productItemSelector": ".product-item-box",
         "titleSelector": ".product-name",
-        "imageSelector": "img",
-        "imageAttr": "srс",
+        "imageSelector": ".product-image",
         "linkSelector": "a.product-name",
         "schedule": "0 0 * * 4",
         "id": "11"
