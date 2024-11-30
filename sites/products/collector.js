@@ -1,6 +1,6 @@
 
 
-import scroller from "./scroller.js";
+import scroller, { autoScroll } from "./scroller.js";
 export default async function first({ page, enqueueLinks, request, log, addRequests }) {
     debugger
     await page.evaluate(() => {
@@ -24,6 +24,7 @@ export async function second({
     imageAttr = 'src',
     imagePrefix = '',
     linkSelector,
+    isAutoScroll = false,
     breadcrumb = () => "",
     waitForSeconds = 0
 }) {
@@ -39,7 +40,13 @@ export async function second({
     const productItemsCount = await page.$$eval(productListSelector, elements => elements.length);
 
     if (productItemsCount > 0) {
-        await scroller(page, 150, 5);
+        if (isAutoScroll) {
+            console.log('autoscrolling')
+            await autoScroll(page, 150)
+        } else {
+            await scroller(page, 150, 5);
+        }
+
 
         const data = await page.evaluate((params) => {
 
@@ -122,6 +129,7 @@ export async function second({
             imageAttr,
             imagePrefix,
             linkSelector,
+            autoScroll,
             breadcrumb
         });
 
