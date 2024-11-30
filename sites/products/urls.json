@@ -670,7 +670,7 @@
         ],
         "productListSelector": ".col-md-3.col-sm-3.col-xs-6.wow",
         "productItemSelector": ".col-md-3.col-sm-3.col-xs-6.wow",
-        "titleSelector": ".product_name",
+        "titleSelector": "(document)=>document.querySelector('.product_name').innerText.trim()",
         "imageSelector": ".product_image img",
         "linkSelector": ".product_name",
         "schedule": "0 0 * * 4",
