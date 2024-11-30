@@ -338,7 +338,7 @@
         "productListSelector": ".Products",
         "productItemSelector": ".Prd",
         "titleSelector": ".PName",
-        "imageSelector": "[data-src]",
+        "imageSelector": ".img1.PImage",
         "imageAttr": "data-src",
         "linkSelector": "a[data-product]",
         "schedule": "0 0 * * 4",
