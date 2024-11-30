@@ -32,7 +32,7 @@ export async function second({
 
     if (waitForSeconds > 0) {
         await page.evaluate(async (seconds) => {
-            await new Promise(resolve => setTimeout(resolve, seconds * 1000)); // Wait for specified seconds
+            await new Promise(resolve => setTimeout(resolve, seconds * 1)); // Wait for specified seconds
         }, waitForSeconds);
     }
 
