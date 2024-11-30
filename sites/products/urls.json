@@ -338,7 +338,7 @@
         "productListSelector": ".Products",
         "productItemSelector": ".Prd",
         "titleSelector": ".PName",
-        "imageSelector": "(document)=>m.querySelector('.img1.PImage[data-src]')?  m.querySelector('.img1.PImage[data-src]').getAttribute('data-src'):mqueryselector.src",
+        "imageSelector": "(document)=>document.querySelector('.img1.PImage[data-src]')?  document.querySelector('.img1.PImage[data-src]').getAttribute('data-src'):mqueryselector.src",
         "linkSelector": "a[data-product]",
         "schedule": "0 0 * * 4",
         "id": "25"
