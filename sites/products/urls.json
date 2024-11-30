@@ -585,7 +585,7 @@
         "productItemSelector": "[class^='ProductCard_productCard']",
         "titleSelector": "div[class^='ProductDetails_productInfo'] meta[content]",
         "titleAttr": "content",
-        "imageSelector": "(document)=>document.querySelector('[class^='ProductImage_productImage'] img').srcset.split(',')[0]",
+        "imageSelector": "(document)=>document.querySelector(\"[class^='ProductImage_productImage'] img\").srcset.split(',')[0]",
         "linkSelector": "[class^='ProductImage_productImage'] a",
         "schedule": "0 0 * * 4",
         "id": "42"
