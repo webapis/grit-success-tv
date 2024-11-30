@@ -583,11 +583,11 @@
         ],
         "productListSelector": "[class^='Grid_grid']",
         "productItemSelector": "[class^='ProductCard_productCard']",
-        "titleSelector": "[class^='ProductImage_productImage'] a",
+        "titleSelector": "(document=> m.querySelector('div[class^=\"ProductDetails_productInfo\"] meta[content]').getAttribute('content'))",
         "titleAttr":"aria-label",
         "imageSelector": "(document)=>document.querySelector(\"[class^='ProductImage_productImage'] img\").srcset.split(',')[0]",
         "linkSelector": "[class^='ProductImage_productImage'] a",
-        "isAutoScroll":true,
+        "waitForSeconds":5000,
         "schedule": "0 0 * * 4",
         "id": "42"
     },
