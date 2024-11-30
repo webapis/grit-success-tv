@@ -338,8 +338,7 @@
         "productListSelector": ".Products",
         "productItemSelector": ".Prd",
         "titleSelector": ".PName",
-        "imageSelector": ".img1.PImage",
-        "imageAttr": "data-src",
+        "imageSelector": "(document)=>m.querySelector('.img1.PImage[data-src]')?  m.querySelector('.img1.PImage[data-src]').getAttribute('data-src'):mqueryselector.src",
         "linkSelector": "a[data-product]",
         "schedule": "0 0 * * 4",
         "id": "25"
