@@ -393,8 +393,7 @@
         "productListSelector": "#product-list-container",
         "productItemSelector": ".showcase",
         "titleSelector": ".showcase-title a",
-        "imageSelector": ".showcase-image [data-src]",
-        "imageAttr": "data-src",
+        "imageSelector": "(document)=>'https:'+ .showcase-image [data-src]",
         "linkSelector": ".showcase-image a",
         "schedule": "0 0 * * 4",
         "id": "29"
