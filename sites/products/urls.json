@@ -1194,7 +1194,7 @@
         "productItemSelector": ".js-list-content-product-item",
         "titleSelector": ".product-name a",
         "imageSelector": ".product-item-image",
-        "imageAttr": "data-src",
+        "imageAttr": "data-default-img",
         "linkSelector": ".product-name a",
         "schedule": "0 0 * * 4",
         "id": "84"
