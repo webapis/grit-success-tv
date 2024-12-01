@@ -1168,7 +1168,7 @@
         "productItemSelector": ".product-item",
         "titleSelector": ".product-item__name",
         "imageSelector": ".product-item__img.js-img-firstly",
-        "linkSelector": ".product-item__name",
+        "linkSelector": "a",
         "schedule": "0 0 * * 4",
         "id": "82"
     },
