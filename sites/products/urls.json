@@ -1153,7 +1153,7 @@
         "productListSelector": ".product-item",
         "productItemSelector": ".product-item",
         "titleSelector": ".name",
-        "imageSelector": "img",
+        "imageSelector": "(document)=>document.querySelector('.b-lazy[data-src]')?.getAttribute('data-src')||document.querySelector('.b-lazy').src",
         "imageAttr": "srс",
         "linkSelector": ".name",
         "schedule": "0 0 * * 4",
