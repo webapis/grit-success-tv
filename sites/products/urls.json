@@ -1114,7 +1114,7 @@
         "productItemSelector": ".product-item",
         "titleSelector": ".product-title",
         "imageSelector": ".image-nd",
-        "linkSelector": ".image-wrapper",
+        "linkSelector": ".product-title",
         "schedule": "0 0 * * 4",
         "id": "78"
     },
