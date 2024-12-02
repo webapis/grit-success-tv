@@ -122,7 +122,7 @@ export async function second({
                 }
             });
         }, {
-            menuSelector,
+     
             productListSelector,
             productItemSelector,
             titleSelector,
