@@ -964,7 +964,7 @@
     {
         "site": "edliskids",
         "urls": [
-            [
+            
                 "https://www.edliskids.com/urun-kategori/kiz-bebek/",
                 "https://www.edliskids.com/urun-kategori/kiz-bebek/dis-giyim/",
                 "https://www.edliskids.com/urun-kategori/kiz-bebek/dis-giyim/mont/",
@@ -1180,7 +1180,7 @@
                 "https://www.edliskids.com/kvkk-aydinlatma-metni.pdf",
                 "https://www.edliskids.com/kvkk-politikasi.pdf",
                 "https://www.edliskids.com/kvkk-basvuru-formu.pdf"
-            ]
+            
         ],
         "productListSelector": ".products",
         "productItemSelector": ".product",
