@@ -4,7 +4,8 @@ import scroller, { autoScroll } from "./scroller.js";
 export default async function first({ page, enqueueLinks, request, log, addRequests, menuSelector = 'a' }) {
     debugger
 
-    console.log('menuSelector',menuSelector)
+    console.log('menuSelector', menuSelector)
+    await page.waitForSelector(menuSelector)
     await page.evaluate(() => {
         return new Promise(resolve => setTimeout(resolve, 5000));
     });
@@ -123,7 +124,7 @@ export async function second({
                 }
             });
         }, {
-     
+
             productListSelector,
             productItemSelector,
             titleSelector,
