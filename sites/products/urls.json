@@ -63,7 +63,7 @@
         "productItemSelector": ".productItem",
         "titleSelector": ".productName a",
         "imageSelector": ".productSliderImage",
-        "imageAttr":"data-src",
+        "imageAttr": "data-src",
         "linkSelector": ".detailLink",
         "schedule": "0 0 * * 4",
         "id": "5"
@@ -542,7 +542,7 @@
         ],
         "productListSelector": ".prd-link",
         "productItemSelector": ".prd-link",
-        "titleSelector": ".prd-title h2",
+        "titleSelector": "(document)=> document.querySelector('.prd-title h2')?.innerText||JSON.parse(document.querySelector('[data-gtm-product]').getAttribute('data-gtm-product')).name",
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": "(document)=>document.href",
@@ -586,7 +586,7 @@
         "titleSelector": "(document)=> document.querySelector('div[class^=\"ProductDetails_productInfo\"] meta[content]').getAttribute('content')",
         "imageSelector": "(document)=>document.querySelector(\"[class^='ProductImage_productImage'] img\").srcset.split(',')[0]",
         "linkSelector": "[class^='ProductImage_productImage'] a",
-        "waitForSeconds":5000,
+        "waitForSeconds": 5000,
         "schedule": "0 0 * * 4",
         "id": "42"
     },
