@@ -847,8 +847,7 @@
         "productListSelector": ".js-product-list-item",
         "productItemSelector": ".js-product-list-item",
         "titleSelector": ".product__listing--content h3",
-        "imageSelector": "[data-src]",
-        "imageAttr": "data-src",
+        "imageSelector": "(document)=> document.querySelectorAll('[data-src]')[1].getAttribute('data-src')",
         "linkSelector": ".product__listing--content h3 a",
         "schedule": "0 0 * * 4",
         "id": "58"
