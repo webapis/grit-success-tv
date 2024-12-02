@@ -1220,7 +1220,7 @@
         ],
         "productListSelector": ".product_item",
         "productItemSelector": ".product_item",
-        "titleSelector": ".pro_name a",
+        "titleSelector": "(document)=>Array.from(document.querySelector('.pro_detail ').querySelectorAll('.pro_name')).map(m=>m.innerText).reverse().join(' ')",
         "imageSelector": ".img_box img",
         "linkSelector": ".pro_name a",
         "schedule": "0 0 * * 4",
