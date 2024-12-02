@@ -789,10 +789,10 @@
             "https://eclecticconceptstore.com.tr/product-category/women/",
             "https://eclecticconceptstore.com.tr/"
         ],
-        "productListSelector": ".c-product-grid__item",
+        "productListSelector": ".c-product-grid",
         "productItemSelector": ".c-product-grid__item",
         "titleSelector": ".c-product-grid__title",
-        "imageSelector": "[data-src]",
+        "imageSelector": ".woocommerce-loop-product__link [data-src]",
         "imageAttr": "data-src",
         "linkSelector": ".woocommerce-loop-product__link",
         "schedule": "0 0 * * 4",
