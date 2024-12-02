@@ -979,11 +979,12 @@
         "urls": [
             "https://www.breeze.com.tr/"
         ],
-        "productListSelector": ".product-grid-item",
-        "productItemSelector": ".product-grid-item",
-        "titleSelector": ".product-tile-body__link",
-        "imageSelector": "(document)=> document.querySelector('.product-tile-image__picture  img.lazyloaded')?.scr ||document.querySelector('.product-tile-image__picture  img.swiper-lazy')?.dataset.src",
-        "linkSelector": ".product-tile-body__link",
+        "productListSelector": "#ProductPageProductList",
+        "productItemSelector": ".productItem",
+        "titleSelector": ".productName a",
+        "imageSelector": "[data-original]",
+        "imageAttr":"data-original",
+        "linkSelector": "a.detailLink",
         "schedule": "0 0 * * 4",
         "id": "68"
     },
