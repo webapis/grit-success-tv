@@ -542,7 +542,7 @@
         ],
         "productListSelector": ".prd-link",
         "productItemSelector": ".prd-link",
-        "titleSelector": ".prd-title",
+        "titleSelector": ".prd-title h2",
         "imageSelector": "[data-src]",
         "imageAttr": "data-src",
         "linkSelector": "(document)=>document.href",
