@@ -556,7 +556,7 @@
         ],
         "productListSelector": ".product-item",
         "productItemSelector": ".product-item",
-        "titleSelector": ".product-title .title",
+        "titleSelector": ".product-title .title h3",
         "imageSelector": "swiper-slide img",
         "linkSelector": "(document)=>Array.from(document.querySelectorAll('a'))?.map(m=>m.href).reverse()[0]",
         "waitForSeconds": 5000,
