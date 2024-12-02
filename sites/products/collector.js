@@ -138,7 +138,7 @@ export async function second({
         if (data.filter(f => f.error).length > 0) {
             console.log(data.filter(f => f.error)[0]);
         }
-        return data//.map((m) => { return { ...m, title: m.title.trim(), img: m.img.trim() } })
+        return data.map((m) => { return { ...m, title: m.title.trim(), img: m.img.trim() } })
     } else {
         console.log('not product page', url);
         return [];
