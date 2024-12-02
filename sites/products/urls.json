@@ -878,6 +878,7 @@
         "imageSelector": "(document)=> document.querySelector('.pz-image-placeholder source ')?.srcset || document.querySelector('.pz-image-placeholder source ')?.getAttribute('data-srcset')",
         "linkSelector": ".product-item__name",
         "schedule": "0 0 * * 4",
+        "breadcrumb":"(document)=>Array.from(document.querySelectorAll('.breadcrumb a')).map(m=>m.innerText).join(' ').toLowerCase()",
         "id": "60"
     },
     {
