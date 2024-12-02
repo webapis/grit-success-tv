@@ -1,17 +1,15 @@
 
 
 import scroller, { autoScroll } from "./scroller.js";
-export default async function first({ page, enqueueLinks, request, log, addRequests, menuSelector = 'a' }) {
+export default async function first({ page, enqueueLinks, request, log, addRequests }) {
     debugger
 
-    console.log('menuSelector', menuSelector)
-    await page.waitForSelector(menuSelector)
     await page.evaluate(() => {
         return new Promise(resolve => setTimeout(resolve, 5000));
     });
     console.log('inside first route')
     await enqueueLinks({
-        selector: menuSelector,
+        selector: 'a',
         label: 'second',
     });
 
