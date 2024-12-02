@@ -100,9 +100,9 @@ export async function second({
 
             return Array.from(document.querySelectorAll(params.productItemSelector)).map(m => {
                 try {
-                    const title = isFunctionString(params.titleSelector) ? parseFunctionString2(params.imageSelector)(m) : m.querySelector(params.titleSelector).innerText;
+                    const title = isFunctionString(params.titleSelector) ? parseFunctionString2(params.titleSelector)(m) : m.querySelector(params.titleSelector).innerText;
                     const img = isFunctionString(params.imageSelector) ? parseFunctionString2(params.imageSelector)(m) : (params.imageAttr === 'src' ? m.querySelector(params.imageSelector).src : m.querySelector(params.imageSelector).getAttribute(params.imageAttr))
-                    const link = isFunctionString(params.linkSelector) ? parseFunctionString2(params.imageSelector)(m) : m.querySelector(params.linkSelector).href;
+                    const link = isFunctionString(params.linkSelector) ? parseFunctionString2(params.linkSelector)(m) : m.querySelector(params.linkSelector).href;
 
                     return {
                         title,
