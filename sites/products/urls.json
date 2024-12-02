@@ -1182,6 +1182,7 @@
                 "https://www.edliskids.com/kvkk-basvuru-formu.pdf"
             
         ],
+        "menuSelector":".menu-item a",
         "productListSelector": ".products",
         "productItemSelector": ".product",
         "titleSelector": ".woocommerce-loop-product__title a",
