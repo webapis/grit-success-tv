@@ -1678,16 +1678,17 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "aldoshoes",
         "urls": [
-            ""
+            "https://www.aldoshoes.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".item",
+        "productItemSelector": ".item",
+        "titleSelector": ".product-image",
+        "titleAttr":"title",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": ".product-image",
         "schedule": "0 0 * * 4"
     },
     {
