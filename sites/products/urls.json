@@ -1757,16 +1757,15 @@
     }
     ,
     {
-        "site": "",
+        "site": "dilvin",
         "urls": [
-            ""
+            "https://www.dilvin.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product",
+        "productItemSelector": ".product",
+        "titleSelector": ".item-name a",
+        "imageSelector": ".img-responsive",
+        "linkSelector": "a",
         "schedule": "0 0 * * 4"
     }
     ,
