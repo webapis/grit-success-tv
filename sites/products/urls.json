@@ -1581,16 +1581,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "nevermore",
         "urls": [
-            ""
+            "https://www.nevermore.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".card-product",
+        "productItemSelector": ".card-product",
+        "titleSelector": ".title-special",
+        "imageSelector": ".image img",
+        "linkSelector": ".c-p-i-link",
         "schedule": "0 0 * * 4"
     },
     {
