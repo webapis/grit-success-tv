@@ -1770,7 +1770,7 @@
         "productListSelector": ".product",
         "productItemSelector": ".product",
         "titleSelector": ".entry-title.qode-pli-title a",
-        "imageSelector": "document.querySelector('[srcset]').getAttribute('srcset').split(',')[2].trim().split(' ')[0]",
+        "imageSelector": "(document)=>document.querySelector('[srcset]').getAttribute('srcset').split(',')[2].trim().split(' ')[0]",
         "linkSelector": ".entry-title.qode-pli-title a",
         "schedule": "0 0 * * 4"
     },
