@@ -1561,7 +1561,7 @@
         "productItemSelector": ".productItem",
         "titleSelector": ".productName.detailUrl a",
         "titleAttr":"title",
-        "imageSelector": "data-original",
+        "imageSelector": "[data-original]",
         "imageAttr": "data-original",
         "linkSelector": ".productName.detailUrl a",
         "schedule": "0 0 * * 4"
