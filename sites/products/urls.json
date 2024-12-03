@@ -1771,7 +1771,7 @@
         "productItemSelector": ".product",
         "titleSelector": "(document)=>document.querySelector('.entry-title.qode-pli-title a')?.innerText || document.querySelector('[itemprop=\"name\"]').innerText",
         "imageSelector": "(document)=>document.querySelector('[srcset]').getAttribute('srcset').split(',')[2].trim().split(' ')[0]",
-        "linkSelector": ".entry-title.qode-pli-title a",
+        "linkSelector": "(document)=> document.querySelector('.entry-title.qode-pli-title a')?.href || document.querySelector(' [itemprop=\"url\"]').href",
         "schedule": "0 0 * * 4"
     },
     {
