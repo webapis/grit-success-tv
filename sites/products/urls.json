@@ -1495,6 +1495,7 @@
         "productListSelector": "#ProductPageProductList",
         "productItemSelector": ".productItem",
         "titleSelector": ".productName.detailUrl a",
+        "titleAttr":"title",
         "imageSelector": "[data-original]",
         "imageAttr": "data-original",
         "linkSelector": ".productName.detailUrl a",
