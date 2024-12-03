@@ -1475,16 +1475,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "stradivarius",
         "urls": [
-            ""
+            "https://www.stradivarius.com/tr/kadin/giyim/ceket-n1943"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": "[id^=\"ProductGridItem\"]",
+        "productItemSelector": "[id^=\"ProductGridItem\"]",
+        "titleSelector": ".grid-product-title",
+        "imageSelector": ".grid-item-image",
+        "linkSelector": ".grid-product-link",
         "schedule": "0 0 * * 4"
     },
     {
