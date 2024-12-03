@@ -1743,16 +1743,16 @@
     }
     ,
     {
-        "site": "",
+        "site": "bejfinefactory",
         "urls": [
-            ""
+            "https://www.bejfinefactory.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
+        "productListSelector": ".card-product",
+        "productItemSelector": ".card-product",
+        "titleSelector": ".c-p-i-link .title",
+        "imageSelector": ".image img",
         "imageAttr": "srс",
-        "linkSelector": "",
+        "linkSelector": ".c-p-i-link",
         "schedule": "0 0 * * 4"
     }
     ,
