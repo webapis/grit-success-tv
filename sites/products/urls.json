@@ -1540,16 +1540,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "naiaofficial",
         "urls": [
-            ""
+            "https://naiaofficial.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product__grid__title",
+        "imageSelector": "(document)=> 'https:'  + document.querySelector('[data-bgset]').getAttribute('data-bgset').split(',')[2].trim().split(' ')[0]",
+
+        "linkSelector": ".product-link",
         "schedule": "0 0 * * 4"
     },
     {
