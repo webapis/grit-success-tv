@@ -1451,16 +1451,15 @@
         "id": "86"
     },
     {
-        "site": "",
+        "site": "tubabutik",
         "urls": [
-            ""
+            "https://tubabutik.com/kadin-ceket-modelleri"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": "#productList",
+        "productItemSelector": ".relative.flex.h-full.w-full.grow.flex-col",
+        "titleSelector": "a.flex.grow.flex-col div",
+        "imageSelector": "(document)=>document.querySelector('a img[srcset]').getAttribute('srcset').split(',')[4].trim().split(' ')[0]",
+        "linkSelector": "a.flex.grow.flex-col div",
         "schedule": "0 0 * * 4"
     },
     {
