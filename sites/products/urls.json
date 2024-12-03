@@ -1484,6 +1484,7 @@
         "titleSelector": "[data-cy=\"grid-product-title\"]",
         "imageSelector": "[data-cy=\"grid-item-image\"]",
         "linkSelector": "[data-cy=\"grid-product-link\"]",
+        "waitForSeconds": 5000,
         "schedule": "0 0 * * 4"
     },
     {
