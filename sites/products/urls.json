@@ -1568,16 +1568,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "berr-in",
         "urls": [
-            ""
+            "https://berr-in.com/kadin-elbise-modelleri"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-layout",
+        "productItemSelector": ".product-layout",
+        "titleSelector": ".name a",
+        "imageSelector": "[data-srcset]",
+        "imageAttr": "data-srcset",
+        "linkSelector": ".name a",
         "schedule": "0 0 * * 4"
     },
     {
