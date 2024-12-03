@@ -1626,7 +1626,6 @@
         "linkSelector": "a",
         "schedule": "0 0 * * 4"
     },
-
     {
         "site": "niqozza",
         "urls": [
@@ -1699,7 +1698,6 @@
         "productItemSelector": ".product-block",
         "titleSelector": "span.title",
         "imageSelector": "(document)=> 'https:'  + document.querySelector('[data-srcset]').getAttribute('data-srcset').split(',')[2].trim().split(' ')[0]",
-
         "linkSelector": ".product-block__inner a",
         "schedule": "0 0 * * 4"
     },
@@ -1725,7 +1723,6 @@
         "productItemSelector": ".product",
         "titleSelector": ".mfn-woo-product-title a",
         "imageSelector": "(document)=> document.querySelector('.attachment-woocommerce_thumbnail').srcset.split(',')[0].trim().split(' ')[0]",
-
         "linkSelector": ".mfn-woo-product-title a",
         "schedule": "0 0 * * 4"
     },
@@ -1740,8 +1737,7 @@
         "imageSelector": "(doculent)=>'https://serpil.com.tr'+ document.querySelector('[data-src]').getAttribute('data-src')",
         "linkSelector": ".product-title",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "bejfinefactory",
         "urls": [
@@ -1750,11 +1746,11 @@
         "productListSelector": ".card-product",
         "productItemSelector": ".card-product",
         "titleSelector": ".c-p-i-link .title",
-        "imageSelector": "(doculent)=>document.querySelector('.image img[data-src]').getAttribute('data-src')|| document.querySelector('.image img').src",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
         "linkSelector": ".c-p-i-link",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "dilvin",
         "urls": [
@@ -1766,8 +1762,7 @@
         "imageSelector": ".img-responsive",
         "linkSelector": "a",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1780,8 +1775,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1794,8 +1788,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1808,8 +1801,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1822,8 +1814,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1836,8 +1827,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1850,8 +1840,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1864,8 +1853,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1878,8 +1866,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1892,8 +1879,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1906,8 +1892,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1920,8 +1905,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1934,8 +1918,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1948,8 +1931,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1962,8 +1944,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1976,8 +1957,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -1990,8 +1970,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
@@ -2004,8 +1983,7 @@
         "imageAttr": "srс",
         "linkSelector": "",
         "schedule": "0 0 * * 4"
-    }
-    ,
+    },
     {
         "site": "",
         "urls": [
