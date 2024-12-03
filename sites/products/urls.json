@@ -574,7 +574,7 @@
         "imageSelector": "(document)=>'https://www.woody.com.tr'+ document.querySelector('.imgInner.stImage [srcset]').getAttribute('srcset')",
         "linkSelector": ".productName",
         "schedule": "0 0 * * 4",
-        "breadcrumb":"(document)=>Array.from(document.querySelectorAll('.breadcrumb-item')).map(m=>m.innerText).join(' ').toLowerCase()",
+        "breadcrumb": "(document)=>Array.from(document.querySelectorAll('.breadcrumb-item')).map(m=>m.innerText).join(' ').toLowerCase()",
         "id": "41"
     },
     {
@@ -877,7 +877,7 @@
         "imageSelector": "(document)=> document.querySelector('.pz-image-placeholder source ')?.srcset || document.querySelector('.pz-image-placeholder source ')?.getAttribute('data-srcset')",
         "linkSelector": ".product-item__name",
         "schedule": "0 0 * * 4",
-        "breadcrumb":"(document)=>Array.from(document.querySelectorAll('.breadcrumb a')).map(m=>m.innerText).join(' ').toLowerCase()",
+        "breadcrumb": "(document)=>Array.from(document.querySelectorAll('.breadcrumb a')).map(m=>m.innerText).join(' ').toLowerCase()",
         "id": "60"
     },
     {
@@ -1206,7 +1206,7 @@
         "productItemSelector": ".productItem",
         "titleSelector": ".productName a",
         "imageSelector": "[data-original]",
-        "imageAttr":"data-original",
+        "imageAttr": "data-original",
         "linkSelector": "a.detailLink",
         "schedule": "0 0 * * 4",
         "id": "68"
@@ -1477,13 +1477,13 @@
     {
         "site": "stradivarius",
         "urls": [
-            "https://www.stradivarius.com/tr/kadin/giyim/ceket-n1943"
+            "https://www.stradivarius.com/tr/sitemap.html"
         ],
-        "productListSelector": "[id^=\"ProductGridItem\"]",
-        "productItemSelector": "[id^=\"ProductGridItem\"]",
-        "titleSelector": ".grid-product-title",
-        "imageSelector": ".grid-item-image",
-        "linkSelector": ".grid-product-link",
+        "productListSelector": "[data-cy=\"grid-row-carousel\"]",
+        "productItemSelector": "[data-cy=\"grid-product-link\"]",
+        "titleSelector": "[data-cy=\"grid-product-title\"]",
+        "imageSelector": "[data-cy=\"grid-item-image\"]",
+        "linkSelector": "[data-cy=\"grid-product-link\"]",
         "schedule": "0 0 * * 4"
     },
     {
