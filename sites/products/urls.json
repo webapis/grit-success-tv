@@ -1474,19 +1474,7 @@
         "linkSelector": ".productName a",
         "schedule": "0 0 * * 4"
     },
-    {
-        "site": "stradivarius",
-        "urls": [
-            "https://www.stradivarius.com/tr/sitemap.html"
-        ],
-        "productListSelector": "[data-cy=\"grid-row-carousel\"]",
-        "productItemSelector": "[data-cy=\"grid-product-link\"]",
-        "titleSelector": "[data-cy=\"grid-product-title\"]",
-        "imageSelector": "[data-cy=\"grid-item-image\"]",
-        "linkSelector": "[data-cy=\"grid-product-link\"]",
-        "waitForSeconds": 5000,
-        "schedule": "0 0 * * 4"
-    },
+
     {
         "site": "hollylolly",
         "urls": [
@@ -1539,19 +1527,7 @@
         "linkSelector": ".card__heading a",
         "schedule": "0 0 * * 4"
     },
-    {
-        "site": "naiaofficial",
-        "urls": [
-            "https://naiaofficial.com/"
-        ],
-        "productListSelector": ".product-item",
-        "productItemSelector": ".product-item",
-        "titleSelector": ".product__grid__title",
-        "imageSelector": "(document)=> 'https:'  + document.querySelector('[data-bgset]').getAttribute('data-bgset').split(',')[2].trim().split(' ')[0]",
 
-        "linkSelector": ".product-link",
-        "schedule": "0 0 * * 4"
-    },
     {
         "site": "sorbe",
         "urls": [
@@ -1580,16 +1556,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "toucheprive",
         "urls": [
-            ""
+            "https://toucheprive.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-block",
+        "productItemSelector": ".product-block",
+        "titleSelector": ".deskTitle",
+        "imageSelector": "(document)=> 'https:'  + document.querySelector('[data-srcset]').getAttribute('data-srcset').split(',')[4].trim().split(' ')[0]",
+        "linkSelector": ".product-link",
         "schedule": "0 0 * * 4"
     },
     {
