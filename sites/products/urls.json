@@ -1717,16 +1717,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "shopseizetheday",
         "urls": [
-            ""
+            "https://www.shopseizetheday.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product",
+        "productItemSelector": ".product",
+        "titleSelector": ".mfn-woo-product-title a",
+        "imageSelector": "(document)=> document.querySelector('.attachment-woocommerce_thumbnail').srcset.split(',')[0].trim().split(' ')[0]",
+
+        "linkSelector": ".mfn-woo-product-title a",
         "schedule": "0 0 * * 4"
     },
     {
