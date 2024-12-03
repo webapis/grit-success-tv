@@ -1528,16 +1528,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "arzukaprol",
         "urls": [
-            ""
+            "https://arzukaprol.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-grid",
+        "productItemSelector": ".product-grid",
+        "titleSelector": ".card__heading a",
+        "imageSelector": "(document)=>'https:'+ document.querySelector('.card__media img').getAttribute('srcset').split(',')[2].trim().split(' ')[0]",
+        "linkSelector": ".card__heading a",
         "schedule": "0 0 * * 4"
     },
     {
