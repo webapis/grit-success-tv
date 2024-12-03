@@ -1606,16 +1606,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "jaquette",
         "urls": [
-            ""
+            "https://jaquette.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".grid__item",
+        "productItemSelector": ".grid__item",
+        "titleSelector": ".indiv-product-title-text",
+        "imageSelector": ".img-responsive",
+        "linkSelector": ".hp-title a",
         "schedule": "0 0 * * 4"
     },
     {
