@@ -1730,6 +1730,285 @@
         "schedule": "0 0 * * 4"
     },
     {
+        "site": "serpil",
+        "urls": [
+            "https://serpil.com.tr/"
+        ],
+        "productListSelector": ".product-grid-item",
+        "productItemSelector": ".product-grid-item",
+        "titleSelector": ".product-title",
+        "imageSelector": "(doculent)=>'https://serpil.com.tr'+ document.querySelector('[data-src]').getAttribute('data-src')",
+        "linkSelector": ".product-title",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
+        "site": "",
+        "urls": [
+            ""
+        ],
+        "productListSelector": "",
+        "productItemSelector": "",
+        "titleSelector": "",
+        "imageSelector": "",
+        "imageAttr": "srс",
+        "linkSelector": "",
+        "schedule": "0 0 * * 4"
+    }
+    ,
+    {
         "site": "",
         "urls": [
             ""
