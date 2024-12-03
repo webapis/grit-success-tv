@@ -1666,16 +1666,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "silkandcashmere",
         "urls": [
-            ""
+            "https://silkandcashmere.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-item__product-title a",
+        "imageSelector": ".image__img",
+        "linkSelector": ".product-item__product-title a",
         "schedule": "0 0 * * 4"
     },
     {
