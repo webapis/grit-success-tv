@@ -1474,7 +1474,6 @@
         "linkSelector": ".productName a",
         "schedule": "0 0 * * 4"
     },
-
     {
         "site": "hollylolly",
         "urls": [
@@ -1527,7 +1526,6 @@
         "linkSelector": ".card__heading a",
         "schedule": "0 0 * * 4"
     },
-
     {
         "site": "sorbe",
         "urls": [
@@ -1536,13 +1534,12 @@
         "productListSelector": "#ProductListMainContainer",
         "productItemSelector": ".productItem",
         "titleSelector": ".productName.detailUrl a",
-        "titleAttr":"title",
+        "titleAttr": "title",
         "imageSelector": "[data-original]",
         "imageAttr": "data-original",
         "linkSelector": ".productName.detailUrl a",
         "schedule": "0 0 * * 4"
     },
-
     {
         "site": "victoriassecret",
         "urls": [
@@ -1601,7 +1598,6 @@
         "productItemSelector": ".grid__item",
         "titleSelector": ".grid-product__title",
         "imageSelector": "(document)=> 'https:'  + document.querySelector('[srcset]').getAttribute('srcset').split(',')[1].trim().split(' ')[0]",
-
         "linkSelector": ".grid-product__link",
         "schedule": "0 0 * * 4"
     },
@@ -1614,7 +1610,7 @@
         "productItemSelector": ".product-item",
         "titleSelector": ".product-title",
         "imageSelector": "[data-src]",
-        "imageAttr":"data-src",
+        "imageAttr": "data-src",
         "linkSelector": "a.image-wrapper",
         "schedule": "0 0 * * 4"
     },
@@ -1631,16 +1627,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "farawayclothing",
         "urls": [
-            ""
+            "https://farawayclothing.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
+        "productListSelector": ".product-grid",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product__grid__title__default",
+        "imageSelector": "(document)=> 'https:'  +document.querySelector('[data-bgset]').getAttribute('data-bgset').split(',')[0].split(' ')[0]",
         "imageAttr": "srс",
-        "linkSelector": "",
+        "linkSelector": ".product-link",
         "schedule": "0 0 * * 4"
     },
     {
