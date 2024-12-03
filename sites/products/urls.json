@@ -1556,15 +1556,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "toucheprive",
+        "site": "maisonju",
         "urls": [
-            "https://toucheprive.com/"
+            "https://www.maisonju.com/"
         ],
-        "productListSelector": ".product-block",
-        "productItemSelector": ".product-block",
-        "titleSelector": ".deskTitle",
-        "imageSelector": "(document)=> 'https:'  + document.querySelector('[data-srcset]').getAttribute('data-srcset').split(',')[4].trim().split(' ')[0]",
-        "linkSelector": ".product-link",
+        "productListSelector": ".grid__item",
+        "productItemSelector": ".grid__item",
+        "titleSelector": ".grid-product__title",
+        "imageSelector": "(document)=> 'https:'  + document.querySelector('[srcset]').getAttribute('srcset').split(',')[1].trim().split(' ')[0]",
+        "linkSelector": ".grid-product__link",
         "schedule": "0 0 * * 4"
     },
     {
