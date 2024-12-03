@@ -1569,13 +1569,29 @@
     {
         "site": "tubaergin",
         "urls": [
-            "https://tubaergin.com.tr/"
+            "https://tubaergin.com.tr/collections/cok-satanlar",
+            "https://tubaergin.com.tr/collections/davet-elbiseleri",
+            "https://tubaergin.com.tr/collections/elbise",
+            "https://tubaergin.com.tr/collections/ust-giyim",
+            "https://tubaergin.com.tr/collections/tulum",
+            "https://tubaergin.com.tr/collections/ceket",
+            "https://tubaergin.com.tr/collections/alt-giyim",
+            "https://tubaergin.com.tr/collections/dis-giyim",
+            "https://tubaergin.com.tr/collections/aksesuar",
+            "https://tubaergin.com.tr/collections/i%CC%87ndirim",
+            "https://tubaergin.com.tr/collections/pre-fall-2024",
+            "https://tubaergin.com.tr/collections/i%CC%87lkbahar-yaz-2024",
+            "https://tubaergin.com.tr/collections/sonbahar-kis-2023-24",
+            "https://tubaergin.com.tr/collections/zamansiz-urunler",
+            "https://tubaergin.com.tr/collections/maxi-elbiseler",
+            "https://tubaergin.com.tr/collections/party-elbiseleri"
         ],
         "productListSelector": ".product-card",
         "productItemSelector": ".product-card",
         "titleSelector": "a.product-title",
         "imageSelector": "(document)=>'https:'+ document.querySelector('.product-card__media img').srcset.split(',')[3].trim().split(' ')[0]",
         "linkSelector": "a.product-title",
+        
         "schedule": "0 0 * * 4"
     },
     {
