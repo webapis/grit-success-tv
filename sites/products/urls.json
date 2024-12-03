@@ -1704,16 +1704,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "ninewest",
         "urls": [
-            ""
+            "https://www.ninewest.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": ".product-list__item",
+        "productItemSelector": ".product-list__item",
+        "titleSelector": ".product-name",
+        "imageSelector": "[data-src]",
+        "imageAttr": "data-src",
+        "linkSelector": "a[data-product-id]",
         "schedule": "0 0 * * 4"
     },
     {
