@@ -1641,16 +1641,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "olegcassini",
         "urls": [
-            ""
+            "https://olegcassini.com.tr/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": "[data-id]",
+        "productItemSelector": "[data-id]",
+        "titleSelector": ".product-name",
+        "imageSelector": "(document)=> document.querySelector('[srcset]').getAttribute('srcset').split(',')[10].trim().split(' ')[0]",
+        "linkSelector": "a",
         "schedule": "0 0 * * 4"
     },
     {
