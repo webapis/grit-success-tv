@@ -1468,7 +1468,7 @@
             "https://www.tarikediz.com/"
         ],
         "productListSelector": "#ProductPageProductList",
-        "productItemSelector": "productItem",
+        "productItemSelector": ".productItem",
         "titleSelector": ".productName a",
         "imageSelector": "(document)=>document.querySelector('.detailLink.detailUrl [data-src]').getAttribute('data-src')",
         "linkSelector": ".productName a",
