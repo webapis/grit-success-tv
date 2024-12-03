@@ -1606,15 +1606,16 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "jaquette",
+        "site": "bizeonline",
         "urls": [
-            "https://jaquette.com.tr/"
+            "https://www.bizeonline.com"
         ],
-        "productListSelector": ".grid__item",
-        "productItemSelector": ".grid__item",
-        "titleSelector": ".indiv-product-title-text",
-        "imageSelector": ".img-responsive",
-        "linkSelector": ".hp-title a",
+        "productListSelector": ".product-item",
+        "productItemSelector": ".product-item",
+        "titleSelector": ".product-title",
+        "imageSelector": "[data-src]",
+        "imageAttr":"data-src",
+        "linkSelector": "a.image-wrapper",
         "schedule": "0 0 * * 4"
     },
     {
