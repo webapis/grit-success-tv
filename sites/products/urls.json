@@ -1533,7 +1533,7 @@
             "https://arzukaprol.com/"
         ],
         "productListSelector": ".product-grid",
-        "productItemSelector": ".product-grid",
+        "productItemSelector": ".grid__item",
         "titleSelector": ".card__heading a",
         "imageSelector": "(document)=>'https:'+ document.querySelector('.card__media img').getAttribute('srcset').split(',')[2].trim().split(' ')[0]",
         "linkSelector": ".card__heading a",
