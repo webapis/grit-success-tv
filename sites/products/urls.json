@@ -1746,8 +1746,7 @@
         "productListSelector": ".card-product",
         "productItemSelector": ".card-product",
         "titleSelector": ".c-p-i-link .title",
-        "imageSelector": "[data-src]",
-        "imageAttr": "data-src",
+        "imageSelector": ".img-auto",
         "linkSelector": ".c-p-i-link",
         "schedule": "0 0 * * 4"
     },
