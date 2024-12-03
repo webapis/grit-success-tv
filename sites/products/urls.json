@@ -1648,7 +1648,7 @@
         "productListSelector": "[data-id]",
         "productItemSelector": "[data-id]",
         "titleSelector": ".product-name",
-        "imageSelector": "(document)=> document.querySelector('[srcset]').getAttribute('srcset').split(',')[10].trim().split(' ')[0]",
+        "imageSelector": "(document)=> document.querySelector('.category-products-image[srcset]').getAttribute('srcset').split(',')[10].trim().split(' ')[0]",
         "linkSelector": "a",
         "schedule": "0 0 * * 4"
     },
