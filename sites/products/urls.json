@@ -1750,8 +1750,7 @@
         "productListSelector": ".card-product",
         "productItemSelector": ".card-product",
         "titleSelector": ".c-p-i-link .title",
-        "imageSelector": ".image img",
-        "imageAttr": "srс",
+        "imageSelector": "(doculent)=>document.querySelector('.image img[data-src]').getAttribute('data-src')|| document.querySelector('.image img').src",
         "linkSelector": ".c-p-i-link",
         "schedule": "0 0 * * 4"
     }
