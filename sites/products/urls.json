@@ -1463,16 +1463,15 @@
         "schedule": "0 0 * * 4"
     },
     {
-        "site": "",
+        "site": "tarikediz",
         "urls": [
-            ""
+            "https://www.tarikediz.com/"
         ],
-        "productListSelector": "",
-        "productItemSelector": "",
-        "titleSelector": "",
-        "imageSelector": "",
-        "imageAttr": "srс",
-        "linkSelector": "",
+        "productListSelector": "#ProductPageProductList",
+        "productItemSelector": "productItem",
+        "titleSelector": ".productName a",
+        "imageSelector": "(document)=>document.querySelector('.detailLink.detailUrl [data-src]').getAttribute('data-src')",
+        "linkSelector": ".productName a",
         "schedule": "0 0 * * 4"
     },
     {
