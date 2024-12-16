@@ -22,63 +22,38 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-    - name: Install Puppeteer dependencies
-      run: sudo apt-get install -y libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libxkbcommon-x11-0 libxcomposite1 libxrandr2 libgbm1 libpangocairo-1.0-0
+
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libnss3 \
+          libatk1.0-0 \
+          libatk-bridge2.0-0 \
+          libcups2 \
+          libxkbcommon-x11-0 \
+          libxcomposite1 \
+          libxrandr2 \
+          libgbm1 \
+          libpangocairo-1.0-0 \
+          libxdamage1 \
+          fonts-liberation \
+          libu2f-udev \
+          xdg-utils
 
+    - name: Install dependencies and Chromium
+      run: |
+        npm install
+        npx @puppeteer/browsers install chromium
+        npx puppeteer browsers install chrome
+        
     - name: Run data agr
       run: node prodCrawlerPuppeteer.js
 
     - name: Run data upload
       run: node src/pushToGit.js
-# name: reusableProdPuppeteer
-
-# on: 
-#   workflow_call:
-#     inputs:
-#       site:
-#         description: 'site'
-#         required: true
-#         type: string
-
-# env:
-#   site: ${{inputs.site}}
-#   MONGODB_URL: ${{secrets.MONGODB_URL}}
-#   GH_TOKEN: ${{secrets.GH_TOKEN}}
-
-# jobs:
-#   playwright-test:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v3
-
-#     - name: Install Node.js
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: '18'
-
-#     # - name: Install Playwright
-#     #   run: |
-#     #     npm init -y
-#     #     npm install -D @playwright/test
-#     #     npx playwright install --with-deps
-
-#     - name: Install dependencies
-#       run: npm install
-
-#     - name: Run data agr
-#       run: node prodCrawlerPuppeteer.js
-
-#     - name: Run data upload
-#       run: node src/pushToGit.js
-
-#     # - name: Run data upload mongodb
-#     #   run: node src/mongodb.js
