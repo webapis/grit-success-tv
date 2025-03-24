@@ -91,7 +91,7 @@ https://www.tv8.com.tr/canli-yayin
 
 https://mayadroomajans.com.tr/tr/projelerimiz/tv-dizilerimiz
 
---KAZAK
+
 https://gemini.google.com/app/e2cb80fc1e2e0b41
 
 
